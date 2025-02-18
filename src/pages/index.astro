@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import directus from "../../lib/directus";
+import { readSingleton } from "@directus/sdk";
+
+const global = await directus.request(readSingleton("global"));
+---
+
+<Layout title={global.title}>
+  <main>
+    <div>
+      <h1>{global.title}</h1>
+      <p>{global.description}</p>
+    </div>
+  </main>
+</Layout>
