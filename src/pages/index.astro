@@ -2,10 +2,15 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import directus from "../../lib/directus";
-import { readSingleton } from "@directus/sdk";
+import { readItems } from "@directus/sdk";
 
 // const global = await directus.request(readSingleton("global"));
-const global = { title: "Lorem Ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"}
+const global = { title: "Lorem Ipsum", description: "" }
+
+// const result = await directus.request(readItems('General'));
+
+// console.log(result)
+
 ---
 
 <Layout title={global.title}>
