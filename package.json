@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@directus/sdk": "^19.0.1",
-    "astro": "^5.3.0"
+    "@tailwindcss/vite": "^4.0.6",
+    "astro": "^5.3.0",
+    "tailwindcss": "^4.0.6"
   }
 }
