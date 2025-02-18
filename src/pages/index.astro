@@ -7,7 +7,7 @@ import { readSingleton } from '@directus/sdk';
 const global = await directus.request(readSingleton('General'));
 ---
 
-<Layout title={`${global.site_name} - ${global.site_subheader}`} `>
+<Layout title={`${global.site_name} - ${global.site_subheader}`}>
   <main>
     <div>
       <h1>{global.site_name}</h1>
