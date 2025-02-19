@@ -1,12 +1,17 @@
 ---
-
+import Button from "@components/Button.astro";
 const { title } = Astro.props;
 
 ---
 
-<div>
-    <h1>{title}</h1>
-    <slot />
+<div class="py-8">
+    <h1 class="text-4xl">{title}</h1>
+    <div class="py-8">
+        <slot />
+    </div>
+    <Button>
+        <span>Request a Document</span>
+    </Button>
 </div>
 
 <style>
