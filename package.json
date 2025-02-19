@@ -10,13 +10,29 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.2.0",
+    "@astrojs/react": "^4.2.0",
     "@directus/sdk": "^19.0.1",
+    "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/react-table": "^8.21.2",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.3.0",
+<<<<<<< HEAD
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.0.6"
+=======
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss": "^4.0.6",
+    "tailwindcss-animate": "^1.0.7"
+>>>>>>> main
   },
   "devDependencies": {
+    "@types/react": "^19.0.10",
     "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11"

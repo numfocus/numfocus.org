@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import netlify from "@astrojs/netlify";
 
 import icon from "astro-icon";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,5 +16,8 @@ export default defineConfig({
   },
 
   adapter: netlify(),
-  integrations: [icon()],
+  integrations: [
+    icon(),
+    react()
+  ],
 });
