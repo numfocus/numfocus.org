@@ -91,6 +91,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+html {
+  font-family: "Lato", sans-serif;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
