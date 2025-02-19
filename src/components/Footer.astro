@@ -1,20 +1,99 @@
 ---
+import type { ComponentProps } from 'astro/types';
+
 import { Icon } from 'astro-icon/components'
-import Container from './Container.astro'
+import Container from '@components/Container.astro'
+import FooterMenu from '@components/FooterMenu.astro'
+
+const menus: Array<ComponentProps<typeof FooterMenu>> = [
+    {
+        menuTitle: "Footer Menu",
+        menuItems: [
+            {
+                title: 'Lorem',
+                path: '/',
+            },
+            {
+                title: 'Ipsum',
+                path: '/',
+            },
+            {
+                title: 'Dolor',
+                path: '/',
+            },
+            {
+                title: 'Lorem',
+                path: '/',
+            },
+            {
+                title: 'Ipsum',
+                path: '/',
+            },
+            {
+                title: 'Dolor',
+                path: '/',
+            }
+        ]
+    },
+    {
+        menuTitle: "Footer Menu 2",
+        menuItems: [
+            {
+                title: 'Lorem',
+                path: '/',
+            },
+            {
+                title: 'Ipsum',
+                path: '/',
+            },
+            {
+                title: 'Dolor',
+                path: '/',
+            },
+        ]
+    },
+    {
+        menuTitle: "Footer Menu 3",
+        menuItems: [
+            {
+                title: 'Lorem',
+                path: '/',
+            },
+            {
+                title: 'Ipsum',
+                path: '/',
+            },
+            {
+                title: 'Dolor',
+                path: '/',
+            },
+            {
+                title: 'Lorem',
+                path: '/',
+            },
+            {
+                title: 'Ipsum',
+                path: '/',
+            },
+        ]
+    },
+]
 
 ---
 
 <footer class="bg-purple-500 py-6">
     <Container>
-        <div class="">
-            <a class="logo" aria-label="home" href="/">
-                <Icon name="logo_white" class="text-4xl" />
-            </a>
+        <div class="flex justify-between gap-3">
+            <div>
+                <a class="logo" aria-label="home" href="/">
+                    <Icon name="logo_white" class="text-4xl" />
+                </a>
+            </div>
+            {
+                menus.map((menuProps) => (
+                    <FooterMenu {...menuProps} />
+                ))
+            }
         </div>
     </Container>  
 </footer>
-
-
-<style>
-    
-</style>

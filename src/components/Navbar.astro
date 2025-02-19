@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components'
 
 import Container from './Container.astro'
 
-const menuitems = [
+const menuItems = [
   {
     title: 'Lorem',
     path: '/',
@@ -41,7 +41,7 @@ const menuitems = [
             
             <nav class="flex justify-around gap-2 w-full">
                 {
-                    menuitems.map(({ path, title }) => (
+                    menuItems.map(({ path, title }) => (
                         <a
                             href={path}
                             class="font-semi-bold text-teal-500 hover:text-teal-900"
@@ -59,7 +59,3 @@ const menuitems = [
     </Container>
 
 </header>
-
-<style>
-    
-</style>

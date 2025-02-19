@@ -1,0 +1,34 @@
+---
+type FooterMenuItem = {
+    title: string,
+    path: string
+}
+
+interface Props {
+  menuTitle: string;
+  menuItems: Array<FooterMenuItem>;
+}
+
+const { menuTitle, menuItems } = Astro.props;
+---
+
+<div>
+    <h5 class="font-bold text-white pb-2">{menuTitle}</h5>
+    <ul>
+        {
+            menuItems.map(({ path, title }) => (
+                <li class="py-2">
+                    <a
+                        href={path}
+                        class="text-white"
+                    >
+                        <span>
+                            {title}
+                        </span>
+                    </a>
+                </li>
+               
+            ))
+        }
+    </ul>
+</div>
