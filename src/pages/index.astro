@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Container from '../components/Container.astro';
 import Layout from '../layouts/Layout.astro';
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
@@ -8,12 +9,10 @@ const global = await directus.request(readSingleton('General'));
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-  <main>
-    <div>
-      <h1>{global.site_name}</h1>
-      <p>{global.site_subheader}</p>
-      <p>{global.hero_tagline}</p>
-      <div set:html={global.hero_body} />
-    </div>
-  </main>
+	<Container>
+		<h1>{global.site_name}</h1>
+		<p>{global.site_subheader}</p>
+		<p>{global.hero_tagline}</p>
+		<div set:html={global.hero_body} />
+	</Container>
 </Layout>

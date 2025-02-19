@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import Container from './Container.astro'
+
+---
+
+<header>
+    <Container>
+        <div class="py-4 flex">
+            <a class="logo" aria-label="home" href="/">
+                <Icon name="logo" class="text-4xl" />
+            </a>
+            
+            <nav class="flex justify-around gap-2 w-full">
+                <a href="/">Lorem</a>
+                <a href="/">Ipsum</a>
+                <a href="/">Dolor</a>
+                <a href="/">Consectetur</a>
+                <a href="/">Adipiscing</a>
+            </nav>
+            <Icon name="search" class="text-2xl" />
+
+        </div>
+    </Container>
+
+</header>
+
+<style>
+    
+</style>

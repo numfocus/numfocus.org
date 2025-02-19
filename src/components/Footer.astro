@@ -1,15 +1,18 @@
 ---
 import { Icon } from 'astro-icon/components'
+import Container from './Container.astro'
 
 ---
 
-<footer class="bg-purple-500 px-8 py-4">
-    <div class="">
-        <a class="logo" aria-label="home" href="/">
-            <Icon name="logo_white" class="text-4xl" />
-        </a>
-        Footer
-    </div>
+<footer class="bg-purple-500 py-4">
+    <Container>
+        <div class="">
+            <a class="logo" aria-label="home" href="/">
+                <Icon name="logo_white" class="text-4xl" />
+            </a>
+        </div>
+    </Container>
+    
 </footer>
 
 
