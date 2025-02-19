@@ -4,9 +4,10 @@ import Layout from '@layouts/Layout.astro';
 import PageHeader from '@components/PageHeader.astro';
 
 import directus from '../../lib/directus';
-import { readSingleton } from '@directus/sdk';
+import { readItems, readSingleton } from '@directus/sdk';
 
 const global = await directus.request(readSingleton('General'));
+// const files = await directus.request(readItems('files'));
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
@@ -15,8 +16,8 @@ const global = await directus.request(readSingleton('General'));
       <p>{global.site_subheader}</p>
 		  <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
-
     </PageHeader>
 		
 	</Container>
+
 </Layout>
