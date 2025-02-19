@@ -2,9 +2,10 @@
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import directus from '../../lib/directus';
-import { readSingleton } from '@directus/sdk';
+import { readItems, readSingleton } from '@directus/sdk';
 
 const global = await directus.request(readSingleton('General'));
+// const files = await directus.request(readItems('files'));
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
@@ -15,5 +16,14 @@ const global = await directus.request(readSingleton('General'));
       <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </div>
+    <!-- <ul>
+      {files.map(({ id, file_name: fileName, year }) => (
+        <li>
+          <p>ID: {id}</p>
+          <p>Name: {fileName}</p>
+          <p>Year: {year}</p>
+        </li>
+      ))}
+    </ul> -->
   </main>
 </Layout>
