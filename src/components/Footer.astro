@@ -81,13 +81,23 @@ const menus: Array<ComponentProps<typeof FooterMenu>> = [
 
 ---
 
-<footer class="bg-purple-500 py-6">
+<footer class="bg-purple-500 py-8 text-white">
     <Container>
         <div class="flex justify-between gap-3">
             <div>
                 <a class="logo" aria-label="home" href="/">
                     <Icon name="logo_white" class="text-4xl" />
                 </a>
+                <div class="flex py-8">
+                    <div>
+                        <p class="font-bold">Contact Us</p>
+                        <p>NumFOCUS</p>
+                        <p>P.O. Box 90596</p>
+                        <p>Austin, TX 78709</p>
+                        <p>info@numfocus.org</p>
+                        <p>+1 (512) 831-2870</p>
+                    </div>
+                </div>
             </div>
             {
                 menus.map((menuProps) => (
