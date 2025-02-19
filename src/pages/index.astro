@@ -1,6 +1,8 @@
 ---
 import Container from '@components/Container.astro';
 import Layout from '@layouts/Layout.astro';
+import PageHeader from '@components/PageHeader.astro';
+
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
 
@@ -9,9 +11,12 @@ const global = await directus.request(readSingleton('General'));
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
 	<Container>
-		<h1>{global.site_name}</h1>
-		<p>{global.site_subheader}</p>
-		<p>{global.hero_tagline}</p>
-		<div set:html={global.hero_body} />
+    <PageHeader title={global.site_name}>
+      <p>{global.site_subheader}</p>
+		  <p>{global.hero_tagline}</p>
+      <div set:html={global.hero_body} />
+
+    </PageHeader>
+		
 	</Container>
 </Layout>
