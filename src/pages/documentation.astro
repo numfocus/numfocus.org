@@ -21,8 +21,7 @@ const fileCategories = await directus.request(readItems('file_categories'));
 
 console.log(files[0].description.blocks[0].data.text)
 
-// hardcoded instead of .env variable cause netlify gets angry at exposing secrets from .env
-const assetBaseUrl = `https://cms.numfocus.draftlab.dev/assets/`
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`
 
 ---
 
