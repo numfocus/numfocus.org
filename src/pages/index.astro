@@ -11,11 +11,11 @@ const global = await directus.request(readSingleton('General'));
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-	<Container>
+  <Container>
     <PageHeader title={global.site_name}>
       <p>{global.site_subheader}</p>
-		  <p>{global.hero_tagline}</p>
+      <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </PageHeader>
-	</Container>
+  </Container>
 </Layout>
