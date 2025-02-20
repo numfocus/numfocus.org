@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import Container from '@components/Container.astro';
+import PageHeader from '@components/PageHeader.astro';
+import Layout from '../layouts/Layout.astro';
+import directus from '../../lib/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+
+
+const global = await directus.request(readSingleton('General'));
+// const caseStudies = await directus.request(readItems('case_studies'));
+
+const caseStudies = [
+    {
+        name: 'Lorem Ipsum',
+    }
+]
+
+---
+
+<Layout title={`Case Studies | ${global.site_name} - ${global.site_subheader}`}>
+  <Container>
+    <PageHeader title="Case Studies">
+        <p>Lorem ipsum dolor sit amet consectetur. Accumsan in amet urna orci id. Ac sapien fermentum nisi senectus a tincidunt mi. Purus in integer convallis nec leo nulla eleifend quam. At odio faucibus neque auctor sed facilisis. Suscipit cursus diam consequat viverra id phasellus urna tellus. Arcu consectetur bibendum molestie a nunc. Nisl ac proin massa nunc massa metus.</p>
+    </PageHeader>
+    {
+        caseStudies.map(({ name }) => (
+            <div>{name}</div>
+        ))
+    }
+  </Container>
+</Layout>
