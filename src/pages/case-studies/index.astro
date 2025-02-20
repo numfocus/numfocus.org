@@ -7,14 +7,9 @@ import { readItems, readSingleton } from '@directus/sdk';
 
 
 const global = await directus.request(readSingleton('General'));
-const caseStudies = await directus.request(readItems('projects'));
+const caseStudies = await directus.request(readItems('case_studies'));
 
-// const caseStudies = [
-//     {
-//         name: 'Lorem Ipsum',
-//     }
-// ]
-
+console.log(caseStudies)
 ---
 
 <Layout title={`Case Studies | ${global.site_name} - ${global.site_subheader}`}>
@@ -23,9 +18,11 @@ const caseStudies = await directus.request(readItems('projects'));
         <p>Lorem ipsum dolor sit amet consectetur. Accumsan in amet urna orci id. Ac sapien fermentum nisi senectus a tincidunt mi. Purus in integer convallis nec leo nulla eleifend quam. At odio faucibus neque auctor sed facilisis. Suscipit cursus diam consequat viverra id phasellus urna tellus. Arcu consectetur bibendum molestie a nunc. Nisl ac proin massa nunc massa metus.</p>
     </PageHeader>
     {
-        caseStudies.map(({ name }) => (
-            <div>{name}</div>
-        ))
+      caseStudies.map(({ slug, title }) => (
+        <h5>
+          <a href={`/case-studies/${slug}`}>{title}</a>
+        </h5>
+      ))
     }
   </Container>
 </Layout>

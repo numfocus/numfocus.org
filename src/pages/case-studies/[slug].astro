@@ -6,33 +6,24 @@ import { readItems } from "@directus/sdk";
 import Container from "@components/Container.astro";
 
 export async function getStaticPaths() {
-    // TODO: read from case_studies endpoint
-    const pages = await directus.request(readItems("projects"));
+    const pages = await directus.request(readItems("case_studies"));
     return pages.map((page) => ({
         params: { slug: page.slug },
         props: page,
     }));
 }
 
-// TODO: read dynamic data
-// const page = Astro.props;
-const page = {
-  name: "NumFOCUS tools help create the first ever image of a black hole"
-}
+const page = Astro.props;
+
 ---
 
-<Layout title={page.name}>
+<Layout title={page.title}>
   <Container>
-    
-    <h1>{page.name}</h1>
-    <!-- <div set:html={page.content} /> -->
+    <h1>{page.title}</h1>
+    <div set:html={page.content} />
+
     <div>
-      <p>In spring 2019, scientists successfully created the first ever image of a black hole — a breakthrough made possible by NumFOCUS open source software projects.</p>
-      <p>More than 4.5 billion people have now seen this image (see right).</p>
-      
-      <p>Although scientists have been researching and theorizing black holes for decades, this is the first ever visual image of a black hole. This picture is the result of a massive collaborative effort through a project called the Event Horizon Telescope, or EHT.</p>
-      <p>The black hole pictured above lies at the center of a galaxy called M-87, which is 55 million light-years away. To understand the effort required to take a picture of it, imagine trying to photograph a grain of sand in Los Angeles—while standing in New York. “Taking the first image of a black hole was a huge endeavor,” said Katie Bouman, one of the lead scientists and developers on the project. “Because it is so small, we needed to build an earth-sized telescope.”</p>
+      <Button>Return to Case Studies</Button>
     </div>
-    <Button>Return to Case Studies</Button>
   </Container>
 </Layout>
