@@ -7,13 +7,13 @@ import { readItems, readSingleton } from '@directus/sdk';
 
 
 const global = await directus.request(readSingleton('General'));
-// const caseStudies = await directus.request(readItems('case_studies'));
+const caseStudies = await directus.request(readItems('projects'));
 
-const caseStudies = [
-    {
-        name: 'Lorem Ipsum',
-    }
-]
+// const caseStudies = [
+//     {
+//         name: 'Lorem Ipsum',
+//     }
+// ]
 
 ---
 
