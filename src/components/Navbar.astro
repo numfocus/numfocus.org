@@ -1,35 +1,30 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 
-import Container from './Container.astro'
+import Container from './Container.astro';
 
 const menuItems = [
   {
-    title: 'Lorem',
+    title: 'About',
+    path: '/documentation',
+  },
+  {
+    title: 'Projects',
+    path: '/projects',
+  },
+  {
+    title: 'Our Work',
     path: '/',
   },
   {
-    title: 'Ipsum',
+    title: 'Support',
     path: '/',
   },
   {
-    title: 'Dolor',
+    title: 'Articles',
     path: '/',
   },
-  {
-    title: 'Lorem',
-    path: '/',
-  },
-  {
-    title: 'Ipsum',
-    path: '/',
-  },
-  {
-    title: 'Dolor',
-    path: '/',
-  }
-]
-
+];
 ---
 
 <header>
@@ -45,9 +40,7 @@ const menuItems = [
               href={path}
               class="font-semi-bold text-light-teal-800 hover:text-teal-800"
             >
-              <span>
-                  {title}
-              </span>
+              <span>{title}</span>
             </a>
           ))
         }
