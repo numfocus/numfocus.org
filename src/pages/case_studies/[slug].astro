@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Layout.astro";
+import directus from "../../../lib/directus";
+import { readItems } from "@directus/sdk";
+
+export async function getStaticPaths() {
+    // TODO: read from case_studies endpoint
+    const pages = await directus.request(readItems("projects"));
+    return pages.map((page) => ({
+        params: { slug: page.slug },
+        props: page,
+    }));
+}
+
+const page = Astro.props;
+---
+
+<Layout title={page.name}>
+  <main>
+    <h1>{page.name}</h1>
+    <!-- <div set:html={page.content} /> -->
+  </main>
+</Layout>
