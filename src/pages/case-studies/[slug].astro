@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Button from "@components/Button.astro"
 import directus from "../../../lib/directus";
 import { readItems } from "@directus/sdk";
 
@@ -19,5 +20,7 @@ const page = Astro.props;
   <main>
     <h1>{page.name}</h1>
     <!-- <div set:html={page.content} /> -->
+
+    <Button>Return to Case Studies</Button>
   </main>
 </Layout>
