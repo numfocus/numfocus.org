@@ -1,4 +1,4 @@
-export type Project = {
+type MetaProps = {
   id: number;
   sort: string;
   status: string;
@@ -6,6 +6,15 @@ export type Project = {
   date_created: string;
   user_updated: string;
   date_updated: string;
+  slug: string;
+}
+
+export type CaseStudy = MetaProps & {
+  title: string;
+  content: string;
+};
+
+export type Project = MetaProps & {
   name: string;
   long_description?: string;
   short_description?: string;
@@ -16,7 +25,6 @@ export type Project = {
   features?: number[];
   industries?: number[];
   languages?: number[];
-  slug: string;
 };
 
 export type Feature = {

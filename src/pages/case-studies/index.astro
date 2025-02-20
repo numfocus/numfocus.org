@@ -5,11 +5,10 @@ import Layout from '@layouts/Layout.astro';
 import directus from '../../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 
+import type { CaseStudy } from 'env';
 
 const global = await directus.request(readSingleton('General'));
-const caseStudies = await directus.request(readItems('case_studies'));
-
-console.log(caseStudies)
+const caseStudies = await directus.request<CaseStudy[]>(readItems('case_studies'));
 ---
 
 <Layout title={`Case Studies | ${global.site_name} - ${global.site_subheader}`}>
