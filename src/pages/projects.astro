@@ -1,0 +1,40 @@
+---
+import Container from '@components/Container.astro';
+import Layout from '@layouts/Layout.astro';
+import PageHeader from '@components/PageHeader.astro';
+import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
+
+import type { Project } from 'env';
+
+import directus from '../../lib/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+
+const global = await directus.request(readSingleton('General'));
+const projects = await directus.request<Project[]>(readItems('projects'));
+---
+
+<Layout title={`Projects | ${global.site_name} - ${global.site_subheader}`}>
+  <Container>
+    <PageHeader title={global.site_name}>
+      <p>{global.site_subheader}</p>
+      <p>{global.hero_tagline}</p>
+      <div set:html={global.hero_body} />
+    </PageHeader>
+    <ProjectGrid projects={projects} />
+    <!-- <div class="project-grid">
+      {
+        projects.map((project) => {
+          return (
+            <div class="project-card overflow-hidden rounded-lg bg-white shadow">
+              <div class="px-4 py-5 sm:p-6">
+                <h2>{project.name}</h2>
+                <p>{project.short_description}</p>
+                <a href={project.website_link}>{project.website_link}</a>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div> -->
+  </Container>
+</Layout>
