@@ -1,6 +1,12 @@
 import type { Project, ProjectFilterKey, ProjectFilterOptions, ProjectFilterValues } from 'env';
 import ProjectFilter from './ProjectFilter';
 
+const labels = {
+  features: "Features",
+  languages: "Languages",
+  industries: "Industries",
+}
+
 export default function ProjectFilters({ filterOptions, activeFilters, onChange }: { filterOptions: ProjectFilterOptions, activeFilters: ProjectFilterValues, onChange: (key: string, items: any) => void }) {
   console.log(Object.entries(filterOptions))
 
@@ -15,8 +21,8 @@ export default function ProjectFilters({ filterOptions, activeFilters, onChange 
         {Object.entries(filterOptions).map(([ filterKey, items ]) => (
           <div className='w-full' key={filterKey}>  
             <ProjectFilter
+              label={labels[filterKey as ProjectFilterKey]}
               activeItems={activeFilters[filterKey as ProjectFilterKey]}
-              filterKey={filterKey}
               items={items}
               onChange={((items: number[]) => onChange(filterKey, items))}
             />
