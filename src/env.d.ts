@@ -27,17 +27,23 @@ export type Project = MetaProps & {
   languages?: number[];
 };
 
-export type Feature = {
+export type ProjectFilterable = {
   id: number;
   name: string;
-};
+}
 
-export type Industry = {
-  id: number;
-  name: string;
-};
+export type Feature = ProjectFilterable
+export type Industry = ProjectFilterable
+export type Language = ProjectFilterable
 
-export type Language = {
-  id: number;
-  name: string;
-};
+export type ProjectFilterOptions = {
+  features: Feature[];
+  industries: Industry[];
+  languages: Language[];
+}
+
+export type ProjectFilterValues = {
+  features: number[];
+  industries: number[];
+  languages: number[];
+}

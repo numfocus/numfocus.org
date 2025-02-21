@@ -4,7 +4,7 @@ import Layout from '@layouts/Layout.astro';
 import PageHeader from '@components/PageHeader.astro';
 import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 
-import type { Project } from 'env';
+import type { Feature, Industry, Language, Project } from 'env';
 
 import directus from '../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
@@ -18,12 +18,11 @@ const projects = await directus.request<Project[]>(
     }
   )
 );
-const features = await directus.request<Project[]>(readItems('project_features', ));
-const industries = await directus.request<Project[]>(readItems('project_industries'));
-const languages = await directus.request<Project[]>(readItems('project_languages'));
+const features = await directus.request<Feature[]>(readItems('project_features'));
+const industries = await directus.request<Industry[]>(readItems('project_industries'));
+const languages = await directus.request<Language[]>(readItems('project_languages'));
 
-const filterValues = { features, industries, languages }
-
+const filterOptions = { features, industries, languages }
 ---
 
 <Layout title={`Projects | ${global.site_name} - ${global.site_subheader}`}>
@@ -33,6 +32,6 @@ const filterValues = { features, industries, languages }
       <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </PageHeader>
-    <ProjectGrid {filterValues} {projects} client:load client:only="react" />
+    <ProjectGrid {filterOptions} {projects} client:load client:only="react" />
   </Container>
 </Layout>
