@@ -1,19 +1,28 @@
-import type { Project } from 'env';
-import ProjectCard from './ProjectCard';
+import type { Project, ProjectFilterKey, ProjectFilterOptions, ProjectFilterValues } from 'env';
 import ProjectFilter from './ProjectFilter';
 
-export default function ProjectFilters({ filterValues, activeFilters, setActiveFilters }: { filterValues: any, activeFilters: any, setActiveFilters: any }) {
-  console.log(Object.entries(filterValues))
+export default function ProjectFilters({ filterOptions, activeFilters, onChange }: { filterOptions: ProjectFilterOptions, activeFilters: ProjectFilterValues, onChange: (key: string, items: any) => void }) {
+  console.log(Object.entries(filterOptions))
+
   return (
     <div className="bg-teal-50">
-        <h5>Search and filter projects</h5>
-        <div className="flex">
-            {Object.entries(filterValues).map(([ key, items ]) => (
-                <div>  
-                    <ProjectFilter key={key} items={items} />
-                </div>
-            ))}
-        </div>
+      <h5>Search and filter projects</h5>
+      <div className="flex justify-between">
+        <p className="whitespace-nowrap">Search by:</p>
+      </div>
+      <div className="flex justify-between gap-2">
+        <p className="whitespace-nowrap">Filter by:</p>
+        {Object.entries(filterOptions).map(([ filterKey, items ]) => (
+          <div className='w-full' key={filterKey}>  
+            <ProjectFilter
+              activeItems={activeFilters[filterKey as ProjectFilterKey]}
+              filterKey={filterKey}
+              items={items}
+              onChange={((items: number[]) => onChange(filterKey, items))}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

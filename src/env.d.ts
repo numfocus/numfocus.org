@@ -27,6 +27,8 @@ export type Project = MetaProps & {
   languages?: number[];
 };
 
+export type ProjectFilterKey = "features" | "industries" | "languages"
+
 export type ProjectFilterable = {
   id: number;
   name: string;
