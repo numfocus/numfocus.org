@@ -11,6 +11,12 @@ import { readItems, readSingleton } from '@directus/sdk';
 
 const global = await directus.request(readSingleton('General'));
 const projects = await directus.request<Project[]>(readItems('projects'));
+const features = await directus.request<Project[]>(readItems('project_features'));
+const industries = await directus.request<Project[]>(readItems('project_industries'));
+const languages = await directus.request<Project[]>(readItems('project_languages'));
+
+const filterValues = { features, industries, languages }
+
 ---
 
 <Layout title={`Projects | ${global.site_name} - ${global.site_subheader}`}>
@@ -20,21 +26,6 @@ const projects = await directus.request<Project[]>(readItems('projects'));
       <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </PageHeader>
-    <ProjectGrid projects={projects} />
-    <!-- <div class="project-grid">
-      {
-        projects.map((project) => {
-          return (
-            <div class="project-card overflow-hidden rounded-lg bg-white shadow">
-              <div class="px-4 py-5 sm:p-6">
-                <h2>{project.name}</h2>
-                <p>{project.short_description}</p>
-                <a href={project.website_link}>{project.website_link}</a>
-              </div>
-            </div>
-          );
-        })
-      }
-    </div> -->
+    <ProjectGrid {filterValues} {projects} />
   </Container>
 </Layout>
