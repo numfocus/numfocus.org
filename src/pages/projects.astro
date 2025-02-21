@@ -10,8 +10,15 @@ import directus from '../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 
 const global = await directus.request(readSingleton('General'));
-const projects = await directus.request<Project[]>(readItems('projects'));
-const features = await directus.request<Project[]>(readItems('project_features'));
+const projects = await directus.request<Project[]>(
+  readItems(
+    'projects',
+    {
+		  fields: ['*', { languages: ['project_languages_id'], features: ['project_features_id'], industries: ['project_industries_id'] }],
+    }
+  )
+);
+const features = await directus.request<Project[]>(readItems('project_features', ));
 const industries = await directus.request<Project[]>(readItems('project_industries'));
 const languages = await directus.request<Project[]>(readItems('project_languages'));
 
@@ -26,6 +33,6 @@ const filterValues = { features, industries, languages }
       <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </PageHeader>
-    <ProjectGrid {filterValues} {projects} />
+    <ProjectGrid {filterValues} {projects} client:load client:only="react" />
   </Container>
 </Layout>
