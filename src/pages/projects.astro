@@ -32,6 +32,6 @@ const filterOptions = { features, industries, languages }
       <p>{global.hero_tagline}</p>
       <div set:html={global.hero_body} />
     </PageHeader>
-    <ProjectGrid {filterOptions} {projects} client:load client:only="react" />
+    <ProjectGrid {filterOptions} {projects} client:load />
   </Container>
 </Layout>
