@@ -1,18 +1,27 @@
 import { useMemo, useState } from 'react';
-import type { Project, ProjectFilterOptions, ProjectFilterValues } from 'env';
+import type { Project, ProjectFilterOptions, ProjectFilterKey, ProjectFilterValues } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
+
+const matchesFilter = (activeFilters: ProjectFilterValues, project: Project, key: ProjectFilterKey) => {
+  const activeFilterValues = activeFilters[key];
+  const projectFilterValues = project[key]?.map(d => Object.values(d)).flat() || [];
+
+  return !activeFilterValues.length || projectFilterValues.some(v => activeFilterValues.includes(v))
+}
 
 export default function ProjectGrid({ filterOptions, projects }: { filterOptions: ProjectFilterOptions, projects: Project[] }) {
   const [activeFilters, setActiveFilters] = useState<ProjectFilterValues>({ features: [], industries: [], languages: []});
 
   const filteredProjects = useMemo(
     () => {
-      console.log('in memo', activeFilters, projects)
+
       return projects.filter((project, i) => {
-        return true;
-        // const commonItems = activeFilters.industries.filter(item => project.industries.includes(item));
-        // return commonItems.length > 0
+        return (
+          matchesFilter(activeFilters, project, 'features')
+          && matchesFilter(activeFilters, project, 'industries')
+          && matchesFilter(activeFilters, project, 'languages')
+        )
       });
     },
     [activeFilters, projects]
