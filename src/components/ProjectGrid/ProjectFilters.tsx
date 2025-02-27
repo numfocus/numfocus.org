@@ -7,6 +7,7 @@ import type {
 import ProjectFilter from './ProjectFilter';
 
 const labels = {
+  type: 'Type',
   features: 'Features',
   languages: 'Coding language',
   industries: 'Industry',
@@ -23,10 +24,9 @@ export default function ProjectFilters({
   onChange: (key: string, items: any) => void;
   onClear: () => void;
 }) {
-  console.log(Object.entries(filterOptions));
 
   return (
-    <div className="mt-4 flex gap-4 justify-between">
+    <>
       <p className="block min-w-30 whitespace-nowrap">Filter by:</p>
       {Object.entries(filterOptions).map(([filterKey, items]) => (
         <div className="w-full" key={filterKey}>
@@ -39,6 +39,6 @@ export default function ProjectFilters({
         </div>
       ))}
       <button className="min-w-32 text-blue-500 hover:text-blue-700" onClick={onClear}>Clear all</button>
-    </div>
+    </>
   );
 }

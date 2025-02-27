@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import type {
   Project,
+  ProjectFilterable,
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
@@ -8,6 +9,13 @@ import type {
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
 import ProjectTextSearch from './ProjectTextSearch';
+import ProjectTypeFilter from './ProjectTypeFilters';
+
+
+const PROJECT_TYPES = [
+  { id: "sponsored", name: "Sponsored project" },
+  { id: "affiliated", name: "Affiliated project" },
+]
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
@@ -32,6 +40,7 @@ export default function ProjectGrid({
   projects: Project[];
 }) {
   const initialFilters = {
+    type: PROJECT_TYPES.map(({ id }) => id),
     features: [],
     industries: [],
     languages: [],
@@ -62,16 +71,26 @@ export default function ProjectGrid({
     <div>
       <div className="my-4 bg-teal-50 p-4">
         <h5>Search and filter projects</h5>
-        <ProjectTextSearch
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
-        <ProjectFilters
-          filterOptions={filterOptions}
-          activeFilters={activeFilters}
-          onChange={setActiveFilter}
-          onClear={clearActiveFilters}
-        />
+        <div className="mt-4 flex gap-4 justify-between">
+          <ProjectTextSearch
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+          <ProjectTypeFilter
+            filterOptions={PROJECT_TYPES}
+            activeFilterValues={activeFilters.type}
+            onChange={(items) => setActiveFilter('type', items)}
+          />
+        </div>
+        <div className="mt-4 flex gap-4 justify-between">
+          <ProjectFilters
+            filterOptions={filterOptions}
+            activeFilters={activeFilters}
+            onChange={setActiveFilter}
+            onClear={clearActiveFilters}
+          />
+        </div>
+        
       </div>
       <div className="project-grid mb-64 grid grid-cols-4 gap-8">
         {filteredProjects.map((project) => {

@@ -32,6 +32,7 @@ export type ProjectFilterable = {
   name: string;
 }
 
+export type Type = ProjectFilterable
 export type Feature = ProjectFilterable
 export type Industry = ProjectFilterable
 export type Language = ProjectFilterable
