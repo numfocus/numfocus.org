@@ -16,7 +16,9 @@ export default function ProjectFilters({
 }) {
   
   const toggleItem = (id: number) => {
-    if (activeFilterValues.includes(id)) {
+    if (!activeFilterValues.length) {
+      onChange(filterOptions.map(({ id }) => id).filter((item) => item !== id))
+    } else if (activeFilterValues.includes(id)) {
       onChange(activeFilterValues.filter((item) => item !== id));
     } else {
       onChange([...activeFilterValues, id]);
