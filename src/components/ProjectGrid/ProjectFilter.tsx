@@ -1,4 +1,4 @@
-import type { ProjectFilterable } from 'env';
+import type { ProjectFilterable, ProjectFilterOptionId } from 'env';
 
 import { Button } from '@lib/components/ui/button';
 import {
@@ -16,9 +16,9 @@ export default function ProjectFilter({
   onChange,
 }: {
   label: string;
-  activeItems: number[];
+  activeItems: ProjectFilterOptionId[];
   items: ProjectFilterable[];
-  onChange: (items: number[]) => void;
+  onChange: (items: ProjectFilterOptionId[]) => void;
 }) {
   const toggleItem = (id: number) => {
     console.log('toggling', activeItems, id);

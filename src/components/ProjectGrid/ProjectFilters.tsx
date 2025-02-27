@@ -1,6 +1,6 @@
 import type {
-  Project,
   ProjectFilterKey,
+  ProjectFilterOptionId,
   ProjectFilterOptions,
   ProjectFilterValues,
 } from 'env';
@@ -34,7 +34,7 @@ export default function ProjectFilters({
             label={labels[filterKey as ProjectFilterKey]}
             activeItems={activeFilters[filterKey as ProjectFilterKey]}
             items={items}
-            onChange={(items: number[]) => onChange(filterKey, items)}
+            onChange={(items: ProjectFilterOptionId[]) => onChange(filterKey, items)}
           />
         </div>
       ))}

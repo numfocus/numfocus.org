@@ -27,22 +27,23 @@ export type Project = MetaProps & {
   languages?: number[];
 };
 
+export type ProjectFilterOptionId = number | string;
+
 export type ProjectFilterable = {
-  id: number;
+  id: ProjectFilterId;
   name: string;
 }
 
-export type Type = ProjectFilterable
 export type Feature = ProjectFilterable
 export type Industry = ProjectFilterable
 export type Language = ProjectFilterable
 
-export type ProjectFilterKey = "features" | "industries" | "languages"
+export type ProjectFilterKey = "type" | "features" | "industries" | "languages"
 
 export type ProjectFilterOptions = {
   [key in ProjectFilterKey]: ProjectFilterable[];
 }
 
 export type ProjectFilterValues = {
-  [key in ProjectFilterKey]: number[];
+  [key in ProjectFilterKey]: ProjectFilterOptionId[];
 }

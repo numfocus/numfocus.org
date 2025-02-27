@@ -23,8 +23,9 @@ const matchesFilter = (
   key: ProjectFilterKey
 ) => {
   const activeFilterValues = activeFilters[key];
-  const projectFilterValues =
-    project[key]?.map((d) => Object.values(d)).flat() || [];
+  const projectFilterValues = Array.isArray(project[key])
+    ? project[key]?.map((d) => Object.values(d)).flat() || []
+    : [project[key]]
 
   return (
     !activeFilterValues.length ||
@@ -51,6 +52,7 @@ export default function ProjectGrid({
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
       return (
+        matchesFilter(activeFilters, project, 'type') &&
         matchesFilter(activeFilters, project, 'features') &&
         matchesFilter(activeFilters, project, 'industries') &&
         matchesFilter(activeFilters, project, 'languages') &&
