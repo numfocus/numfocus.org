@@ -73,7 +73,7 @@ export default function ProjectGrid({
     <div>
       <div className="my-4 bg-teal-50 p-4">
         <h5>Search and filter projects</h5>
-        <div className="mt-4 flex gap-4 justify-between">
+        <div className="mt-4 flex gap-4 justify-between items-center">
           <ProjectTextSearch
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -84,7 +84,7 @@ export default function ProjectGrid({
             onChange={(items) => setActiveFilter('type', items)}
           />
         </div>
-        <div className="mt-4 flex gap-4 justify-between">
+        <div className="mt-4 flex gap-4 justify-between items-center">
           <ProjectFilters
             filterOptions={filterOptions}
             activeFilters={activeFilters}
