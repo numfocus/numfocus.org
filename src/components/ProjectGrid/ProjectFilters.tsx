@@ -38,7 +38,13 @@ export default function ProjectFilters({
           />
         </div>
       ))}
-      <button className="min-w-32 text-blue-500 hover:text-blue-700" onClick={onClear}>Clear all</button>
+      <button
+        className="min-w-32 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+        onClick={onClear}
+        disabled={Object.values(activeFilters).every(f => !f.length)}
+      >
+        Clear all
+      </button>
     </>
   );
 }

@@ -14,8 +14,7 @@ export default function ProjectFilters({
   activeFilterValues: ProjectFilterOptionId[];
   onChange: (items: any) => void;
 }) {
-  console.log(activeFilterValues, filterOptions);
-
+  
   const toggleItem = (id: number) => {
     if (activeFilterValues.includes(id)) {
       onChange(activeFilterValues.filter((item) => item !== id));
@@ -35,7 +34,7 @@ export default function ProjectFilters({
         <div className="flex items-center space-x-2">
           <Checkbox
             id={id}
-            checked={activeFilterValues.includes(id)}
+            checked={!activeFilterValues.length || activeFilterValues.includes(id)}
             onCheckedChange={() => toggleItem(id)}
             className='w-5 h-5 data-[state=checked]:bg-blue-500 rounded-none border-none'
           />

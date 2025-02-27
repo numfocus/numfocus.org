@@ -41,7 +41,7 @@ export default function ProjectGrid({
   projects: Project[];
 }) {
   const initialFilters = {
-    type: PROJECT_TYPES.map(({ id }) => id),
+    type: [],
     features: [],
     industries: [],
     languages: [],
