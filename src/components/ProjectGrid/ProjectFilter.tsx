@@ -31,18 +31,20 @@ export default function ProjectFilter({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger className="w-full" asChild>
         <Button
           variant="outline"
-          className="rounded-none border border-teal-500"
+          className="rounded-none border border-teal-500 justify-between"
         >
-          {label} <ArrowDown></ArrowDown>
+          <span>{label}</span>
+          <ArrowDown className="text-blue-500"></ArrowDown>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="rounded-none">
+      <DropdownMenuContent className="w-full rounded-none">
         {items.map(({ id, name }) => (
           <DropdownMenuCheckboxItem
             checked={activeItems.includes(id)}
+            onSelect={(e) => { e.preventDefault(); e.stopPropagation(); }}
             onCheckedChange={() => toggleItem(id)}
             key={id}
           >

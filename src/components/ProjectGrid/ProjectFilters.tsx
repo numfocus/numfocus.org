@@ -26,10 +26,10 @@ export default function ProjectFilters({
   console.log(Object.entries(filterOptions));
 
   return (
-    <div className="mt-4 flex gap-2 justify-between">
-      <p className="block min-w-32 whitespace-nowrap">Filter by:</p>
+    <div className="mt-4 flex gap-4 justify-between">
+      <p className="block min-w-30 whitespace-nowrap">Filter by:</p>
       {Object.entries(filterOptions).map(([filterKey, items]) => (
-        <div className="w-max" key={filterKey}>
+        <div className="w-full" key={filterKey}>
           <ProjectFilter
             label={labels[filterKey as ProjectFilterKey]}
             activeItems={activeFilters[filterKey as ProjectFilterKey]}
