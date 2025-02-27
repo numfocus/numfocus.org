@@ -31,13 +31,13 @@ export default function ProjectGrid({
   filterOptions: ProjectFilterOptions;
   projects: Project[];
 }) {
-  const [activeFilters, setActiveFilters] = useState<ProjectFilterValues>({
+  const initialFilters = {
     features: [],
     industries: [],
     languages: [],
-  });
+  };
+  const [activeFilters, setActiveFilters] = useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  console.log(searchQuery);
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
@@ -54,6 +54,10 @@ export default function ProjectGrid({
     setActiveFilters({ ...activeFilters, [key]: items });
   };
 
+  const clearActiveFilters = () => {
+    setActiveFilters({...initialFilters});
+  };
+
   return (
     <div>
       <div className="my-4 bg-teal-50 p-4">
@@ -66,6 +70,7 @@ export default function ProjectGrid({
           filterOptions={filterOptions}
           activeFilters={activeFilters}
           onChange={setActiveFilter}
+          onClear={clearActiveFilters}
         />
       </div>
       <div className="project-grid mb-64 grid grid-cols-4 gap-8">
