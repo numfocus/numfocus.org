@@ -5,17 +5,17 @@ import type {
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
+  ProjectFilterOptionId,
 } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilters';
 
-
 const PROJECT_TYPES = [
-  { id: "sponsored", name: "Sponsored project" },
-  { id: "affiliated", name: "Affiliated project" },
-]
+  { id: 'sponsored', name: 'Sponsored project' },
+  { id: 'affiliated', name: 'Affiliated project' },
+];
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
@@ -25,11 +25,13 @@ const matchesFilter = (
   const activeFilterValues = activeFilters[key];
   const projectFilterValues = Array.isArray(project[key])
     ? project[key]?.map((d) => Object.values(d)).flat() || []
-    : [project[key]]
+    : [project[key]];
 
   return (
     !activeFilterValues.length ||
-    projectFilterValues.some((v) => activeFilterValues.includes(v))
+    projectFilterValues.some((v) =>
+      activeFilterValues.includes(v as ProjectFilterOptionId)
+    )
   );
 };
 
@@ -46,7 +48,8 @@ export default function ProjectGrid({
     industries: [],
     languages: [],
   };
-  const [activeFilters, setActiveFilters] = useState<ProjectFilterValues>(initialFilters);
+  const [activeFilters, setActiveFilters] =
+    useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProjects = useMemo(() => {
@@ -66,14 +69,14 @@ export default function ProjectGrid({
   };
 
   const clearActiveFilters = () => {
-    setActiveFilters({...initialFilters});
+    setActiveFilters({ ...initialFilters });
   };
 
   return (
     <div>
       <div className="my-4 bg-teal-50 p-4">
         <h5>Search and filter projects</h5>
-        <div className="mt-4 flex gap-4 justify-between items-center">
+        <div className="mt-4 flex items-center justify-between gap-4">
           <ProjectTextSearch
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -84,7 +87,7 @@ export default function ProjectGrid({
             onChange={(items) => setActiveFilter('type', items)}
           />
         </div>
-        <div className="mt-4 flex gap-4 justify-between items-center">
+        <div className="mt-4 flex items-center justify-between gap-4">
           <ProjectFilters
             filterOptions={filterOptions}
             activeFilters={activeFilters}
@@ -92,7 +95,6 @@ export default function ProjectGrid({
             onClear={clearActiveFilters}
           />
         </div>
-        
       </div>
       <div className="project-grid mb-64 grid grid-cols-4 gap-8">
         {filteredProjects.map((project) => {
