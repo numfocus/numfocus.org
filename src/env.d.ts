@@ -7,7 +7,7 @@ type MetaProps = {
   user_updated: string;
   date_updated: string;
   slug: string;
-}
+};
 
 export type CaseStudy = MetaProps & {
   title: string;
@@ -27,17 +27,23 @@ export type Project = MetaProps & {
   languages?: number[];
 };
 
-export type Feature = {
-  id: number;
+export type ProjectFilterOptionId = number | string;
+
+export type ProjectFilterable = {
+  id: ProjectFilterId;
   name: string;
 };
 
-export type Industry = {
-  id: number;
-  name: string;
+export type Feature = ProjectFilterable;
+export type Industry = ProjectFilterable;
+export type Language = ProjectFilterable;
+
+export type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
+
+export type ProjectFilterOptions = {
+  [key in ProjectFilterKey]?: ProjectFilterable[];
 };
 
-export type Language = {
-  id: number;
-  name: string;
+export type ProjectFilterValues = {
+  [key in ProjectFilterKey]: ProjectFilterOptionId[];
 };
