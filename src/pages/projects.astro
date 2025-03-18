@@ -1,6 +1,6 @@
 ---
 import Container from '@components/Container.astro';
-import Layout from '@layouts/Layout.astro';
+import ProjectsLayout from '@layouts/ProjectsLayout.astro';
 import PageHeader from '@components/PageHeader.astro';
 import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 
@@ -41,7 +41,9 @@ const languages = await directus.request<Language[]>(
 const filterOptions = { features, industries, languages };
 ---
 
-<Layout title={`Projects | ${global.site_name} - ${global.site_subheader}`}>
+<ProjectsLayout
+  title={`Projects | ${global.site_name} - ${global.site_subheader}`}
+>
   <Container>
     <PageHeader title={global.site_name}>
       <p>{global.site_subheader}</p>
@@ -50,4 +52,4 @@ const filterOptions = { features, industries, languages };
     </PageHeader>
     <ProjectGrid {filterOptions} {projects} client:load />
   </Container>
-</Layout>
+</ProjectsLayout>
