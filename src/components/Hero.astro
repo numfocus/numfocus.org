@@ -1,0 +1,30 @@
+---
+import Button from '@components/Button.astro';
+import type { PageHero } from 'env';
+interface Props {
+  pageHero: PageHero;
+}
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+
+const { pageHero: hero } = Astro.props;
+---
+
+<div class="py-8">
+  <h3 class="text-light-teal-800">{hero.headline}</h3>
+  <h4>{hero.subheader}</h4>
+  <div class="prose" set:html={hero.rich_text} />
+
+  {
+    hero.button.map((button) => (
+      <Button>
+        <span>{button.text}</span>
+      </Button>
+    ))
+  }
+
+  <img
+    src={`${assetBaseUrl}${hero.image}`}
+    alt={hero.title}
+    class="mx-auto my-0 h-42"
+  />
+</div>

@@ -2,6 +2,9 @@
 import { Icon } from 'astro-icon/components';
 
 import Container from './Container.astro';
+import Button from './Button.astro';
+import { Heart } from 'lucide-react';
+import type { Button as but } from 'env';
 
 const menuItems = [
   {
@@ -25,9 +28,15 @@ const menuItems = [
     path: '/',
   },
 ];
+
+const button: but = {
+  text: 'Donate',
+  link: 'donate',
+  variant: 'primary',
+};
 ---
 
-<header>
+<header class="border border-b-[1px] border-teal-500">
   <Container>
     <div class="py-8 flex items-center">
       <a class="logo" aria-label="home" href="/">
@@ -46,6 +55,9 @@ const menuItems = [
         }
       </nav>
       <Icon name="search" class="text-4xl" />
+      <Button button={button}
+        ><span><Heart color="white" fill="white" />Donate</span></Button
+      >
     </div>
   </Container>
 </header>

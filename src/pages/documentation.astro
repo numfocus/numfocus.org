@@ -1,10 +1,11 @@
 ---
 import '../styles/global.css';
 import Container from '@components/Container.astro';
-import PageHeader from '@components/PageHeader.astro';
 import Layout from '../layouts/Layout.astro';
 import directus from '../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
+import Hero from '@components/Hero.astro';
+import getPageHero from '@utils/getPageHero';
 
 import {
   Table,
@@ -25,14 +26,16 @@ console.log(files[0].description.blocks[0].data.text)
 
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`
 
+const slug = Astro.routePattern.substring(1);
+console.log(slug)
+
+const pageHero = await getPageHero(slug);
+
 ---
 
 <Layout title={`Documentation | ${global.site_name} - ${global.site_subheader}`}>
   <Container>
-    <PageHeader title="Lorem ipsum dolor sit amet consectetur">
-      <p>Lorem ipsum dolor sit amet consectetur. Accumsan in amet urna orci id. Ac sapien fermentum nisi senectus a tincidunt mi. Purus in integer convallis nec leo nulla eleifend quam. At odio faucibus neque auctor sed facilisis. Suscipit cursus diam consequat viverra id phasellus urna tellus. Arcu consectetur bibendum molestie a nunc. Nisl ac proin massa nunc massa metus.</p>
-		  <p>In bibendum enim sed risus aliquet pharetra. Felis quis amet quam eu proin eros a. Libero ultricies elit lectus potenti. Erat posuere quis felis pharetra urna faucibus eget duis at. Aliquet adipiscing lectus urna interdum magna aliquam iaculis amet interdum.</p>
-    </PageHeader>
+    <Hero pageHero={pageHero}/>
     {
       fileCategories.map((category) => (
         <h2 class="text-2xl font-semibold py-2">{category.file_category}</h2>

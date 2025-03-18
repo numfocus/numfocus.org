@@ -1,11 +1,29 @@
 ---
+import type { Button } from 'env';
 interface Props {
-  class?: string
+  class?: string;
+  button?: Button;
 }
 
-const { class: className } = Astro.props;
+const { class: className, button } = Astro.props;
+
+const defaultClass = '';
+const variantClasses = {
+  primary:
+    'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
+  secondary:
+    'bg-gradient-to-r from-indigo-700 to-purple-600 text-white shadow-none focus:ring-4 ',
+  muted: '',
+};
 ---
 
-<button class:list={["px-6 py-3 rounded-md bg-yellow-500 font-bold", className]}>
+<button
+  type="button"
+  class:list={[
+    'px-6 py-3 rounded-md font-bold',
+    className,
+    button && variantClasses[button.variant],
+  ]}
+>
   <slot />
 </button>

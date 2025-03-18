@@ -30,6 +30,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^19.0.10",
     "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",

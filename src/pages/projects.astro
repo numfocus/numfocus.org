@@ -1,8 +1,9 @@
 ---
 import Container from '@components/Container.astro';
 import ProjectsLayout from '@layouts/ProjectsLayout.astro';
-import PageHeader from '@components/PageHeader.astro';
 import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
+import Hero from '@components/Hero.astro';
+import getPageHero from '@utils/getPageHero';
 
 import type {
   Feature,
@@ -39,17 +40,17 @@ const languages = await directus.request<Language[]>(
 );
 
 const filterOptions = { features, industries, languages };
+
+const slug = Astro.routePattern.substring(1);
+
+const pageHero = await getPageHero(slug);
 ---
 
 <ProjectsLayout
   title={`Projects | ${global.site_name} - ${global.site_subheader}`}
 >
   <Container>
-    <PageHeader title={global.site_name}>
-      <p>{global.site_subheader}</p>
-      <p>{global.hero_tagline}</p>
-      <div set:html={global.hero_body} />
-    </PageHeader>
+    <Hero pageHero={pageHero} />
     <ProjectGrid {filterOptions} {projects} client:load />
   </Container>
 </ProjectsLayout>

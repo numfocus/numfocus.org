@@ -1,13 +1,25 @@
-type MetaProps = {
+// core definitions
+interface MetaProps {
   id: number;
-  sort: string;
-  status: string;
-  user_created: string;
-  date_created: string;
-  user_updated: string;
-  date_updated: string;
-  slug: string;
+  sort?: string;
+  status?: string;
+  user_created?: string;
+  date_created?: string;
+  user_updated?: string;
+  date_updated?: string;
+  slug?: string;
+}
+
+// primitives
+export type Button = {
+  text: string;
+  link: string;
+  variant: 'primary' | 'secondary' | 'muted';
 };
+
+type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
+
+// exported types
 
 export type CaseStudy = MetaProps & {
   title: string;
@@ -27,6 +39,15 @@ export type Project = MetaProps & {
   languages?: number[];
 };
 
+export type PageHero = MetaProps & {
+  title: string;
+  headline: string;
+  subheader: string;
+  rich_text: string;
+  image: string;
+  button: Button[];
+};
+
 export type ProjectFilterOptionId = number | string;
 
 export type ProjectFilterable = {
@@ -37,8 +58,6 @@ export type ProjectFilterable = {
 export type Feature = ProjectFilterable;
 export type Industry = ProjectFilterable;
 export type Language = ProjectFilterable;
-
-export type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
 export type ProjectFilterOptions = {
   [key in ProjectFilterKey]?: ProjectFilterable[];
