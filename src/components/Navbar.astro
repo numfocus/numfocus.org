@@ -1,33 +1,33 @@
 ---
 import { Icon } from 'astro-icon/components';
+import directus from '../../lib/directus';
+import { readItems } from '@directus/sdk';
+import type { MenuItem } from 'env';
+import { twMerge } from 'tailwind-merge';
 
 import Container from './Container.astro';
-import Button from './Button.astro';
-import { Heart } from 'lucide-react';
+import Button from '@components/Atoms/Button';
 import type { Button as but } from 'env';
 
-const menuItems = [
-  {
-    title: 'About',
-    path: '/documentation',
-  },
-  {
-    title: 'Projects',
-    path: '/projects',
-  },
-  {
-    title: 'Our Work',
-    path: '/',
-  },
-  {
-    title: 'Support',
-    path: '/',
-  },
-  {
-    title: 'Articles',
-    path: '/',
-  },
-];
+const menu = await directus.request(
+  readItems('Menus', {
+    filter: { menu_name: { _eq: 'Navigation' } },
+    fields: ['id', 'menu_name', 'item.item.*'],
+  })
+);
+const itemsFromMenu = menu[0].item;
+
+const menuItems: MenuItem[] = [];
+
+for (const item of itemsFromMenu) {
+  const singleItem: MenuItem = {
+    title: item.item.title,
+    path: `/${item.item.slug}`,
+  };
+  menuItems.push(singleItem);
+}
+
+const currentPage = Astro.routePattern;
 
 const button: but = {
   text: 'Donate',
@@ -38,26 +38,29 @@ const button: but = {
 
 <header class="border border-b-[1px] border-teal-500">
   <Container>
-    <div class="py-8 flex items-center">
+    <div class="py-8 flex items-center justify-between gap-4">
       <a class="logo" aria-label="home" href="/">
         <Icon name="logo" class="text-5xl" />
       </a>
-      <nav class="flex justify-around items-center gap-2 w-full">
+      <nav class="flex justify-around items-center gap-2 w-1/2">
         {
           menuItems.map(({ path, title }) => (
             <a
               href={path}
-              class="font-semi-bold text-light-teal-800 hover:text-teal-800"
+              class={twMerge(
+                'inline-block border-b-[1px] border-transparent font-semi-bold text-teal-600 hover:text-teal-800  hover:border-teal-800 transition',
+                path.includes(currentPage) && `text-teal-900 border-teal-800`
+              )}
             >
               <span>{title}</span>
             </a>
           ))
         }
       </nav>
-      <Icon name="search" class="text-4xl" />
-      <Button button={button}
-        ><span><Heart color="white" fill="white" />Donate</span></Button
-      >
+      <div class="flex gap-4 items-center">
+        <Icon name="search" class="text-3xl" />
+        <Button button={button} icon="heart" />
+      </div>
     </div>
   </Container>
 </header>

@@ -66,3 +66,8 @@ export type ProjectFilterOptions = {
 export type ProjectFilterValues = {
   [key in ProjectFilterKey]: ProjectFilterOptionId[];
 };
+
+export type MenuItem = {
+  title: string;
+  path: string;
+};

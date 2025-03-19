@@ -1,0 +1,26 @@
+---
+import Container from '@components/Container.astro';
+import Layout from '../layouts/Layout.astro';
+import directus from '../../lib/directus';
+import { readSingleton } from '@directus/sdk';
+import Hero from '@components/Hero.astro';
+import getPageHero from '@utils/getPageHero';
+
+interface Props {
+  title: string;
+}
+
+const global = await directus.request(readSingleton('General'));
+
+const slug = Astro.routePattern.substring(1);
+
+const pageHero = await getPageHero(slug);
+---
+
+<Layout
+  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+>
+  <Container>
+    <Hero pageHero={pageHero} />
+  </Container>
+</Layout>

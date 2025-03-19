@@ -1,5 +1,5 @@
 ---
-import Button from '@components/Button.astro';
+import Button from '@components/Atoms/Button';
 import type { PageHero } from 'env';
 interface Props {
   pageHero: PageHero;
@@ -15,11 +15,8 @@ const { pageHero: hero } = Astro.props;
   <div class="prose" set:html={hero.rich_text} />
 
   {
-    hero.button.map((button) => (
-      <Button>
-        <span>{button.text}</span>
-      </Button>
-    ))
+    hero.button &&
+      hero.button.map((button) => <Button button={button} arrow="right" />)
   }
 
   <img

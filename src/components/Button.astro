@@ -1,11 +1,14 @@
 ---
 import type { Button } from 'env';
+import { Heart, Mail } from 'lucide-react';
+
 interface Props {
   class?: string;
   button?: Button;
+  icon?: 'heart' | 'envelope';
 }
 
-const { class: className, button } = Astro.props;
+const { class: className, button, icon } = Astro.props;
 
 const defaultClass = '';
 const variantClasses = {
@@ -14,6 +17,11 @@ const variantClasses = {
   secondary:
     'bg-gradient-to-r from-indigo-700 to-purple-600 text-white shadow-none focus:ring-4 ',
   muted: '',
+};
+
+const iconVariant = {
+  heart: `<Heart color="white" fill="white" />`,
+  envelope: `<Mail color="white" />`,
 };
 ---
 
@@ -25,5 +33,5 @@ const variantClasses = {
     button && variantClasses[button.variant],
   ]}
 >
-  <slot />
+  {icon && iconVariant[icon]}
 </button>
