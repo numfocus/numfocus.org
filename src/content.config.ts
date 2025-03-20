@@ -8,17 +8,18 @@ const projects = defineCollection({
     pattern: ['*/*.yaml'],
     base: 'src/data/projects',
   }),
-  schema: z.object({
-    name: z.string(),
-    type: z.enum(['sponsored', 'affiliated']),
-    support_year_start: z.number(),
-    logo: z.string(),
-    short_description: z.string(),
-    features: z.array(z.string()),
-    industries: z.array(z.string()),
-    languages: z.array(z.string()),
-    website_link: z.string().url(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      type: z.enum(['sponsored', 'affiliated']),
+      support_year_start: z.number(),
+      logo: image(),
+      short_description: z.string(),
+      features: z.array(z.string()),
+      industries: z.array(z.string()),
+      languages: z.array(z.string()),
+      website_link: z.string().url(),
+    }),
 });
 
 export const collections = { projects };

@@ -9,7 +9,7 @@ website_link: http://www.numpy.org/
 contribute_link: https://github.com/numpy/numpy/blob/master/.github/CONTRIBUTING.md
 
 # put the exact name of the image file you added to your directory, for example "myproject.png"
-logo: numpy.png
+logo: ./numpy.png
 
 # year when supported started, in YYYY format
 support_year_start: 2015

@@ -9,7 +9,7 @@ website_link: https://julialang.org/
 contribute_link: https://github.com/JuliaLang/julia/blob/master/CONTRIBUTING.md
 
 # put the exact name of the image file you added to your directory, for example "myproject.png"
-logo: julia-logo-300.png
+logo: ./julia-logo-300.png
 
 # year when supported started, in YYYY format
 support_year_start: 2014

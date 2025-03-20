@@ -6,7 +6,7 @@ import Hero from '@components/Hero.astro';
 import getPageHero from '@utils/getPageHero';
 import { getCollection, getEntry } from 'astro:content';
 import { Markdown } from '@astropub/md';
-
+import { Image } from 'astro:assets';
 import type {
   Feature,
   Industry,
@@ -71,10 +71,10 @@ const pageHero = await getPageHero('projects');
             </div>
             <div class="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6 min-h-120">
               <h5 class="pt-8 block w-full">{project.data.name}</h5>
-              <img
-                src={`/${project.filePath?.substring(0, project.filePath.lastIndexOf('/'))}/${project.data.logo}`}
+              <Image
+                src={project.data.logo}
                 alt={project.data.name}
-                class="mx-auto my-0 h-42"
+                class="mx-auto my-0 h-42 w-auto"
               />
               <p class="text-center text-sm">
                 <Markdown.Inline of={project.data.short_description} />

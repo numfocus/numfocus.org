@@ -9,7 +9,7 @@ website_link: https://geopandas.org/en/stable/
 contribute_link: https://geopandas.org/en/stable/community/contributing.html
 
 # put the exact name of the image file you added to your directory, for example "myproject.png"
-logo: Geopandas-web.png
+logo: ./Geopandas-web.png
 
 # year when supported started, in YYYY format
 support_year_start: 2023
