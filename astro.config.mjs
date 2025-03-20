@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import markdownIntegration from '@astropub/md';
 
 import netlify from '@astrojs/netlify';
 
@@ -14,5 +15,11 @@ export default defineConfig({
   },
 
   adapter: netlify(),
-  integrations: [icon(), react()],
+  integrations: [icon(), react(), markdownIntegration()],
+  markdown: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // syntaxHighlight: 'shiki'
+    // syntaxHighlight: 'prism'
+  },
 });

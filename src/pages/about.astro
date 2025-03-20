@@ -20,7 +20,6 @@ const pageHero = await getPageHero(slug);
 <Layout
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
 >
-  <Container>
-    <Hero pageHero={pageHero} />
-  </Container>
+  <Hero pageHero={pageHero} />
+  <Container />
 </Layout>

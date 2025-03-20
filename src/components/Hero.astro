@@ -1,5 +1,7 @@
 ---
 import Button from '@components/Atoms/Button';
+import Container from './Container.astro';
+
 import type { PageHero } from 'env';
 interface Props {
   pageHero: PageHero;
@@ -9,19 +11,27 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 const { pageHero: hero } = Astro.props;
 ---
 
-<div class="py-8">
-  <h3 class="text-light-teal-800">{hero.headline}</h3>
-  <h4>{hero.subheader}</h4>
-  <div class="prose" set:html={hero.rich_text} />
-
-  {
-    hero.button &&
-      hero.button.map((button) => <Button button={button} arrow="right" />)
-  }
-
-  <img
-    src={`${assetBaseUrl}${hero.image}`}
-    alt={hero.title}
-    class="mx-auto my-0 h-42"
-  />
+<div class="hero-container mx-auto bg-light-teal-50 mb-6">
+  <div class="grid grid-cols-12">
+    <div class="col-start-3 col-span-8 py-8">
+      <h3 class="mb-4">{hero.headline}</h3>
+      <h5 class="mb-4">{hero.subheader}</h5>
+      <div class="prose mb-6" set:html={hero.rich_text} />
+      <div class="buttons flex flex-row gap-2 mr-12">
+        {
+          hero.button &&
+            hero.button.map((button) => (
+              <Button button={button} arrow="right" />
+            ))
+        }
+      </div>
+    </div>
+    <div class="col-span-2 overflow-hidden rounded-l-4xl rounded-r-none">
+      <img
+        src={`${assetBaseUrl}${hero.image}`}
+        alt={hero.title}
+        class="h-full object-cover opacity-50"
+      />
+    </div>
+  </div>
 </div>

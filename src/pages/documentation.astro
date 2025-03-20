@@ -31,11 +31,13 @@ console.log(slug)
 
 const pageHero = await getPageHero(slug);
 
+
 ---
 
 <Layout title={`Documentation | ${global.site_name} - ${global.site_subheader}`}>
+  <Hero pageHero={pageHero}/>
   <Container>
-    <Hero pageHero={pageHero}/>
+
     {
       fileCategories.map((category) => (
         <h2 class="text-2xl font-semibold py-2">{category.file_category}</h2>

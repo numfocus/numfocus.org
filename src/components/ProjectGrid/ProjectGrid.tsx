@@ -96,7 +96,7 @@ export default function ProjectGrid({
           />
         </div>
       </div>
-      <div className="project-grid mb-64 grid grid-cols-4 gap-8">
+      <div className="project-grid mt-12 mb-64 grid grid-cols-12 gap-8">
         {filteredProjects.map((project) => {
           return <ProjectCard project={project} key={project.id} />;
         })}

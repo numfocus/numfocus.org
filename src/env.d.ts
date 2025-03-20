@@ -14,7 +14,7 @@ interface MetaProps {
 export type Button = {
   text: string;
   link: string;
-  variant: 'primary' | 'secondary' | 'muted';
+  variant: 'primary' | 'secondary' | 'muted' | 'newsletter';
 };
 
 type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';

@@ -8,7 +8,7 @@ const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-c
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="project-card border-numfocus-primary flex flex-col justify-between border">
+    <div className="project-card border-numfocus-primary col-span-4 flex flex-col justify-between border">
       <div className="relative h-12 w-full">
         <div className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
           Expand

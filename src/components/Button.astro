@@ -13,10 +13,12 @@ const { class: className, button, icon } = Astro.props;
 const defaultClass = '';
 const variantClasses = {
   primary:
-    'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
+    'yellow-500 text-white shadow-none focus:ring-4 hover:organge-600 transition',
   secondary:
     'bg-gradient-to-r from-indigo-700 to-purple-600 text-white shadow-none focus:ring-4 ',
   muted: '',
+  newsletter:
+    'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
 };
 
 const iconVariant = {

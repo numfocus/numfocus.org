@@ -5,6 +5,7 @@ import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 import Hero from '@components/Hero.astro';
 import getPageHero from '@utils/getPageHero';
 import { getCollection, getEntry } from 'astro:content';
+import { Markdown } from '@astropub/md';
 
 import type {
   Feature,
@@ -56,51 +57,55 @@ const pageHero = await getPageHero('projects');
 <ProjectsLayout
   title={`Projects | ${global.site_name} - ${global.site_subheader}`}
 >
+  <Hero pageHero={pageHero} />
   <Container>
-    <Hero pageHero={pageHero} />
-    {
-      localProjects.map((project) => (
-        <div class="project-card border-numfocus-primary flex flex-col justify-between border">
-          <div class="relative h-12 w-full">
-            <div class="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
-              Expand
-              <MoveDiagonal className="inline" />
+    <div class="project-grid mb-64 grid grid-cols-12 gap-8">
+      {
+        localProjects.map((project) => (
+          <div class="project-card border-numfocus-primary flex flex-col justify-between border col-span-4">
+            <div class="relative h-12 w-full">
+              <div class="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
+                Expand
+                <MoveDiagonal className="inline" />
+              </div>
             </div>
+            <div class="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6 min-h-120">
+              <h5 class="pt-8 block w-full">{project.data.name}</h5>
+              <img
+                src={`/${project.filePath?.substring(0, project.filePath.lastIndexOf('/'))}/${project.data.logo}`}
+                alt={project.data.name}
+                class="mx-auto my-0 h-42"
+              />
+              <p class="text-center text-sm">
+                <Markdown.Inline of={project.data.short_description} />
+              </p>
+              {/* <a href={project.website_link}>{project.website_link}</a> */}
+            </div>
+            {project.data.type === 'affiliated' && (
+              <div
+                class={twMerge(
+                  footerDefaultStyle,
+                  `bg-light-teal-50 border-t-numfocus-primary text-numfocus-primary`
+                )}
+              >
+                <Link2 />
+                Affiliated Project
+              </div>
+            )}
+            {project.data.type === 'sponsored' && (
+              <div
+                class={twMerge(
+                  footerDefaultStyle,
+                  `border-t-yellow-700 bg-yellow-50 text-yellow-700`
+                )}
+              >
+                <Star />
+                Sponsored Project
+              </div>
+            )}
           </div>
-          <div class="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6">
-            <h5 class="pt-8">{project.data.name}</h5>
-            <img
-              src={`/${project.filePath?.substring(0, project.filePath.lastIndexOf('/'))}/${project.data.logo}`}
-              alt={project.data.name}
-              class="mx-auto my-0 h-42"
-            />
-            <p class="text-center text-sm">{project.data.short_description}</p>
-            {/* <a href={project.website_link}>{project.website_link}</a> */}
-          </div>
-          {project.data.type === 'affiliated' && (
-            <div
-              class={twMerge(
-                footerDefaultStyle,
-                `bg-light-teal-50 border-t-numfocus-primary text-numfocus-primary`
-              )}
-            >
-              <Link2 />
-              Affiliated Project
-            </div>
-          )}
-          {project.data.type === 'sponsored' && (
-            <div
-              class={twMerge(
-                footerDefaultStyle,
-                `border-t-yellow-700 bg-yellow-50 text-yellow-700`
-              )}
-            >
-              <Star />
-              Sponsored Project
-            </div>
-          )}
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </Container>
 </ProjectsLayout>
