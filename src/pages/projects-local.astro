@@ -1,0 +1,106 @@
+---
+import Container from '@components/Container.astro';
+import ProjectsLayout from '@layouts/ProjectsLayout.astro';
+import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
+import Hero from '@components/Hero.astro';
+import getPageHero from '@utils/getPageHero';
+import { getCollection, getEntry } from 'astro:content';
+
+import type {
+  Feature,
+  Industry,
+  Language,
+  Project,
+  ProjectFilterOptions,
+} from 'env';
+
+import directus from '../../lib/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+import { MoveDiagonal, Link2, Star } from 'lucide-react';
+import { twMerge } from 'tailwind-merge';
+
+const localProjects = await getCollection('projects');
+
+const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
+
+console.log(localProjects);
+
+const global = await directus.request(readSingleton('General'));
+const projects = await directus.request<Project[]>(
+  readItems('projects', {
+    fields: [
+      '*',
+      {
+        languages: ['project_languages_id'],
+        features: ['project_features_id'],
+        industries: ['project_industries_id'],
+      },
+    ],
+  })
+);
+const features = await directus.request<Feature[]>(
+  readItems('project_features')
+);
+const industries = await directus.request<Industry[]>(
+  readItems('project_industries')
+);
+const languages = await directus.request<Language[]>(
+  readItems('project_languages')
+);
+
+const filterOptions = { features, industries, languages };
+
+const pageHero = await getPageHero('projects');
+---
+
+<ProjectsLayout
+  title={`Projects | ${global.site_name} - ${global.site_subheader}`}
+>
+  <Container>
+    <Hero pageHero={pageHero} />
+    {
+      localProjects.map((project) => (
+        <div class="project-card border-numfocus-primary flex flex-col justify-between border">
+          <div class="relative h-12 w-full">
+            <div class="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
+              Expand
+              <MoveDiagonal className="inline" />
+            </div>
+          </div>
+          <div class="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6">
+            <h5 class="pt-8">{project.data.name}</h5>
+            <img
+              src={`/${project.filePath?.substring(0, project.filePath.lastIndexOf('/'))}/${project.data.logo}`}
+              alt={project.data.name}
+              class="mx-auto my-0 h-42"
+            />
+            <p class="text-center text-sm">{project.data.short_description}</p>
+            {/* <a href={project.website_link}>{project.website_link}</a> */}
+          </div>
+          {project.data.type === 'affiliated' && (
+            <div
+              class={twMerge(
+                footerDefaultStyle,
+                `bg-light-teal-50 border-t-numfocus-primary text-numfocus-primary`
+              )}
+            >
+              <Link2 />
+              Affiliated Project
+            </div>
+          )}
+          {project.data.type === 'sponsored' && (
+            <div
+              class={twMerge(
+                footerDefaultStyle,
+                `border-t-yellow-700 bg-yellow-50 text-yellow-700`
+              )}
+            >
+              <Star />
+              Sponsored Project
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </Container>
+</ProjectsLayout>

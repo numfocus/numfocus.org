@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "NumFocus supported projects",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Enter the official name of your project."
+    },
+    "website_link": {
+      "type": "string",
+      "description": "Enter the full URL to your main website."
+    },
+    "contribute_link": {
+      "type": "string",
+      "description": "The place where others can contribute to your code. Enter the full URL."
+    },
+    "logo": {
+      "type": "string",
+      "description": "Enter the exact name of the image file you added to your directory, for example 'myproject.png'"
+    },
+    "support_year_start": {
+      "type": "integer",
+      "description": "Enter the year NumFOCUS support started. If in doubt, NumFOCUS staff can help."
+    },
+    "type": {
+      "type": "string",
+      "description": "Specify whether the project is sponsored or affiliated. If in doubt, NumFOCUS staff can help.",
+      "enum": ["sponsored", "affiliated"]
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Narrative descriptions: you can use markdown for formatting. Make sure you are using a multiline YAML format type (https://yaml-multiline.info)"
+    },
+    "technical_details": {
+      "type": "string",
+      "description": "Narrative descriptions: you can use markdown for formatting. Make sure you are using a multiline YAML format type (https://yaml-multiline.info)"
+    },
+    "events": {
+      "type": "string",
+      "description": "Narrative descriptions: you can use markdown for formatting. Make sure you are using a multiline YAML format type (https://yaml-multiline.info)"
+    },
+    "applications": {
+      "type": "string",
+      "description": "Narrative descriptions: you can use markdown for formatting. Make sure you are using a multiline YAML format type (https://yaml-multiline.info)"
+    },
+    "industries": {
+      "description": "Industry tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Business & Industry Applications",
+          "Higher Education Research & Teaching",
+          "Science & Academic Research",
+          "Government"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "features": {
+      "description": "Feature tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Assistive Technology",
+          "Browser Interactivity",
+          "Data Wrangling",
+          "Modeling",
+          "Visualization",
+          "High Performance Computing",
+          "Big Data",
+          "Statistical Computing",
+          "Numerical Computing",
+          "Data Mining",
+          "Text Processing",
+          "Machine Learning",
+          "Computing Language",
+          "Subject Area Libraries",
+          "Educational Outreach",
+          "Computational thinking",
+          "Version control",
+          "GIS",
+          "Geospatial",
+          "Data Analysis",
+          "Data Visualization"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "languages": {
+      "description": "Language tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Python", "R", "Julia", "JavaScript", "Other", "Multiple"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  }
+}

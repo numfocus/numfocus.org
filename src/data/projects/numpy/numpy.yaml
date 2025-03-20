@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+# the official name of your project.
+name: NumPy
+
+# URL for the project website.
+website_link: http://www.numpy.org/
+
+contribute_link: https://github.com/numpy/numpy/blob/master/.github/CONTRIBUTING.md
+
+# put the exact name of the image file you added to your directory, for example "myproject.png"
+logo: numpy.png
+
+# year when supported started, in YYYY format
+support_year_start: 2015
+
+type: sponsored
+
+# Narrative descriptions: you can use markdown for formatting.
+# Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+# -----------------------
+
+short_description: >-
+  NumPy is a universal data structure that fundamentally enables data analysis in numerical computing
+  by permitting the exchange of data between algorithms. NumPy is a foundational project for the Python
+  scientific computing stack.
+technical_details: >-
+  NumPy is the fundamental package for scientific computing in Python.
+  It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and record arrays),
+  and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O,
+  discrete Fourier transforms, basic linear algebra, basic statistical operations, random number generation and much more.
+
+applications: >-
+  Due to its status as a foundational scientific computing package, NumPy is used in virtually every large company in tech and finance and at every major university. It has been used at the NBA; at Apple which ships NumPy as part of OSX, at Microsoft in Microsoft Azure Machine Learning Studio, and at Intel in the Intel Distribution for Python.
+
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+features:
+  - Big Data
+  - Browser Interactivity
+
+languages:
+  - Python
+  - Other
+
+industries:
+  - Higher Education Research & Teaching

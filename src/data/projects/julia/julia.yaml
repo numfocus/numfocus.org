@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+# the official name of your project.
+name: Julia
+
+# URL for the project website.
+website_link: https://julialang.org/
+
+contribute_link: https://github.com/JuliaLang/julia/blob/master/CONTRIBUTING.md
+
+# put the exact name of the image file you added to your directory, for example "myproject.png"
+logo: julia-logo-300.png
+
+# year when supported started, in YYYY format
+support_year_start: 2014
+
+type: sponsored
+
+# Narrative descriptions: you can use markdown for formatting.
+# Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+# -----------------------
+
+short_description: >-
+  Julia is a fast and user-friendly programming language for high-performance scientific computing.
+technical_details: >-
+  Julia is a high-level, high-performance dynamic programming language for numerical computing. It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library. Julia’s Base library, largely written in Julia itself, also integrates mature, best-of-breed open source C and Fortran libraries for linear algebra, random number generation, signal processing, and string processing.
+
+events: >-
+  ## JuliaCon
+
+  An annual event on all things Julia!
+  [Learn More →](http://juliacon.org/)
+
+applications: >-
+  Julia is used in a wide variety of contexts. Julia has been used by researchers with the FAA as a specification language for the next-generation Airborne Collision Avoidance System, and to examine the effect of the No Child Left Behind act in Wisconsin. Dozens of universities offer courses using Julia for teaching, including MIT, Sciences Po Paris, and Stanford. Lawrence Berkeley National Laboratory, Lawrence Livermore National Laboratory, Los Alamos National Laboratory, National Energy Research Scientific Computing Center, National Renewable Energy Laboratory, and Oak Ridge National Laboratory all have a DOE lab using Julia. Numerous companies make use of Julia in industry, including AOT Energy, Augmedics, Aviva, Berkery Noyes, BestX, Gambit Research, Lincoln Labs, Path BioAnalytics, Tangent Works, Voxel8, Amazon, Apple, BlackRock, BNDES, Capital One, Comcast, Disney, Facebook, Federal Reserve Bank of New York, Ford, IBM, KPMG, Microsoft, NASA, Oracle, and PWC.
+
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+features:
+  - Big Data
+  - Browser Interactivity
+
+languages:
+  - Python
+  - Other
+
+industries:
+  - Higher Education Research & Teaching

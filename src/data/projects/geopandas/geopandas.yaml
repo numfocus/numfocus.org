@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+# the official name of your project.
+name: GeoPandas
+
+# URL for the project website.
+website_link: https://geopandas.org/en/stable/
+
+contribute_link: https://geopandas.org/en/stable/community/contributing.html
+
+# put the exact name of the image file you added to your directory, for example "myproject.png"
+logo: Geopandas-web.png
+
+# year when supported started, in YYYY format
+support_year_start: 2023
+
+type: sponsored
+
+# Narrative descriptions: you can use markdown for formatting.
+# Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+# -----------------------
+
+short_description: >-
+  **GeoPandas** is an open source project to make working with geospatial data in Python easier. It combines the capabilities of pandas and shapely, providing geospatial operations in pandas and a high-level interface to multiple geometries to shapely. GeoPandas enables you to easily do operations in Python that would otherwise require a spatial database such as PostGIS.
+technical_details: >-
+  GeoPandas is an open source project to make working with geospatial data in Python easier. It combines the capabilities of pandas and shapely, providing geospatial operations in pandas and a high-level interface to multiple geometries to shapely. GeoPandas enables you to easily do operations in Python that would otherwise require a spatial database such as PostGIS.
+
+applications: >-
+  Users have used GeoPandas to help analyze geospatial data that represent the built and natural environments, including analyses of street networks, urban morphology, aquatic networks, and many other topics. GeoPandas makes it easier to integrate spatial data from multiple sources using a consistent data model, as well as providing easier access to many geospatial operations to describe and relate geospatial objects. While GeoPandas is focused on tabular-structured geometry data (e.g., points, lines, polygons), GeoPandas is well-integrated into the Python geospatial ecosystem, and thus is part of analytical workflows that enable users to perform analyses on raster / imagery datasets, networks, and other data types with different data structures. This enables GeoPandas to contribute to a very wide diversity of applications.
+
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+features:
+  - GIS
+  - Geospatial
+  - Data Analysis
+  - Data Visualization
+  - Data Wrangling
+
+languages:
+  - Python
+
+industries:
+  - Business & Industry Applications
+  - Science & Academic Research
+  - Higher Education Research & Teaching
+  - Government
