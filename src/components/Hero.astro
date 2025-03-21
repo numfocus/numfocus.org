@@ -13,7 +13,7 @@ const { pageHero: hero } = Astro.props;
 
 <div class="hero-container mx-auto bg-light-teal-50 mb-6">
   <div class="grid grid-cols-12">
-    <div class="col-start-3 col-span-8 py-8">
+    <div class="col-start-2 md:col-start-3 col-span-10 md:col-span-8 py-8">
       <h3 class="mb-4">{hero.headline}</h3>
       <h5 class="mb-4">{hero.subheader}</h5>
       <div class="prose mb-6" set:html={hero.rich_text} />
@@ -26,7 +26,9 @@ const { pageHero: hero } = Astro.props;
         }
       </div>
     </div>
-    <div class="col-span-2 overflow-hidden rounded-l-4xl rounded-r-none">
+    <div
+      class="hidden md:block col-span-2 overflow-hidden rounded-l-4xl rounded-r-none"
+    >
       <img
         src={`${assetBaseUrl}${hero.image}`}
         alt={hero.title}

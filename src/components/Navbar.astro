@@ -1,13 +1,15 @@
 ---
+import { Search } from 'lucide-react';
 import { Icon } from 'astro-icon/components';
 import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
 import type { MenuItem } from 'env';
 import { twMerge } from 'tailwind-merge';
-
+import { NavMenu, HamburgerMenu } from '@components/Atoms/Menus';
 import Container from './Container.astro';
 import Button from '@components/Atoms/Button';
 import type { Button as but } from 'env';
+import CommandPalette from '@components/CommandPalette';
 
 const menu = await directus.request(
   readItems('Menus', {
@@ -32,7 +34,7 @@ const currentPage = Astro.routePattern;
 const button: but = {
   text: 'Donate',
   link: 'donate',
-  variant: 'newsletter',
+  variant: 'donate',
 };
 ---
 
@@ -42,24 +44,16 @@ const button: but = {
       <a class="logo" aria-label="home" href="/">
         <Icon name="logo" class="text-5xl" />
       </a>
-      <nav class="flex justify-around items-center gap-2 w-1/2">
-        {
-          menuItems.map(({ path, title }) => (
-            <a
-              href={path}
-              class={twMerge(
-                'inline-block   font-semi-bold text-teal-600 hover:text-teal-800  transition',
-                `${path}` === currentPage && `text-teal-900`
-              )}
-            >
-              <span>{title}</span>
-            </a>
-          ))
-        }
-      </nav>
+      <NavMenu menuItems={menuItems} currentPage={currentPage} />
+
       <div class="flex gap-4 items-center">
-        <Icon name="search" class="text-3xl" />
+        <CommandPalette client:load />
         <Button button={button} icon="heart" />
+        <HamburgerMenu
+          menuItems={menuItems}
+          currentPage={currentPage}
+          client:load
+        />
       </div>
     </div>
   </Container>

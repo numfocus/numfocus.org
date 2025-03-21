@@ -29,6 +29,8 @@ const variantClasses = {
   muted: 'text-teal-500 border-teal-500 border-2',
   newsletter:
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
+  donate:
+    'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
 };
 
 const iconVariant = {
@@ -49,13 +51,17 @@ export default function Button({ button, icon, arrow }: Props) {
     <a
       href={button.link}
       className={twMerge(
-        'group text-md inline-flex w-full flex-row place-content-between rounded-md px-6 py-2 font-bold transition hover:shadow-sm',
+        'group text-md inline-flex w-full flex-row place-content-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6',
         button && variantClasses[button.variant]
       )}
     >
       <div className="inline-flex flex-row gap-2">
         {icon && iconVariant[icon]}
-        <span>{button.text}</span>
+        <span
+          className={twMerge(button.variant === 'donate' && `hidden md:block`)}
+        >
+          {button.text}
+        </span>
       </div>
 
       {arrow && arrowVariant[arrow]}
