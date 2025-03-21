@@ -17,14 +17,13 @@ export default function ProjectFilters({
   filterOptions,
   activeFilters,
   onChange,
-  onClear
+  onClear,
 }: {
   filterOptions: ProjectFilterOptions;
   activeFilters: ProjectFilterValues;
   onChange: (key: string, items: any) => void;
   onClear: () => void;
 }) {
-
   return (
     <>
       <p className="block min-w-30 whitespace-nowrap">Filter by:</p>
@@ -34,14 +33,16 @@ export default function ProjectFilters({
             label={labels[filterKey as ProjectFilterKey]}
             activeItems={activeFilters[filterKey as ProjectFilterKey]}
             items={items}
-            onChange={(items: ProjectFilterOptionId[]) => onChange(filterKey, items)}
+            onChange={(items: ProjectFilterOptionId[]) =>
+              onChange(filterKey, items)
+            }
           />
         </div>
       ))}
       <button
         className="min-w-32 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
         onClick={onClear}
-        disabled={Object.values(activeFilters).every(f => !f.length)}
+        disabled={Object.values(activeFilters).every((f) => !f.length)}
       >
         Clear all
       </button>

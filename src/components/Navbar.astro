@@ -38,15 +38,14 @@ const button: but = {
 };
 ---
 
-<header class="border border-b-[1px] border-teal-500">
+<header class="border-0 border-b-[1px] border-teal-500">
   <Container>
     <div class="py-8 flex items-center justify-between gap-4">
       <a class="logo" aria-label="home" href="/">
         <Icon name="logo" class="text-5xl" />
       </a>
       <NavMenu menuItems={menuItems} currentPage={currentPage} />
-
-      <div class="flex gap-4 items-center">
+      <div class="inline-flex gap-2 items-center">
         <CommandPalette client:load />
         <Button button={button} icon="heart" />
         <HamburgerMenu

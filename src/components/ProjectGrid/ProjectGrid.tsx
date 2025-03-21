@@ -74,7 +74,7 @@ export default function ProjectGrid({
 
   return (
     <div>
-      <div className="my-4 bg-teal-50 p-4">
+      <div className="my-4 hidden bg-teal-50 p-4 md:block">
         <h5>Search and filter projects</h5>
         <div className="mt-4 flex items-center justify-between gap-4">
           <ProjectTextSearch
@@ -96,7 +96,7 @@ export default function ProjectGrid({
           />
         </div>
       </div>
-      <div className="project-grid mt-12 mb-64 grid grid-cols-12 gap-8">
+      <div className="project-grid mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12">
         {filteredProjects.map((project) => {
           return <ProjectCard project={project} key={project.id} />;
         })}
