@@ -50,10 +50,7 @@ export type PageHero = MetaProps & {
 
 export type ProjectFilterOptionId = number | string;
 
-export type ProjectFilterable = {
-  id: ProjectFilterId;
-  name: string;
-};
+export type ProjectFilterable = string
 
 export type Feature = ProjectFilterable;
 export type Industry = ProjectFilterable;

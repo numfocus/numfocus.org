@@ -5,6 +5,8 @@ import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 import Hero from '@components/Hero.astro';
 import getPageHero from '@utils/getPageHero';
 import { getCollection, getEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+
 import { Markdown } from '@astropub/md';
 import { Image } from 'astro:assets';
 import type {
@@ -22,7 +24,7 @@ import { twMerge } from 'tailwind-merge';
 import projectsSchema from "../data/projects/projects.schema.json";
 
 
-const projects = await getCollection('projects');
+const projects: CollectionEntry<"projects">[] = await getCollection('projects');
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
@@ -44,6 +46,8 @@ const pageHero = await getPageHero('projects');
 >
   <Hero pageHero={pageHero} />
   <Container>
+    <ProjectGrid {filterOptions} {projects} />
+<!-- 
     <div class="project-grid mb-64 grid grid-cols-12 gap-8">
       {
         projects.map((project) => (
@@ -91,6 +95,6 @@ const pageHero = await getPageHero('projects');
           </div>
         ))
       }
-    </div>
+    </div> -->
   </Container>
 </ProjectsLayout>

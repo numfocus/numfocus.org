@@ -11,6 +11,8 @@ import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilters';
+import type { CollectionEntry } from "astro:content";
+
 
 const PROJECT_TYPES = [
   { id: 'sponsored', name: 'Sponsored project' },
@@ -40,7 +42,7 @@ export default function ProjectGrid({
   projects,
 }: {
   filterOptions: ProjectFilterOptions;
-  projects: Project[];
+  projects: CollectionEntry<"projects">[];
 }) {
   const initialFilters = {
     type: [],
