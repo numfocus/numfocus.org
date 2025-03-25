@@ -1,7 +1,4 @@
-'use client';
-
 import {
-  CloseButton,
   Dialog,
   DialogPanel,
   DialogBackdrop,

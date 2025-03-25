@@ -2,7 +2,7 @@ import type { Project } from 'env';
 import Button from '@components/Atoms/Button';
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
-const ListSection = ({ title, items }) => !!items.length && (
+const ListSection = ({ title, items }: { title: string, items: string[] }) => !!items.length && (
 	<div className="">
 		<p className="font-bold pb-2">{title}</p>
 		<ul className="text-light-teal-700">

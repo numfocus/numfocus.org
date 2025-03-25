@@ -47,7 +47,7 @@ export default function ProjectGrid({
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedProject, setExpandedProject] = useState();
+  const [expandedProject, setExpandedProject] = useState<Project>();
 
   const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
 
@@ -70,8 +70,6 @@ export default function ProjectGrid({
   const clearActiveFilters = () => {
     setActiveFilters({ ...initialFilters });
   };
-
-  console.log(expandedProject)
 
   return (
     <div>
