@@ -38,7 +38,7 @@ export default function ProjectTypeFilter({
           />
           <label
             htmlFor={item}
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 whitespace-nowrap"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 whitespace-nowrap capitalize"
           >
             {item}
           </label>

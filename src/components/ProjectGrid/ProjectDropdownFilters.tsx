@@ -23,7 +23,6 @@ export default function ProjectDropdownFilters({
 }) {
   return (
     <>
-      <p className="block min-w-30 whitespace-nowrap">Filter by:</p>
       {Object.entries(filterOptions).map(([filterKey, items]) => (
         <div className="w-full" key={filterKey}>
           <ProjectFilter

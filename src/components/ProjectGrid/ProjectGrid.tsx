@@ -74,10 +74,13 @@ export default function ProjectGrid({
 
   return (
     <div>
-      <div className="my-4 hidden bg-teal-50 p-4 md:block">
+      <div className="my-4 hidden bg-teal-50 p-4 md:block text-sm">
         <div className="max-w-screen-xl w-11/12 mx-auto">
           <h5>Search and filter projects</h5>
           <div className="mt-4 flex items-center justify-between gap-4">
+            <p className="block basis-30 grow-0 shrink-0 font-medium text-gray-900">
+              Search by name:
+            </p>
             <ProjectTextSearch
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
@@ -89,13 +92,16 @@ export default function ProjectGrid({
             />
           </div>
           <div className="mt-4 flex items-center justify-between gap-4">
+            <p className="block basis-30 grow-0 shrink-0 font-medium text-gray-900">
+              Filter by:
+            </p>
             <ProjectDropdownFilters
               filterOptions={dropdownFilterOptions}
               activeFilters={activeFilters}
               onChange={setActiveFilter}
             />
             <button
-              className="min-w-32 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+              className="min-w-32 basis-30 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
               onClick={clearActiveFilters}
               disabled={!searchQuery && Object.values(activeFilters).every((f) => !f.length)}
             >
