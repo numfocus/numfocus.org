@@ -10,7 +10,7 @@ import {
 } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import type { CommandPaletteItem } from 'env';
 
@@ -41,12 +41,14 @@ export default function CommandPalette({ items }: Props) {
 
   const showPalette = () => setOpen(true);
 
-  onkeydown = (event) => {
-    if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
-      event.preventDefault();
-      showPalette();
-    }
-  };
+  useEffect(() => {
+    onkeydown = (event) => {
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        showPalette();
+      }
+    };
+  }, []);
 
   return (
     <>
