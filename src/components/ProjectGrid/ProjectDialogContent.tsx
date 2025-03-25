@@ -5,13 +5,7 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 const ListSection = ({ title, items }: { title: string, items: string[] }) => !!items.length && (
 	<div className="">
 		<p className="font-bold pb-2">{title}</p>
-		<ul className="text-light-teal-700">
-			{items.map(item => (
-				<li key={item} className="inline pr-1">
-					{item}
-				</li>
-			))}
-		</ul>
+		<p className="text-light-teal-700">{items.join(', ')}</p>
 	</div>
 )
 
