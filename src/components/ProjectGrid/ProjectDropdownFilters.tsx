@@ -1,6 +1,5 @@
 import type {
   ProjectFilterKey,
-  ProjectFilterOptionId,
   ProjectFilterOptions,
   ProjectFilterValues,
 } from 'env';
@@ -33,7 +32,7 @@ export default function ProjectFilters({
             label={labels[filterKey as ProjectFilterKey]}
             activeItems={activeFilters[filterKey as ProjectFilterKey]}
             items={items}
-            onChange={(items: ProjectFilterOptionId[]) =>
+            onChange={(items: string[]) =>
               onChange(filterKey, items)
             }
           />

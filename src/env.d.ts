@@ -52,14 +52,13 @@ export type PageHero = MetaProps & {
   button: Button[];
 };
 
-export type ProjectFilterOptionId = number | string;
 
 export type ProjectFilterOptions = {
   [key in ProjectFilterKey]?: string[];
 };
 
 export type ProjectFilterValues = {
-  [key in ProjectFilterKey]: ProjectFilterOptionId[];
+  [key in ProjectFilterKey]: string[];
 };
 
 export type MenuItem = {

@@ -4,7 +4,6 @@ import type {
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
-  ProjectFilterOptionId,
 } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectDropdownFilters from './ProjectDropdownFilters';
@@ -25,7 +24,7 @@ const matchesFilter = (
   return (
     !activeFilterValues.length ||
     projectFilterValues.some((v) =>
-      activeFilterValues.includes(v as ProjectFilterOptionId)
+      activeFilterValues.includes(v)
     )
   );
 };
@@ -47,7 +46,9 @@ export default function ProjectGrid({
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
+  const { types: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
+
+  console.log(typeFilterOptions, dropdownFilterOptions)
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
@@ -79,7 +80,7 @@ export default function ProjectGrid({
             setSearchQuery={setSearchQuery}
           />
           <ProjectTypeFilter
-            filterOptions={typeFilterOptions}
+            filterOptions={typeFilterOptions || []}
             activeFilterValues={activeFilters.type}
             onChange={(items) => setActiveFilter('type', items)}
           />

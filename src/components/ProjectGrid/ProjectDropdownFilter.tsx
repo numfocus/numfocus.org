@@ -1,5 +1,3 @@
-import type { ProjectFilterOptionId } from 'env';
-
 import { Button } from '@lib/components/ui/button';
 import {
   DropdownMenu,
@@ -16,9 +14,9 @@ export default function ProjectFilter({
   onChange,
 }: {
   label: string;
-  activeItems: ProjectFilterOptionId[];
+  activeItems: string[];
   items: string[];
-  onChange: (items: ProjectFilterOptionId[]) => void;
+  onChange: (items: string[]) => void;
 }) {
   const toggleItem = (id: string) => {
     console.log('toggling', activeItems, id);
@@ -43,7 +41,7 @@ export default function ProjectFilter({
       <DropdownMenuContent className="w-full rounded-none">
         {items.map((item) => (
           <DropdownMenuCheckboxItem
-            checked={activeItems.includes(item)}
+            checked={activeItems?.includes(item)}
             onSelect={(e) => { e.preventDefault(); e.stopPropagation(); }}
             onCheckedChange={() => toggleItem(item)}
             key={item}
