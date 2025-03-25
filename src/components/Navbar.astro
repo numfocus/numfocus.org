@@ -10,6 +10,7 @@ import Container from './Container.astro';
 import Button from '@components/Atoms/Button';
 import type { Button as but } from 'env';
 import CommandPalette from '@components/CommandPalette';
+import getCommandPaletteData from '@utils/getCommandPaletteData';
 
 const menu = await directus.request(
   readItems('Menus', {
@@ -36,6 +37,10 @@ const button: but = {
   link: 'donate',
   variant: 'donate',
 };
+
+const commandPaletteData = getCommandPaletteData();
+
+console.log(commandPaletteData);
 ---
 
 <header class="border-0 border-b-[1px] border-teal-500">
@@ -46,7 +51,7 @@ const button: but = {
       </a>
       <NavMenu menuItems={menuItems} currentPage={currentPage} />
       <div class="inline-flex gap-2 items-center">
-        <CommandPalette client:load />
+        <CommandPalette client:load client:only items={commandPaletteData} />
         <Button button={button} icon="heart" />
         <HamburgerMenu
           menuItems={menuItems}

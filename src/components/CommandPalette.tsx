@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Combobox,
   ComboboxInput,
@@ -8,24 +6,22 @@ import {
   Dialog,
   DialogPanel,
   DialogBackdrop,
+  type TabGroupProps,
 } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import type { CommandPaletteItem } from 'env';
 
-const items = [
-  { id: 1, name: 'NumPy', category: 'Projects', url: '#' },
-  { id: 2, name: 'Conda', category: 'Projects', url: '#' },
-  { id: 3, name: 'Julia', category: 'Projects', url: '#' },
-  { id: 4, name: 'Articles of constitution', category: 'Documents', url: '#' },
-  { id: 5, name: 'Lorem Ipsum', category: 'Documents', url: '#' },
-  { id: 6, name: 'Sed ufficia Elit', category: 'Documents', url: '#' },
+interface Props {
+  items: CommandPaletteItem[];
+}
+interface Groups {
+  [index: string]: CommandPaletteItem[];
+}
 
-  // More items...
-];
-
-export default function CommandPalette() {
+export default function CommandPalette({ items }: Props) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -33,22 +29,29 @@ export default function CommandPalette() {
     query === ''
       ? []
       : items.filter((item) => {
-          return item.name.toLowerCase().includes(query.toLowerCase());
+          return item.title.toLowerCase().includes(query.toLowerCase());
         });
 
-  const groups = filteredItems.reduce((groups, item) => {
+  const groups: Groups = filteredItems.reduce((groups, item) => {
     return {
       ...groups,
       [item.category]: [...(groups[item.category] || []), item],
     };
-  }, {});
+  }, {} as Groups);
 
-  const openMe = () => setOpen(true);
+  const showPalette = () => setOpen(true);
+
+  onkeydown = (event) => {
+    if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+      event.preventDefault();
+      showPalette();
+    }
+  };
 
   return (
     <>
-      <div class="cursor-pointer text-teal-600" onClick={openMe}>
-        <Search className="h-8 w-8" />
+      <div className="cursor-pointer text-teal-600" onClick={showPalette}>
+        <Search className="mr-2 h-8 w-8" />
       </div>
       <Dialog
         transition
@@ -70,9 +73,9 @@ export default function CommandPalette() {
             className="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white ring-1 shadow-2xl ring-black/5 transition-all data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
           >
             <Combobox
-              onChange={(item) => {
+              onChange={(item: CommandPaletteItem) => {
                 if (item) {
-                  window.location = item.url;
+                  (window as Window).location = item.path;
                 }
               }}
             >
@@ -124,7 +127,7 @@ export default function CommandPalette() {
                             value={item}
                             className="cursor-default px-4 py-2 select-none data-focus:bg-indigo-600 data-focus:text-white data-focus:outline-hidden"
                           >
-                            {item.name}
+                            {item.title}
                           </ComboboxOption>
                         ))}
                       </ul>

@@ -71,3 +71,10 @@ export type MenuItem = {
   title: string;
   path: string;
 };
+
+export type CommandPaletteItem = {
+  id: string;
+  title: string;
+  path: string;
+  category: string;
+};
