@@ -6,12 +6,12 @@ import type {
   ProjectFilterKey,
   ProjectFilterValues,
   ProjectFilterOptionId,
+  LocalProject,
 } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilters';
-import type { CollectionEntry } from "astro:content";
 
 
 const PROJECT_TYPES = [
@@ -21,13 +21,13 @@ const PROJECT_TYPES = [
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
-  project: Project,
+  project: LocalProject,
   key: ProjectFilterKey
 ) => {
   const activeFilterValues = activeFilters[key];
-  const projectFilterValues = Array.isArray(project[key])
-    ? project[key]?.map((d) => Object.values(d)).flat() || []
-    : [project[key]];
+  const projectFilterValues = Array.isArray(project.data[key])
+    ? project.data[key]
+    : [project.data[key]];
 
   return (
     !activeFilterValues.length ||
@@ -42,7 +42,7 @@ export default function ProjectGrid({
   projects,
 }: {
   filterOptions: ProjectFilterOptions;
-  projects: CollectionEntry<"projects">[];
+  projects: LocalProject[];
 }) {
   const initialFilters = {
     type: [],
@@ -61,8 +61,8 @@ export default function ProjectGrid({
         matchesFilter(activeFilters, project, 'features') &&
         matchesFilter(activeFilters, project, 'industries') &&
         matchesFilter(activeFilters, project, 'languages') &&
-        project.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+        project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ); 
     });
   }, [activeFilters, projects, searchQuery]);
 

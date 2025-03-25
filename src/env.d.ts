@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 // core definitions
 interface MetaProps {
   id: number;
@@ -38,6 +40,8 @@ export type Project = MetaProps & {
   industries?: number[];
   languages?: number[];
 };
+
+export type LocalProject = CollectionEntry<"projects">
 
 export type PageHero = MetaProps & {
   title: string;

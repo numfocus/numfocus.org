@@ -15,6 +15,7 @@ import type {
   Language,
   Project,
   ProjectFilterOptions,
+  LocalProject
 } from 'env';
 
 import directus from '../../lib/directus';
@@ -24,7 +25,7 @@ import { twMerge } from 'tailwind-merge';
 import projectsSchema from "../data/projects/projects.schema.json";
 
 
-const projects: CollectionEntry<"projects">[] = await getCollection('projects');
+const projects: LocalProject[] = await getCollection('projects');
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
@@ -46,7 +47,7 @@ const pageHero = await getPageHero('projects');
 >
   <Hero pageHero={pageHero} />
   <Container>
-    <ProjectGrid {filterOptions} {projects} />
+    <ProjectGrid {filterOptions} {projects} client:load />
 <!-- 
     <div class="project-grid mb-64 grid grid-cols-12 gap-8">
       {
