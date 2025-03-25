@@ -1,14 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import {
   Dialog,
   DialogPanel,
   DialogBackdrop,
 } from '@headlessui/react';
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
-import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
 import type { Project } from 'env';
+import ProjectDialogContent from './ProjectDialogContent';
 
 export default function ProjectDialog({
   project,
@@ -22,9 +20,7 @@ export default function ProjectDialog({
       transition
       className="relative z-10"
       open={!!project}
-      onClose={() => {
-        console.log('closing')
-      }}
+      onClose={onClose}
     >
       <DialogBackdrop
         transition
@@ -36,7 +32,7 @@ export default function ProjectDialog({
           transition
           className="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white ring-1 shadow-2xl ring-black/5 transition-all data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
         >
-          TEST
+          {!!project && <ProjectDialogContent project={project} />}
         </DialogPanel>
       </div>
     </Dialog>
