@@ -19,12 +19,14 @@ import directus from '../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import { MoveDiagonal, Link2, Star } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+import projectsSchema from "../data/projects/projects.schema.json";
+
 
 const localProjects = await getCollection('projects');
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
-console.log(localProjects);
+console.log(projectsSchema.properties.features.items.enum);
 
 const global = await directus.request(readSingleton('General'));
 const projects = await directus.request<Project[]>(
@@ -39,15 +41,8 @@ const projects = await directus.request<Project[]>(
     ],
   })
 );
-const features = await directus.request<Feature[]>(
-  readItems('project_features')
-);
-const industries = await directus.request<Industry[]>(
-  readItems('project_industries')
-);
-const languages = await directus.request<Language[]>(
-  readItems('project_languages')
-);
+
+const { features, industries, languages } = projectsSchema.properties;
 
 const filterOptions = { features, industries, languages };
 
