@@ -19,8 +19,6 @@ export type Button = {
   variant: 'primary' | 'secondary' | 'muted' | 'newsletter' | 'donate';
 };
 
-type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
-
 // exported types
 
 export type CaseStudy = MetaProps & {
@@ -28,20 +26,9 @@ export type CaseStudy = MetaProps & {
   content: string;
 };
 
-export type Project = MetaProps & {
-  name: string;
-  long_description?: string;
-  short_description?: string;
-  type: string;
-  website_link?: string;
-  logo?: string;
-  support_year_start?: number;
-  features?: number[];
-  industries?: number[];
-  languages?: number[];
-};
+type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
-export type LocalProject = CollectionEntry<"projects">
+export type Project = CollectionEntry<"projects">
 
 export type PageHero = MetaProps & {
   title: string;
@@ -51,7 +38,6 @@ export type PageHero = MetaProps & {
   image: string;
   button: Button[];
 };
-
 
 export type ProjectFilterOptions = {
   [key in ProjectFilterKey]?: string[];

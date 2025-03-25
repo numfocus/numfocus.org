@@ -8,10 +8,10 @@ import { getCollection } from 'astro:content';
 import { readSingleton } from '@directus/sdk';
 
 import directus from '../../lib/directus';
-import type { LocalProject } from 'env';
+import type { Project } from 'env';
 import projectsSchema from "../data/projects/projects.schema.json";
 
-const projects: LocalProject[] = await getCollection('projects');
+const projects: Project[] = await getCollection('projects'); 
 
 const global = await directus.request(readSingleton('General'));
 

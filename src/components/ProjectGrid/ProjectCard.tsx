@@ -1,4 +1,4 @@
-import type { LocalProject } from 'env';
+import type { Project } from 'env';
 import { MoveDiagonal, Link2, Star } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
 
@@ -6,7 +6,7 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
-export default function ProjectCard({ project }: { project: LocalProject }) {
+export default function ProjectCard({ project }: { project: Project }) {
   const { name, logo, short_description, type } = project.data
   return (
     <div className="project-card border-numfocus-primary col-span-4 flex flex-col justify-between border">
