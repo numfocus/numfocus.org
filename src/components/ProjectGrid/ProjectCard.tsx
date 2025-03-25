@@ -6,12 +6,15 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, onExpand }: { project: Project, onExpand: () => void }) {
   const { name, logo, short_description, type } = project.data
   return (
     <div className="project-card border-numfocus-primary col-span-4 flex flex-col justify-between border">
       <div className="relative h-12 w-full">
-        <div className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
+        <div 
+          className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700"
+          onClick={onExpand}
+        >
           Expand
           <MoveDiagonal className="inline" />
         </div>

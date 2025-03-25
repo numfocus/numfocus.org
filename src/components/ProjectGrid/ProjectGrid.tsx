@@ -5,7 +5,9 @@ import type {
   ProjectFilterKey,
   ProjectFilterValues,
 } from 'env';
+
 import ProjectCard from './ProjectCard';
+import ProjectDialog from './ProjectDialog';
 import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilter';
@@ -45,9 +47,9 @@ export default function ProjectGrid({
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedProject, setExpandedProject] = useState();
 
   const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
-
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
@@ -68,6 +70,8 @@ export default function ProjectGrid({
   const clearActiveFilters = () => {
     setActiveFilters({ ...initialFilters });
   };
+
+  console.log(expandedProject)
 
   return (
     <div>
@@ -97,9 +101,19 @@ export default function ProjectGrid({
       </div>
       <div className="mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
         {filteredProjects.map((project) => {
-          return <ProjectCard project={project} key={project.id} />;
+          return (
+            <ProjectCard 
+              project={project}
+              key={project.id}
+              onExpand={() => setExpandedProject(project)}
+            />
+          );
         })}
       </div>
+      <ProjectDialog
+        project={expandedProject}
+        onClose={() => setExpandedProject(undefined)}
+      />
     </div>
   );
 }
