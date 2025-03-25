@@ -18,8 +18,8 @@ const ListSection = ({ title, items }) => !!items.length && (
 export default function ProjectDialogContent({ project }: { project: Project }) {
 	const { features, name, industries, languages, logo, short_description, support_year_start, website_link } = project.data
 	return (
-		<div className="grid grid-cols-12 px-4 py-5 gap-4 sm:p-6 text-sm">
-			<div className="col-span-7 border-r-2 border-orange-500">
+		<div className="grid grid-cols-12 px-5 py-6 gap-4 sm:p-6 text-sm">
+			<div className="col-span-7 border-r-1 border-orange-500">
 				<img
 					src={`${assetBaseUrl}${logo.src}`}
 					alt={name}
@@ -45,14 +45,12 @@ export default function ProjectDialogContent({ project }: { project: Project }) 
 					<Button
 						button={{
 							text: `Visit ${name} website`,
-							link: "website_link",
+							link: website_link,
 							variant: "minimal"
 						}}
 						arrow="right"
 					/>
 				)}
-				{/* <Button arrow="right">{`Contribute to ${name}`}</Button> */}
-
 				<Button
 					icon="heart"
 					button={{
