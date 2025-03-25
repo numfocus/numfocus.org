@@ -10,7 +10,6 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'numfocus-dev.netlify.app',
   vite: {
     plugins: [tailwindcss()],
   },
