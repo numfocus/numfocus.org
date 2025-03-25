@@ -12,7 +12,7 @@ const labels = {
   industries: 'Industry',
 };
 
-export default function ProjectFilters({
+export default function ProjectDropdownFilters({
   filterOptions,
   activeFilters,
   onChange,

@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: { project: LocalProject }) {
       <div className="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6">
         <h5 className="pt-8">{name}</h5>
         <img
-          src={`${assetBaseUrl}${logo}`}
+          src={`${assetBaseUrl}${logo.src}`}
           alt={name}
           className="mx-auto my-0 h-42"
         />

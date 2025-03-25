@@ -46,9 +46,8 @@ export default function ProjectGrid({
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { types: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
+  const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
 
-  console.log(typeFilterOptions, dropdownFilterOptions)
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {

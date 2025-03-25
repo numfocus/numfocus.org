@@ -1,7 +1,7 @@
 import { Checkbox } from "@lib/components/ui/checkbox"
 
 
-export default function ProjectFilters({
+export default function ProjectTypeFilter({
   filterOptions,
   activeFilterValues,
   onChange,
@@ -29,7 +29,7 @@ export default function ProjectFilters({
         Show:
       </label>
       {filterOptions.map((item) => (
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2" key={item}>
           <Checkbox
             id={item}
             checked={!activeFilterValues.length || activeFilterValues.includes(item)}

@@ -7,7 +7,7 @@ import {
 } from '@lib/components/ui/dropdown-menu';
 import { ArrowDown } from 'lucide-react';
 
-export default function ProjectFilter({
+export default function ProjectDropdownFilter({
   label,
   activeItems,
   items,
@@ -19,7 +19,6 @@ export default function ProjectFilter({
   onChange: (items: string[]) => void;
 }) {
   const toggleItem = (id: string) => {
-    console.log('toggling', activeItems, id);
     if (activeItems.includes(id)) {
       onChange(activeItems.filter((item) => item !== id));
     } else {
