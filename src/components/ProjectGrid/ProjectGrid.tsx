@@ -7,15 +7,10 @@ import type {
   ProjectFilterOptionId,
 } from 'env';
 import ProjectCard from './ProjectCard';
-import ProjectFilters from './ProjectFilters';
+import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
-import ProjectTypeFilter from './ProjectTypeFilters';
+import ProjectTypeFilter from './ProjectTypeFilter';
 
-
-const PROJECT_TYPES = [
-  { id: 'sponsored', name: 'Sponsored project' },
-  { id: 'affiliated', name: 'Affiliated project' },
-];
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
@@ -52,6 +47,8 @@ export default function ProjectGrid({
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
+
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
       return (
@@ -82,14 +79,14 @@ export default function ProjectGrid({
             setSearchQuery={setSearchQuery}
           />
           <ProjectTypeFilter
-            filterOptions={PROJECT_TYPES}
+            filterOptions={typeFilterOptions}
             activeFilterValues={activeFilters.type}
             onChange={(items) => setActiveFilter('type', items)}
           />
         </div>
         <div className="mt-4 flex items-center justify-between gap-4">
-          <ProjectFilters
-            filterOptions={filterOptions}
+          <ProjectDropdownFilters
+            filterOptions={dropdownFilterOptions}
             activeFilters={activeFilters}
             onChange={setActiveFilter}
             onClear={clearActiveFilters}

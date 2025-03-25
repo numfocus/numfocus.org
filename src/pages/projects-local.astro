@@ -26,12 +26,13 @@ const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-c
 
 const global = await directus.request(readSingleton('General'));
 
-const { features, industries, languages } = projectsSchema.properties;
+const { features, industries, languages, type } = projectsSchema.properties;
 
 const filterOptions = { 
   features: features.items.enum,
   industries: industries.items.enum,
-  languages: languages.items.enum
+  languages: languages.items.enum,
+  types: type.enum,
 };
 
 const pageHero = await getPageHero('projects');
