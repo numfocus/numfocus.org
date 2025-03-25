@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type {
-  LocalProject,
+  Project,
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
@@ -13,7 +13,7 @@ import ProjectTypeFilter from './ProjectTypeFilter';
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
-  project: LocalProject,
+  project: Project,
   key: ProjectFilterKey
 ) => {
   const activeFilterValues = activeFilters[key];
@@ -34,7 +34,7 @@ export default function ProjectGrid({
   projects,
 }: {
   filterOptions: ProjectFilterOptions;
-  projects: LocalProject[];
+  projects: Project[];
 }) {
   const initialFilters = {
     type: [],
@@ -72,28 +72,30 @@ export default function ProjectGrid({
   return (
     <div>
       <div className="my-4 hidden bg-teal-50 p-4 md:block">
-        <h5>Search and filter projects</h5>
-        <div className="mt-4 flex items-center justify-between gap-4">
-          <ProjectTextSearch
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-          <ProjectTypeFilter
-            filterOptions={typeFilterOptions || []}
-            activeFilterValues={activeFilters.type}
-            onChange={(items) => setActiveFilter('type', items)}
-          />
-        </div>
-        <div className="mt-4 flex items-center justify-between gap-4">
-          <ProjectDropdownFilters
-            filterOptions={dropdownFilterOptions}
-            activeFilters={activeFilters}
-            onChange={setActiveFilter}
-            onClear={clearActiveFilters}
-          />
+        <div className="max-w-screen-xl w-11/12 mx-auto">
+          <h5>Search and filter projects</h5>
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <ProjectTextSearch
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+            <ProjectTypeFilter
+              filterOptions={typeFilterOptions || []}
+              activeFilterValues={activeFilters.type}
+              onChange={(items) => setActiveFilter('type', items)}
+            />
+          </div>
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <ProjectDropdownFilters
+              filterOptions={dropdownFilterOptions}
+              activeFilters={activeFilters}
+              onChange={setActiveFilter}
+              onClear={clearActiveFilters}
+            />
+          </div>
         </div>
       </div>
-      <div className="project-grid mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12">
+      <div className="mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
         {filteredProjects.map((project) => {
           return <ProjectCard project={project} key={project.id} />;
         })}
