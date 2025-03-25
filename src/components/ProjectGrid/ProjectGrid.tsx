@@ -69,6 +69,7 @@ export default function ProjectGrid({
 
   const clearActiveFilters = () => {
     setActiveFilters({ ...initialFilters });
+    setSearchQuery('');
   };
 
   return (
@@ -92,8 +93,14 @@ export default function ProjectGrid({
               filterOptions={dropdownFilterOptions}
               activeFilters={activeFilters}
               onChange={setActiveFilter}
-              onClear={clearActiveFilters}
             />
+            <button
+              className="min-w-32 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+              onClick={clearActiveFilters}
+              disabled={!searchQuery && Object.values(activeFilters).every((f) => !f.length)}
+            >
+              Clear all
+            </button>
           </div>
         </div>
       </div>
