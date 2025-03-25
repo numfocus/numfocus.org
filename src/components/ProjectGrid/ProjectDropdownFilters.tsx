@@ -4,7 +4,7 @@ import type {
   ProjectFilterOptions,
   ProjectFilterValues,
 } from 'env';
-import ProjectFilter from './ProjectFilter';
+import ProjectFilter from './ProjectDropdownFilter';
 
 const labels = {
   type: 'Type',

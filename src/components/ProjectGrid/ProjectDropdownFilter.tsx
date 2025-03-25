@@ -1,4 +1,4 @@
-import type { ProjectFilterable, ProjectFilterOptionId } from 'env';
+import type { ProjectFilterOptionId } from 'env';
 
 import { Button } from '@lib/components/ui/button';
 import {
@@ -17,10 +17,10 @@ export default function ProjectFilter({
 }: {
   label: string;
   activeItems: ProjectFilterOptionId[];
-  items: ProjectFilterable[];
+  items: string[];
   onChange: (items: ProjectFilterOptionId[]) => void;
 }) {
-  const toggleItem = (id: number) => {
+  const toggleItem = (id: string) => {
     console.log('toggling', activeItems, id);
     if (activeItems.includes(id)) {
       onChange(activeItems.filter((item) => item !== id));
@@ -41,14 +41,14 @@ export default function ProjectFilter({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-full rounded-none">
-        {items.map(({ id, name }) => (
+        {items.map((item) => (
           <DropdownMenuCheckboxItem
-            checked={activeItems.includes(id)}
+            checked={activeItems.includes(item)}
             onSelect={(e) => { e.preventDefault(); e.stopPropagation(); }}
-            onCheckedChange={() => toggleItem(id)}
-            key={id}
+            onCheckedChange={() => toggleItem(item)}
+            key={item}
           >
-            {name}
+            {item}
           </DropdownMenuCheckboxItem>
         ))}
       </DropdownMenuContent>
