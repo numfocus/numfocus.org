@@ -1,5 +1,4 @@
 import type {
-  ProjectFilterable,
   ProjectFilterOptionId,
 } from 'env';
 import { Checkbox } from "@lib/components/ui/checkbox"
@@ -10,7 +9,7 @@ export default function ProjectFilters({
   activeFilterValues,
   onChange,
 }: {
-  filterOptions: ProjectFilterable[];
+  filterOptions: string[];
   activeFilterValues: ProjectFilterOptionId[];
   onChange: (items: any) => void;
 }) {

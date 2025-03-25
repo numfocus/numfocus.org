@@ -1,12 +1,10 @@
 import { useMemo, useState } from 'react';
 import type {
-  Project,
-  ProjectFilterable,
+  LocalProject,
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
   ProjectFilterOptionId,
-  LocalProject,
 } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';

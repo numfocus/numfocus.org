@@ -54,14 +54,8 @@ export type PageHero = MetaProps & {
 
 export type ProjectFilterOptionId = number | string;
 
-export type ProjectFilterable = string
-
-export type Feature = ProjectFilterable;
-export type Industry = ProjectFilterable;
-export type Language = ProjectFilterable;
-
 export type ProjectFilterOptions = {
-  [key in ProjectFilterKey]?: ProjectFilterable[];
+  [key in ProjectFilterKey]?: string[];
 };
 
 export type ProjectFilterValues = {
