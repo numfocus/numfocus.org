@@ -26,7 +26,6 @@ const localProjects = await getCollection('projects');
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
-console.log(projectsSchema.properties.features.items.enum);
 
 const global = await directus.request(readSingleton('General'));
 const projects = await directus.request<Project[]>(
@@ -44,7 +43,11 @@ const projects = await directus.request<Project[]>(
 
 const { features, industries, languages } = projectsSchema.properties;
 
-const filterOptions = { features, industries, languages };
+const filterOptions = { 
+  features: features.items.enum,
+  industries: industries.items.enum,
+  languages: languages.items.enum
+};
 
 const pageHero = await getPageHero('projects');
 ---
