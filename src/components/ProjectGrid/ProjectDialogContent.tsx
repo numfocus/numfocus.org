@@ -20,11 +20,13 @@ export default function ProjectDialogContent({ project }: { project: Project }) 
 	return (
 		<div className="grid grid-cols-12 px-5 py-6 gap-4 sm:p-6 text-sm">
 			<div className="col-span-7 border-r-1 border-orange-500">
-				<img
-					src={`${assetBaseUrl}${logo.src}`}
-					alt={name}
-					className="h-42 w-42 float-right"
-				/>
+				{!!logo?.src && (
+					<img
+						src={`${assetBaseUrl}${logo.src}`}
+						alt={name}
+						className="h-42 w-42 p-4 float-right"
+					/>
+				)}
 				<div>
 					{/* <div className="flex flex-col align-top gap-4"> */}
 						<h5 className="pb-4">{name}</h5>
