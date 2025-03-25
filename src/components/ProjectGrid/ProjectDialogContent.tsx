@@ -1,12 +1,13 @@
 import type { Project } from 'env';
+import Button from '@components/Atoms/Button';
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const ListSection = ({ title, items }) => !!items.length && (
-	<div className="pb-4">
+	<div className="">
 		<p className="font-bold pb-2">{title}</p>
-		<ul>
+		<ul className="text-light-teal-700">
 			{items.map(item => (
-				<li className="inline">
+				<li key={item} className="inline pr-1">
 					{item}
 				</li>
 			))}
@@ -35,14 +36,31 @@ export default function ProjectDialogContent({ project }: { project: Project }) 
 					{/* </div> */}
 				</div>
 			</div>
-			<div className="col-span-5 flex flex-col col">
+			<div className="col-span-5 flex flex-col col gap-5">
 				<ListSection title="Languages" items={languages} />
 				<ListSection title="Industries" items={industries} />
 				<ListSection title="Features" items={features} />
 
-				{!!website_link && <a href={website_link}>{`Visit ${name} website`}</a>}
-				<a href={"#"}>{`Contribute to ${name}`}</a>
-				
+				{!!website_link && (
+					<Button
+						button={{
+							text: `Visit ${name} website`,
+							link: "website_link",
+							variant: "minimal"
+						}}
+						arrow="right"
+					/>
+				)}
+				{/* <Button arrow="right">{`Contribute to ${name}`}</Button> */}
+
+				<Button
+					icon="heart"
+					button={{
+						text: `Donate to ${name}`,
+						link: "#",
+						variant: "donate"
+					}}
+				/>
 			</div>
 		</div>
 	);
