@@ -1,6 +1,5 @@
 import type { Project } from 'env';
 import Button from '@components/Atoms/Button';
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const ListSection = ({ title, items }: { title: string, items: string[] }) => !!items.length && (
 	<div className="">
@@ -16,20 +15,18 @@ export default function ProjectDialogContent({ project }: { project: Project }) 
 			<div className="col-span-7 border-r-1 border-orange-500">
 				{!!logo?.src && (
 					<img
-						src={`${assetBaseUrl}${logo.src}`}
+						src={logo.src}
 						alt={name}
 						className="h-42 w-42 p-4 float-right"
 					/>
 				)}
 				<div>
-					{/* <div className="flex flex-col align-top gap-4"> */}
-						<h5 className="pb-4">{name}</h5>
-						{support_year_start && (
-							<p className="italic pb-4">{`NumFOCUS Sponsored Project since ${support_year_start}`}</p>
-						)}
-						
-						<p className="text-sm pb-4">{short_description}</p>					
-					{/* </div> */}
+					<h5 className="pb-4">{name}</h5>
+					{support_year_start && (
+						<p className="italic pb-4">{`NumFOCUS Sponsored Project since ${support_year_start}`}</p>
+					)}
+					
+					<p className="text-sm pb-4">{short_description}</p>					
 				</div>
 			</div>
 			<div className="col-span-5 flex flex-col col gap-5">

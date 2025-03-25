@@ -2,8 +2,6 @@ import type { Project } from 'env';
 import { MoveDiagonal, Link2, Star } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
 
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
-
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
 export default function ProjectCard({
