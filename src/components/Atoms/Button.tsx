@@ -31,6 +31,7 @@ const variantClasses = {
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
   donate:
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
+  minimal: 'px-2 md:px-2 text-blue-500'
 };
 
 const iconVariant = {

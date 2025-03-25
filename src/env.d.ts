@@ -16,7 +16,7 @@ interface MetaProps {
 export type Button = {
   text: string;
   link: string;
-  variant: 'primary' | 'secondary' | 'muted' | 'newsletter' | 'donate';
+  variant: 'primary' | 'secondary' | 'minimal' | 'muted' | 'newsletter' | 'donate';
 };
 
 // exported types
