@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 // core definitions
 interface MetaProps {
   id: number;
@@ -17,8 +19,6 @@ export type Button = {
   variant: 'primary' | 'secondary' | 'muted' | 'newsletter' | 'donate';
 };
 
-type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
-
 // exported types
 
 export type CaseStudy = MetaProps & {
@@ -26,18 +26,9 @@ export type CaseStudy = MetaProps & {
   content: string;
 };
 
-export type Project = MetaProps & {
-  name: string;
-  long_description?: string;
-  short_description?: string;
-  type: string;
-  website_link?: string;
-  logo?: string;
-  support_year_start?: number;
-  features?: number[];
-  industries?: number[];
-  languages?: number[];
-};
+type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
+
+export type Project = CollectionEntry<"projects">
 
 export type PageHero = MetaProps & {
   title: string;
@@ -48,23 +39,12 @@ export type PageHero = MetaProps & {
   button: Button[];
 };
 
-export type ProjectFilterOptionId = number | string;
-
-export type ProjectFilterable = {
-  id: ProjectFilterId;
-  name: string;
-};
-
-export type Feature = ProjectFilterable;
-export type Industry = ProjectFilterable;
-export type Language = ProjectFilterable;
-
 export type ProjectFilterOptions = {
-  [key in ProjectFilterKey]?: ProjectFilterable[];
+  [key in ProjectFilterKey]?: string[];
 };
 
 export type ProjectFilterValues = {
-  [key in ProjectFilterKey]: ProjectFilterOptionId[];
+  [key in ProjectFilterKey]: string[];
 };
 
 export type MenuItem = {

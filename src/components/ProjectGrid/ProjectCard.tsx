@@ -7,6 +7,7 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { name, logo, short_description, type } = project.data
   return (
     <div className="project-card border-numfocus-primary col-span-4 flex flex-col justify-between border">
       <div className="relative h-12 w-full">
@@ -16,16 +17,16 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
       <div className="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6">
-        <h5 className="pt-8">{project.name}</h5>
+        <h5 className="pt-8">{name}</h5>
         <img
-          src={`${assetBaseUrl}${project.logo}`}
-          alt={project.name}
+          src={`${assetBaseUrl}${logo.src}`}
+          alt={name}
           className="mx-auto my-0 h-42"
         />
-        <p className="text-center text-sm">{project.short_description}</p>
-        {/* <a href={project.website_link}>{project.website_link}</a> */}
+        <p className="text-center text-sm">{short_description}</p>
+        {/* <a href={website_link}>{website_link}</a> */}
       </div>
-      {project.type === 'affiliated' && (
+      {type === 'affiliated' && (
         <div
           className={twMerge(
             footerDefaultStyle,
@@ -36,7 +37,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           Affiliated Project
         </div>
       )}
-      {project.type === 'sponsored' && (
+      {type === 'sponsored' && (
         <div
           className={twMerge(
             footerDefaultStyle,

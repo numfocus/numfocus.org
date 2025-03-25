@@ -1,5 +1,3 @@
-import type { ProjectFilterable, ProjectFilterOptionId } from 'env';
-
 import { Button } from '@lib/components/ui/button';
 import {
   DropdownMenu,
@@ -9,19 +7,18 @@ import {
 } from '@lib/components/ui/dropdown-menu';
 import { ArrowDown } from 'lucide-react';
 
-export default function ProjectFilter({
+export default function ProjectDropdownFilter({
   label,
   activeItems,
   items,
   onChange,
 }: {
   label: string;
-  activeItems: ProjectFilterOptionId[];
-  items: ProjectFilterable[];
-  onChange: (items: ProjectFilterOptionId[]) => void;
+  activeItems: string[];
+  items: string[];
+  onChange: (items: string[]) => void;
 }) {
-  const toggleItem = (id: number) => {
-    console.log('toggling', activeItems, id);
+  const toggleItem = (id: string) => {
     if (activeItems.includes(id)) {
       onChange(activeItems.filter((item) => item !== id));
     } else {
@@ -41,14 +38,14 @@ export default function ProjectFilter({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-full rounded-none">
-        {items.map(({ id, name }) => (
+        {items.map((item) => (
           <DropdownMenuCheckboxItem
-            checked={activeItems.includes(id)}
+            checked={activeItems?.includes(item)}
             onSelect={(e) => { e.preventDefault(); e.stopPropagation(); }}
-            onCheckedChange={() => toggleItem(id)}
-            key={id}
+            onCheckedChange={() => toggleItem(item)}
+            key={item}
           >
-            {name}
+            {item}
           </DropdownMenuCheckboxItem>
         ))}
       </DropdownMenuContent>

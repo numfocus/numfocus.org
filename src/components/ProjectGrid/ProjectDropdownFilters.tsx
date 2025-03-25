@@ -1,10 +1,9 @@
 import type {
   ProjectFilterKey,
-  ProjectFilterOptionId,
   ProjectFilterOptions,
   ProjectFilterValues,
 } from 'env';
-import ProjectFilter from './ProjectFilter';
+import ProjectFilter from './ProjectDropdownFilter';
 
 const labels = {
   type: 'Type',
@@ -13,7 +12,7 @@ const labels = {
   industries: 'Industry',
 };
 
-export default function ProjectFilters({
+export default function ProjectDropdownFilters({
   filterOptions,
   activeFilters,
   onChange,
@@ -33,7 +32,7 @@ export default function ProjectFilters({
             label={labels[filterKey as ProjectFilterKey]}
             activeItems={activeFilters[filterKey as ProjectFilterKey]}
             items={items}
-            onChange={(items: ProjectFilterOptionId[]) =>
+            onChange={(items: string[]) =>
               onChange(filterKey, items)
             }
           />

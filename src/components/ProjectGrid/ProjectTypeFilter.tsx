@@ -1,23 +1,19 @@
-import type {
-  ProjectFilterable,
-  ProjectFilterOptionId,
-} from 'env';
 import { Checkbox } from "@lib/components/ui/checkbox"
 
 
-export default function ProjectFilters({
+export default function ProjectTypeFilter({
   filterOptions,
   activeFilterValues,
   onChange,
 }: {
-  filterOptions: ProjectFilterable[];
-  activeFilterValues: ProjectFilterOptionId[];
+  filterOptions: string[];
+  activeFilterValues: string[];
   onChange: (items: any) => void;
 }) {
   
-  const toggleItem = (id: number) => {
+  const toggleItem = (id: string) => {
     if (!activeFilterValues.length) {
-      onChange(filterOptions.map(({ id }) => id).filter((item) => item !== id))
+      onChange(filterOptions.map((id) => id).filter((item) => item !== id))
     } else if (activeFilterValues.includes(id)) {
       onChange(activeFilterValues.filter((item) => item !== id));
     } else {
@@ -32,19 +28,19 @@ export default function ProjectFilters({
       >
         Show:
       </label>
-      {filterOptions.map(({ id, name }) => (
-        <div className="flex items-center space-x-2">
+      {filterOptions.map((item) => (
+        <div className="flex items-center space-x-2" key={item}>
           <Checkbox
-            id={id}
-            checked={!activeFilterValues.length || activeFilterValues.includes(id)}
-            onCheckedChange={() => toggleItem(id)}
+            id={item}
+            checked={!activeFilterValues.length || activeFilterValues.includes(item)}
+            onCheckedChange={() => toggleItem(item)}
             className='w-5 h-5 data-[state=checked]:bg-blue-500 rounded-none border-none'
           />
           <label
-            htmlFor={id}
+            htmlFor={item}
             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 whitespace-nowrap"
           >
-            {name}
+            {item}
           </label>
         </div>
       ))}

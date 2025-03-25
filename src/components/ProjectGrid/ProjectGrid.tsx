@@ -1,36 +1,30 @@
 import { useMemo, useState } from 'react';
 import type {
-  Project,
-  ProjectFilterable,
+  LocalProject,
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
-  ProjectFilterOptionId,
 } from 'env';
 import ProjectCard from './ProjectCard';
-import ProjectFilters from './ProjectFilters';
+import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
-import ProjectTypeFilter from './ProjectTypeFilters';
+import ProjectTypeFilter from './ProjectTypeFilter';
 
-const PROJECT_TYPES = [
-  { id: 'sponsored', name: 'Sponsored project' },
-  { id: 'affiliated', name: 'Affiliated project' },
-];
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
-  project: Project,
+  project: LocalProject,
   key: ProjectFilterKey
 ) => {
   const activeFilterValues = activeFilters[key];
-  const projectFilterValues = Array.isArray(project[key])
-    ? project[key]?.map((d) => Object.values(d)).flat() || []
-    : [project[key]];
+  const projectFilterValues = Array.isArray(project.data[key])
+    ? project.data[key]
+    : [project.data[key]];
 
   return (
     !activeFilterValues.length ||
     projectFilterValues.some((v) =>
-      activeFilterValues.includes(v as ProjectFilterOptionId)
+      activeFilterValues.includes(v)
     )
   );
 };
@@ -40,7 +34,7 @@ export default function ProjectGrid({
   projects,
 }: {
   filterOptions: ProjectFilterOptions;
-  projects: Project[];
+  projects: LocalProject[];
 }) {
   const initialFilters = {
     type: [],
@@ -52,6 +46,9 @@ export default function ProjectGrid({
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
+
+
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
       return (
@@ -59,8 +56,8 @@ export default function ProjectGrid({
         matchesFilter(activeFilters, project, 'features') &&
         matchesFilter(activeFilters, project, 'industries') &&
         matchesFilter(activeFilters, project, 'languages') &&
-        project.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+        project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ); 
     });
   }, [activeFilters, projects, searchQuery]);
 
@@ -82,14 +79,14 @@ export default function ProjectGrid({
             setSearchQuery={setSearchQuery}
           />
           <ProjectTypeFilter
-            filterOptions={PROJECT_TYPES}
+            filterOptions={typeFilterOptions || []}
             activeFilterValues={activeFilters.type}
             onChange={(items) => setActiveFilter('type', items)}
           />
         </div>
         <div className="mt-4 flex items-center justify-between gap-4">
-          <ProjectFilters
-            filterOptions={filterOptions}
+          <ProjectDropdownFilters
+            filterOptions={dropdownFilterOptions}
             activeFilters={activeFilters}
             onChange={setActiveFilter}
             onClear={clearActiveFilters}

@@ -4,53 +4,33 @@ import ProjectsLayout from '@layouts/ProjectsLayout.astro';
 import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 import Hero from '@components/Hero.astro';
 import getPageHero from '@utils/getPageHero';
-
-import type {
-  Feature,
-  Industry,
-  Language,
-  Project,
-  ProjectFilterOptions,
-} from 'env';
+import { getCollection } from 'astro:content';
+import { readSingleton } from '@directus/sdk';
 
 import directus from '../../lib/directus';
-import { readItems, readSingleton } from '@directus/sdk';
+import type { Project } from 'env';
+import projectsSchema from "../data/projects/projects.schema.json";
+
+const projects: Project[] = await getCollection('projects'); 
 
 const global = await directus.request(readSingleton('General'));
-const projects = await directus.request<Project[]>(
-  readItems('projects', {
-    fields: [
-      '*',
-      {
-        languages: ['project_languages_id'],
-        features: ['project_features_id'],
-        industries: ['project_industries_id'],
-      },
-    ],
-  })
-);
-const features = await directus.request<Feature[]>(
-  readItems('project_features')
-);
-const industries = await directus.request<Industry[]>(
-  readItems('project_industries')
-);
-const languages = await directus.request<Language[]>(
-  readItems('project_languages')
-);
 
-const filterOptions = { features, industries, languages };
+const { features, industries, languages, type } = projectsSchema.properties;
 
-const slug = Astro.routePattern.substring(1);
+const filterOptions = { 
+  features: features.items.enum,
+  industries: industries.items.enum,
+  languages: languages.items.enum,
+  type: type.enum,
+};
 
-const pageHero = await getPageHero(slug);
+const pageHero = await getPageHero('projects');
 ---
 
 <ProjectsLayout
   title={`Projects | ${global.site_name} - ${global.site_subheader}`}
 >
   <Hero pageHero={pageHero} />
-
   <Container>
     <ProjectGrid {filterOptions} {projects} client:load />
   </Container>
