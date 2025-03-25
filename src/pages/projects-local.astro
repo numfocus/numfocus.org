@@ -22,24 +22,11 @@ import { twMerge } from 'tailwind-merge';
 import projectsSchema from "../data/projects/projects.schema.json";
 
 
-const localProjects = await getCollection('projects');
+const projects = await getCollection('projects');
 
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
-
 const global = await directus.request(readSingleton('General'));
-const projects = await directus.request<Project[]>(
-  readItems('projects', {
-    fields: [
-      '*',
-      {
-        languages: ['project_languages_id'],
-        features: ['project_features_id'],
-        industries: ['project_industries_id'],
-      },
-    ],
-  })
-);
 
 const { features, industries, languages } = projectsSchema.properties;
 
@@ -59,7 +46,7 @@ const pageHero = await getPageHero('projects');
   <Container>
     <div class="project-grid mb-64 grid grid-cols-12 gap-8">
       {
-        localProjects.map((project) => (
+        projects.map((project) => (
           <div class="project-card border-numfocus-primary flex flex-col justify-between border col-span-4">
             <div class="relative h-12 w-full">
               <div class="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700">
