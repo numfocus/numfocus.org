@@ -1,7 +1,7 @@
 import type { Project } from 'env';
 import { MoveDiagonal, Link2, Star } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
-
+import Markdown from 'react-markdown';
 const footerDefaultStyle = `flex h-12 w-full place-items-center border justify-center gap-2`;
 
 export default function ProjectCard({
@@ -26,7 +26,9 @@ export default function ProjectCard({
       <div className="flex flex-wrap overflow-hidden px-4 py-5 sm:p-6">
         <h5 className="pt-8">{name}</h5>
         <img src={logo.src} alt={name} className="mx-auto my-0 h-42" />
-        <p className="text-center text-sm">{short_description}</p>
+        <div className="text-center text-sm">
+          <Markdown>{short_description}</Markdown>
+        </div>
         {/* <a href={website_link}>{website_link}</a> */}
       </div>
       {type === 'affiliated' && (
