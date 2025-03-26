@@ -5,6 +5,10 @@ import slugify from 'slugify';
 
 import type { CommandPaletteItem } from 'env';
 
+const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
+
+const directusAssetUrl = `${DIRECTUS_URL}assets/`;
+
 // we create our main object as qn empty array
 let allData: CommandPaletteItem[] = [];
 
@@ -18,6 +22,8 @@ for (let project of projects) {
     title: project.data.name,
     path: slugify(project.data.name, { lower: true }),
     category: project.collection,
+    description: project.data.short_description,
+    img: project.data.logo.src,
   };
   allData.push(item);
 }
@@ -25,7 +31,7 @@ for (let project of projects) {
 // we pull all pages
 const pages = await directus.request(
   readItems('pages', {
-    fields: ['id', 'title', 'slug'],
+    fields: ['id', 'title', 'slug', 'headline', 'image'],
   })
 );
 
@@ -35,7 +41,9 @@ for (let page of pages) {
     id: page.id,
     title: page.title,
     path: page.slug,
+    description: page.headline,
     category: 'Pages',
+    img: `${directusAssetUrl}/${page.image}?width=100`,
   };
   allData.push(item);
 }

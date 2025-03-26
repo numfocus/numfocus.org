@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
 // core definitions
 interface MetaProps {
@@ -16,7 +16,13 @@ interface MetaProps {
 export type Button = {
   text: string;
   link: string;
-  variant: 'primary' | 'secondary' | 'minimal' | 'muted' | 'newsletter' | 'donate';
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'minimal'
+    | 'muted'
+    | 'newsletter'
+    | 'donate';
 };
 
 // exported types
@@ -28,7 +34,7 @@ export type CaseStudy = MetaProps & {
 
 type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
-export type Project = CollectionEntry<"projects">
+export type Project = CollectionEntry<'projects'>;
 
 export type PageHero = MetaProps & {
   title: string;
@@ -57,4 +63,6 @@ export type CommandPaletteItem = {
   title: string;
   path: string;
   category: string;
+  description?: string;
+  img?: string;
 };

@@ -8,6 +8,7 @@ import {
   DialogBackdrop,
   type TabGroupProps,
 } from '@headlessui/react';
+import { ArrowRightIcon, Book, BookOpenTextIcon } from 'lucide-react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
@@ -119,17 +120,47 @@ export default function CommandPalette({ items }: Props) {
                 >
                   {Object.entries(groups).map(([category, items]) => (
                     <li key={category}>
-                      <h2 className="bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-900">
-                        {category}
-                      </h2>
+                      <div className="mx-2 my-1.5 border-0 border-b-[1px] border-blue-400 py-1">
+                        <h2 className="text-sm font-semibold text-gray-900 capitalize">
+                          {category}
+                        </h2>
+                      </div>
                       <ul className="mt-2 text-sm text-gray-800">
                         {items.map((item) => (
                           <ComboboxOption
                             key={item.id}
                             value={item}
-                            className="cursor-default px-4 py-2 select-none data-focus:bg-indigo-600 data-focus:text-white data-focus:outline-hidden"
+                            className="cursor-default px-4 py-2 select-none data-focus:bg-blue-50 data-focus:outline-hidden"
                           >
-                            {item.title}
+                            {({ focus }) => (
+                              <div className="flex items-center justify-between gap-4">
+                                {item.img ? (
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    height={50}
+                                    width={50}
+                                  />
+                                ) : (
+                                  <BookOpenTextIcon className="h-4 w-4 text-blue-400" />
+                                )}
+                                <div className="w-full">
+                                  <p className="block font-bold">
+                                    {item.title}
+                                  </p>
+                                  {item.description && (
+                                    <p className="line-clamp-2 text-xs">
+                                      {item.description}
+                                    </p>
+                                  )}
+                                </div>
+                                <div className="h-4 w-4">
+                                  {focus && (
+                                    <ArrowRightIcon className="h-4 w-4 text-blue-400" />
+                                  )}
+                                </div>
+                              </div>
+                            )}
                           </ComboboxOption>
                         ))}
                       </ul>
