@@ -15,7 +15,7 @@ export default defineConfig({
   },
 
   adapter: netlify(),
-  integrations: [icon(), react(), markdownIntegration()],
+  integrations: [icon({ iconDir: "src/assets/icons" }), react(), markdownIntegration()],
   markdown: {
     remarkPlugins: [],
     rehypePlugins: [],

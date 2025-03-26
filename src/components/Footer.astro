@@ -1,11 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { twMerge } from 'tailwind-merge';
+import { Image } from 'astro:assets';
 
 import Container from '@components/Container.astro'
 import getMenuItems from '@utils/getMenuItems';
 import { FooterMenu } from '@components/Atoms/Menus';
 import SubscribeForm from '@components/SubscribeForm'
+import footerBadge from '@assets/images/guidestar_badge.svg';
+
 
 const menuItems = await getMenuItems('Navigation');
 
@@ -32,6 +35,8 @@ const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
             </div>
           </div>
         </div>
+        <Image src={footerBadge} alt="Guidestar badge" />
+
         <div class="flex flex-row grow-1 justify-between gap-3 flex-nowrap">
           <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 1" />
           <FooterMenu menuItems={[...menuItems].reverse().splice(1)} menuTitle="Footer Menu 2" />
