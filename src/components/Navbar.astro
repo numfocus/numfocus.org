@@ -11,24 +11,9 @@ import Button from '@components/Atoms/Button';
 import type { Button as but } from 'env';
 import CommandPalette from '@components/CommandPalette';
 import getCommandPaletteData from '@utils/getCommandPaletteData';
+import getMenuItems from '@utils/getMenuItems';
 
-const menu = await directus.request(
-  readItems('Menus', {
-    filter: { menu_name: { _eq: 'Navigation' } },
-    fields: ['id', 'menu_name', 'item.item.*'],
-  })
-);
-const itemsFromMenu = menu[0].item;
-
-const menuItems: MenuItem[] = [];
-
-for (const item of itemsFromMenu) {
-  const singleItem: MenuItem = {
-    title: item.item.title,
-    path: `/${item.item.slug}`,
-  };
-  menuItems.push(singleItem);
-}
+const menuItems = await getMenuItems('Navigation');
 
 const currentPage = Astro.routePattern;
 
