@@ -1,84 +1,12 @@
 ---
-import type { ComponentProps } from 'astro/types';
-
 import { Icon } from 'astro-icon/components'
+
 import Container from '@components/Container.astro'
-import FooterMenu from '@components/FooterMenu.astro'
+import getMenuItems from '@utils/getMenuItems';
 
-const menus: Array<ComponentProps<typeof FooterMenu>> = [
-    {
-        menuTitle: "Footer Menu",
-        menuItems: [
-            {
-                title: 'Lorem',
-                path: '/',
-            },
-            {
-                title: 'Ipsum',
-                path: '/',
-            },
-            {
-                title: 'Dolor',
-                path: '/',
-            },
-            {
-                title: 'Lorem',
-                path: '/',
-            },
-            {
-                title: 'Ipsum',
-                path: '/',
-            },
-            {
-                title: 'Dolor',
-                path: '/',
-            }
-        ]
-    },
-    {
-        menuTitle: "Footer Menu 2",
-        menuItems: [
-            {
-                title: 'Lorem',
-                path: '/',
-            },
-            {
-                title: 'Ipsum',
-                path: '/',
-            },
-            {
-                title: 'Dolor',
-                path: '/',
-            },
-        ]
-    },
-    {
-        menuTitle: "Footer Menu 3",
-        menuItems: [
-            {
-                title: 'Lorem',
-                path: '/',
-            },
-            {
-                title: 'Ipsum',
-                path: '/',
-            },
-            {
-                title: 'Dolor',
-                path: '/',
-            },
-            {
-                title: 'Lorem',
-                path: '/',
-            },
-            {
-                title: 'Ipsum',
-                path: '/',
-            },
-        ]
-    },
-]
+const menuItems = await getMenuItems('Navigation');
 
+console.log(menuItems)
 ---
 
 <footer class="bg-purple-500 py-8 text-white">
@@ -99,11 +27,11 @@ const menus: Array<ComponentProps<typeof FooterMenu>> = [
                     </div>
                 </div>
             </div>
-            {
+            <!-- {
                 menus.map((menuProps) => (
                     <FooterMenu {...menuProps} />
                 ))
-            }
+            } -->
         </div>
     </Container>  
 </footer>
