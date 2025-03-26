@@ -1,20 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { twMerge } from 'tailwind-merge';
 
 import Container from '@components/Container.astro'
 import getMenuItems from '@utils/getMenuItems';
 import { FooterMenu } from '@components/Atoms/Menus';
-import Button from '@components/Atoms/Button';
-import type { Button as TButton } from 'env';
-import { twMerge } from 'tailwind-merge';
+import SubscribeForm from '@components/SubscribeForm'
 
 const menuItems = await getMenuItems('Navigation');
-
-const button: TButton = {
-  text: 'Subscribe',
-  link: '#',
-  variant: 'primary',
-};
 
 const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
 
@@ -50,11 +43,7 @@ const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
           <p class="font-bold">NumFOCUS Newsletter</p>
           <p>Subscribe to our mailing list for monthly updates on the latest news and events.</p>
         </div>
-        <input></input>
-        <div>
-          <Button button={button} icon="envelope" arrow="right" />
-        </div>
-
+        <SubscribeForm client:load />
       </div>
       <div class={twMerge(footerSectionStyle, "border-none")}>
         <p>© 2024 NumFOCUS, org. All rights reserved. License info etc.</p>
