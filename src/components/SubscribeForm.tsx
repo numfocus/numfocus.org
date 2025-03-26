@@ -1,4 +1,3 @@
-import { Input } from '@lib/components/ui/input';
 import Button from '@components/Atoms/Button';
 import type { Button as TButton } from 'env';
 
@@ -21,7 +20,7 @@ export default function SubscribeForm() {
         type="email"
         name="email"
         placeholder="Enter your Email"
-        className="rounded-sm border-1 py-2 px-2 md:px-6 bg-purple-500 hover:bg-purple-400 transition"
+        className="rounded-sm border-1 py-2 px-2 md:px-6 bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 transition focus:ouline-0"
       />
       <Button 
         button={button}
