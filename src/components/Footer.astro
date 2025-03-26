@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components'
 
 import Container from '@components/Container.astro'
 import getMenuItems from '@utils/getMenuItems';
+import { FooterMenu } from '@components/Atoms/Menus';
+
 
 const menuItems = await getMenuItems('Navigation');
 
@@ -27,11 +29,9 @@ console.log(menuItems)
                     </div>
                 </div>
             </div>
-            <!-- {
-                menus.map((menuProps) => (
-                    <FooterMenu {...menuProps} />
-                ))
-            } -->
+            <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 1" />
+            <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 2" />
+            <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 3" />
         </div>
     </Container>  
 </footer>
