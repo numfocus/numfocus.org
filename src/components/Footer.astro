@@ -12,20 +12,20 @@ import footerBadge from '@assets/images/guidestar_badge.svg';
 
 const menuItems = await getMenuItems('Navigation');
 
-const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
+const footerSectionStyle = "flex flex-row justify-between gap-12 border-b-1 pb-8"
 
 ---
 
-<footer class="bg-purple-500 py-8 text-white">
+<footer class="bg-purple-500 py-12 text-white">
   <Container>
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-10">
       <div class={twMerge(footerSectionStyle, " flex-col md:flex-row")}>
         <div>
           <a class="logo" aria-label="home" href="/">
             <Icon name="logo_white" class="text-5xl" />
           </a>
-          <div class="flex py-8">
-            <div>
+          <div class="flex py-10 gap-8">
+            <div class="font-normal">
               <p class="font-bold">Contact Us</p>
               <p>NumFOCUS</p>
               <p>P.O. Box 90596</p>
@@ -33,11 +33,11 @@ const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
               <p>info@numfocus.org</p>
               <p>+1 (512) 831-2870</p>
             </div>
+            <Image src={footerBadge} alt="Guidestar badge" />
           </div>
         </div>
-        <Image src={footerBadge} alt="Guidestar badge" />
 
-        <div class="flex flex-row grow-1 justify-between gap-3 flex-nowrap">
+        <div class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap">
           <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 1" />
           <FooterMenu menuItems={[...menuItems].reverse().splice(1)} menuTitle="Footer Menu 2" />
           <FooterMenu menuItems={[...menuItems].splice(2)} menuTitle="Footer Menu 3" />
@@ -45,7 +45,7 @@ const footerSectionStyle = "flex flex-row justify-between gap-8 border-b-1 pb-8"
       </div>
       <div class={twMerge(footerSectionStyle)}>
         <div>
-          <p class="font-bold">NumFOCUS Newsletter</p>
+          <p class="font-bold pb-4">NumFOCUS Newsletter</p>
           <p>Subscribe to our mailing list for monthly updates on the latest news and events.</p>
         </div>
         <SubscribeForm client:load />

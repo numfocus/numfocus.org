@@ -15,7 +15,7 @@ export default function SubscribeForm() {
     console.log("Subscribing", email);
   }
   return (
-    <form action={onSubmit} className="flex gap-2">
+    <form action={onSubmit} className="flex gap-2 items-center">
       <input
         type="email"
         name="email"
