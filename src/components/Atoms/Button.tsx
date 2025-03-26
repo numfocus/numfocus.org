@@ -12,6 +12,7 @@ interface Props {
   button: Button;
   icon?: 'heart' | 'envelope';
   arrow?: 'right' | 'left' | 'down';
+  type: 'link' | 'submit';
 }
 
 const variantClassesOld = {
@@ -47,15 +48,14 @@ const arrowVariant = {
   down: <ArrowDownIcon className="ml-12" />,
 };
 
-export default function Button({ button, icon, arrow }: Props) {
-  return (
-    <a
-      href={button.link}
-      className={twMerge(
-        'group text-md inline-flex w-full flex-row place-content-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6',
-        button && variantClasses[button.variant]
-      )}
-    >
+export default function Button({ button, icon, arrow, type = 'link' }: Props) {
+  const buttonStyle = twMerge(
+    'group text-md inline-flex w-full flex-row place-content-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6 cursor-pointer',
+    button && variantClasses[button.variant]
+  );
+
+  const buttonContent = (
+    <>
       <div className="inline-flex flex-row gap-2">
         {icon && iconVariant[icon]}
         <span
@@ -64,8 +64,21 @@ export default function Button({ button, icon, arrow }: Props) {
           {button.text}
         </span>
       </div>
-
       {arrow && arrowVariant[arrow]}
-    </a>
+    </>
   );
+
+  if (type === 'link') {
+    return (
+      <a href={button.link} className={buttonStyle}>
+        {buttonContent}
+      </a>
+    );
+  } else {
+    return (
+      <button className={buttonStyle} type={type}>
+        {buttonContent}
+      </button>
+    );
+  }
 }
