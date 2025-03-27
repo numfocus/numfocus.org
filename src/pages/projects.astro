@@ -31,5 +31,5 @@ const pageHero = await getPageHero('projects');
   title={`Projects | ${global.site_name} - ${global.site_subheader}`}
 >
   <Hero pageHero={pageHero} />
-  <ProjectGrid {filterOptions} {projects} client:load />
+  <ProjectGrid {filterOptions} {projects} client:only />
 </ProjectsLayout>

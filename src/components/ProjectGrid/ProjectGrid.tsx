@@ -12,6 +12,15 @@ import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilter';
 
+const fetchProjectFromURL = (projects: Project[]) => {
+  if (!window) return;
+
+  const projectId = new URLSearchParams(window.location.search).get('project');
+
+  if (projectId) {
+    return projects.find(p => p.id === projectId)
+  }
+}
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
@@ -31,6 +40,7 @@ const matchesFilter = (
   );
 };
 
+
 export default function ProjectGrid({
   filterOptions,
   projects,
@@ -44,10 +54,11 @@ export default function ProjectGrid({
     industries: [],
     languages: [],
   };
+  
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedProject, setExpandedProject] = useState<Project>();
+  const [expandedProject, setExpandedProject] = useState<Project>(fetchProjectFromURL(projects));
 
   const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
 
