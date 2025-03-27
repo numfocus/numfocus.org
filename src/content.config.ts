@@ -7,6 +7,8 @@ const projects = defineCollection({
   loader: glob({
     pattern: ['*/*.yaml'],
     base: 'src/data/projects',
+    // generate id from project directory name
+    generateId: ({ entry }) => entry.replace(/\/[^/]+$/, ''),
   }),
   schema: ({ image }) =>
     z.object({
