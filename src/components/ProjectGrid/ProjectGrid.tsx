@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type {
   Project,
   ProjectFilterOptions,
@@ -11,13 +11,12 @@ import ProjectDialog from './ProjectDialog';
 import ProjectFilters, { initialFilters } from './ProjectFilters';
 
 const fetchProjectFromURL = (projects: Project[]) => {
-  // if (!window) return;
+  const url = new URL((window as Window).location.href);
+  const projectId = url.searchParams.get('project');
 
-  // const projectId = new URLSearchParams(window.location.search).get('project');
-
-  // if (projectId) {
-  //   return projects.find(p => p.id === projectId)
-  // }
+  if (projectId) {
+    return projects.find(p => p.id === projectId)
+  }
 }
 
 const matchesFilter = (
@@ -48,8 +47,14 @@ export default function ProjectGrid({
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  // const [expandedProject, setExpandedProject] = useState<Project | undefined>(fetchProjectFromURL(projects));
   const [expandedProject, setExpandedProject] = useState<Project | undefined>();
+  
+  useEffect(() => {
+    const initialExpandedProject = fetchProjectFromURL(projects)
+    if (initialExpandedProject) {
+      setExpandedProject(initialExpandedProject);
+    }
+  }, []);
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project, i) => {
@@ -64,15 +69,14 @@ export default function ProjectGrid({
   }, [activeFilters, projects, searchQuery]);
 
   const toggleProjectDialog = (project?: Project) => {
-    // if (window) {
-    //   const url = new URL(window.location.href);
-    //   if (!!project) {
-    //     url.searchParams.set('project', project.id);
-    //   } else {
-    //     url.searchParams.delete('project')
-    //   }
-    //   window.history.replaceState(null, '', url.toString());
-    // }
+    const url = new URL((window as Window).location.href);
+    if (project) {
+      url.searchParams.set('project', project.id);
+    } else {
+      url.searchParams.delete('project')
+    }
+    (window as Window).history.replaceState(null, '', url.toString());
+
     setExpandedProject(project)
   }
 
