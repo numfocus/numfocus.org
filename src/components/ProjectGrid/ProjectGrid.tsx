@@ -12,6 +12,9 @@ import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilter';
 
+const filterContainerStyle = "mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4"
+const filterLabelStyle = "block md:basis-30 grow-0 shrink-0 font-medium text-gray-900"
+
 const fetchProjectFromURL = (projects: Project[]) => {
   if (!window) return;
 
@@ -96,27 +99,34 @@ export default function ProjectGrid({
     setExpandedProject(project)
   }
 
+  const TypeFilter = () => (
+    <ProjectTypeFilter
+      filterOptions={typeFilterOptions || []}
+      activeFilterValues={activeFilters.type}
+      onChange={(items) => setActiveFilter('type', items)}
+    />
+  );
+
   return (
     <div>
-      <div className="my-4 hidden bg-teal-50 p-4 md:block text-sm">
+      <div className="my-4 px-4 py-6 bg-teal-50 text-sm">
         <div className="max-w-screen-xl w-11/12 mx-auto">
           <h5>Search and filter projects</h5>
-          <div className="mt-4 flex items-center justify-between gap-4">
-            <p className="block basis-30 grow-0 shrink-0 font-medium text-gray-900">
+          <div className={filterContainerStyle}>
+            <p className={filterLabelStyle}>
               Search by name:
             </p>
             <ProjectTextSearch
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
             />
-            <ProjectTypeFilter
-              filterOptions={typeFilterOptions || []}
-              activeFilterValues={activeFilters.type}
-              onChange={(items) => setActiveFilter('type', items)}
-            />
+            {/* Desktop */}
+            <div className="hidden md:block">
+              <TypeFilter />
+            </div>
           </div>
-          <div className="mt-4 flex items-center justify-between gap-4">
-            <p className="block basis-30 grow-0 shrink-0 font-medium text-gray-900">
+          <div className={filterContainerStyle}>
+            <p className={filterLabelStyle}>
               Filter by:
             </p>
             <ProjectDropdownFilters
@@ -124,8 +134,12 @@ export default function ProjectGrid({
               activeFilters={activeFilters}
               onChange={setActiveFilter}
             />
+            {/* Mobile */}
+            <div className="md:hidden py-2">
+              <TypeFilter />
+            </div>
             <button
-              className="min-w-32 basis-30 text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+              className="min-w-32 md:basis-30 text-left md:text-center text-blue-500 hover:text-blue-700 disabled:text-gray-500"
               onClick={clearActiveFilters}
               disabled={!searchQuery && Object.values(activeFilters).every((f) => !f.length)}
             >
