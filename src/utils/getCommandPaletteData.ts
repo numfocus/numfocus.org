@@ -1,7 +1,6 @@
 import { getCollection } from 'astro:content';
 import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
-import slugify from 'slugify';
 
 import type { CommandPaletteItem } from 'env';
 
