@@ -13,6 +13,8 @@ import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
+import Markdown from 'react-markdown';
+
 import type { CommandPaletteItem } from 'env';
 
 interface Props {
@@ -149,9 +151,9 @@ export default function CommandPalette({ items }: Props) {
                                     {item.title}
                                   </p>
                                   {item.description && (
-                                    <p className="line-clamp-2 text-xs">
-                                      {item.description}
-                                    </p>
+                                    <div className="line-clamp-2 text-xs">
+                                      <Markdown>{item.description}</Markdown>
+                                    </div>
                                   )}
                                 </div>
                                 <div className="h-4 w-4">

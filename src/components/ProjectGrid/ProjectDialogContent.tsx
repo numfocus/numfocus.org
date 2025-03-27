@@ -1,3 +1,5 @@
+import Markdown from 'react-markdown';
+
 import type { Project } from 'env';
 import Button from '@components/Atoms/Button';
 
@@ -25,8 +27,9 @@ export default function ProjectDialogContent({ project }: { project: Project }) 
 					{support_year_start && (
 						<p className="italic pb-4">{`NumFOCUS Sponsored Project since ${support_year_start}`}</p>
 					)}
-					
-					<p className="text-sm pb-4">{short_description}</p>					
+					<div className="text-sm pb-4">
+						<Markdown>{short_description}</Markdown>
+					</div>
 				</div>
 			</div>
 			<div className="col-span-5 flex flex-col col gap-5">
