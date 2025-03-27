@@ -58,7 +58,7 @@ export default function ProjectGrid({
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedProject, setExpandedProject] = useState<Project>(fetchProjectFromURL(projects));
+  const [expandedProject, setExpandedProject] = useState<Project | undefined>(fetchProjectFromURL(projects));
 
   const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
 
@@ -82,6 +82,19 @@ export default function ProjectGrid({
     setActiveFilters({ ...initialFilters });
     setSearchQuery('');
   };
+
+  const toggleProjectDialog = (project?: Project) => {
+    if (window) {
+      const url = new URL(window.location.href);
+      if (!!project) {
+        url.searchParams.set('project', project.id);
+      } else {
+        url.searchParams.delete('project')
+      }
+      window.history.replaceState(null, '', url.toString());
+    }
+    setExpandedProject(project)
+  }
 
   return (
     <div>
@@ -127,14 +140,14 @@ export default function ProjectGrid({
             <ProjectCard 
               project={project}
               key={project.id}
-              onExpand={() => setExpandedProject(project)}
+              onExpand={() => toggleProjectDialog(project)}
             />
           );
         })}
       </div>
       <ProjectDialog
         project={expandedProject}
-        onClose={() => setExpandedProject(undefined)}
+        onClose={() => toggleProjectDialog()}
       />
     </div>
   );
