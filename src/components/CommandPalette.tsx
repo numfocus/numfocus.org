@@ -14,6 +14,7 @@ import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import Markdown from 'react-markdown';
+import { navigate } from 'astro:transitions/client';
 
 import type { CommandPaletteItem } from 'env';
 
@@ -80,7 +81,7 @@ export default function CommandPalette({ items }: Props) {
             <Combobox
               onChange={(item: CommandPaletteItem) => {
                 if (item) {
-                  (window as Window).location = item.path;
+                  navigate(item.path)
                 }
               }}
             >
