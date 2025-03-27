@@ -81,7 +81,7 @@ export default function CommandPalette({ items }: Props) {
             <Combobox
               onChange={(item: CommandPaletteItem) => {
                 if (item) {
-                  navigate(item.path)
+                  (window as Window).location = item.path;
                 }
               }}
             >
