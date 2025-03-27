@@ -20,7 +20,7 @@ for (let project of projects) {
   const item: CommandPaletteItem = {
     id: project.id,
     title: project.data.name,
-    path: slugify(project.data.name, { lower: true }),
+    path: `projects?project=${project.id}`,
     category: project.collection,
     description: project.data.short_description,
     img: project.data.logo.src,

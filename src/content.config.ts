@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import slugify from 'slugify';
 
 const projects = defineCollection({
   // `loader` can accept an array of multiple patterns as well as string patterns
@@ -8,7 +9,7 @@ const projects = defineCollection({
     pattern: ['*/*.yaml'],
     base: 'src/data/projects',
     // generate id from project directory name
-    generateId: ({ entry }) => entry.replace(/\/[^/]+$/, ''),
+    generateId: ({ entry }) => slugify(entry.replace(/\/[^/]+$/, ''), { lower: true }),
   }),
   schema: ({ image }) =>
     z.object({
