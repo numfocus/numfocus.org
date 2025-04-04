@@ -1,6 +1,19 @@
 import React, { type JSX, type ReactElement } from 'react';
 import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
+import BlockHero from './BlockHero';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+function prettyJson(rawCode: any) {
+  const code = JSON.stringify(rawCode, null, 2);
+  return (
+    <div className="max-h-48 w-full overflow-y-scroll text-xs">
+      <SyntaxHighlighter wrapLines wrapLongLines language="json">
+        {code}
+      </SyntaxHighlighter>
+    </div>
+  );
+}
 
 const Heading: NodeHandler = (props) => {
   return <h4>{props.children}</h4>;
@@ -29,14 +42,17 @@ const TextRender: NodeHandler = (props: NodeProps) => {
           let data = mark.attrs.data;
           RelationMark =
             mark.attrs.collection === 'block_testimonial' ? (
-              <Testimonial
-                id={data.id}
-                author={data.author}
-                content={data.content}
-                image={data.image}
-              />
+              <>
+                <Testimonial
+                  id={data.id}
+                  author={data.author}
+                  content={data.content}
+                  image={data.image.id}
+                />
+                {prettyJson(data)}
+              </>
             ) : (
-              <code>{JSON.stringify(mark, null, 4)}</code>
+              prettyJson(mark)
             );
           break;
         case 'bold':
@@ -123,19 +139,35 @@ const Image: NodeHandler = (props) => {
 const RelationBlock: NodeHandler = (props) => {
   const attrs = props.node.attrs;
   const data = attrs?.data;
+
   if (attrs && attrs.collection === 'block_testimonial') {
     return (
-      <Testimonial
-        id={data.id}
-        author={data.author}
-        content={data.content}
-        image={data.image}
-      />
+      <>
+        <Testimonial
+          id={data.id}
+          author={data.author}
+          content={data.content}
+          image={data.image.id}
+        />
+        {prettyJson(data)}
+      </>
+    );
+  } else if (attrs && attrs.collection === 'block_hero') {
+    return (
+      <>
+        <BlockHero
+          headline={data.heading}
+          rich_text={data.content}
+          image={data.image.id}
+        />
+        {prettyJson(data)}
+      </>
     );
   } else {
     return (
       <div className="w-full border border-red-300">
-        {attrs && attrs.collection}
+        {attrs && <h4>{attrs.collection}</h4>}
+        <div>{prettyJson(attrs?.data)}</div>
       </div>
     );
   }
