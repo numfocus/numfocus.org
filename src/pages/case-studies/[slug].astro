@@ -18,7 +18,7 @@ export async function getStaticPaths() {
         'body_content',
         'editor_nodes.id',
         'editor_nodes.collection',
-        { editor_nodes: ['*.*.*'] },
+        { editor_nodes: ['*.*.*.*'] },
       ],
     })
   );
@@ -38,12 +38,10 @@ const page = Astro.props;
 ---
 
 <SingleArticleLayout title={page.title}>
-  <Container>
-    <h1>{page.title}</h1>
-    <TipTapRender handlers={BodyContent} node={page.body_content} />
+  <h1>{page.title}</h1>
+  <TipTapRender handlers={BodyContent} node={page.body_content} />
 
-    <div>
-      <Button>Return to Case Studies</Button>
-    </div>
-  </Container>
+  <div>
+    <Button>Return to Case Studies</Button>
+  </div>
 </SingleArticleLayout>

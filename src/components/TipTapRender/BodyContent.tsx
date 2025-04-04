@@ -2,7 +2,10 @@ import React, { type JSX, type ReactElement } from 'react';
 import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
 import BlockHero from './BlockHero';
+import BlockProjects from './BlockProjects';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import type { BlockProject } from 'env';
+import Container from '@components/Atoms/Container';
 
 function prettyJson(rawCode: any) {
   const code = JSON.stringify(rawCode, null, 2);
@@ -16,7 +19,11 @@ function prettyJson(rawCode: any) {
 }
 
 const Heading: NodeHandler = (props) => {
-  return <h4>{props.children}</h4>;
+  return (
+    <Container>
+      <h4 className="mt-8 mb-4">{props.children}</h4>
+    </Container>
+  );
 };
 
 const TextRender: NodeHandler = (props: NodeProps) => {
@@ -117,9 +124,11 @@ const Paragraph: NodeHandler = (props) => {
   }
 
   return (
-    <>
-      <p style={style}>{props.children}</p>
-    </>
+    <Container>
+      <p className="my-4" style={style}>
+        {props.children}
+      </p>
+    </Container>
   );
 };
 
@@ -163,6 +172,24 @@ const RelationBlock: NodeHandler = (props) => {
         {prettyJson(data)}
       </>
     );
+  } else if (attrs && attrs.collection === 'block_projects_group') {
+    let blockProjects: BlockProject[] = [];
+    const projects = data.projects;
+    projects.map((project: any) => {
+      console.log(project);
+      let blockProject: BlockProject = {
+        name: project.projects_id.name,
+        logo: project.projects_id.logo,
+        slug: project.projects_id.slug,
+        description: project.projects_id.short_description,
+      };
+      blockProjects.push(blockProject);
+    });
+
+    // data.projects[0].forEach((project: any) => {
+
+    // });
+    return <BlockProjects heading={data.heading} projects={blockProjects} />;
   } else {
     return (
       <div className="w-full border border-red-300">

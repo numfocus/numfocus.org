@@ -66,3 +66,10 @@ export type CommandPaletteItem = {
   description?: string;
   img?: string;
 };
+
+export type BlockProject = {
+  name: string;
+  logo: string;
+  slug: string;
+  description: string;
+};
