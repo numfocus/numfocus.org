@@ -4,10 +4,31 @@ import Button from '@components/Button.astro';
 import directus from '../../../lib/directus';
 import { readItems } from '@directus/sdk';
 import Container from '@components/Container.astro';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import BodyContent from '@components/TipTapRender/BodyContent';
+import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 
 export async function getStaticPaths() {
-  const pages = await directus.request(readItems('case_studies'));
-  return pages.map((page) => ({
+  const pages = await directus.request(
+    readItems('case_studies', {
+      fields: [
+        'id',
+        'title',
+        'slug',
+        'body_content',
+        'editor_nodes.id',
+        'editor_nodes.collection',
+        { editor_nodes: ['*.*'] },
+      ],
+    })
+  );
+  const cleanPages = pages.map((page) => {
+    injectDataIntoContent(page.editor_nodes, page.body_content);
+
+    return page;
+  });
+
+  return cleanPages.map((page) => ({
     params: { slug: page.slug },
     props: page,
   }));
@@ -19,7 +40,7 @@ const page = Astro.props;
 <SingleArticleLayout title={page.title}>
   <Container>
     <h1>{page.title}</h1>
-    <div set:html={page.content} />
+    <TipTapRender handlers={BodyContent} node={page.body_content} />
 
     <div>
       <Button>Return to Case Studies</Button>
