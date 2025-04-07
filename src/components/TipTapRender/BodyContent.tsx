@@ -3,34 +3,14 @@ import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
 import BlockHero from './BlockHero';
 import BlockProjects from './BlockProjects';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import type { BlockProject } from 'env';
 import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
 
-// import {
-//   Disclosure,
-//   DisclosureButton,
-//   DisclosurePanel,
-// } from '@headlessui/react';
-// import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
-
-// function PrettyJson(rawCode: any) {
-//   const code = JSON.stringify(rawCode, null, 2);
-//   return (
-//     <div className="max-h-48 max-w-8/12 overflow-y-scroll text-xs">
-
-//       <SyntaxHighlighter wrapLines wrapLongLines language="json">
-//         {code}
-//       </SyntaxHighlighter>
-//     </div>
-//   );
-// }
-
 const Heading: NodeHandler = (props) => {
   return (
     <Container>
-      <h4 className="mt-8 mb-4 text-xl">{props.children}</h4>
+      <h4 className="mt-8 mb-0 text-xl">{props.children}</h4>
     </Container>
   );
 };
