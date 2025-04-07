@@ -30,7 +30,7 @@ import PrettyJson from '@components/Atoms/PrettyJson';
 const Heading: NodeHandler = (props) => {
   return (
     <Container>
-      <h4 className="mt-8 mb-4">{props.children}</h4>
+      <h4 className="mt-8 mb-4 text-xl">{props.children}</h4>
     </Container>
   );
 };
@@ -95,7 +95,7 @@ const TextRender: NodeHandler = (props: NodeProps) => {
               href={mark.attrs.href}
               target={mark.attrs.target}
               rel={mark.attrs.rel}
-              className="text-blue-400 uppercase"
+              className="text-blue-400 no-underline hover:underline"
             >
               {payload}
             </a>

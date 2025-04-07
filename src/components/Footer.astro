@@ -1,25 +1,24 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 import { Image } from 'astro:assets';
 
-import Container from '@components/Container.astro'
+import Container from '@components/Container.astro';
 import getMenuItems from '@utils/getMenuItems';
 import { FooterMenu } from '@components/Atoms/Menus';
-import SubscribeForm from '@components/SubscribeForm'
+import SubscribeForm from '@components/SubscribeForm';
 import footerBadge from '@assets/images/guidestar_badge.svg';
-
 
 const menuItems = await getMenuItems('Navigation');
 
-const footerSectionStyle = "flex flex-row justify-between gap-12 border-b-1 pb-8"
-
+const footerSectionStyle =
+  'flex flex-row justify-between gap-12 border-b-1 pb-8';
 ---
 
 <footer class="bg-purple-500 py-12 text-white">
   <Container>
     <div class="flex flex-col gap-10">
-      <div class={twMerge(footerSectionStyle, " flex-col md:flex-row")}>
+      <div class={twMerge(footerSectionStyle, ' flex-col md:flex-row')}>
         <div>
           <a class="logo" aria-label="home" href="/">
             <Icon name="logo_white" class="text-5xl" />
@@ -37,22 +36,33 @@ const footerSectionStyle = "flex flex-row justify-between gap-12 border-b-1 pb-8
           </div>
         </div>
 
-        <div class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap">
+        <div
+          class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap"
+        >
           <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 1" />
-          <FooterMenu menuItems={[...menuItems].reverse().splice(1)} menuTitle="Footer Menu 2" />
-          <FooterMenu menuItems={[...menuItems].splice(2)} menuTitle="Footer Menu 3" />
+          <FooterMenu
+            menuItems={[...menuItems].reverse().splice(1)}
+            menuTitle="Footer Menu 2"
+          />
+          <FooterMenu
+            menuItems={[...menuItems].splice(2)}
+            menuTitle="Footer Menu 3"
+          />
         </div>
       </div>
-      <div class={twMerge(footerSectionStyle)}>
+      <div class={twMerge(footerSectionStyle, `flex-col md:flex-row`)}>
         <div>
           <p class="font-bold pb-4">NumFOCUS Newsletter</p>
-          <p>Subscribe to our mailing list for monthly updates on the latest news and events.</p>
+          <p>
+            Subscribe to our mailing list for monthly updates on the latest news
+            and events.
+          </p>
         </div>
         <SubscribeForm client:load />
       </div>
-      <div class={twMerge(footerSectionStyle, "border-none")}>
+      <div class={twMerge(footerSectionStyle, 'border-none')}>
         <p>© 2024 NumFOCUS, org. All rights reserved. License info etc.</p>
       </div>
     </div>
-  </Container>  
+  </Container>
 </footer>

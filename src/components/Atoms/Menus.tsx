@@ -58,17 +58,23 @@ export const HamburgerMenu = ({ menuItems, currentPage }: Props) => {
   );
 };
 
-export const FooterMenu = ({ menuItems, menuTitle }: { menuItems: mi[], menuTitle: string }) => {
+export const FooterMenu = ({
+  menuItems,
+  menuTitle,
+}: {
+  menuItems: mi[];
+  menuTitle: string;
+}) => {
   return (
     <div>
-      <h5 className="font-bold text-white pb-6">{menuTitle}</h5>
+      <h5 className="pb-6 font-bold text-white">{menuTitle}</h5>
       <ul>
         {menuItems.map(({ path, title }) => (
           <li className="pb-4">
             <a
               href={path}
               className={twMerge(
-                'font-semi-bold text-white transition hover:text-teal-300',
+                'font-semi-bold text-sm break-all text-white transition hover:text-teal-300 md:text-base'
               )}
             >
               <span>{title}</span>
@@ -77,9 +83,7 @@ export const FooterMenu = ({ menuItems, menuTitle }: { menuItems: mi[], menuTitl
         ))}
       </ul>
     </div>
-    
   );
 };
-
 
 // font-semi-bold inline-block text-teal-600 transition hover:text-teal-800
