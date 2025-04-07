@@ -6,17 +6,26 @@ import BlockProjects from './BlockProjects';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import type { BlockProject } from 'env';
 import Container from '@components/Atoms/Container';
+import PrettyJson from '@components/Atoms/PrettyJson';
 
-function prettyJson(rawCode: any) {
-  const code = JSON.stringify(rawCode, null, 2);
-  return (
-    <div className="max-h-48 w-full overflow-y-scroll text-xs">
-      <SyntaxHighlighter wrapLines wrapLongLines language="json">
-        {code}
-      </SyntaxHighlighter>
-    </div>
-  );
-}
+// import {
+//   Disclosure,
+//   DisclosureButton,
+//   DisclosurePanel,
+// } from '@headlessui/react';
+// import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
+
+// function PrettyJson(rawCode: any) {
+//   const code = JSON.stringify(rawCode, null, 2);
+//   return (
+//     <div className="max-h-48 max-w-8/12 overflow-y-scroll text-xs">
+
+//       <SyntaxHighlighter wrapLines wrapLongLines language="json">
+//         {code}
+//       </SyntaxHighlighter>
+//     </div>
+//   );
+// }
 
 const Heading: NodeHandler = (props) => {
   return (
@@ -56,10 +65,10 @@ const TextRender: NodeHandler = (props: NodeProps) => {
                   content={data.content}
                   image={data.image.id}
                 />
-                {prettyJson(data)}
+                {PrettyJson(data)}
               </>
             ) : (
-              prettyJson(mark)
+              PrettyJson(mark)
             );
           break;
         case 'bold':
@@ -158,7 +167,7 @@ const RelationBlock: NodeHandler = (props) => {
           content={data.content}
           image={data.image.id}
         />
-        {prettyJson(data)}
+        {PrettyJson(data)}
       </>
     );
   } else if (attrs && attrs.collection === 'block_hero') {
@@ -169,7 +178,7 @@ const RelationBlock: NodeHandler = (props) => {
           rich_text={data.content}
           image={data.image.id}
         />
-        {prettyJson(data)}
+        {PrettyJson(data)}
       </>
     );
   } else if (attrs && attrs.collection === 'block_projects_group') {
@@ -194,7 +203,7 @@ const RelationBlock: NodeHandler = (props) => {
     return (
       <div className="w-full border border-red-300">
         {attrs && <h4>{attrs.collection}</h4>}
-        <div>{prettyJson(attrs?.data)}</div>
+        <div>{PrettyJson(attrs?.data)}</div>
       </div>
     );
   }

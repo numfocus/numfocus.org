@@ -12,12 +12,12 @@ export default function BlockProjects({ heading, projects }: Props) {
   return (
     <div className="grid grid-cols-2">
       <div className="col-span-1 col-start-2 h-auto border-[1px] border-r-0 border-teal-400 py-4">
-        <div className="-ml-4 border-[1px] border-r-0 border-red-400 py-8 pr-8 pl-8">
+        <div className="-ml-4 border-[1px] border-r-0 border-red-400 p-16">
           <h4 className="text-center">{heading}</h4>
           {projects.map((project) => {
             return (
-              <div className="grid grid-cols-6 gap-6 p-4">
-                <div className="col-span-2 flex place-items-center">
+              <div className="grid grid-cols-6 items-center gap-4 p-4 pr-24">
+                <div className="col-span-2 flex">
                   <img
                     alt={project.name}
                     src={`${assetBaseUrl}/${project.logo}`}
@@ -27,7 +27,7 @@ export default function BlockProjects({ heading, projects }: Props) {
                 <div className="col-span-4">
                   <p className="text-xs">{project.description}</p>
                 </div>
-                <div className="col-span-4 col-start-2">
+                <div className="col-span-3 col-start-2">
                   <Button
                     button={{
                       text: `View ${project.name}`,

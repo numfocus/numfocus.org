@@ -3,7 +3,6 @@ import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import Button from '@components/Button.astro';
 import directus from '../../../lib/directus';
 import { readItems } from '@directus/sdk';
-import Container from '@components/Container.astro';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
@@ -37,8 +36,8 @@ export async function getStaticPaths() {
 const page = Astro.props;
 ---
 
-<SingleArticleLayout title={page.title}>
-  <h1>{page.title}</h1>
+<SingleArticleLayout client:load title={page.title}>
+  <!-- <h1>{page.title}</h1> -->
   <TipTapRender handlers={BodyContent} node={page.body_content} />
 
   <div>
