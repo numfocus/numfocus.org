@@ -24,9 +24,11 @@ export default function BlockHero({
         <div className="mb-6" dangerouslySetInnerHTML={{ __html: rich_text }} />
         <div className="buttons mr-12 flex flex-row gap-2"></div>
       </div>
-      <div className="order-first col-span-full mb-4 object-fill md:order-none md:col-span-5 md:col-start-8 md:mb-0">
-        <BlockImage alignment="full" image={image} />
-      </div>
+      {!!image && (
+        <div className="order-first col-span-full mb-4 object-fill md:order-none md:col-span-5 md:col-start-8 md:mb-0">
+          <BlockImage alignment="full" image={image} />
+        </div>
+      )}
     </div>
   );
 }
