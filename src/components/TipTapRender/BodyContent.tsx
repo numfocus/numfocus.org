@@ -11,6 +11,21 @@ import BlockTOC from './BlockTOC';
 import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
 
+const BulletList: NodeHandler = (props) => {
+  return (
+    <Container>
+      <ul>
+        {props.node.content?.map(({ content }) => (
+          content?.map(({ content }) => (
+            content?.map(({ text }) => (
+              <li className="list-disc ml-4">{text}</li>
+            ))
+          ))
+        ))}
+      </ul>
+    </Container>
+  );
+};
 
 const Heading: NodeHandler = (props) => {
   const id = props.node.content?.map(({ text }) => text)[0]
@@ -214,6 +229,7 @@ const RelationBlock: NodeHandler = (props) => {
 };
 
 const BodyContent: NodeHandlers = {
+  bulletList: BulletList,
   text: TextRender,
   paragraph: Paragraph,
   doc: Passthrough,
