@@ -18,7 +18,7 @@ export default async function getPageContent(slug: string) {
           'body_content',
           'editor_nodes.id',
           'editor_nodes.collection',
-          { editor_nodes: ['*.*.*.*'] },
+          { editor_nodes: ['*.*.*.*.*'] },
       ],
     })
   );
