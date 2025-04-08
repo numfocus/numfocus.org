@@ -29,8 +29,8 @@ export default function BlockTOC({
             const headerLevel = header.attrs?.level;
             const indentStyle = `pl-${(headerLevel - 1) * 4}`
 
-            return header.content.map(({ text }) => (
-              <li className={indentStyle}>
+            return header.content.map(({ text }, i) => (
+              <li key={i} className={indentStyle}>
                 <a href={`#${slugify(text)}`}>
                   {text}
                 </a>

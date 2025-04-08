@@ -17,8 +17,8 @@ const BulletList: NodeHandler = (props) => {
       <ul>
         {props.node.content?.map(({ content }) => (
           content?.map(({ content }) => (
-            content?.map(({ text }) => (
-              <li className="list-disc ml-4">{text}</li>
+            content?.map(({ text }, i) => (
+              <li key={i} className="list-disc ml-4">{text}</li>
             ))
           ))
         ))}
