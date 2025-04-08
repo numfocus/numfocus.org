@@ -1,17 +1,38 @@
 interface Props {
+  alignment?: "full" | "left" | "right";
   image?: any;
+  link?: string;
 }
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 export default function BlockImage({
+  alignment,
   image,
+  link
 }: Props) {
-  const { id, title } = image;
+  const { description, id, title } = image;
+
+  let alignStyle;
+  
+  if (alignment === "full") {
+    alignStyle = "w-full";
+  } else if (alignment === "left") {
+    alignStyle = "float-left";
+  } else {
+    alignStyle = "float-right";
+  }
+  
   return (
-    <img
-      src={`${assetBaseUrl}${id}`}
-      alt={title}
-      className="w-full overflow-hidden rounded-none md:rounded-l-2xl md:rounded-r-none"
-    />
+    <div className={alignStyle}>
+      <img
+        src={`${assetBaseUrl}${id}`}
+        alt={title}
+        className="overflow-hidden rounded-none md:rounded-l-2xl md:rounded-r-none"
+      />
+      {!!description && (
+        <p className="px-4 py-2 text-center">{description}</p>
+      )}
+    </div>
+    
   );
 }
