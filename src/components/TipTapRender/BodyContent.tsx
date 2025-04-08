@@ -2,6 +2,7 @@ import React, { type JSX, type ReactElement } from 'react';
 import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
 import BlockHero from './BlockHero';
+import BlockImage from './BlockImage';
 import BlockProjects from './BlockProjects';
 import type { BlockProject } from 'env';
 import Container from '@components/Atoms/Container';
@@ -150,13 +151,24 @@ const RelationBlock: NodeHandler = (props) => {
         {PrettyJson(data)}
       </>
     );
+  } else if (attrs && attrs.collection === 'block_image') {
+    return (
+      <>
+        <BlockImage
+          image={data.image}
+          alignment={data.alignment}
+          link={data.link}
+        />
+        {/* {PrettyJson(data)} */}
+      </>
+    );
   } else if (attrs && attrs.collection === 'block_hero') {
     return (
       <>
         <BlockHero
           headline={data.heading}
           rich_text={data.content}
-          image={data.image.id}
+          image={data.image}
         />
         {PrettyJson(data)}
       </>
@@ -165,7 +177,7 @@ const RelationBlock: NodeHandler = (props) => {
     let blockProjects: BlockProject[] = [];
     const projects = data.projects;
     projects.map((project: any) => {
-      console.log(project);
+      // console.log(project);
       let blockProject: BlockProject = {
         name: project.projects_id.name,
         logo: project.projects_id.logo,
@@ -196,6 +208,7 @@ const BodyContent: NodeHandlers = {
   hardBreak: HardBreak,
   image: Image,
   'relation-block': RelationBlock,
+  'relation-inline-block': RelationBlock,
   heading: Heading,
 };
 
