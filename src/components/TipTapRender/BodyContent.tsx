@@ -5,6 +5,7 @@ import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockProjects from './BlockProjects';
 import type { BlockProject } from 'env';
+import BlockTOC from './BlockTOC';
 import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
 
@@ -170,6 +171,13 @@ const RelationBlock: NodeHandler = (props) => {
           rich_text={data.content}
           image={data.image}
         />
+        {PrettyJson(data)}
+      </>
+    );
+  } else if (attrs && attrs.collection === 'block_toc') {
+    return (
+      <>
+        <BlockTOC node={data} />
         {PrettyJson(data)}
       </>
     );
