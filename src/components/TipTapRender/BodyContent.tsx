@@ -1,4 +1,6 @@
 import React, { type JSX, type ReactElement } from 'react';
+import slugify from 'slugify';
+
 import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
 import BlockHero from './BlockHero';
@@ -9,10 +11,12 @@ import BlockTOC from './BlockTOC';
 import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
 
+
 const Heading: NodeHandler = (props) => {
+  const id = props.node.content?.map(({ text }) => text)[0]
   return (
     <Container>
-      <h4 className="mt-8 mb-0 text-xl">{props.children}</h4>
+      <h4 id={slugify(id)} className="mt-8 mb-0 text-xl">{props.children}</h4>
     </Container>
   );
 };
@@ -177,7 +181,7 @@ const RelationBlock: NodeHandler = (props) => {
   } else if (attrs && attrs.collection === 'block_toc') {
     return (
       <>
-        <BlockTOC node={data} />
+        <BlockTOC content={data.content} editorNodes={data.editor_nodes} />
         {PrettyJson(data)}
       </>
     );
