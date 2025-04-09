@@ -205,7 +205,6 @@ const RelationBlock: NodeHandler = (props) => {
     return (
       <>
         <BlockRelatedPage page={data.page[0]} />
-        {PrettyJson(data)}
       </>
     );
   } else if (attrs && attrs.collection === 'block_projects_group') {

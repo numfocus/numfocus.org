@@ -33,7 +33,7 @@ export default function BlockTOC({
               const indentStyle = `pl-${(headerLevel - 1) * 4}`
 
               return header.content.map(({ text }, i) => (
-                <li key={i} className={twMerge(tocItemCommonStyle, "text-gray-600")}>
+                <li key={i} className={twMerge(tocItemCommonStyle, "text-gray-600 hover:text-blue-400")}>
                   <a href={`#${slugify(text)}`} className={indentStyle}>
                     {text}
                   </a>
