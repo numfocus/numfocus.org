@@ -7,6 +7,7 @@ import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockProjects from './BlockProjects';
 import type { BlockProject } from 'env';
+import BlockRelatedPage from './BlockRelatedPage';
 import BlockTOC from './BlockTOC';
 import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
@@ -197,6 +198,13 @@ const RelationBlock: NodeHandler = (props) => {
     return (
       <>
         <BlockTOC content={data.content} editorNodes={data.editor_nodes} />
+        {PrettyJson(data)}
+      </>
+    );
+  } else if (attrs && attrs.collection === 'block_related_page') {
+    return (
+      <>
+        <BlockRelatedPage page={data.page[0]} />
         {PrettyJson(data)}
       </>
     );
