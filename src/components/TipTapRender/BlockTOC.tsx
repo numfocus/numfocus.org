@@ -23,7 +23,7 @@ export default function BlockTOC({
   return (
     <div className="grid grid-cols-12">
       <div className="col-span-3">
-        <div className="bg-blue-50 py-4">
+        <div className="bg-blue-50 py-4 sticky top-0">
           <p className={twMerge(tocItemCommonStyle, 'font-bold border-b-1 border-black')}>Table of Contents</p>
           <ul>
             {sectionHeaders.map((header: TipTapNode) => {
