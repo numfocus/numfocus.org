@@ -18,6 +18,7 @@ export type Button = {
   link: string;
   variant:
     | 'primary'
+    | 'primaryBlue'
     | 'secondary'
     | 'minimal'
     | 'muted'

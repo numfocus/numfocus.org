@@ -25,6 +25,7 @@ const variantClassesOld = {
 
 const variantClasses = {
   primary: 'bg-yellow-500 text-black shadow-none focus:ring-4',
+  primaryBlue: 'bg-blue-400 text-white shadow-none focus:ring-4',
   secondary:
     'bg-gradient-to-r from-indigo-700 to-purple-600 text-white shadow-none focus:ring-4 ',
   muted: 'text-teal-500 border-teal-500 border-2',
