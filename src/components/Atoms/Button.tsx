@@ -60,7 +60,7 @@ export default function Button({ button, icon, arrow, type = 'link' }: Props) {
       <div className="inline-flex flex-row gap-2">
         {icon && iconVariant[icon]}
         <span
-          className={twMerge(button.variant === 'donate' && `hidden md:block`)}
+          className={twMerge(button.variant === 'donate' && `hidden md:block`, 'whitespace-nowrap')}
         >
           {button.text}
         </span>
