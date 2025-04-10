@@ -1,6 +1,8 @@
+import type { Image } from 'env';
+
 interface Props {
   alignment?: "full" | "left" | "right";
-  image?: any;
+  image: Image;
   link?: string;
 }
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;

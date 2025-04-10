@@ -1,10 +1,11 @@
+import type { Image } from 'env';
 import BlockImage from './BlockImage';
 
 interface Props {
   headline: string;
   subheader?: string;
   rich_text: string;
-  image?: any;
+  image?: Image;
 }
 
 export default function BlockHero({

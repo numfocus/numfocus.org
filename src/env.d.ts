@@ -74,3 +74,9 @@ export type BlockProject = {
   slug: string;
   description: string;
 };
+
+export type Image = {
+  description: string;
+  id: string;
+  title: string;
+}

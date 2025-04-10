@@ -1,6 +1,7 @@
 import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import type { Page } from 'env';
 
 
 export default async function getPageContent(slug: string) {
@@ -12,13 +13,13 @@ export default async function getPageContent(slug: string) {
         }
       },
       fields: [
-          'id',
-          'title',
-          'slug',
-          'body_content',
-          'editor_nodes.id',
-          'editor_nodes.collection',
-          { editor_nodes: ['*.*.*.*.*.*'] },
+        'id',
+        'title',
+        'slug',
+        'body_content',
+        'editor_nodes.id',
+        'editor_nodes.collection',
+        { editor_nodes: ['*.*.*.*.*.*'] },
       ],
     })
   );
