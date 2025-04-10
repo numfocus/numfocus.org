@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Bookmark } from 'lucide-react';
+
 import type {
   Project,
   ProjectFilterOptions,
   ProjectFilterKey,
   ProjectFilterValues,
 } from 'env';
-
 import ProjectCard from './ProjectCard';
 import ProjectDialog from './ProjectDialog';
 import ProjectFilters, { initialFilters } from './ProjectFilters';
+import ProjectDialogContent from './ProjectExpandedContent';
 
 const fetchProjectFromURL = (projects: Project[]) => {
   const url = new URL((window as Window).location.href);
@@ -90,7 +92,23 @@ export default function ProjectGrid({
         setSearchQuery={setSearchQuery}
       />
       <div className="mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
-        {filteredProjects.map((project) => {
+        {filteredProjects.map((project, i) => {
+          // TODO: replace with project.featured flag
+          if (i === 0) {
+            return (
+              <div className="col-span-12 xl:col-span-9 border-numfocus-primary border-1 relative">
+                <div
+                  className="absolute top-0 right-0 flex justify-around gap-2 p-2 border-l-1 border-b-1 border-purple-700 bg-purple-50 text-purple-700 text-sm"
+                >
+                  <Bookmark className="h-5" />
+                  Featured Project
+                </div>
+                <ProjectDialogContent
+                  project={project}
+                />
+              </div>
+            )
+          }
           return (
             <ProjectCard 
               project={project}

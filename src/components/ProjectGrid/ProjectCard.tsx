@@ -29,7 +29,7 @@ export default function ProjectCard({
   )
 
   return (
-    <div className="project-card border-numfocus-primary col-span-6 lg:col-span-4 xl:col-span-3 border relative">
+    <div className="project-card border-numfocus-primary col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3 border relative">
       <div
         className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700"
         onClick={onExpand}

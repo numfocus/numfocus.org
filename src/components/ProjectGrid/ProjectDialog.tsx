@@ -6,7 +6,7 @@ import {
 import { X } from 'lucide-react';
 
 import type { Project } from 'env';
-import ProjectDialogContent from './ProjectDialogContent';
+import ProjectDialogContent from './ProjectExpandedContent';
 
 
 export default function ProjectDialog({
