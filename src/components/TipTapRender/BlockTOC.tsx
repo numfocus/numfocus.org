@@ -19,15 +19,16 @@ export default function BlockTOC({
 
   const sectionHeaders = content.content.filter(({ type }) => type === 'heading')
 
+  const commonStyle = "mx-10 sm:mx-auto sm:max-w-3/4 lg:max-w-2/3";
 
   return (
     <div className="grid grid-cols-12 max-w-7xl mx-auto">
       <div className="col-span-12 sm:col-span-4 lg:col-span-3">
         <div className="bg-blue-50 py-4 sticky top-0">
           <div className="border-b-1 border-black">
-            <p className={twMerge("mx-auto max-w-3/4 lg:max-w-2/3 font-bold py-2")}>Table of Contents</p>
+            <p className={twMerge(commonStyle, "py-2")}>Table of Contents</p>
           </div>
-          <ul className="mx-auto max-w-3/4 lg:max-w-2/3">
+          <ul className={commonStyle}>
             {sectionHeaders.map((header: TipTapNode) => {
               if (!header.content) return null;
 
