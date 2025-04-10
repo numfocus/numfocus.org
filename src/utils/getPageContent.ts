@@ -1,8 +1,6 @@
 import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-import type { Page } from 'env';
-
 
 export default async function getPageContent(slug: string) {
   const result = await directus.request(

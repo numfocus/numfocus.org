@@ -5,6 +5,7 @@ import DefaultContainer from '@components/Atoms/Container';
  * Render a tip tap JSON node and all its children
  * @param {TipTapNode} node JSON node to render
  * @param {NodeHandlers} handlers a handler for each node type
+ * @param {Container} Container an optional custom render container for TipTapNodes
  * @returns tree of components as react elements
  */
 export function TipTapRender(props: {
