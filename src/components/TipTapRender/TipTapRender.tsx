@@ -10,7 +10,7 @@ import DefaultContainer from '@components/Atoms/Container';
 export function TipTapRender(props: {
   node: TipTapNode;
   handlers: NodeHandlers;
-  Container: TipTapNodeContainer;
+  Container?: TipTapNodeContainer;
 }): JSX.Element {
   const { node, handlers: mapping, Container = DefaultContainer } = props;
   // recursively render child content

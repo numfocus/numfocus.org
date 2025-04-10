@@ -1,5 +1,5 @@
-import React, { type JSX, type ReactElement } from 'react';
-import slugify from 'slugify';
+import React, { type ReactElement } from 'react';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 
 import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
 import Testimonial from './Testimonial';
@@ -193,9 +193,11 @@ const RelationBlock: NodeHandler = (props) => {
       </>
     );
   } else if (attrs && attrs.collection === 'block_toc') {
+    injectDataIntoContent(data.editor_nodes, data.content)
+    
     return (
       <>
-        <BlockTOC content={data.content} editorNodes={data.editor_nodes} />
+        <BlockTOC content={data.content} />
         {PrettyJson(data)}
       </>
     );

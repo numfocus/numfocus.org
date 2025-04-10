@@ -7,48 +7,46 @@ import BodyContent from './BodyContent';
 
 
 interface Props {
-  content: any;
-  editorNodes: any;
+  content: TipTapNode;
 }
 
 export default function BlockTOC({
   content,
-  editorNodes
 }: Props) {
-  injectDataIntoContent(editorNodes, content)
-
-  const sectionHeaders = content.content.filter(({ type }) => type === 'heading')
+  const sectionHeaders = content?.content?.filter(({ type }) => type === 'heading')
 
   const commonStyle = "mx-10 sm:mx-auto sm:max-w-3/4 lg:max-w-2/3";
 
   return (
     <div className="grid grid-cols-12 max-w-7xl mx-auto">
-      <div className="col-span-12 sm:col-span-4 lg:col-span-3">
-        <div className="bg-blue-50 py-4 sticky top-0">
-          <div className="border-b-1 border-black">
-            <p className={twMerge(commonStyle, "py-2")}>Table of Contents</p>
+      {!!sectionHeaders && (
+        <div className="col-span-12 sm:col-span-4 lg:col-span-3">
+          <div className="bg-blue-50 py-4 sticky top-0">
+            <div className="border-b-1 border-black">
+              <p className={twMerge(commonStyle, "py-2")}>Table of Contents</p>
+            </div>
+            <ul className={commonStyle}>
+              {sectionHeaders.map((header: TipTapNode) => {
+                if (!header.content) return null;
+
+                const headerLevel = header.attrs?.level;
+                const indentStyle = `pl-${(headerLevel - 1) * 4}`
+
+                return header.content.map(({ text }, i) => (
+                  <li key={i} className="py-2">
+                    <a href={`#${slugify(text)}`} className={twMerge(indentStyle, "block text-gray-600 hover:text-blue-400")}>
+                      {text}
+                    </a>
+                  </li>
+                ))
+              })}
+            </ul>
           </div>
-          <ul className={commonStyle}>
-            {sectionHeaders.map((header: TipTapNode) => {
-              if (!header.content) return null;
-
-              const headerLevel = header.attrs?.level;
-              const indentStyle = `pl-${(headerLevel - 1) * 4}`
-
-              return header.content.map(({ text }, i) => (
-                <li key={i} className="py-2">
-                  <a href={`#${slugify(text)}`} className={twMerge(indentStyle, "block text-gray-600 hover:text-blue-400")}>
-                    {text}
-                  </a>
-                </li>
-              ))
-            })}
-          </ul>
         </div>
-        
-      </div>
+      )}
+      
       <div className="col-span-12 sm:col-span-8 lg:col-span-9">
-        <TipTapRender handlers={{ ...BodyContent, heading: TOCSectionHeading }} node={content as TipTapNode} Container={TOCSectionContent} />
+        <TipTapRender handlers={{ ...BodyContent, heading: TOCSectionHeading }} node={content} Container={TOCSectionContent} />
       </div>
     </div>
   );
