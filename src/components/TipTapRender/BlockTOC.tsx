@@ -54,7 +54,7 @@ export default function BlockTOC({
   );
 }
 
-const commonStyle = "max-w-4xl pl-8 pr-10 md:pl-20 lg:pr-24";
+const commonStyle = "max-w-4xl pl-8 pr-10 md:pl-20 lg:pr-24 xl:pr-0";
 
 const TOCSectionContent: TipTapNodeContainer = (props) => {
   return (
