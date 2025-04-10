@@ -1,4 +1,5 @@
 import React, { type JSX } from 'react';
+import DefaultContainer from '@components/Atoms/Container';
 
 /**
  * Render a tip tap JSON node and all its children
@@ -9,8 +10,9 @@ import React, { type JSX } from 'react';
 export function TipTapRender(props: {
   node: TipTapNode;
   handlers: NodeHandlers;
+  Container: TipTapNodeContainer;
 }): JSX.Element {
-  const { node, handlers: mapping } = props;
+  const { node, handlers: mapping, Container = DefaultContainer } = props;
   // recursively render child content
   const children: JSX.Element[] = [];
   node.content &&
@@ -20,6 +22,7 @@ export function TipTapRender(props: {
           node={child}
           handlers={mapping}
           key={`${child.type}-${ix}`}
+          Container={Container}
         />
       );
     });
@@ -30,12 +33,14 @@ export function TipTapRender(props: {
   }
   // render the handler for this type
   const Handler = mapping[node.type];
-  return <Handler node={node}>{children}</Handler>;
+  return <Handler node={node} Container={Container}>{children}</Handler>;
 }
 
 interface Attrs {
   readonly [attr: string]: any;
 }
+
+export type TipTapNodeContainer = (props: any) => JSX.Element;
 
 export interface TipTapNode {
   type: string;
@@ -48,6 +53,7 @@ export interface TipTapNode {
 export interface NodeProps {
   children?: React.ReactNode;
   node: TipTapNode;
+  Container: TipTapNodeContainer
 }
 
 export type NodeHandler = (props: NodeProps) => JSX.Element;

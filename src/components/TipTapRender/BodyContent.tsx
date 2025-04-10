@@ -9,14 +9,13 @@ import BlockProjects from './BlockProjects';
 import type { BlockProject } from 'env';
 import BlockRelatedPage from './BlockRelatedPage';
 import BlockTOC from './BlockTOC';
-import Container from '@components/Atoms/Container';
 import PrettyJson from '@components/Atoms/PrettyJson';
 
-const BulletList: NodeHandler = (props) => {
+const BulletList: NodeHandler = ({ node, Container}) => {
   return (
     <Container>
       <ul>
-        {props.node.content?.map(({ content }) => (
+        {node.content?.map(({ content }) => (
           content?.map(({ content }) => (
             content?.map(({ text }, i) => (
               <li key={i} className="list-disc ml-4">{text}</li>
@@ -28,11 +27,10 @@ const BulletList: NodeHandler = (props) => {
   );
 };
 
-const Heading: NodeHandler = (props) => {
-  const id = props.node.content?.map(({ text }) => text)[0]
+const Heading: NodeHandler = ({ children, Container }) => {
   return (
     <Container>
-      <h4 id={slugify(id)} className="mt-8 mb-0 text-xl">{props.children}</h4>
+      <h4 className="mt-8 mb-0 text-xl">{children}</h4>
     </Container>
   );
 };
@@ -122,12 +120,12 @@ const TextRender: NodeHandler = (props: NodeProps) => {
   );
 };
 
-const Paragraph: NodeHandler = (props) => {
+const Paragraph: NodeHandler = ({ children, node, Container }) => {
   // dynamically process text marks
   let style: React.CSSProperties = {};
 
-  if (!!props.node.attrs) {
-    const attrs = props.node.attrs;
+  if (!!node.attrs) {
+    const attrs = node.attrs;
 
     if (attrs.textAlign) {
       style.textAlign = attrs.textAlign;
@@ -137,7 +135,7 @@ const Paragraph: NodeHandler = (props) => {
   return (
     <Container>
       <p className="my-4" style={style}>
-        {props.children}
+        {children}
       </p>
     </Container>
   );

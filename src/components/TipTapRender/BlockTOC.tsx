@@ -2,7 +2,7 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import slugify from 'slugify';
 import { twMerge } from 'tailwind-merge';
 
-import { TipTapRender, type NodeHandler, type TipTapNode } from '@components/TipTapRender/TipTapRender';
+import { TipTapRender, type NodeHandler, type TipTapNode, type TipTapNodeContainer } from '@components/TipTapRender/TipTapRender';
 import BodyContent from './BodyContent';
 
 
@@ -19,14 +19,15 @@ export default function BlockTOC({
 
   const sectionHeaders = content.content.filter(({ type }) => type === 'heading')
 
-  const tocItemCommonStyle = "pl-20 py-2"
 
   return (
-    <div className="grid grid-cols-12">
-      <div className="col-span-3">
+    <div className="grid grid-cols-12 max-w-7xl mx-auto">
+      <div className="col-span-12 sm:col-span-4 lg:col-span-3">
         <div className="bg-blue-50 py-4 sticky top-0">
-          <p className={twMerge(tocItemCommonStyle, 'font-bold border-b-1 border-black')}>Table of Contents</p>
-          <ul>
+          <div className="border-b-1 border-black">
+            <p className={twMerge("mx-auto max-w-3/4 lg:max-w-2/3 font-bold py-2")}>Table of Contents</p>
+          </div>
+          <ul className="mx-auto max-w-3/4 lg:max-w-2/3">
             {sectionHeaders.map((header: TipTapNode) => {
               if (!header.content) return null;
 
@@ -34,8 +35,8 @@ export default function BlockTOC({
               const indentStyle = `pl-${(headerLevel - 1) * 4}`
 
               return header.content.map(({ text }, i) => (
-                <li key={i} className={twMerge(tocItemCommonStyle)}>
-                  <a href={`#${slugify(text)}`} className={twMerge(indentStyle, "text-gray-600 hover:text-blue-400")}>
+                <li key={i} className="py-2">
+                  <a href={`#${slugify(text)}`} className={twMerge(indentStyle, "block text-gray-600 hover:text-blue-400")}>
                     {text}
                   </a>
                 </li>
@@ -45,18 +46,32 @@ export default function BlockTOC({
         </div>
         
       </div>
-      <div className="col-span-9">
-        <TipTapRender handlers={{ ...BodyContent, heading: TOCSectionHeading }} node={content as TipTapNode} />
+      <div className="col-span-12 sm:col-span-8 lg:col-span-9">
+        <TipTapRender handlers={{ ...BodyContent, heading: TOCSectionHeading }} node={content as TipTapNode} Container={TOCSectionContent} />
       </div>
     </div>
   );
 }
 
-const TOCSectionHeading: NodeHandler = (props) => {
-  const id = props.node.content?.map(({ text }) => text)[0]
+const commonStyle = "max-w-4xl pl-8 pr-10 md:pl-20 lg:pr-24";
+
+const TOCSectionContent: TipTapNodeContainer = (props) => {
   return (
-    <div className="ml-10 mr-20">
-      <h4 id={slugify(id)} className="mt-8 mb-0 pb-2 text-xl border-b-2 border-blue-400">{props.children}</h4>
+    <div className={commonStyle}>
+      <div className="">{props.children}</div>
+    </div>
+  )
+}
+
+const TOCSectionHeading: NodeHandler = ({ children, node }) => {
+  const id = node.content?.map(({ text }) => text)[0]
+  const level = node.attrs?.level;
+
+  const levelIndentStyle = level === 1 ? "md:pl-10" : "";
+
+  return (
+    <div className={twMerge(commonStyle, levelIndentStyle)}>
+      <h4 id={slugify(id)} className="mt-8 mb-0 pb-2 text-xl border-b-2 border-blue-400">{children}</h4>
     </div>
   );
 };
