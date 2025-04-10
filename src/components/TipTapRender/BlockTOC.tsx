@@ -2,8 +2,9 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import slugify from 'slugify';
 import { twMerge } from 'tailwind-merge';
 
-import { TipTapRender, type TipTapNode } from '@components/TipTapRender/TipTapRender';
+import { TipTapRender, type NodeHandler, type TipTapNode } from '@components/TipTapRender/TipTapRender';
 import BodyContent from './BodyContent';
+
 
 interface Props {
   content: any;
@@ -33,8 +34,8 @@ export default function BlockTOC({
               const indentStyle = `pl-${(headerLevel - 1) * 4}`
 
               return header.content.map(({ text }, i) => (
-                <li key={i} className={twMerge(tocItemCommonStyle, "text-gray-600 hover:text-blue-400")}>
-                  <a href={`#${slugify(text)}`} className={indentStyle}>
+                <li key={i} className={twMerge(tocItemCommonStyle)}>
+                  <a href={`#${slugify(text)}`} className={twMerge(indentStyle, "text-gray-600 hover:text-blue-400")}>
                     {text}
                   </a>
                 </li>
@@ -45,8 +46,17 @@ export default function BlockTOC({
         
       </div>
       <div className="col-span-9">
-        <TipTapRender handlers={BodyContent} node={content as TipTapNode} />
+        <TipTapRender handlers={{ ...BodyContent, heading: TOCSectionHeading }} node={content as TipTapNode} />
       </div>
     </div>
   );
 }
+
+const TOCSectionHeading: NodeHandler = (props) => {
+  const id = props.node.content?.map(({ text }) => text)[0]
+  return (
+    <div className="ml-10 mr-20">
+      <h4 id={slugify(id)} className="mt-8 mb-0 pb-2 text-xl border-b-2 border-blue-400">{props.children}</h4>
+    </div>
+  );
+};
