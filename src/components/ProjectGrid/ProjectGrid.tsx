@@ -92,9 +92,9 @@ export default function ProjectGrid({
         setSearchQuery={setSearchQuery}
       />
       <div className="mt-12 mb-64 grid grid-cols-4 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
-        {filteredProjects.map((project, i) => {
+        {filteredProjects.map((project) => {
           // TODO: replace with project.featured flag
-          if (i === 0) {
+          if (project.id === 'geopandas') {
             return (
               <div className="col-span-12 xl:col-span-9 border-numfocus-primary border-1 relative">
                 <div
