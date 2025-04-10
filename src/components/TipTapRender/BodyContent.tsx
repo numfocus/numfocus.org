@@ -221,9 +221,6 @@ const RelationBlock: NodeHandler = (props) => {
       blockProjects.push(blockProject);
     });
 
-    // data.projects[0].forEach((project: any) => {
-
-    // });
     return <BlockProjects heading={data.heading} projects={blockProjects} />;
   } else {
     return (

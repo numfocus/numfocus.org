@@ -38,7 +38,9 @@ const page = Astro.props;
 
 <SingleArticleLayout title={page.title}>
   <!-- <h1>{page.title}</h1> -->
-  <TipTapRender handlers={BodyContent} node={page.body_content} />
+  <div class="overflow-auto">
+    <TipTapRender handlers={BodyContent} node={page.body_content} />
+  </div>
 
   <div>
     <Button>Return to Case Studies</Button>
