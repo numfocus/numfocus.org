@@ -10,6 +10,7 @@ import { readSingleton } from '@directus/sdk';
 import directus from '../../lib/directus';
 import type { Project } from 'env';
 import projectsSchema from "../data/projects/projects.schema.json";
+import FollowUs from '@components/FollowUs.astro';
 
 const projects: Project[] = await getCollection('projects'); 
 
@@ -32,4 +33,5 @@ const pageHero = await getPageHero('projects');
 >
   <Hero pageHero={pageHero} />
   <ProjectGrid {filterOptions} {projects} client:load />
+  <FollowUs />
 </ProjectsLayout>
