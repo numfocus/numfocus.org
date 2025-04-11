@@ -30,7 +30,7 @@ const pageContent = await getPageContent(slug);
 >
   <Hero pageHero={pageHero} />
   {pageContent && (
-    <div class="overflow-auto">
+    <div>
       <TipTapRender handlers={BodyContent} node={pageContent as TipTapNode} />
     </div>
   )}
