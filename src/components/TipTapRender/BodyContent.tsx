@@ -188,6 +188,7 @@ const RelationBlock: NodeHandler = (props) => {
           headline={data.heading}
           rich_text={data.content}
           image={data.image}
+          button={data.button}
         />
         {PrettyJson(data)}
       </>
