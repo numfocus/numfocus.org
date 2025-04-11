@@ -29,7 +29,7 @@ export default function BlockHero({
         />
         <h5 className="mb-4">{subheader}</h5>
         <div className="mb-6" dangerouslySetInnerHTML={{ __html: rich_text }} />
-        <div className="buttons flex flex-row gap-2 mr-12">
+        <div className="buttons flex flex-row gap-2 mr-12 max-w-100">
           {
             button &&
               button.map((b) => (

@@ -51,7 +51,7 @@ const arrowVariant = {
 
 export default function Button({ button, icon, arrow, type = 'link' }: Props) {
   const buttonStyle = twMerge(
-    'group text-md inline-flex flex-row place-content-center items-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6 cursor-pointer',
+    'group text-md w-full inline-flex flex-row place-content-center items-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6 cursor-pointer',
     button && variantClasses[button.variant]
   );
 
