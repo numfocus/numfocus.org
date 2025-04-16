@@ -15,7 +15,14 @@ export default defineConfig({
   },
 
   adapter: netlify(),
-  integrations: [icon({ iconDir: "src/assets/icons" }), react(), markdownIntegration()],
+  image: {
+    domains: ['cms.numfocus.draftlab.dev'],
+  },
+  integrations: [
+    icon({ iconDir: 'src/assets/icons' }),
+    react(),
+    markdownIntegration(),
+  ],
   markdown: {
     remarkPlugins: [],
     rehypePlugins: [],
