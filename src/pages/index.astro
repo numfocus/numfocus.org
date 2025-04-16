@@ -1,21 +1,59 @@
 ---
 import Container from '@components/Container.astro';
 import Layout from '@layouts/Layout.astro';
-import PageHeader from '@components/PageHeader.astro';
+import getHomePageContent from '@utils/getHomePageContent';
+import Button from '@components/Atoms/Button';
+import { twMerge } from 'tailwind-merge';
+import { getImage } from 'astro:assets';
+import Image from 'astro/components/Image.astro';
 
 import directus from '../../lib/directus';
-import { readItems, readSingleton } from '@directus/sdk';
+import { readSingleton } from '@directus/sdk';
 
 const global = await directus.request(readSingleton('General'));
+
+const content = await getHomePageContent();
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+
+const bgImage = await getImage({
+  src: `${assetBaseUrl}${content.heroImage}`,
+  inferSize: true,
+});
+
+console.log(content);
 // const files = await directus.request(readItems('files'));
+
+const background = `bg-[url(${bgImage.src})]`;
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-  <Container>
-    <PageHeader title={global.site_name}>
-      <p>{global.site_subheader}</p>
-      <p>{global.hero_tagline}</p>
-      <div set:html={global.hero_body} />
-    </PageHeader>
-  </Container>
+  <div class={twMerge(`home-hero w-full h-[125vh] relative overflow-hidden`)}>
+    <div class="hero-content relative z-10">
+      <Container <div class="hero-container mx-auto mb-6">
+        <div class="grid grid-cols-12">
+          <div class="col-start-2 md:col-start-3 col-span-8 md:col-span-5 py-8">
+            <div
+              class="text-4xl/12 font-bold"
+              set:html={content.heroHeadline}
+            />
+            <div class="prose my-8" set:html={content.heroContent} />
+            <div class="buttons flex flex-col gap-10 w-full md:w-2/3">
+              {
+                content.buttons &&
+                  content.buttons.map((button) => (
+                    <Button button={button} arrow="right" />
+                  ))
+              }
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+    <Image
+      class="absolute z-0 -top-50"
+      src={`${assetBaseUrl}${content.heroImage}`}
+      alt="descriptive text"
+      inferSize
+    />
+  </div>
 </Layout>

@@ -79,4 +79,20 @@ export type Image = {
   description: string;
   id: string;
   title: string;
-}
+};
+
+export type FeaturedLink = {
+  text: string;
+  type: 'internal' | 'external';
+  url: string | null;
+};
+
+export type HomepageContent = {
+  heroHeadline: string;
+  heroContent: string;
+  heroImage: string;
+  buttons: Button[];
+  featuredLinks?: FeaturedLink[];
+  featuredProjects?: Project[];
+  featuredCaseStudy?: CaseStudy;
+};
