@@ -6,6 +6,8 @@ import Button from '@components/Atoms/Button';
 import { twMerge } from 'tailwind-merge';
 import { getImage } from 'astro:assets';
 import Image from 'astro/components/Image.astro';
+import FeaturedLink from '@components/Atoms/FeaturedLink';
+import StatCard from '@components/Atoms/StatCard';
 
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
@@ -20,18 +22,25 @@ const bgImage = await getImage({
   inferSize: true,
 });
 
-console.log(content);
+// console.log(content);
 // const files = await directus.request(readItems('files'));
 
 const background = `bg-[url(${bgImage.src})]`;
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-  <div class={twMerge(`home-hero w-full h-[125vh] relative overflow-hidden`)}>
+  <div class={twMerge(`home-hero w-full  relative overflow-hidden`)}>
+    <Image
+      class="absolute z-0 -top-50"
+      src={`${assetBaseUrl}${content.heroImage}`}
+      alt="descriptive text"
+      inferSize
+    />
     <div class="hero-content relative z-10">
-      <Container <div class="hero-container mx-auto mb-6">
-        <div class="grid grid-cols-12">
-          <div class="col-start-2 md:col-start-3 col-span-8 md:col-span-5 py-8">
+      <Container>
+        <!-- <div class="hero-container mx-auto mb-6"> -->
+        <div class="grid grid-cols-12 mb-24">
+          <div class="col-start-2 md:col-start-2 col-span-8 md:col-span-5 py-8">
             <div
               class="text-4xl/12 font-bold"
               set:html={content.heroHeadline}
@@ -48,12 +57,28 @@ const background = `bg-[url(${bgImage.src})]`;
           </div>
         </div>
       </Container>
+      <div class="w-full bg-white opacity-90 h-24 px-24 grid grid-cols-5">
+        {
+          content.featuredLinks?.map((link, index) => (
+            <FeaturedLink link={link} variant={index} />
+          ))
+        }
+      </div>
+      <div class="py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:max-w-none">
+            <dl
+              class="mt-16 bg-white grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4"
+            >
+              {
+                content.stats?.map((stat, index) => (
+                  <StatCard stats={stat} index={index} />
+                ))
+              }
+            </dl>
+          </div>
+        </div>
+      </div>
     </div>
-    <Image
-      class="absolute z-0 -top-50"
-      src={`${assetBaseUrl}${content.heroImage}`}
-      alt="descriptive text"
-      inferSize
-    />
   </div>
 </Layout>

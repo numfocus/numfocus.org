@@ -84,6 +84,13 @@ export type Image = {
 export type FeaturedLink = {
   text: string;
   type: 'internal' | 'external';
+  url: string;
+};
+
+type HomepageStats = {
+  category: string;
+  mainContent: string;
+  description: string;
   url: string | null;
 };
 
@@ -95,4 +102,5 @@ export type HomepageContent = {
   featuredLinks?: FeaturedLink[];
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
+  stats?: HomepageStats[];
 };
