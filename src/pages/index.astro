@@ -17,25 +17,25 @@ const global = await directus.request(readSingleton('General'));
 const content = await getHomePageContent();
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
-const bgImage = await getImage({
-  src: `${assetBaseUrl}${content.heroImage}`,
-  inferSize: true,
-});
+// const bgImage = await getImage({
+//   src: `${assetBaseUrl}${content.heroImage}`,
+//   inferSize: true,
+// });
 
 // console.log(content);
 // const files = await directus.request(readItems('files'));
-
-const background = `bg-[url(${bgImage.src})]`;
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-  <div class={twMerge(`home-hero w-full  relative overflow-hidden`)}>
-    <Image
-      class="absolute z-0 -top-50"
-      src={`${assetBaseUrl}${content.heroImage}`}
-      alt="descriptive text"
-      inferSize
-    />
+  <div class="home-hero w-full relative -mb-[200px]">
+    <div class="absolute z-0 w-full h-full overflow-hidden">
+      <Image
+        class="object-cover h-full object-top-left"
+        src={`${assetBaseUrl}${content.heroImage}?width=1800`}
+        alt="descriptive text"
+        inferSize
+      />
+    </div>
     <div class="hero-content relative z-10">
       <Container>
         <!-- <div class="hero-container mx-auto mb-6"> -->
@@ -64,21 +64,24 @@ const background = `bg-[url(${bgImage.src})]`;
           ))
         }
       </div>
-      <div class="py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl lg:max-w-none">
-            <dl
-              class="mt-16 bg-white grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4"
-            >
-              {
-                content.stats?.map((stat, index) => (
-                  <StatCard stats={stat} index={index} />
-                ))
-              }
-            </dl>
-          </div>
+    </div>
+    <div class="stats-block sm:pt-32 relative z-5 top-20 -mt-40 mb-20">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:max-w-none">
+          <dl
+            class="mt-16 bg-white grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {
+              content.stats?.map((stat, index) => (
+                <StatCard stats={stat} index={index} />
+              ))
+            }
+          </dl>
         </div>
       </div>
     </div>
   </div>
+  <Container>
+    <div class="h-[800px] w-full"></div>
+  </Container>
 </Layout>
