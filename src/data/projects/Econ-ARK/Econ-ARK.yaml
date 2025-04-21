@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Econ-ARK
+website_link: https://econ-ark.org/
+contribute_link: https://github.com/econ-ark/HARK/tree/master/Documentation/HARKmanual/ContributingToHARK/ContributingToHARK.md
+logo: ./Econ-ARK-new-logo_300x300.png
+support_year_start: 2017
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The aim of the Econ-ARK project is to make it easier for social scientists to
+  do ‘structural modeling’ of economic choice behavior by providing a
+  well-documented, open source codebase containing the core techniques in a way
+  that can be relatively easily adapted to address many different questions in
+  both macro- and microeconomics. ‘Structural’ modeling of economic choices aims
+  to identify the logic or reasons behind observed behavior, rather than just
+  describing that behavior statistically.
+technical_details: >-
+  The aim of the Econ-ARK project is to make it easier to do ‘structural
+  modeling’ of agents’ economic choices by providing a well-documented, open
+  source codebase that implements the core techniques in a form designed to be
+  adaptable to many different questions in both macro- and microeconomics.
+  ‘Structural’ modeling of economic behavior aims to identify a rigorous
+  mathematical (or computational) description of the rationale or decision rules
+  that generate observed data, rather than just describing those data
+  statistically. Econ-ARK aims to produce plug-and-play software modules that
+  can be relatively easily combined, enhanced and adapted to address most
+  economic choice problems.
+applications: >-
+  The Econ-ARK originated as an initiative of the U.S. Consumer Financial
+  Protection Bureau, with the aim of improving economists’ ability to model
+  consumers’ financial decisions. It is being used for a number of ongoing
+  research projects at CFPB. It also received early support and sponsorship from
+  the International Monetary Fund, which is interested in improving its ability
+  to model the consequences of heterogeneity and inequality across households,
+  especially as they interact with public policy and social insurance programs.
+  The Econ-ARK team has also given workshops at the Federal Reserve, at the
+  CESifo conference, at the Computation in Economics and Finance conference, and
+  at a joint conference sponsored by the US Treasury’s Office of FInancial
+  Research, the Bank of England, and the Sloan Foundation; interactions with
+  other central banks and policy institutions are ongoing, and researchers at
+  several of these institutions are exploring the use of the toolkit for both
+  policy and research purposes.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+languages:
+  - Python
+features:
+  - Modeling
+  - Numerical Computing
+  - Subject Area Libraries

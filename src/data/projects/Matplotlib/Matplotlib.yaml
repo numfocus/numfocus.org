@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Matplotlib
+website_link: https://matplotlib.org/
+contribute_link: http://matplotlib.org/devel/contributing.html
+logo: ./Matplotlib_Logo_191209.png
+support_year_start: 2015
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Matplotlib is a flexible and customizable tool for producing static and
+  interactive data visualizations.
+technical_details: >-
+  Matplotlib is a Python 2D plotting library which produces publication-quality
+  figures in a variety of hardcopy formats and interactive environments across
+  platforms. Matplotlib can be used in Python scripts, the Python and IPython
+  shell, the Jupyter notebook, web application servers, and seven graphical user
+  interface toolkits. For simple plotting, the pyplot module provides a
+  MATLAB-like interface, particularly when combined with IPython. Full control
+  of line styles, font properties, axes properties, etc. is accessible via an
+  object-oriented interface.
+applications: >-
+  Due to its status as a foundational data visualization tool, Matplotlib is
+  used in heavily in academia, national research labs and in industry.
+  Matplotlib is used in cutting-edge research, from physics to chemistry,
+  neuroscience to astronomy. It has been used on high profile projects such as
+  Mars landers and the Hubble space telescope. It is widely used in industry
+  across many domains, including oil and gas, finance, meteorology, and
+  scientific instruments. Matplotlib’s website sees approximately 25,000
+  individual visitors per workday, confirming its widespread adoption.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+features:
+  - Visualization

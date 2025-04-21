@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Pangeo
+website_link: https://pangeo.io
+contribute_link: https://pangeo.io/about.html#get-involved
+logo: ./small_e_logo-300x300-fixeed.png
+support_year_start: 2024
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  [Pangeo](https://pangeo.io/) is a community promoting open, reproducible, and
+  scalable geoscience. This community provides documentation, develops and
+  maintains software, and deploys computing infrastructure to make scientific
+  research and programming easier. The Pangeo software ecosystem involves open
+  source tools such as Xarray, Iris, Dask, Holoviz, Jupyter, and many other
+  packages. There is no single software package called “pangeo”; rather, the
+  Pangeo project serves as a coordination point between scientists, software,
+  and computing infrastructure.
+technical_details: >-
+  Pangeo is a global and open community of scientific researchers and software
+  developers working collaboratively to develop software and infrastructure to
+  enable big data geoanalytics and research. Pangeo hosts regular community
+  meetings, runs a Discourse Forum, and runs events at conferences. Pangeo also
+  maintains a curated set of interconnected and interoperable software packages
+  relevant to the geoscience community for cloud and high performance computing
+  environments, including Xarray, Dask, and Jupyter.
+applications: >-
+  Pangeo environments are used across industry, academic, and government
+  institutions around the world. Pangeo has also inspired several entities that
+  are having a big impact in the broader computational science community,
+  including 2i2c (operating JupyterHubs in the Cloud), Pangeo Forge (a
+  cloud-native data pipeline and repository), and Project Pythia (an education
+  hub for the geosciences). Other Pangeo use cases are featured in the Pangeo
+  Gallery.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry, Government, Higher Education Research & Learning
+languages:
+  - Python
+features:
+  - data wrangling, geospatial analysis, visualization, modeling, big data,
+    cloud computing, community building, high performance computing, numerical
+    computing, machine learning

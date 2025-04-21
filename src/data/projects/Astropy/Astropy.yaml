@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Astropy
+website_link: http://www.astropy.org/
+contribute_link: http://www.astropy.org/contribute.html
+logo: ./astropy-logo-300.png
+support_year_start: 2014
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The Astropy Project provides software tools and infrastructure to facilitate
+  research by professional astronomers. In addition to maintaining a core Python
+  package, the Astropy Project supports the development of high-grade affiliated
+  packages by members of the astronomical community.
+technical_details: >-
+  The Astropy Project is a community effort to develop a single core python
+  package for common astronomical computing tasks and to provide a framework
+  which fosters interoperability between Python astronomy packages.
+applications: >-
+  Astropy was one of the projects used in the LIGO gravitational waves
+  discovery. Astropy is used by a large and growing number of organizations and
+  projects worldwide, including: the Association of Universities for Research in
+  Astronomy (AURA); the Hubble Space Telescope and James Webb Space Telescope
+  pipelines, including many instrumentation support, observation planning, and
+  data analysis codes; science pipelines for the forthcoming Large Synoptic
+  Survey Telescope; many European Southern Observatory (ESO) instrument
+  pipelines, including (e.g.) the MUSE Python Data Analysis Framework; Gemini
+  Observatory’s science, data quality, and reduction pipelines; the pipeline
+  framework for the Cherenkov Telescope Array; major SDSS surveys, including
+  MaNGA, APOGEE, and eBOSS; codebases for the SAMI Galaxy Survey and the Close
+  AGN Reference Survey; and Astropy’s table and units functionality is also used
+  by organizations outside of astronomy, including the Norway Mapping Authority.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+features:
+  - Data Wrangling
+  - Modeling
+  - Visualization
+  - Statistical Computing
+  - Numerical Computing
+  - Text Processing
+  - Subject Area Libraries

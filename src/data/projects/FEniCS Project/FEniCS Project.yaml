@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: FEniCS Project
+website_link: https://fenicsproject.org/
+contribute_link: https://fenicsproject.org/community/
+logo: ./fenics-logo-300.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  FEniCS is an automated finite element library used to solve equations used in
+  modeling, featuring a domain-specific language and automated code generation.
+  Users input a problem that looks very much like mathematical notation; FEniCS
+  then translates that into computer code. It solves problems for which there is
+  no analytical (exact) solution numerically.
+technical_details: >-
+  FEniCS is a popular computing platform for partial differential equations
+  (PDE) that enables users to quickly translate scientific models into efficient
+  finite element code. FEniCS has been fundamentally designed for parallel
+  processing and runs on a multitude of platforms, ranging from laptops to
+  high-performance clusters.
+applications: >-
+  FEniCS has been used in both academic and industry contexts, such as at
+  Mitsubishi Heavy Industries.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+languages:
+  - Python
+  - C++
+features:
+  - Modeling
+  - High Performance Computing
+  - Numerical Computing
+  - Computing Language
+  - Educational Outreach

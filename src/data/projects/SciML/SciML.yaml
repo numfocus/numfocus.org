@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SciML
+website_link: https://sciml.ai/
+contribute_link: http://devdocs.sciml.ai/latest/
+logo: ./SciML-web-1.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SciML is an open source software organization created to unify the packages
+  for scientific machine learning. This includes the development of modular
+  scientific simulation support software, such as differential equation solvers,
+  along with the methodologies for inverse problems and automated model
+  discovery. By providing a diverse set of tools with a common interface, we
+  provide a modular, easily-extendable, and highly performant ecosystem for
+  handling a wide variety of scientific simulations.
+technical_details: >-
+  SciML is an open source software organization created to unify the packages
+  for scientific machine learning. This includes the development of modular
+  scientific simulation support software, such as differential equation solvers,
+  along with the methodologies for inverse problems and automated model
+  discovery. By providing a diverse set of tools with a common interface, we
+  provide a modular, easily-extendable, and highly performant ecosystem for
+  handling a wide variety of scientific simulations.
+applications: >-
+  SciML tools are used by many organizations, such as (but not limited to!) the
+  CliMA: Climate Modeling Alliance, the  
+
+  New York Federal Reserve Bank, the Julia Robotics community, Pumas-AI:
+  Pharmaceutical Modeling and Simulation, and the Brazilian National Institute
+  for Space Research (INPE).
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Scientific Machine Learning, Differential Equations, High-Performance
+    Computing
+languages:
+  - Julia, Python, R
+features:
+  - numerical computing, scientific computing, machine learning, differentiable
+    programming, modeling, business and industry, government, higher education
+    research and training

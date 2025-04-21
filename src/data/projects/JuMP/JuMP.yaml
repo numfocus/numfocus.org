@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: JuMP
+website_link: https://jump.dev/
+contribute_link: https://github.com/JuliaOpt/JuMP.jl/blob/master/CONTRIBUTING.md
+logo: ./logo-square-background300x300.png
+support_year_start: 2018
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  JuMP is a modeling interface and a collection of supporting packages for
+  mathematical optimization that is embedded in Julia. With JuMP, users
+  formulate various classes of optimization problems with easy-to-read code, and
+  then solve these problems using state-of-the-art open-source and commercial
+  solvers. JuMP also makes advanced optimization techniques easily accessible
+  from a high-level language.
+technical_details: >-
+  The JuMP project makes state-of-the-art tools for mathematical optimization
+  available in Julia. The flagship package is the JuMP modeling interface, a
+  domain-specific language for modeling optimization problems. It supports a
+  number of open-source and commercial solver backends for a variety of problem
+  classes, including (mixed-integer) linear programming, semidefinite
+  programming, and derivative-based nonlinear optimization. JuMP matches the
+  performance of standalone commercial modeling languages by using Julia’s key
+  features like macros and JIT compilation. It provides support for callbacks to
+  solvers for advanced control of the solution process. JuMP is extensible at
+  all levels of the stack, from supporting new solvers, to expressing new types
+  of constraints, and to modeling new problem classes like polynomial
+  optimization.
+applications: >-
+  JuMP has been used for routing school buses in Boston, scheduling trains in
+  Canada, and simulating power system operations in North and South America. It
+  is used for teaching and research at numerous universities worldwide. Features
+  and extensions have been developed in collaboration with researchers at
+  universities and national laboratories.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Julia
+features:
+  - Modeling
+  - Numerical Computing
+  - Computing Language

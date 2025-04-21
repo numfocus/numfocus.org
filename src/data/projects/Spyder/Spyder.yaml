@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Spyder
+website_link: https://www.spyder-ide.org/
+contribute_link: https://github.com/spyder-ide/spyder/blob/master/CONTRIBUTING.md
+logo: ./spyder-logomark-background300x300.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **Spyder** is a powerful scientific environment written in Python, for Python,
+  and designed by and for scientists, engineers and data analysts. It features a
+  unique combination of the advanced editing, analysis, debugging, and profiling
+  functionality of a comprehensive development tool with the data exploration,
+  interactive execution, deep inspection, and beautiful visualization
+  capabilities of a scientific package. The Spyder project also maintains a
+  number of other popular tools in the PyData ecosystem and beyond, including
+  Jupyter QtConsole, QtPy, QtAwesome, Python-LSP-Server, LogHub, Lektor-Icon,
+  Docrepr and more, alongside a bevy of Spyder plugins.
+technical_details: >-
+  Spyder is a powerful Python scientific environment for data analysis and
+  machine learning, with a unique combination of software development tools and
+  the interactive data exploration and visualization capabilities, giving
+  scientists, engineers and data analysts the tools they need to change the
+  world. The Spyder project also maintains numerous other popular libraries and
+  tools in the PyData ecosystem and beyond, alongside a bevy of Spyder plugins.
+applications: >-
+  Spyder is a Python scientific environment and IDE written in Python, for
+  Python, and designed by and for scientists, engineers and data analysts. It
+  features a unique combination of the advanced editing, analysis, debugging,
+  and profiling functionality with data exploration, interactive execution, deep
+  inspection, and beautiful visualization capabilities. It integrates with many
+  popular scientific libraries, including NumPy, SciPy, Pandas, Matplotlib,
+  IPython, SymPy, Cython, Jupyter and more.
+
+
+  The Spyder project also maintains Jupyter QtConsole, QtPy, QtAwesome,
+  Python-LSP-Server, LogHub, Lektor-Icon, Docrepr and many others, alongside
+  numerous Spyder plugins, including Spyder-Terminal, Spyder-Notebook,
+  Spyder-Unittest, Spyder-Vim, Spyder-Line-Profiler, Spyder-Memory-Profiler and
+  more.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research and Teaching, Business/Industry, Government
+    Research, Biology/Medicine, Engineering, Data Science
+languages:
+  - Python
+features:
+  - Data Wrangling, Visualization, High Performance Computing, Statistical
+    Computing, Numerical Computing, Data Mining, Educational Outreach, Data
+    exploration, Code editing, Debugging, Code Analysis, interactive execution,
+    Data ingest/export, Help and documentation

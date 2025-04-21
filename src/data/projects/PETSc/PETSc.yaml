@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PETSc
+website_link: https://petsc.org
+contribute_link: https://petsc.org/release/developers/contributing/
+logo: ./PETSc-copy.png
+support_year_start: 2023
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  [PETSc](https://petsc.org) is a numerical algorithm software library widely
+  used by scientists and engineers to write scientific simulations. Such
+  simulations are used to understand the world better, and engineer improved
+  processes and products.
+technical_details: >-
+  PETSc, the Portable, Extensible Toolkit for Scientific Computation, includes a
+  large suite of scalable parallel linear and nonlinear equation solvers, ODE
+  integrators, and optimization algorithms for application codes written in C,
+  C++, Fortran, and Python. In addition, PETSc includes support for managing
+  parallel PDE discretizations including parallel matrix and vector assembly
+  routines.
+applications: >-
+  Acoustics, Aerodynamics, Air Pollution, Arterial Flow, Bone Fractures, Brain
+  Surgery, Cancer Surgery, Cancer Treatment, Carbon Sequestration, Cardiology,
+  Cells, CFD, Combustion, Concrete, Corrosion, Data Mining, Dentistry, Earth
+  Quakes, Economics, Esophagus, Fission, Fusion, Glaciers, Ground Water Flow,
+  Linguistics, Mantel Convection, Magnetic Films, Material Science, Medical
+  Imaging, Ocean Dynamics, Oil Recover, PageRank, Polymer Injection Molding,
+  Polymeric Membranes, Quantum computing, Seismology, Semiconductors, Rockets,
+  Relativity, Surface Water Flow.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Research laboratories, higher education, industry.
+languages:
+  - C, C++, Fortran, Python
+features:
+  - Numerical Computing, PDEs, numerical simulation, linear systems, ODEs,
+    optimization

@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Parsl
+website_link: http://parsl-project.org
+contribute_link: https://github.com/Parsl/parsl
+logo: ./Parsl-300x300-1.png
+support_year_start: 2024
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Parsl is a flexible and scalable parallel programming library that augments
+  Python with simple constructs for encoding parallelism. Developers annotate
+  Python functions (called apps) that can represent pure Python functions or
+  calls to external applications, to specify opportunities for concurrent
+  execution. Parsl allows invocations of these apps, called tasks, to be
+  connected by shared input/output data (e.g., Python objects or files) via
+  which Parsl constructs a dynamic dependency graph of tasks to manage
+  concurrent task execution where possible. Parsl includes an extensible and
+  scalable runtime that allows it to efficiently execute Parsl programs on one
+  to hundreds of thousands of cores on laptops, clusters, supercomputers, and
+  clouds.
+technical_details: >-
+  Parsl enables Python programmers to build existing functions and executables
+  into a higher-level program, where those functions and executables can be run
+  in parallel on different types of systems, such as laptops, clusters, clouds,
+  and HPC.
+applications: >-
+  Parsl enables developers to annotate Python functions with decorators (called
+  Parsl apps) and then asynchronous execute those functions on arbitrary
+  parallel and distributed computing systems. Parsl apps return futures that can
+  be chained together to construct dataflow-based workflows.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Academic and government research
+languages:
+  - Python
+features:
+  - Scalable Scientific Computing Workflows

@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Vega
+website_link: https://vega.github.io/
+contribute_link: https://github.com/vega
+logo: ./undefined
+support_year_start: 2025
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The Vega Projects constitute a cohesive ecosystem of visualization libraries:
+  Vega is a visualization grammar; a declarative format for creating, saving,
+  and sharing interactive visualization designs. Vega-Lite provides a
+  higher-level grammar for visual analysis and Vega-Altair provides Python
+  bindings for Vega-Lite. This grammatical implementation of graphics and
+  interactivity produces beautiful and effective visualizations with a minimal
+  amount of code. VegaFusion scales Vega-Altair to large datasets and VL Convert
+  provides publication quality static file export.
+technical_details: >-
+  Vega, is a visualization grammar; a declarative format for creating, saving,
+  and sharing interactive visualization designs. Vega-Lite provides a
+  higher-level grammar for visual analysis and Vega-Altair provides Python
+  bindings for Vega-Lite. This grammatical implementation of graphics and
+  interactivity produces beautiful and effective visualizations with a minimal
+  amount of code. VegaFusion scales Vega-Altair to large datasets and VL Convert
+  provides improved static image export.
+applications: >-
+  The Vega Projects provide an ecosystem of visualization libraries to produce
+  beautiful and effective visualizations with a minimal amount of code across
+  multiple programming languages.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Scientific Research, Higher Education, Visualization Research, Product
+    Development, Finance
+languages:
+  - Javascript/Typescript, Python, Rust
+features:
+  - Data Visualization, Interactive Visualization, Visualization Research

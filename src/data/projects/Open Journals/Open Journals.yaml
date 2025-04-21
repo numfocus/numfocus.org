@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Open Journals
+website_link: http://www.theoj.org/
+contribute_link: http://joss.theoj.org/
+logo: ./openjournals-logo-300.png
+support_year_start: 2017
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Open Journals is a collection of open source, open access journals. The
+  flagship Journal of Open Source Software (JOSS) is a developer friendly
+  journal for research software packages. With a formal peer review process that
+  is designed to improve the quality of the software submitted, JOSS is designed
+  to help researchers developing open source software to receive career credit
+  for their work.
+technical_details: >-
+  Open Journals is a collection of open source, open access journals. The
+  flagship Journal of Open Source Software (JOSS) is a developer friendly
+  journal for research software packages. With a formal peer review process that
+  is designed to improve the quality of the software submitted, JOSS is designed
+  to help researchers developing open source software to receive career credit
+  for their work.
+applications: >-
+  JOSS has a focus on open source research software from any research domain.
+  Our new sister journal JOSE (Journal of Open Source Education) is a venue for
+  publishing computational learning modules and educational software.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+languages:
+  - Python
+  - R
+  - Julia
+  - JavaScript
+  - Ruby
+features:
+  - Educational Outreach

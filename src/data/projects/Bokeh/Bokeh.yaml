@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Bokeh
+website_link: https://bokeh.org/
+contribute_link: https://docs.bokeh.org/en/latest/docs/dev_guide.html
+logo: ./bokeh-logo-300.png
+support_year_start: 2018
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Bokeh is an interactive visualization library that targets modern web browsers
+  for presentation. Bokeh can help anyone who would like to quickly and easily
+  connect powerful PyData tools to interactive plots, dashboards, and data
+  applications.
+technical_details: >-
+  Bokeh is an interactive visualization library that targets modern web browsers
+  for presentation. Its goal is to provide elegant, concise construction of
+  versatile graphics and to extend this capability with high-performance
+  interactivity over large or streaming datasets. Bokeh helps people create rich
+  explorations of data and models on the web, from wherever they are already
+  comfortable and productive (i.e. Python or R). Bokeh can help anyone who would
+  like to quickly and easily connect powerful PyData tools to interactive plots,
+  dashboards, and data applications.
+applications: >-
+  Bokeh is a popular tool used across government, academia, and professional
+  spheres including finance, medicine, oil and gas, data science, and others.
+  Bokeh was originally funded through the DARPA XDATA initiative and has
+  received additional support from Anaconda, Inc.
+
+
+  Bokeh is used for finance, management, big data mining, graphing business
+  patterns, web applications such as weather data and renewable energy
+  forecasts, viewing energy production data, disaster resource management,
+  displaying agricultural sensor data online, analysis of data from industrial
+  machinery (wind turbines, trains, power plants), and mapping clinical trials
+  using AERO plots, among many other uses.
+
+
+  Astronomers at the Space Telescope Science Institute in Baltimore have been
+  developing a suite of Bokeh server web apps to help figure out what it can do
+  for their particular science aims. These tools also help STSI astronomers
+  communicate with journalists, aerospace industry leaders, and members of
+  Congress about the science of their mission.
+
+
+  It is also used by computational biologists working to identify biomolecular
+  markers that predict the therapeutic response of cancer patients, since Bokeh
+  provides a framework for creating multiple interactive plots that can be
+  linked to shared data sources (i.e. gene expression data).
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+  - R
+  - JavaScript
+features:
+  - Visualization

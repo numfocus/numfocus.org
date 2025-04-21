@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: OpenMBEE
+website_link: https://www.openmbee.org
+contribute_link: https://github.com/Open-MBEE
+logo: ./Untitled-design-1-1.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  OpenMBEE is a community of Engineering Practitioners and Software Developers
+  that seek to use Open Source as a means to expand the availability of
+  Engineering Models and Software that connect technical information in a
+  collaborative platform.
+
+
+  Our Mission is to establish an Enterprise Platform capable of connecting
+  technical content between different technical disciplines through a
+  collaborative document interface. This platform is intended to additionally
+  provide open source Engineering Models and establish a means to integrate
+  large variety of modeling and analysis tools and languages.
+
+
+  The origins of these assets come from the European Southern Observatory and
+  the NASA Jet Propulsion Laboratory need for coordinating the complexity of
+  building modern Telescopes and Robotics Spacecraft Using Software Development
+  as a guide, we expect Engineering Modeling will leverage many of these
+  capabilities and practices with additional novelty germane to the world of
+  Engineering Modeling and Analysis. This is strongly evidenced by many of the
+  NumFocus projects that already exist, such as Jupyter and the variety of
+  Python-oriented analysis and visualization capabilities which have become
+  main-stays of the Engineering Community.
+technical_details: >-
+  OpenMBEE is a software environment built to support Engineering Modeling and
+  Analysis in a collaborative large-scale context. OpenMBEE provides Web
+  Services and for integrating models and building Web Applications that use
+  those models. These services also include Engineering Modeling App
+  integrations e.g. Jupyter Lab as well as conventional desktop tools for
+  integrating models and analysis. The most novel element is the ability to make
+  web-based technical documents with cross-referenced information made common by
+  the underlying engineering models.
+
+
+  The Open MBEE Thirty Meter Telescope Model and supporting Modeling Cookbook
+  models are key assets in Open Source Modeling for Systems Models. The Open
+  MBEE Cookbooks in particular, demonstrate the ability to provide reusable
+  descriptive models to facilitate an open collaborative process for engineering
+  development. As with software applications, this is crucial for ensuring a
+  robust resource of models with a foundation in precision, as is expected in
+  successful Open Source resources.
+
+
+  Another critical concept in the Open MBEE Architecture is the ability to make
+  this descriptive information available as a resource. Like software code
+  configuration management, versioning and organization are required. However,
+  for descriptive models written in modeling languages for large systems, it is
+  important to provide this information in a way that can be analyzed as well as
+  consumed in formal technical human formats. The Open MBEE software originated
+  at NASA JPL and the European Southern Observatory. It provides a Model
+  Repository called the Model Management System (MMS), a web application called
+  View Editor and a Code Generator called COMODO.
+applications: >-
+  OpenMBEE software and models have been applied to several international
+  projects.  
+
+  COMODO has been used for the ESO Very Large Telescope, the Very Large
+  Telescope Interferometer, and the Extremely Large Telescope (ELT) control
+  systems, generating production quality applications.
+
+
+  The ESO model libraries for instrumentation have been used on the ELT project
+  for design and implementation of the instrument control system.
+
+
+  MMS, VE, and the MDKs have been used for JPL flight projects such as Mars2020,
+  Europa Clipper, Europa Lander, Mars Sample Return, and Asteroid Redirect
+  Retrieval Mission, creating and maintaining hundreds of engineering documents
+  from models with millions of elements.
+
+
+  The Thirty Meter Telescope Observatory has been using MMS, VE, and MDKs for
+  creating engineering documentation from executable SysML models.  
+
+  SERC used MMS, VE, and MDKs for its NAVAIR surrogate pilot project for
+  sign-off handling of documents.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications, Higher Education Research & Teaching,
+    Government
+languages:
+  - C++, Python, R, JavaScript, Java, CSharp
+features:
+  - Browser Interactivity, Visualization, High Performance Computing, Big Data,
+    Numerical Computing, Educational Outreach

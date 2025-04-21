@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: CuPy
+website_link: https://cupy.dev/
+contribute_link: http://github.com/cupy/cupy/
+logo: ./CuPy_300x300.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  CuPy is a GPU-based Python library for data analysis in numerical computing.
+  CuPy shares the same API as NumPy and SciPy, allowing the use of GPUs at a
+  minimal learning cost and without the need for in-depth knowledge of low-level
+  GPU programming.
+technical_details: >-
+  CuPy is an open source library for GPU-accelerated computing with Python,
+  providing support for N-dimensional (dense) arrays, sparse matrices, and a
+  variety of numerical algorithms implemented on top of them. CuPy acts as a
+  drop-in replacement to run existing NumPy/SciPy code on NVIDIA CUDA or AMD
+  ROCm platforms.
+applications: >-
+  **Projects in a variety of fields are built upon CuPy, including spaCy
+  (natural language processing library), pomegranate (library for probabilistic
+  modelling), RAPIDS (GPU data analysis suite by NVIDIA), PyQtGraph (graphics
+  library for Qt), and turboSETI (Python based SETI search algorithm by UC
+  Berkeley). See https://github.com/cupy/cupy/wiki/Projects-using-CuPy for more
+  information.**
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications, Higher Education Research & Teaching,
+    Government
+languages:
+  - Python, Cython, CUDA
+features:
+  - Data Wrangling, Numerical Computing, High Performance Computing, Big Data,
+    Statistical Computing, Numerical Computing

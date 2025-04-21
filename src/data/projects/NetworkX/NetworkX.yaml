@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: NetworkX
+website_link: https://networkx.github.io/
+contribute_link: https://networkx.github.io/documentation/latest/developer/contribute.html
+logo: ./NetworkX.png
+support_year_start: 2021
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  NetworkX is a Python package for the creation, manipulation, and study of the
+  structure, dynamics, and functions of complex networks.
+technical_details: >-
+  **NetworkX** is an open-source library providing flexible data structures and
+  a wide array of algorithms for creating and analyzing networks. The
+  flexibility of the fundamental Graph objects enable users to construct
+  arbitrarily complex networks, supporting a broad range of problems and
+  applications.
+applications: >-
+  Network science is a diverse field encompassing a wide range of applications.
+  **NetworkX** aims to provide a generic interface to the tools and concepts of
+  network science, embracing investigation in many fields. Some common
+  applications include analysis of social networks, biological and ecological
+  applications (analysis of protein structure, population dynamics),
+  neuroscience (analysis of neural networks), machine learning (neural networks
+  in a different context), and many others. Note also that many fundamental
+  computer science concepts and data structures (e.g. search algorithms, trees)
+  are described in terms of network science. Thus many of the algorithms in
+  NetworkX are ubiquitous in scientific computing.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: rOpenSci
+website_link: https://ropensci.org/
+contribute_link: https://ropensci.org/community/#join-us
+logo: ./ropensci-logo-300.png
+support_year_start: 2014
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  rOpenSci creates technical and community infrastructure for open and
+  reproducible research in the R language. It features a curated collection of
+  over 300 R packages, an open software peer review system for
+  community-contributed packages, a platform for building, testing, and
+  publishing R packages, and documentation, and community engagement programs to
+  support scientific R users and developers.
+technical_details: >-
+  rOpenSci creates packages that allow access to data repositories through the R
+  statistical programming environment. We develop open source R packages that
+  provide programmatic access to a variety of scientific data, full-text of
+  journal articles, and repositories that provide real-time metrics of scholarly
+  impact. Use our packages to acquire data (both your own and from various data
+  sources), analyze it, add in your narrative, and generate a final publication
+  in any one of widely used formats such as Word, PDF, or LaTeX. Our tools not
+  only facilitate drawing data into an environment where it can readily be
+  manipulated, but also one in which those analyses and methods can be easily
+  shared, replicated, and extended by other researchers.
+applications: ""
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - R
+features:
+  - Data Wrangling
+  - Visualization
+  - Statistical Computing
+  - Data Mining
+  - Text Processing
+  - Subject Area Libraries
+  - Educational Outreach
+  - Version control

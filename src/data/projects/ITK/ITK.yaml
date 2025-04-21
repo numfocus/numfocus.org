@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: ITK
+website_link: https://www.insightsoftwareconsortium.org/
+contribute_link: https://github.com/InsightSoftwareConsortium/ITK/blob/master/CONTRIBUTING.md
+logo: ./ITK-web.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  ITK is an open-source, cross-platform library that provides developers with an
+  extensive suite of software tools for image analysis.  Developed through
+  extreme programming methodologies, ITK builds on a proven, spatially-oriented
+  architecture for processing, segmentation, and registration of scientific
+  images in two, three, or more dimensions.
+technical_details: >-
+  The [Insight Toolkit (ITK)](https://itk.org/), is an open-source software
+  toolkit for scientific image analysis, including registration and
+  segmentation. Segmentation is the process of identifying and classifying data
+  found in a digitally sampled representation. Registration is the task of
+  aligning or developing correspondences between data. For example, in the
+  medical environment, a CT scan may be aligned with a MRI scan in order to
+  combine the information contained in both.
+
+
+  ITK is a cross-platform software. It uses a build environment known as CMake
+  to manage platform specific project generation and compilation process in a
+  platform-independent way. ITK is implemented in C++. ITK’s implementation
+  style employs generic programming, which involves the use of templates to
+  generate, at compile-time, code that can be applied generically to any class
+  or data-type that supports the operations used by the template. The use of C++
+  templating means that the code is highly efficient and many issues are
+  discovered at compile-time, rather than at run-time during program execution.
+  It also means that many of ITK’s algorithms can be applied to arbitrary
+  spatial dimensions and pixel types.
+
+
+  An automated wrapping system integrated with ITK generates an interface
+  between C++ and a high level programming language Python. This enables rapid
+  prototyping and faster exploration of ideas by shortening the
+  edit-compile-execute cycle. In addition, the SimpleITK project provides a
+  streamlined interface to ITK that is available for C++, Python, Java, CSharp,
+  and R. The itk.js Node.js package combines Emscripten and ITK to enable
+  high-performance spatial analysis in a JavaScript runtime environment. The
+  itkwidgets for Jupyter provide interactive widgets to visualize images, point
+  sets, and meshes.
+applications: >-
+  [3D Slicer](https://www.slicer.org/) is an open source software platform for
+  medical image informatics, image processing, and three-dimensional
+  visualization. Built over two decades through support from the National
+  Institutes of Health and a worldwide developer community, Slicer brings free,
+  powerful cross-platform processing tools to physicians, researchers, and the
+  general public.
+
+
+  [ITK-SNAP](http://www.itksnap.org/) is a software application used to segment
+  structures in 3D medical images. ITK-SNAP provides semi-automatic segmentation
+  using active contour methods, as well as manual delineation and image
+  navigation. In addition to these core functions, ITK-SNAP offers many
+  supporting utilities.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications, Higher Education Research & Teaching,
+    Government
+languages:
+  - C++, Python, R, JavaScript, Java, CSharp
+features:
+  - Browser Interactivity, Visualization, High Performance Computing, Big Data,
+    Numerical Computing, Educational Outreach

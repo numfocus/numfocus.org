@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: HoloViz
+website_link: https://holoviz.org/
+contribute_link: https://github.com/holoviz
+logo: ./holoviz_logo_stacked-300x300-1.png
+support_year_start: 2023
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The **HoloViz project** is a set of open-source and interoperable tools for
+  making sense of data at any scale, primarily through visualization in a web
+  browser. These high-level tools are systematically layered, allowing users to
+  quickly build with high-level interfaces and then drop down to lower levels
+  when precise control is required. This layered approach results in
+  visualizations that are immediately usable but can then continue to be
+  inspected, pulled apart, reconfigured, and recomposed as needed. Whether
+  conducting exploratory analysis or building complex dashboards, HoloViz tools
+  are designed to work together to solve the entire problem of understanding and
+  communicating data visually: hvPlot (interactive plotting built on Bokeh,
+  Matplotlib, and Plotly), Panel (interactive apps and dashboards), Datashader
+  (server-side rendering of large datasets), Colorcet (perceptually based
+  colormapping), HoloViews and GeoViews (declarative high-level data description
+  and plotting), Lumen (low-code and no-code plotting and apps), and Param
+  (support for declarative parameter-based coding).
+technical_details: >-
+  HoloViz provides high-level tools that are designed to work together to solve
+  the entire problem of visualization in the browser, from data exploration to
+  dashboarding. Data exploration in HoloViz is based on a principle of
+  associating data directly with its semantic description and keeping the
+  original data accessible, even in complex visualizations. Dashboarding in
+  HoloViz supports nearly all Python plotting libraries, works just as well in a
+  Jupyter notebook as on a standalone secure web server, supports Python-backed
+  and static or WASM-based HTML/JavaScript applications, and can be used to
+  develop rich interactive applications without tying your domain-specific code
+  to any particular GUI or web tools. The HoloViz approach results in research,
+  data science, and engineering that is more interactive, concise, declarative,
+  and reproducible.
+applications: >-
+  HoloViz tools are used widely in many different areas of research and data
+  science, including earth science, finance, physics, and neuroscience, leading
+  to millions of total HoloViz package downloads per month. For example, the
+  Pangeo community uses HoloViz to conduct earth science research on big data
+  that drives insights about our changing climate.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Academic Research (earth science, physical science, life science, etc),
+    Research & Development (non-academic), Technology, Government, Consulting,
+    Finance, Engineering, Energy, Education, Manufacturing, Healthcare
+languages:
+  - Python, Javascript
+features:
+  - Visualization, Data Analysis, Data Exploration, Data Apps, Dashboards, Big
+    Data

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: LFortran
+website_link: https://lfortran.org/
+contribute_link: https://gitlab.com/lfortran/lfortran/-/blob/master/CONTRIBUTING.md
+logo: ./lfortran-300x300-2.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  LFortran is a modern open-source (BSD licensed) interactive Fortran compiler
+  built on top of LLVM. It can execute user’s code interactively to allow
+  exploratory work (much like Python, MATLAB or Julia) as well as compile to
+  binaries with the goal to run user’s code on modern architectures such as
+  multi-core CPUs and GPUs.
+technical_details: |-
+  Modern interactive LLVM-based Fortran compiler.
+applications: >-
+  LFortran is a modern open-source (BSD licensed) interactive Fortran compiler
+  built on top of LLVM. It can execute user’s code interactively to allow
+  exploratory work (much like Python, MATLAB or Julia) as well as compile to
+  binaries with the goal to run user’s code on modern architectures such as
+  multi-core CPUs and GPUs.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications Higher Education Research & Teaching
+    Government
+languages:
+  - Fortran, C++
+features:
+  - Compiling, Data Wrangling, Numeric Computing, Modeling, Visualization, High
+    Performance Computing

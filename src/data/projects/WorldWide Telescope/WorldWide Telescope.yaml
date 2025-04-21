@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: WorldWide Telescope
+website_link: https://worldwidetelescope.org/home/
+contribute_link: https://worldwidetelescope.github.io/contributing/
+logo: ./world-wide-telescope-300x300-1.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Thanks to the flexibility of its underlying rendering engine, WWT is used in
+  projects ranging from astrophysics research to education, public outreach, and
+  simply sharing the wonder of the universe. For instance, the WWT web toolkit
+  is used in the Chandra Source Catalog viewer of NASA’s Chandra X-Ray Center,
+  the StarHunt student research project funded by the Nobel Prize Museum, and
+  interactive educational applications created for NASA’s Bringing the Universe
+  to America’s Classrooms program. The WWT Windows application has powered
+  hundreds of planetariums, from small portable domes to world-class facilities
+  like the Adler Planetarium in Chicago.
+technical_details: >-
+  WorldWide Telescope is an ecosystem of software, data sets, and services that
+  combine to enable immersive, interactive astronomy data visualization.
+  Building on a reusable rendering engine available in both
+  TypeScript/JavaScript and C#, the WWT ecosystem includes a Windows
+  application, an interactive web app with JupyterLab support, and a range of
+  supporting tools.
+applications: >-
+  Thanks to the flexibility of its underlying rendering engine, WWT is used in
+  projects ranging from astrophysics research to education, public outreach, and
+  simply sharing the wonder of the universe. For instance, the WWT web toolkit
+  is used in the Chandra Source Catalog viewer of NASA’s Chandra X-Ray Center,
+  the StarHunt student research project funded by the Nobel Prize Museum, and
+  interactive educational applications created for NASA’s Bringing the Universe
+  to America’s Classrooms program. The WWT Windows application has powered
+  hundreds of planetariums, from small portable domes to world-class facilities
+  like the Adler Planetarium in Chicago.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching, Government
+languages:
+  - Python, TypeScript, C#
+features:
+  - Browser Interactivity, Visualization, Educational Outreach

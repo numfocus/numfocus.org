@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: scikit-learn
+website_link: https://scikit-learn.org/stable/
+contribute_link: https://scikit-learn.org/dev/developers/contributing.html
+logo: ./scikitlearn-logo-300.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Scikit–learn is a Python library for machine learning, and is one of the most
+  widely used tools for supervised and unsupervised
+  machine learning. Scikit–learn provides an easy-to-use, consistent interface
+  to a large collection of machine learning models, as well as tools for model
+  evaluation and data preparation.
+technical_details: >-
+  Scikit–learn focuses on effective implementations of widely used
+  machine learning algorithms, with a focus on supervised and
+  unsupervised learning. In particular, it allows practitioners to quickly build
+  complex machine learning pipelines and easily swap out different
+  models. Scikit–learn is built on top of numpy arrays, and therefore focuses on
+  in-memory models of homogeneous data, though some support for out-of-core
+  computations and heterogeneous data exist. Implementations rely either on
+  vectorized computations with numpy, or efficient low-level implementations in
+  Cython.
+applications: >-
+  Scikit–learn is widely used across industry and research. Applications range
+  from finding exoplanets to fraud detection in credit card transactions to
+  analyzing brain imaging data. Scikit–learn is used at tech companies such as
+  Amazon and Microsoft as well as in manufacturing processes in companies like
+  Mars, Inc.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - All Industries
+languages:
+  - Python, Cython
+features:
+  - Data Wrangling, Data Mining, Text Processing, Machine Learning, Modeling

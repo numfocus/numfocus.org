@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: nteract
+website_link: https://nteract.io/
+contribute_link: https://github.com/nteract/nteract/blob/master/CONTRIBUTING.md
+logo: ./nteract-logo-300.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  nteract is a stand-alone desktop application for developing computational
+  notebooks. nteract allows users to craft narratives involving text, code,
+  images, and data on the desktop rather than through a web application. This
+  enables users to use their native system for file search as well as clicking
+  to open notebook files.
+technical_details: >-
+  nteract is a desktop application that allows you to develop rich documents
+  that contain prose, executable code (in almost any language!), and images.
+  nteract also provides reusable components and libraries to build new
+  experiences, like the Hydrogen plugin for Atom or the notebook viewer,
+  commuter.
+applications: >-
+  nteract is used at Netflix and Plotly. Thousands of people currently use
+  nteract and hydrogen on their desktop.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+languages:
+  - Python
+  - JavaScript
+features:
+  - Educational Outreach

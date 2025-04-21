@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Dask
+website_link: https://dask.org/
+contribute_link: https://docs.dask.org/en/latest/develop.html
+logo: ./Dask-Logo-300x300-1.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Dask provides advanced parallelism for analytics, enabling performance at
+  scale for the tools you love.
+technical_details: >-
+  Dask is an open source library for natively scaling Python. It builds on
+  existing Python libraries like NumPy, pandas, and scikit-learn to enable
+  scalable computation on large datasets. In addition, Dask provides a general
+  purpose framework to enable advanced users to build their own parallel
+  applications. Dask enables analysts to scale from their multi-core laptop to
+  thousand-node cluster.
+applications: >-
+  Dask is applied across a wide set of applications, just like the full PyData
+  stack itself.  Dask was designed to scale the PyData stack generally and not
+  for a specific application.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - All Industries
+languages:
+  - Python
+features:
+  - Data Wrangling
+  - High Performance Computing
+  - Big Data, Statistical Computing
+  - Numerical Computing
+  - Data Mining
+  - Text Processing
+  - Machine Learning

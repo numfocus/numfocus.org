@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: xarray
+website_link: http://xarray.pydata.org
+contribute_link: http://xarray.pydata.org/en/latest/contributing.html
+logo: ./Xarray_Logo_CMYK_300x300.png
+support_year_start: 2018
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Xarray is an open source library providing high-level, easy-to-use data
+  structures and analysis tools for working with multidimensional labeled
+  datasets and arrays in Python.
+technical_details: >-
+  Xarray is a Python library that provides data structures and tools for working
+  with multidimensional labeled datasets and arrays. Xarray enables users to
+  perform operations on complex datasets. Xarray interoperates with many of the
+  core libraries in the scientific Python ecosystem making it a powerful
+  high-level tool for data analysis.
+applications: |-
+  Xarray has been used in a [wide](https://scholar.google.com/scholar?oi=bibs&hl=en&authuser=1&cites=7605314348902559849) [variety](http://xarray.pydata.org/en/stable/faq.html#what-other-projects-leverage-xarray) of academic and industry contexts for applications as varied as weather/climate, computational physics, astronomy, biology, econometrics, machine learning and finance. It is a core component of [Pangeo](http://pangeo.io/), a community platform for Big Data geoscience.
+
+  Examples of results enabled by xarray include:
+
+  *   modeling the environmental and [socioeconomic impacts of climate change](http://iopscience.iop.org/article/10.1088/1748-9326/aabf45/meta)
+  *   understanding the [life cycle of viruses](https://elifesciences.org/articles/32942) from single-cell RNA sequencing data
+  *   measuring the [speed of galaxies](https://arxiv.org/abs/1809.04375) in a telescope survey
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+features:
+  - Data Wrangling
+  - Visualization
+  - High Performance Computing
+  - Big Data
+  - Numerical Computing

@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Stan
+website_link: http://mc-stan.org/
+contribute_link: http://mc-stan.org/developers/
+logo: ./Stan-2024-Logo-300Final.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Stan is a platform for Bayesian modeling, inference, and visualization on the
+  frontiers of applied statistics.
+technical_details: >-
+  Stan provides portable tools for applied Bayesian statistical modeling,
+  inference, and visualization. Stan features a modeling language, math library,
+  inference algorithms, evaluation, visualization, and interfaces in a variety
+  of languages.
+applications: >-
+  Stan is used in a wide variety of domains including quantum physics,
+  astrophysics, chemistry, geology, oceanography, ecology, biogeochemistry,
+  biology, molecular biology, botany, epidemiology, genomics, neurology,
+  clinical trials, electrical engineering, materials science, linguistics,
+  cognitive science, social networks, political science, education, economics,
+  finance, sports, entertainment, insurance and actuarial studies, real estate,
+  and government. Stan is used in hundreds of companies, government agencies,
+  and non-profits worldwide. For example, Facebook’s open-source forecasting
+  tool, Prophet, is built on Stan. Legendary Entertainment uses it to analyze
+  marketing campaigns for blockbuster movies. Stan has been used by Novartis and
+  other pharmaceutical companies for pharmacological modeling and clinical
+  trials.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - Python
+  - R
+  - Julia
+  - C++
+  - command-line
+  - Stata
+  - MATLAB
+  - Mathematica
+features:
+  - Modeling
+  - Visualization
+  - High Performance Computing
+  - Statistical Computing
+  - Numerical Computing
+  - Machine Learning
+  - Computing Language
+  - Subject Area Libraries
+  - Educational Outreach

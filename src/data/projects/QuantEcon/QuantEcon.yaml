@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: QuantEcon
+website_link: https://quantecon.org/
+contribute_link: http://www.quantecon.org/about
+logo: ./quantecon-logo-300.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  QuantEcon is dedicated to improving economic modeling by providing and
+  enhancing open source computational tools for economists. QuantEcon offers
+  code libraries useful for economics; workshops, seminars and training; and an
+  online archive of lectures on economics and programming.
+technical_details: >-
+  QuantEcon is dedicated to development and documentation of modern open source
+  computational tools for economics, econometrics, and decision making.
+  QuantEcon provides a set of code libraries in both Python and Julia that are
+  useful for economics, plus an online archive of lectures on quantitative
+  economic modeling, Jupyter notebooks, scientific programming cheatsheets, and
+  resources from QuantEcon workshops and seminars.
+applications: >-
+  The Federal Reserve Bank of New York has consulted with QuantEcon for DSGE
+  modeling. The OSM Lab at UChicago has used QuantEcon lecture material for
+  their computational bootcamp.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+languages:
+  - Python
+  - Julia
+features:
+  - Modeling
+  - Numerical Computing
+  - Subject Area Libraries
+  - Educational Outreach

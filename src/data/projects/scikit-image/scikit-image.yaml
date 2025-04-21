@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: scikit-image
+website_link: https://scikit-image.org/
+contribute_link: https://scikit-image.org/docs/dev/contribute.html
+logo: ./green_orange_snake-e1584630756202.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  scikit\-image aims to be the reference library for scientific image analysis
+  in Python.
+technical_details: >-
+  scikit\-image is a collection of algorithms for image processing and analysis,
+  including functions for filtering, feature extraction, segmentation,
+  measurement, and more. It is designed to work seamlessly within the scientific
+  Python ecosystem, including the NumPy and SciPy libraries.
+applications: >-
+  scikit\-image has been used in industry, education, and academic research, in
+  fields as disparate as biology and life sciences, materials science, remote
+  sensing/satellite imaging, astrophysics, archaeology, and more. With a common
+  API for 2D, 3D and higher-dimensional imaging, it is usable for a wide variety
+  of imaging data. scikit\-image is also being used for pre- and post-processing
+  and analysis with deep learning frameworks such as PyTorch, TensorFlow, and
+  Chainer. With its focus on a clear API for reference algorithms, scikit\-image
+  is also used in educational projects such as the SciPy Lecture Notes, the
+  Python Data Science Handbook, and FastAI.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Multiple Industries
+languages:
+  - Python, Cython
+features:
+  - image processing, image filtering, image analysis, ndarray, segmentation

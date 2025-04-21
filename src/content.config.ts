@@ -9,7 +9,8 @@ const projects = defineCollection({
     pattern: ['*/*.yaml'],
     base: 'src/data/projects',
     // generate id from project directory name
-    generateId: ({ entry }) => slugify(entry.replace(/\/[^/]+$/, ''), { lower: true }),
+    generateId: ({ entry }) =>
+      slugify(entry.replace(/\/[^/]+$/, ''), { lower: true }),
   }),
   schema: ({ image }) =>
     z.object({
@@ -21,7 +22,7 @@ const projects = defineCollection({
       features: z.array(z.string()),
       industries: z.array(z.string()),
       languages: z.array(z.string()),
-      website_link: z.string().url(),
+      website_link: z.string().url().optional(),
     }),
 });
 

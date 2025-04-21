@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: GDAL
+website_link: https://gdal.org
+contribute_link: https://github.com/OSGeo/gdal/blob/master/CONTRIBUTING.md
+logo: ./GDALLogoColor300x300-1.png
+support_year_start: 2021
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  GDAL, the Geospatial Data Abstraction Library, is an access and translator
+  library for raster and vector geospatial data formats, often known as the
+  swiss knife of geospatial.
+technical_details: >-
+  **GDAL**, the Geospatial Data Abstraction Library, is an access and translator
+  library for raster and vector geospatial data formats, often known as the
+  swiss knife of geospatial, that is released under an X/MIT style Open Source
+  License. It includes command line utilities, a C and C++ API and bindings to
+  other languages (Python, Java, CSharp, …)
+applications: |-
+  **GDAL** is used by many remote sensing and GIS (Geographic Information System) software, open source or proprietary. More than one hundred of projects have declared their use of GDAL in [https://gdal.org/software\_using\_gdal.html](https://gdal.org/software_using_gdal.html)
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Remote Sensing, Geographic Information System software, Government,
+    Agriculture, Energy, Real Estate, Transportation, Utilities, Telecom,
+    Financial Services
+languages:
+  - C, C++, Python, Java, C#
+features:
+  - Data Access, Data Conversion, Remote Sensing, GIS, Geospatial

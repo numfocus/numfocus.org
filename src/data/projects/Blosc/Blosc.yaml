@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Blosc
+website_link: http://www.blosc.org
+contribute_link: https://c-blosc2.readthedocs.io/en/latest/development/index.html
+logo: ./blosc-logo-300x300.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Blosc is a very high performance meta-compressor specially designed for
+  compressing binary data.
+technical_details: >-
+  Blosc is a high performance compression library written in C that uses the
+  [blocking technique](http://www.blosc.org/docs/StarvingCPUs-CISE-2010.pdf) to
+  make compression operations easier, faster, and more flexible. Blosc splits
+  the datasets into blocks, then transparently packs them into compressed
+  containers. Blosc extends standard compression by allowing the user to
+  condition the data in every block with filters prior to the compression
+  operation; these filters can be selected depending on the properties of the
+  dataset to be compressed. In addition, Blosc provides a diversity of codecs to
+  cover different needs (better compression, faster speed or a balance between
+  the two). Finally, Blosc runs its operations in parallel to leverage the high
+  number of cores in modern CPUs.
+applications: >-
+  Blosc is designed to help in any application where (binary) data needs to be
+  compressed as fast as possible so as to minimize the impact in handling
+  compressed data transparently.
+
+
+  Blosc is currently used in many projects, among them
+  [PyTables](http://www.pytables.org/) (there is also a stand-alone
+  [hdf5-blosc](https://github.com/Blosc/hdf5-blosc) plugin for general HDF5
+  applications), [bcolz](https://bcolz.readthedocs.io/en/latest/), and
+  [zarr](https://zarr.readthedocs.io/en/stable/) (via its
+  [numcodecs](https://numcodecs.readthedocs.io/en/stable/) subproject) and it is
+  widely appreciated for its fast performance and stability. Via these projects
+  Blosc is used in Earth Data Science, databases, the financial industry and
+  many others. Hundreds of visitors access the different Blosc projects in
+  GitHub on a daily basis.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - Python
+  - Java
+  - C
+features:
+  - High Performance Computing
+  - Big Data
+  - Numerical Computing
+  - Data Mining

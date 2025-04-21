@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: OpenFHE
+logo: ./OpenFHE_Logo_Stacked_RGB_300x300.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  OpenFHE (formerly Palisade:
+  [https://www.openfhe.org/​](https://www.openfhe.org/)) is an open-source
+  project that provides efficient implementations of lattice cryptography
+  building blocks and leading homomorphic encryption schemes. Originally
+  developed by researchers in the cryptographic community, OpenFHE is actively
+  being used by several groups in academics and industry (see the list at
+  [https://www.openfhe.org/community/](https://www.openfhe.org/community/)) and
+  is being incorporated into products to protect the privacy of individuals’
+  data while allowing computation on that data.
+
+
+  OpenFHE is designed for usability, providing simpler APIs, modularity,
+  cross-platform support and integration of hardware accelerators.  OpenFHE
+  complies with the
+  [HomomorphicEncryption.org](http://homomorphicencryption.org) security
+  standards for homomorphic encryption.  We offer OpenFHE under the 2-clause BSD
+  open-source license, making it easier to wrap and redistribute OpenFHE in
+  products.
+technical_details: >-
+  OpenFHE is a general lattice cryptography library that currently includes
+  efficient implementations of the following lattice cryptography capabilities:
+
+
+  *   Homomorphic Encryption (HE)
+
+  *   Brakerski/Fan-Vercauteren scheme (3 variants)
+
+  *   Brakerski-Gentry-Vaikuntanathan scheme
+
+  *   Cheon-Kim-Kim-Song scheme
+
+  *   FHEW (Ducas-Micciancio) scheme
+
+  *   Stehle-Steinfeld scheme
+
+  *   Proxy Re-Encryption for all HE schemes
+
+  *   Digital Signature
+
+  *   Identity-Based Encryption
+
+  *   Ciphertext-Policy Attribute-Based Encryption
+applications: >-
+  CRANNOG: open source tools to conduct privacy-preserving statistical analysis
+  and database linking for social science and economics. In partnership with the
+  Institute for Research on Innovation and Science (IRIS) at the University of
+  Michigan. This project is funded by the Sloan Foundation.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - We’re fortunate that there have been high-quality publications related to
+    OpenFHE and precursor projects. A current list of OpenFHE related
+    publications can be found at https://palisade-crypto.org/publications.
+languages:
+  - OpenFHE is written in cross platform C++11. Compilable on Linux, Windows and
+    macOS. Python wrappers for OpenFHE are written in Python 3
+features:
+  - Data privacy for computation, data signing, proxy-reencryption

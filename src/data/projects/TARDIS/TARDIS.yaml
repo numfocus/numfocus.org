@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: TARDIS
+website_link: https://tardis-sn.github.io/tardis/
+contribute_link: https://tardis-sn.github.io/tardis/contributing/CONTRIBUTING.html
+logo: ./TARDIS-300x300-1.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  TARDIS is a collection of tools to analyze observations from exploding stars
+  and is widely adopted in the astrophysical community for cutting edge science.
+  TARDIS is a multi-disciplinary collaboration applying new tools from
+  artificial intelligence research and high-performance computing with an
+  open-source development structure.
+technical_details: >-
+  TARDIS is an open-source collaboration for the radiative-transfer simulation
+  of exploding stars and the analysis of their spectra. TARDIS uses standard
+  open-source community software development workflow relying on GitHub for
+  development, testing, and continuous integration.
+applications: >-
+  TARDIS is being used in modeling the observations of exploding stars and other
+  astrophysical transients. These include but are not limited to exploding white
+  dwarf stars, massive stars undergoing a core-collapse, and coalescing neutron
+  stars.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+languages:
+  - Python/C
+features:
+  - ModelingVisualizationStatistical ComputingNumerical Computing

@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: pandas
+website_link: http://pandas.pydata.org/
+contribute_link: http://pandas.pydata.org/pandas-docs/stable/contributing.html
+logo: ./pandas-logo-300.png
+support_year_start: 2015
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  pandas is a data wrangling platform for Python widely adopted in the
+  scientific computing community. pandas provides easy-to-use data ingestion,
+  transformation, and export functions.
+technical_details: >-
+  pandas is an open source library providing high-performance, easy-to-use data
+  structures and data analysis tools for the Python programming language.
+  pandas’ data analysis and modeling features enable users to carry out their
+  entire data analysis workflow in Python without having to switch to a more
+  domain-specific language like R.
+applications: >-
+  Due to its status as a foundational data wrangling tool, pandas is used in
+  virtually every large company in tech and finance (e.g. Athena Capital
+  Research, Two Sigma) and at every major university. It is used in national
+  research labs such as the Program for Climate Model Diagnosis and
+  Intercomparison (PCMDI).
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+features:
+  - Data Wrangling
+  - Modeling
+  - Visualization
+  - High Performance Computing
+  - Big Data
+  - Statistical Computing
+  - Numerical Computing
+  - Data Mining
+  - Text Processing
+  - Computing Language
+  - Educational Outreach
+  - Computational thinking

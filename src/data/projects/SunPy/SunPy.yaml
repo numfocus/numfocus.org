@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SunPy
+website_link: http://sunpy.org/
+contribute_link: http://docs.sunpy.org/en/stable/dev_guide/index.html
+logo: ./sunpy-logo-300.png
+support_year_start: 2017
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SunPy is a Python-based software library that provides tools for performing
+  research using direct observations of the Sun and Heliosphere.
+technical_details: >-
+  SunPy is a community-developed free and open-source software package for solar
+  physics. It aims to provide a comprehensive data analysis environment that
+  allows researchers within the field of solar physics to carry out their tasks
+  with the minimal effort. SunPy provides powerful data types that correspond to
+  the various types of solar observations, facilitating data handling,
+  manipulation, and data comparison.
+applications: >-
+  SunPy has been used in projects at a variety of research institutions,
+  including NASA, Stanford, U. C. Berkeley, U. of Sheffield UK, Lockheed,
+  National Solar Observatory/Daniel K. Inouye Solar Telescope, Caltech/NuStar,
+  ADNET Systems, Inc., University of Helsinki, University of Campinas,
+  University of St. Andrews, University College London, Trinity College Dublin,
+  George Mason University, and University of Washington. SunPy is used by the
+  ESA and NASA funded solar data visualization Helioviewer Project.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+features:
+  - Data Wrangling
+  - Modeling
+  - Visualization
+  - Numerical Computing
+  - Data Mining
+  - Subject Area Libraries
+  - Educational Outreach
+  - Version control

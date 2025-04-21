@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Fortran-lang
+website_link: https://fortran-lang.org
+contribute_link: https://fortran-lang.org/en/community/
+logo: ./fortran-lang_logo-300x300-smaler.png
+support_year_start: 2024
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **[Fortran-lang](https://fortran-lang.org)** is an open-source community that
+  builds and maintains a set of modern tools and libraries for Fortran
+  developers. Its main projects include the Fortran Standard Library, the
+  Fortran Package Manager, and the Fortran website. Fortran-lang also maintains
+  a growing ecosystem of canonical numerical and scientific libraries, editor
+  plugins, and other tools. Finally, Fortran-lang provides an inclusive and
+  welcoming online space for Fortran developers to collaborate and help each
+  other.
+technical_details: >-
+  Fortran-lang is an open source organization that builds and maintains the
+  modern Fortran stack of tools and libraries. It provides an extensive and
+  performant standard library, a robust and easy to use build system and package
+  manager for Fortran, C and C++, an editor extension for Visual Studio Code, an
+  interactive online playground and a variety of numerical libraries all written
+  almost exclusively in Fortran.
+
+
+  Fortran-lang and the Fortran Standard: The Fortran Standard is developed by
+  the international ISO committee (WG-5) comprised of several national
+  committees including the US INCITS committee J3. While Fortran-lang
+  collaborates with J3 and several Fortran-lang members are also J3 members,
+  Fortran-lang is not directly responsible for, but is complementary to, the
+  work done by J3 and WG5 committees on the design of the Fortran language
+  specification.
+applications: >-
+  Fortran-lang provides a wide range of tooling for the Fortran language used in
+  various contexts. The Fortran Package Manager (fpm), the Standard Library
+  (stdlib) and Modern Fortran for Visual Studio Code are mostly used in academic
+  research by individual researchers. Some notable examples where fpm is being
+  used are a machine learning framework neural-fortran, the theoretical
+  chemistry packages DFT-D3, DFT-D4 and GCP developed by Grimme Lab, SHTOOLS,
+  tblite and over 400 other projects on GitHub.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - "Government, Academia, & Industry in the fields of: Physics, Chemistry,
+    Mechanical & Civil Engineering, Applied Mathematics, Statistics, Machine
+    Learning, Data Science, Meteorology, Oceanography, Climate Science,
+    Astrophysics, Economics, Finance"
+languages:
+  - Fortran, Python, TypeScript, Javascript and many others
+features:
+  - Numerical Modeling, Statistical Modeling, Text Processing, Build Tool,
+    Package Manager, Computational Language, High Performance Computing, Code
+    Editor Extension, Interactive Playground

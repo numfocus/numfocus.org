@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: "Scientific Python "
+website_link: https://scientific-python.org/
+contribute_link: https://github.com/scientific-python/.github/blob/main/CONTRIBUTING.md
+logo: ./scientific-python.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The **Scientific Python** \*\*ecosystem\*\* is a loose federation of
+  \*\*community\*\* developed and owned Python projects widely used in
+  scientific research, technical computing, and data science. The Scientific
+  Python project aims to coordinate the ecosystem better and prepare Scientific
+  Python for the next decade.
+technical_details: >-
+  With an extensive and high-quality ecosystem of libraries, scientific Python
+  has emerged as the leading platform for data analysis. This ecosystem is
+  sustained by independent volunteers with separate mailing lists, websites,
+  roadmaps, documentation, engineering and packaging solutions, and governance
+  structures.
+
+
+  This project aims to coordinate the ecosystem better and prepare scientific
+  Python for the next decade of data science.
+applications: |-
+  Government, Higher Education, Finance, Business Applications, etc.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Government, Higher Education, Finance, Business Applications, etc.
+languages:
+  - Python
+features:
+  - The scientific Python ecosystem comprises performant, well-tested libraries
+    providing tools for computing across all scientific domains.

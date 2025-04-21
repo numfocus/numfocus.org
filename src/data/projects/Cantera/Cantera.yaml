@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Cantera
+website_link: http://cantera.org
+contribute_link: https://github.com/Cantera/cantera/blob/master/CONTRIBUTING.md
+logo: ./cantera-logo-300x300.png
+support_year_start: 2018
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Cantera is an open source software suite that helps users solve problems
+  involving thermodynamics, chemical reaction rates, and fluid transport
+  processes. The software is written to be flexible and efficient, handling
+  these calculations in a way that lets the user shift their attention to other
+  elements of their calculations.  Because it is open source, the software can
+  be easily extended to support the needs of any particular researcher.
+technical_details: >-
+  Cantera is an open source suite of object-oriented software tools for problems
+  involving chemical kinetics, thermodynamics, and/or transport processes. The
+  software automates the chemical kinetic, thermodynamic, and transport
+  calculations so that the users can efficiently incorporate detailed chemical
+  thermo-kinetics and transport models into their calculations.
+
+
+  The code utilizes object-oriented concepts for robust yet flexible phase
+  models, and algorithms are generalized so that users can explore different
+  phase models with minimal changes to their overall code. Currently, Cantera
+  can be used from Python and Matlab, or in applications written in C++ and
+  Fortran 90.  Cantera also provides a limited number of solvers for
+  time-dependent reactor networks and steady one-dimensional reacting flows.
+applications: >-
+  Cantera has been adopted by a wide range of users across diverse research
+  fields.  Its largest user base is in the combustion field, but Cantera has
+  also seen applications in energy storage (such as batteries and fuel cells),
+  geochemistry, chemical processing, thin film deposition, plasma science, and
+  atmospheric/astronomical chemistry.
+
+
+  Cantera has been used in projects at a variety of research institutions and
+  companies, including Massachusetts Institute of Technology, Sandia National
+  Laboratories, University of Connecticut, Argonne National Laboratories, Oregon
+  State University, Siemens Canada, Northeastern University, Brown University,
+  Bucknell University, University of Illinois at Chicago, Colorado School of
+  Mines, Stanford University, Politecnico di Torino, Université d’Orléans,
+  University of Florida, SouthWest University of Science and Technology (China),
+  Polytechnic University of Milan, University of California – Irvine, University
+  of Tokyo, DLR Stuttgart, Offenberg University of Applied Sciences, and many
+  others.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+  - Matlab
+  - C
+  - C++
+  - Fortran
+features:
+  - Modeling
+  - Subject Area Libraries

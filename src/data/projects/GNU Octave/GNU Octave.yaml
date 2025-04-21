@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: GNU Octave
+website_link: https://octave.org/
+contribute_link: https://www.octave.org/get-involved
+logo: ./octave_logo300x300.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **GNU Octave** is a high-level language, primarily intended for numerical
+  computations. It provides a convenient command line interface for solving
+  linear and nonlinear problems numerically, and for performing other numerical
+  experiments using a language that is mostly compatible with Matlab. It may
+  also be used as a batch-oriented language.Octave has extensive tools for
+  solving common numerical linear algebra problems, finding the roots of
+  nonlinear equations, integrating ordinary functions, manipulating polynomials,
+  and integrating ordinary differential and differential-algebraic equations. It
+  is easily extensible and customizable via user-defined functions written in
+  Octave’s own language, or using dynamically loaded modules written in C++, C,
+  Fortran, or other languages. GNU Octave is also freely redistributable
+  software. You may redistribute it and/or modify it under the terms of the GNU
+  General Public License (GPL) as published by the Free Software Foundation.
+  Octave was written by John W. Eaton and many others.
+technical_details: >-
+  Octave has extensive tools for solving common numerical linear algebra
+  problems, finding the roots of nonlinear equations, integrating ordinary
+  functions, manipulating polynomials, and integrating ordinary differential and
+  differential-algebraic equations. It is easily extensible and customizable via
+  user-defined functions written in Octave’s own language, or using dynamically
+  loaded modules written in C++, C, Fortran, or other languages.
+applications: >-
+  GNU Octave is a very mathematically oriented programming language, which is
+  mostly compatible to Matlab. Octave is used in a wide range of universities
+  and companies world wide for teaching, research, and engineering tasks.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications, Higher Education, Research & Teaching,
+    Government
+languages:
+  - C, C++, Fortran, Java, Octave/Matlab, and many others
+features:
+  - Modeling, Visualization, Statistical Computing, Numerical Computing,
+    Computing Language

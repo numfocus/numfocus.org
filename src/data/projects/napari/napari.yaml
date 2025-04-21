@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: napari
+website_link: https://napari.org
+contribute_link: https://napari.org/developers/contributing.html
+logo: ./napari_logo-300x300-1.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **napari** is an n-dimensional image viewer in Python. It can view NumPy
+  arrays as well as many others in the ecosystem, including Dask, Zarr, and
+  Xarray.
+technical_details: >-
+  **napari** is a fast, interactive, multi-dimensional image viewer for Python.
+  It’s designed for browsing, annotating, and analyzing large multi-dimensional
+  images. It’s built on top of Qt (for the GUI), vispy (for performant GPU-based
+  rendering), and the scientific Python stack (numpy, scipy). We aim to maximize
+  compatibility with as much of the scientific Python ecosystem as possible.
+applications: >-
+  **napari** is used to visualize imaging data from modern scientific
+  instruments, such as lattice light sheet microscopes, which image 3D volumes
+  of data over time. napari can also visualize the products of analyzing these
+  images, such as object identities (called segmentations), keypoints, or motion
+  fields. Together with its interactive annotation capabilities and growing
+  plugin ecosystem, napari aims to become a powerful image visualization and
+  analysis platform.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Research, Higher Education, Imaging Instrumentation
+languages:
+  - Python
+features:
+  - Image Visualization, Image Processing, Image Analysis, Image Annotation

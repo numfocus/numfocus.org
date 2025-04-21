@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Gammapy
+website_link: https://gammapy.org
+contribute_link: https://docs.gammapy.org/0.20.1/development/intro.html
+logo: ./gammapy_logo.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **Gammapy** is a community-developed, open-source Python package for gamma-ray
+  astronomy built on Numpy, Scipy and Astropy. It is the core library for the
+  CTA Science Tools but can also be used to analyse data from existing imaging
+  atmospheric Cherenkov telescopes (IACTs), such as H.E.S.S., MAGIC and VERITAS.
+  It also provides some support for Fermi-LAT and HAWC data analysis.
+technical_details: >-
+  Gammapy is a community-developed, open-source Python package for gamma-ray
+  astronomy built on Numpy, Scipy and Astropy. It is the core library for the
+  CTA Science Tools but can also be used to analyse data from existing imaging
+  atmospheric Cherenkov telescopes (IACTs), such as H.E.S.S., MAGIC and VERITAS.
+  It also provides some support for Fermi-LAT and HAWC data analysis.
+applications: >-
+  Gammapy is used for the reduction and analysis of data from multiple gamma-ray
+  observatories, such as CTA, HESS, MAGIC and VERITAS. It can be used to create
+  multispectral images of the gamma-ray sky, measure location, shape and spectra
+  of gamma-ray sources in the universe and understand their connection to
+  observations in other wavelength ranges such as x-ray, optical and radio
+  emission.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education, Gamma-ray Astronomy
+languages:
+  - Python, Cython
+features:
+  - Statistical analysis, Model Fitting

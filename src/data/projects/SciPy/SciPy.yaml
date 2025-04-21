@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SciPy
+website_link: https://scipy.org/
+contribute_link: http://scipy.github.io/devdocs/dev/index.html
+logo: ./scipy_logo300x300.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SciPy provides fundamental numerical algorithms for scientific computing:
+  statistics, numerical optimization, linear algebra, special functions,
+  integration, interpolation, signal and image processing, and more. SciPy is a
+  foundational building block for scientific and numerical computing in Python.
+technical_details: >-
+  SciPy provides fundamental numerical algorithms for scientific computing.
+  SciPy is built on NumPy and is an important foundation for other well-known
+  Python packages like scikit-learn (machine learning), scikit-image (image
+  processing) and statsmodels (statistics).
+applications: >-
+  SciPy is used in virtually all fields of science and engineering. From major
+  scientific endeavors like the LIGO project detecting gravitational waves and
+  the first ever image of a black hole to individual scientists and teams in
+  fields as diverse as economics, biology, and psychology.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages:
+  - Python
+  - Cython
+  - C
+  - C++
+  - Fortran
+features:
+  - Data Wrangling
+  - Modeling
+  - High Performance Computing
+  - Statistical Computing
+  - Numerical Computing

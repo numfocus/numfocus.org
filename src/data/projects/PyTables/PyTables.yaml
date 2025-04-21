@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyTables
+website_link: http://www.pytables.org/
+contribute_link: http://www.pytables.org/development.html
+logo: ./pytables-logo-300.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyTables is an efficient method for storing and querying both numerical and
+  textual data. PyTables provides seamless access to the convenient HDF5
+  library, a popular container for datasets that can grow to terabytes and
+  beyond. With its support of the ultra-fast Blosc compressor, PyTables
+  optimizes memory and disk resources so that data takes up far less space than
+  other solutions, without allowing compression to slow down your data
+  management.
+technical_details: >-
+  PyTables is a Python package for storing and querying large tabular datasets
+  in an efficient way. PyTables is built on top of the HDF5 library and the
+  NumPy and numexpr packages; these provide the foundations for very compact
+  storage and high performance data management. Moreover, PyTables comes with
+  OPSI, an indexing engine meant to work with datasets exceeding the RAM
+  capacity while allowing query times to be competitive against engines in
+  relational databases. Finally, PyTables comes with the high-speed Blosc
+  compressor, making the overhead of compression typically negligible in terms
+  of performance (and many times even beneficial) when dealing with large
+  datasets, even when they are in-memory.
+applications: >-
+  PyTables has been used in a variety of both academic and industry contexts,
+  including at: CalTech, the NASA Jet Propulsion Lab at CalTech, Universitat
+  Politècnica de València, University of Southampton School of Engineering
+  Sciences, Max Planck Gesellschaft, SLAC, ACUSIM Software, NOAA, General
+  Dynamics, Germanischer Lloyd, SarVision, cellzome, and TeraView.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - Python
+features:
+  - High Performance Computing
+  - Big Data
+  - Data Mining

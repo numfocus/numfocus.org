@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: mlpack
+website_link: http://www.mlpack.org/
+contribute_link: http://www.mlpack.org/community.html#getting-involved
+logo: ./mlpack-logo-300x300.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  mlpack is a fast, flexible machine learning library suitable for both data
+  science prototyping and deployment.
+technical_details: >-
+  mlpack is a fast, flexible machine learning library, written in C++, that aims
+  to provide fast, extensible implementations of cutting-edge machine learning
+  algorithms. mlpack provides these algorithms as simple command-line programs,
+  Python bindings, and C++ classes which can then be integrated into
+  larger-scale machine learning solutions.
+applications: >-
+  mlpack was originally developed as a vehicle to implement and test fast
+  machine learning algorithms published at top conferences, like ICML, KDD, and
+  NeurIPS. This academic background has led to mlpack being used in many
+  scientific publications both inside the machine learning community and in
+  adjacent fields. mlpack is an increasingly popular choice for general data
+  science applications, with over 3000 stars on Github at the time of this
+  writing (November 2019).
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+languages:
+  - Python
+  - C++
+  - Julia
+features:
+  - Big Data
+  - Statistical Computing
+  - Numerical Computing
+  - Data Mining
+  - Text Processing
+  - Machine Learning

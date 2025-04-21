@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: scverse
+website_link: https://scverse.org
+contribute_link: https://github.com/scverse
+logo: ./scverse_bw_300x300.png
+support_year_start: 2023
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **scverse** is a consortium of foundational tools for analysis of omics data
+  in life sciences. It has been founded to ensure the long-term maintenance of
+  these core tools.
+technical_details: >-
+  scverse core tools facilitate sharing data through common formats, and provide
+  foundational support for single cell datatypes and analyses. These tools
+  benefit from shared maintenance and development in the scverse GitHub
+  organization. scverse core tools are expected to interface with and be
+  supplemented by other tools in the ecosystem. scverse strives for synergy and
+  interoperability with the ecosystem of packages built around these core tools,
+  to ultimately provide users to cutting-edge and varied selection of analysis
+  methods.
+applications: >-
+  The growing adoption of Python for single cell omics data analysis has been
+  catalyzed by our core tools. They are used in numerous research and industry
+  projects across the globe and are referenced in thousands of academic
+  publications. Around this infrastructure an ecosystem of packages has been
+  created — extending single cell analysis to different modalities and
+  addressing challenges at the cutting-edge of single cell research.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Pharmaceutical, biotech, academic research
+languages:
+  - Python (primarily), R, Julia
+features:
+  - Computational biology, data analysis, data visualization, machine learning

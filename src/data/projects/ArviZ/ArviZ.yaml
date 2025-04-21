@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: ArviZ
+website_link: https://www.arviz.org/en/latest/
+contribute_link: https://python.arviz.org/en/latest/contributing/index.html
+logo: ./ArviZ_FullLogo_300x300_FINAL.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  A unified codebase for Exploratory analysis of Bayesian models.
+technical_details: >-
+  ArviZ the library that Bayesian Modelers use for most of the steps that are
+  not actual modeling. This includes diagnostics, results summary, and model
+  comparison. By centralizing all this functionality, Probabilistic Programming
+  Libraries and Probabilistic Programmers can focus on what they do best,
+  performing inference!
+applications: |-
+  Supply chain Optimization  
+  A/B Testing  
+  Biomedical Research  
+  Demand Forecasting  
+  COVID Infectiousness modeling
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications Academia
+languages:
+  - Python, Julia
+features:
+  - Modeling Statistical Computing Visualization, High-Performance Computing
+    Statistical Computing, Numerical Computing, Machine Learning Computing
+    Language, Subject Area Libraries Educational Outreach

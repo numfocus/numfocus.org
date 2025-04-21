@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyMC
+website_link: http://docs.pymc.io/
+contribute_link: https://github.com/pymc-devs/pymc
+logo: ./PyMC300x300.png
+support_year_start: 2016
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyMC is a Python-based statistical modeling tool for Bayesian statistical
+  modeling and Probabilistic Machine Learning which focuses on advanced Markov
+  chain Monte Carlo and variational fitting algorithms.
+technical_details: >-
+  PyMC is a Python package for Bayesian statistical modeling and Probabilistic
+  Machine Learning which focuses on advanced Markov chain Monte Carlo and
+  variational fitting algorithms. PyMC features intuitive model specification
+  syntax, powerful sampling algorithms, variational inference, and transparent
+  support for missing value imputation. It relies on Theano, which provides
+  computation optimization and dynamic C compilation, NumPy broadcasting and
+  advanced indexing, linear algebra operators, and simple extensibility.
+applications: >-
+  PyMC enjoys wide adoption in industry. Quantopian uses PyMC to track
+  uncertainty in the performance of a trading algorithm. We Are Wizards uses
+  PyMC3 to evaluate A/B test performance. VoiceBox Technologies uses PyMC to
+  compare algorithm performances using Kruschke’s BEST algorithm. PyMC is used
+  in research code at Channel 4 for developing internal forecasting tools.
+  Managed by Q uses PyMC for all of their statistical modeling, including A/B
+  test analysis, sales forecasting, and churn prediction. PyMC is used as a
+  primary tool for statistical modeling at Salesforce, where they use it to
+  build hierarchical models to evaluate varying effects in web experiments and
+  then to build meta-analyses that quantify the expected returns of a subsequent
+  experiment. It has also been used at Monetate, GrubHub, and DataXu.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - Python
+features:
+  - Modeling
+  - Statistical Computing
+  - Machine Learning

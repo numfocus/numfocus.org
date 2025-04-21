@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: NiBabel
+website_link: https://nipy.org/nibabel/
+contribute_link: https://nipy.org/nibabel/devel/devguide.html
+logo: ./nibabel_logo300x300.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **NiBabel** is an input/output library for brain imaging, providing Python
+  interfaces to common medical and neuroimaging file formats, including:
+  ANALYZE, GIFTI, NIfTI1, NIfTI2, CIFTI-2, MINC1, MINC2, AFNI BRIK/HEAD, MGH,
+  ECAT, Philips PAR/REC, and FreeSurfer geometry, annotation and morphometry
+  files.
+technical_details: >-
+  **NiBabel** is an open source library providing read/write access to common
+  neuroimaging file formats for the Python programming language. NiBabel and
+  Python form a workbench for neuroimaging analysis, and it is the base library
+  for many tools implementing higher level processing.
+applications: >-
+  Virtually all Python projects that interact with neuroimaging data rely on
+  **NiBabel** for I/O, including Nilearn (statistical and machine learning),
+  DIPY (computational anatomy), PyMVPA (multivariate pattern analysis), MNE
+  (electrophysiology) and MONAI and NiftyNet (deep learning). Neuroimaging
+  software suites such as AFNI, FSL and ANTs use NiBabel for accompanying Python
+  modules. Additionally, because data are exposed through numpy arrays, there
+  are many free-standing projects that apply deep learning techniques to
+  neuroimaging data using a combination of NiBabel and a library such as Pytorch
+  or Tensorflow.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education, Medical
+languages:
+  - Python
+features:
+  - Medical imaging, neuroscience, neuroinformatics

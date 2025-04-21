@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Zarr
+website_link: https://zarr.readthedocs.io/
+contribute_link: https://zarr.readthedocs.io/en/stable/contributing.html
+logo: ./Zarr_LogoOptions_FINAL_Horizontal_Pink300x300.png
+support_year_start: 2019
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  Zarr: scalable storage of tensor data for scientific computing
+technical_details: >-
+  Zarr is a spec for storing chunked, compressed, N-dimensional arrays; several
+  languages’ implementations of that spec; and an associated ecosystem of tools
+  and integrations that use them.
+applications: >-
+  Zarr is broadly used in biomedicine (malaria genomics, scRNAseq, spatial
+  transcriptomics, neuroscience, etc.) and beyond (many geoscience fields).
+
+
+  It fills a need for simple, scalable N-dimensional array storage in the cloud
+  era; scientists from many disciplines have flocked to it to solve a need
+  historically filled by HDF5. It has a vibrant open ecosystem and distributed,
+  grassroots developer-and user-base, and supports the NetCDF data model,
+  allowing drop-in integration with a wide variety of systems and use-cases.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SymPy
+website_link: http://www.sympy.org/en/index.html
+contribute_link: https://github.com/sympy/sympy/wiki/Introduction-to-contributing
+logo: ./sympy-logo-300.png
+support_year_start: 2014
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SymPy is a library for symbolic mathematics, which means performing
+  mathematical calculations exactly (as opposed to inexact numeric calculations
+  from libraries such as NumPy). Its core features include basic arithmetic,
+  simplification trigonometry, polynomials, expansion, functions, substitution,
+  numbers, noncommutative symbols, and pattern matching.
+technical_details: >-
+  SymPy is a Python library for symbolic mathematics. It aims to become a
+  full-featured computer algebra system (CAS) while keeping the code as simple
+  as possible in order to be comprehensible and easily extensible. SymPy is
+  written entirely in Python. Its core features include basic arithmetic,
+  simplification trigonometry, polynomials, expansion, functions, substitution,
+  numbers, noncommutative symbols, and pattern matching.
+applications: >-
+  Projects in a variety of fields rely upon SymPy, including Mathics (a free,
+  online CAS featuring Mathematica compatible syntax and functions), Cadabra (a
+  CAS designed specifically for the resolution of problems encountered in field
+  theory), IKFast (a robot kinematics compiler provided by OpenRAVE), SageMath
+  (a free, open-source mathematics software system), PyDy (for multibody
+  dynamics with Python), galgebra (a Python package for geometric algebra),
+  SymPy Gamma (an open source analog of Wolfram | Alpha), GNU Octave Symbolic
+  Package (an implementation of a symbolic toolbox for Octave using SymPy),
+  SfePy (a Python package for solving PDEs in 1D, 2D, and 3D by the Finite
+  Element method), Quameon (Quantum Monte Carlo in Python), Lcapy (an
+  experimental Python package for teaching linear circuit analysis), and yt (a
+  package for analyzing and visualizing volumetric data).
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+languages:
+  - Python
+features:
+  - Modeling
+  - Statistical Computing
+  - Numerical Computing

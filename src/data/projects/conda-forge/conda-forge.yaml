@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: conda-forge
+website_link: https://conda-forge.org/
+contribute_link: https://conda-forge.org/#contribute
+logo: ./conda-forge-square.png
+support_year_start: 2018
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Conda-forge builds and distributes software packages, specializing in the
+  hard-to-build or unique packages that often arise in a scientific computing
+  context. Conda-forge is community-driven and community-curated. This means
+  that no package is too domain-specific and all packages undergo review to
+  ensure quality and interoperability. Conda-forge has a federated structure,
+  where each package has its own list of maintainers, which anyone can join.
+  This helps ensure that people who care about a package are the ones
+  responsible for maintaining it. The conda-forge ecosystem is fully structured
+  around automation. This lets our maintainers build packages for systems they
+  do not own (like Windows or Mac), keep their packages up-to-date
+  automatically, and ensure their packages maintain the highest level of
+  quality.
+technical_details: >-
+  Conda-forge is a community-led collection of recipes, build infrastructure and
+  distributions for the conda package manager. Our GitHub organization contains
+  repositories of conda recipes. Thanks to some awesome continuous integration
+  providers (AppVeyor, CircleCI and TravisCI), each repository, also known as a
+  feedstock, automatically builds its own recipe in a clean and repeatable way
+  on Windows, Linux and OSX.
+applications: >-
+  Conda-forge is the preferred way to install large parts of the PyData and R
+  ecosystem. It is used throughout a disparate set of scientific computing
+  domains, from Physics to Biology to Financial Technology and everything in
+  between.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
+languages: []
+features:
+  - Subject Area Libraries
+  - Version Control

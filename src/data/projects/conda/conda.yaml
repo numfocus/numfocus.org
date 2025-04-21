@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: conda
+website_link: https://github.com/conda
+contribute_link: https://conda.io/projects/conda/en/latest/dev-guide/index.html
+logo: ./conda_RGB300x300.png
+support_year_start: 2022
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  **conda** is an open source package management system and environment
+  management system that runs on Windows, macOS, Linux and z/OS. conda quickly
+  installs, runs and updates packages and their dependencies. conda easily
+  creates, saves, loads and switches between environments on your local
+  computer. conda supports software written in any language.
+technical_details: >-
+  conda is an open source package management system and environment management
+  system that runs on Windows, macOS, Linux and z/OS. conda quickly installs,
+  runs and updates packages and their dependencies. conda easily creates, saves,
+  loads and switches between environments on your local computer. conda supports
+  software written in any language.
+applications: >-
+  conda is an operating system, programming language, and domain agnostic tool.
+  It is used in education, research and commercial applications to simplify
+  software installation and manage run-time environments.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Education, Government, Finance, Business, Artificial Intelligence, Science,
+    Research
+languages: []
+features: []

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: sgkit
+website_link: https://pystatgen.github.io/sgkit
+contribute_link: https://github.com/pystatgen/sgkit/blob/master/CONTRIBUTING.md
+logo: ./sgkit_trnsprnt.png
+support_year_start: 2021
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  sgkit is a toolkit for population and statistical genetics in Python.
+technical_details: >-
+  **Sgkit** is a Python package that provides a variety of population and
+  statistical genetics methods to make scientists more productive when analyzing
+  genetic variation data.
+applications: >-
+  **Sgkit** is a Python package that provides a variety of population and
+  statistical genetics methods through the use of general-purpose frameworks
+  such as Xarray, Pandas, Dask and Zarr.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Life sciences, Biopharma, Agriculture
+languages:
+  - Python
+features:
+  - gwas, genetics, pydata, popgen, statistical-genetics, statgen

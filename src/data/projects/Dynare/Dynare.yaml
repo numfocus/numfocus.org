@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Dynare
+website_link: https://www.dynare.org/
+contribute_link: https://git.dynare.org/Dynare/dynare
+logo: ./undefined
+support_year_start: 2025
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Dynare is an open source software platform offering computational tools to
+  handle a wide range of economic models. With its intuitive interface and
+  well-documented features, Dynare simplifies the process of describing economic
+  models, and provides academic, professional, and student social scientists
+  with reliable routines to solve, simulate, and estimate them.
+technical_details: >-
+  Dynare is an open source/free software platform offering computational tools
+  to handle a wide range of economic models. Users can use our intuitive
+  interface to perform their entire modeling workflow from model description to
+  solving, simulating, estimating, and formatting the results.
+applications: >-
+  Dynare is a software that academic economists use to solve economic models in
+  their published work. Professional economists also use Dynare to solve,
+  estimate, and forecast large economic models in many organizations such as the
+  International Monetary Fund, the European Central Bank, and various other
+  government bodies. Additionally, Dynare is widely taught and used in many
+  Master and Doctoral programs in quantitative economics at major universities.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching, Government, Finance
+languages:
+  - MATLAB/Octave, C++, Fortran
+features:
+  - Scalable Scientific Computing Workflows

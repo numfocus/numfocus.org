@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: MDAnalysis
+website_link: https://www.mdanalysis.org/
+contribute_link: https://www.mdanalysis.org/UserGuide/contributing.html
+logo: ./MDAnalysis-web.png
+support_year_start: 2020
+type: sponsored
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  MDAnalysis is a Python library for the analysis of computer simulations of
+  many-body systems at the molecular scale, spanning use cases from interactions
+  of drugs with proteins to novel materials. It is widely used in the scientific
+  community and is written by scientists for scientists.
+technical_details: >-
+  The **goal of MDAnalysis** is to make it easy for users to analyze data that
+  are produced by simulations (primarily [molecular
+  dynamics](https://en.wikipedia.org/wiki/Molecular_dynamics) simulations) that
+  run on some of the largest supercomputers in the world. MDAnalysis
+  accomplishes this goal by providing a toolkit of programming building blocks
+  that provide an abstract Python interface to the simulation data — agnostic of
+  the specific simulation package that produced it — that lends itself to
+  interactive data exploration and rapid prototyping but is also a robust
+  foundational library that can form the basis for new [computational
+  tools](https://www.mdanalysis.org/2019/04/20/mdanalysis-as-a-building-block/).
+applications: >-
+  MDAnalysis is a project _written by scientists for scientists_ and is used for
+  cutting edge research in biophysics, chemistry, soft-matter physics, and
+  materials research around the world in academia and national research labs.
+  MDAnalysis strives to be highly interoperable and hence a growing [number of
+  projects](https://www.mdanalysis.org/pages/used-by/) use MDAnalysis as their
+  foundational library or integrate it.
+# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries:
+  - Higher Education Research & Teaching
+languages:
+  - Python
+features:
+  - Data Wrangling, Big Data, High Performance Computing, Numerical Computing,
+    Subject Area Libraries
