@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: XGI
+website_link: https://xgi.readthedocs.io
+logo: ./xgi300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The CompleX Group Interactions (XGI) library provides data structures and
+  algorithms for modeling and analyzing complex systems with group
+  (higher-order) interactions, i.e. hypergraphs and simplicial complexes.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

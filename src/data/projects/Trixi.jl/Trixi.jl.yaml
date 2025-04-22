@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Trixi.jl
+website_link: https://trixi-framework.github.io/
+logo: ./Trixi.jl-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Trixi.jl is a numerical simulation framework for conservation laws written in
+  the Julia programming language.
+technical_details: >-
+  Example applications include high-speed flows with complex shock interactions,
+  astrophysical simulations with self-gravity, shallow water problems for flood
+  prediction, or computational aeroacoustics. A key objective for the framework
+  is to be useful to both scientists and students. Therefore, next to having an
+  extensible design with a fast implementation, Trixi.jl is focused on being
+  easy to use for new or inexperienced users, including the installation and
+  postprocessing procedures. We thus try to utilize the advantages of Julia for
+  rapid prototyping and efficiency to make high-performance computing more
+  accessible for a broader scientific audience.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

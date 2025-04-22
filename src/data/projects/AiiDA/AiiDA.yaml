@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: AiiDA
+website_link: http://www.aiida.net/
+logo: ./AiiDA-type-logo-web.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  AiiDA is a workflow manager for computational science with a strong focus on
+  provenance, performance and extensibility.
+technical_details: >-
+  When executing a workflow, AiiDA records the provenance − calculations
+  performed, codes used and data generated − in a directed acyclic graph
+  tailored to provide full reproducibility of any given result.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

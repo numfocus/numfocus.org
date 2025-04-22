@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: igraph
+website_link: https://igraph.org/
+logo: ./igraph-logo_black300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  igraph is a collection of network analysis tools with the emphasis on
+  efficiency, portability and ease of use.
+technical_details: >-
+  igraph is open source and free. igraph can be programmed in R, Python,
+  Mathematica and C/C++.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

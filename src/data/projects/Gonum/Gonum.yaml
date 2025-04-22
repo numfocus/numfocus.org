@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Gonum
+website_link: https://gonum.org
+logo: ./Gonum-Logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Gonum is a set of numeric and scientific libraries written for the Go
+  programming language. Our primary aim was to build functionality similar to
+  that of numpy + scipy and today we are close to achieving this goal.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

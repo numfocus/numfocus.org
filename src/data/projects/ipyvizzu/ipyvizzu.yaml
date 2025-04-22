@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: ipyvizzu
+website_link: https://ipyvizzu.vizzuhq.com/latest/
+logo: ./ipyVIZZU-logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  ipyvizzu is a data visualization tool that empowers data scientists and
+  analysts to employ animation as a means of storytelling with data using
+  Python.
+technical_details: >-
+   It allows users to create animated charts in Jupyter, Google Colab,
+  Databricks, Kaggle, and Deepnote notebooks, among other platforms. Built on
+  the open-source JavaScript/C++ charting library Vizzu, ipyvizzu leverages a
+  unique morphing engine developed from scratch, which uses a single set of
+  rules to describe all charts. This feature enables seamless transitions
+  between different chart types. There is also a presentation extension to
+  ipyvizzu, called ipyvizzu-story, that allows live presentation of animated
+  data stories directly from notebooks, making it easier to share findings and
+  engage audiences. Additionally, ipyvizzu and ipyvizzu-story are now embeddable
+  in Streamlit and available in Panel, expanding their accessibility and
+  integration options. By harnessing the power of animation, we aim to assist
+  data scientists in effectively sharing their insights. To explore our tools’
+  capabilities, please visit our documentation sites
+  (https://ipyvizzu.vizzuhq.com/latest/showcases/ &
+  https://ipyvizzu-story.vizzuhq.com/latest/examples/) for examples and
+  showcases.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

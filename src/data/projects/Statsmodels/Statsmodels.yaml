@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Statsmodels
+website_link: http://www.statsmodels.org/stable/index.html
+logo: ./statsmodelsweb.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Statsmodels is a Python package that provides a complement to Scipy for
+  statistical computations including descriptive statistics and estimation of
+  statistical models.
+technical_details: >-
+  It features a unique combination of the advanced editing, analysis, debugging,
+  and profiling functionality of a comprehensive development tool with the data
+  exploration, interactive execution, deep inspection, and beautiful
+  visualization capabilities of a scientific package. Furthermore, Spyder offers
+  built-in integration with many popular scientific packages, including NumPy,
+  SciPy, Pandas, IPython, QtConsole, Matplotlib, SymPy and more.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

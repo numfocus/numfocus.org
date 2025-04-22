@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Colour
+website_link: https://colour-science.org/
+logo: ./colour.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  [Colour](https://github.com/colour-science/colour) is an
+  open-source [Python](https://www.python.org/) package providing a
+  comprehensive number of algorithms and datasets for colour science. It is
+  freely available under the [New BSD
+  License](https://opensource.org/licenses/BSD-3-Clause) terms.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: GeomScale
+website_link: https://geomscale.github.io/
+logo: ./GeomScale-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  GeomScale is open-source project that lies at the intersection of data
+  science, optimization, geometric and statistical computing.
+technical_details: >-
+  It combines cutting-edge research efforts and results with state-of-the-art
+  open source software tools for scientific computing , with the ambition to
+  solve both research oriented and real-life problems.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

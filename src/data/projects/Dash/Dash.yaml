@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Dash
+website_link: https://plot.ly/dash/
+logo: ./dash-logo-300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Dash is a Python framework for building analytical web applications. No
+  JavaScript required. Built on top of Plotly.js, React, and Flask, Dash ties
+  modern UI elements like dropdowns, sliders, and graphs to your analytical
+  Python code.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

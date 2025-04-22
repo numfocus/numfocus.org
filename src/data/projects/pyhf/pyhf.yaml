@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: pyhf
+website_link: https://pyhf.readthedocs.io/
+logo: ./pyhf-logo-redraw300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  pyhf is a pure-Python library for the building and serialization of
+  statistical models used commonly in high energy particle physics.
+technical_details: >-
+   It also supports statistical inference powered by n-dimensional array library
+  computational backends, including machine learning libraries that allow for
+  exploitation of automatic differentiation and hardware acceleration for
+  speeding up model fitting.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

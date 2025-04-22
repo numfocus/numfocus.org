@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Parallel Ice Sheet Model (PISM)
+website_link: https://www.pism.io/
+logo: ./PISM-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The Parallel Ice Sheet Model (PISM) is an open-source modelling framework for
+  ice sheets and glaciers. It is parallel, thermodynamically-coupled and capable
+  of high resolution. PISM has been [widely adopted as a tool for doing
+  science](https://www.pism.io/publications/) for about twenty years now.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

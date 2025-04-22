@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Magpylib
+website_link: https://magpylib.readthedocs.io/en/stable/
+logo: ./Magpylib-47c77acdf6a7-logo_bird-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Magpylib is a Python package for calculating 3D static magnetic fields of
+  permanent magnets, currents and other sources.
+technical_details: >-
+  The computation is based on analytical expressions and therefore extremely
+  fast. A user friendly API combined with graphic output enables convenient
+  positioning of sources and observers.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

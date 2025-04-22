@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: FESTIM
+website_link: https://festim.readthedocs.io/en/latest/
+logo: ./undefined
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  FESTIM, a leading open-source hydrogen transport simulation tool, relies on
+  FEniCS. Globally adopted, it serves diverse sectors like nuclear design and
+  hydrogen aviation advancements.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

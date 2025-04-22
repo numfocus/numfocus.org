@@ -16,12 +16,12 @@ const projects = defineCollection({
     z.object({
       name: z.string(),
       type: z.enum(['sponsored', 'affiliated']),
-      support_year_start: z.number(),
+      support_year_start: z.number().optional(),
       logo: image(),
       short_description: z.string(),
-      features: z.array(z.string()),
-      industries: z.array(z.string()),
-      languages: z.array(z.string()),
+      features: z.array(z.string()).optional(),
+      industries: z.array(z.string()).optional(),
+      languages: z.array(z.string()).optional(),
       website_link: z.string().url().optional(),
     }),
 });

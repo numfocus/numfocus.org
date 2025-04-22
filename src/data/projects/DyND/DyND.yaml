@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: DyND
+website_link: http://libdynd.org/
+logo: ./dynd-logo-300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  DyND is a C++ library for dynamic, multidimensional arrays.
+technical_details: >-
+  It is inspired by NumPy, the Python array programming library at the core of
+  the scientific Python stack, but tries to address a number of obstacles
+  encountered by some of its users. Examples of this are support for
+  variable-sized string, ragged array types, and convenient usage from C++. The
+  library is in a preview development state, and can be thought of as a sandbox
+  where features are being tried and tweaked to gain experience with them.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

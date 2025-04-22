@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Python-graphblas
+website_link: https://python-graphblas.readthedocs.io/en/stable/
+logo: ./Python-graphblas-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  Python-graphblas is a foundation-layer library for sparse linear algebra.
+technical_details: >-
+   Providing a Pythonic interface to compiled implementations of the GraphBLAS
+  standard. It also provides I/O connectors to efficiently convert to and from
+  common PyData primitives (numpy array, scipy.sparse array, NetworkX graph).
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

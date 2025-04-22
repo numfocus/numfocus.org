@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PUDL
+website_link: https://catalystcoop-pudl.readthedocs.io/en/nightly/
+logo: ./PUDL-logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PUDL is a data processing pipeline created by Catalyst Cooperative that
+  cleans, integrates, and standardizes some of the most widely used public
+  energy datasets in the US.
+technical_details: >-
+  The data serve researchers, activists, journalists, and policy makers that
+  might not have the technical expertise to access it in its raw form, the time
+  to clean and prepare the data for bulk analysis, or the means to purchase it
+  from existing commercial providers.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

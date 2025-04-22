@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: ObsPy
+website_link: http://obspy.org
+logo: ./obspy_logo_no_text_highres.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  ObsPy is an open-source project dedicated to provide a Python framework  
+  for processing seismological data.
+technical_details: |-
+  The goal of the ObsPy project is to facilitate rapid application  
+  development for seismology.
+
+   It provides parsers for common file formats, clients to access data  
+  centers and seismological signal processing routines which allow the  
+  manipulation of seismological time series (see Beyreuther et al. 2010,  
+  Megies et al. 2011, Krischer et al. 2015).
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

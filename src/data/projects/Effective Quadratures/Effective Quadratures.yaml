@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Effective Quadratures
+website_link: https://equadratures.org/
+logo: ./logo_new.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Effective Quadratures is an open-source library for uncertainty
+  quantification, machine learning, optimisation, numerical integration and
+  dimension reduction – all using orthogonal polynomials.
+technical_details: >-
+  It is particularly useful for models / problems where output quantities of
+  interest are smooth and continuous; to this extent it has found widespread
+  applications in computational engineering models (finite elements,
+  computational fluid dynamics, etc). It is built on the latest research within
+  these areas and has both deterministic and randomized algorithms.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

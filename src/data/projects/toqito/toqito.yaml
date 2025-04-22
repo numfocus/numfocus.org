@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: toqito
+website_link: https://toqito.readthedocs.io/en/latest/
+logo: ./toqito-logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The toqito package is an open-source library for studying various objects in
+  quantum information, namely, states, channels, and measurements. toqito
+  provides numerical tools to study problems about entanglement theory, nonlocal
+  games, and other aspects of quantum information often associated with computer
+  science.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

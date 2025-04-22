@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Open2C
+website_link: https://open2c.github.io/
+logo: ./Open2C-logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Open2C is a community that develops and maintains open-source tools for 3D
+  chromosome biology and genomic data science, primarily in Python.
+technical_details: >-
+  We are particularly interested in 3D genomics, and most of the tools are
+  focused on the analysis of data obtained using Hi-C and related
+  high-throughput technologies. We like our tools to be easy to use, flexible,
+  and scalable in order to facilitate active development of novel analytical
+  approaches and to make use of the latest and largest datasets.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

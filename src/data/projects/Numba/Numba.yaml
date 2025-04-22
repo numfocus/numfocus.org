@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Numba
+website_link: http://numba.pydata.org/
+logo: ./numba-logo-300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Numba gives you the power to speed up your applications with high performance
+  functions written directly in Python.
+technical_details: >-
+  With a few annotations, array-oriented and math-heavy Python code can be
+  just-in-time compiled to native machine instructions, similar in performance
+  to C, C++ and Fortran, without having to switch languages or Python
+  interpreters.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

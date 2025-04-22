@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: optimagic
+website_link: https://estimagic.readthedocs.io/en/stable/
+logo: ./optimagic-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  optimagic is a Python package for nonlinear optimization. It particularly well
+  suited to solve difficult problems with or without constraints. Additional
+  core functionality includes statistical inference on estimated parameters
+technical_details: >-
+  estimagic provides a unified interface to optimization algorithms from scipy,
+  NlOpt, Pygmo, TAO, Cyipopt, and other Python packages. Adding new optimizers
+  is easy and the long run goal is to support almost all optimizers with Python
+  bindings. estimagic’s interface is familiar to anyone who has used scipy’s
+  minimize function. At the same time, it is more powerful. Compared to using
+  the underlying libraries directly, estimagic provides a lot of additional
+  functionality. It adds statistical inference, sensitivity analyses, logging,
+  error handling, multistart, and diagnostic tools, such as a realtime
+  dashboard. A wide variety of data types are supported for the parameters being
+  optimized, including numpy arrays, pandas objects, and nested dictionaries.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

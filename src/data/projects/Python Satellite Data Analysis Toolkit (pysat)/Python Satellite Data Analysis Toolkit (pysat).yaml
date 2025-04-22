@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Python Satellite Data Analysis Toolkit (pysat)
+website_link: https://pysat.readthedocs.io/en/latest/index.html
+logo: ./pysat300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  pysat implements the general process of space science data analysis, from
+  beginning to end, in an instrument-independent manner.
+technical_details: >-
+  This toolkit uses an Instrument object that enables systematic but versatile
+  analysis of science data from a variety of platforms within a single
+  easy-to-use interface, abstracting away all of the tedious file, data
+  handling, and processing issues. Basic functions such as downloading, loading,
+  and cleaning are included for all supported instruments/data sets. While
+  incubated in a space science environment, pysat is capable of processing the
+  world’s data.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

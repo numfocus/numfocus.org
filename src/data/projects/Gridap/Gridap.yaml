@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Gridap
+website_link: https://gridap.github.io/Gridap.jl/stable/
+logo: ./GridAp-Web.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Gridap provides a rich set of tools for the grid-based approximation of
+  partial differential equations (PDEs) written 100% in the Julia programming
+  language.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

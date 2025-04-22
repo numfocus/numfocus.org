@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Manim
+website_link: https://www.manim.community
+logo: ./Manim-Logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Manim is a community-maintained Python library for creating (mathematical)
+  animations. With its simple, yet versatile interface, everyone is able to
+  produce insightful visualizations.
+technical_details: >-
+  For example, it allows linking mathematical formulas to colours and shapes,
+  thus bringing them to life and making them easy to grasp. While the core focus
+  is on animations in mathematics, physics and computer science, Manim has also
+  been used to create animations in the context of biology, chemistry, and even
+  music theory.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

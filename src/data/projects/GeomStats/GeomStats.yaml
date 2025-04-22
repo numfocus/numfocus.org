@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: GeomStats
+website_link: https://geomstats.ai
+logo: ./geomstats_logo300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Geomstats is an open-source Python package for computations and statistics on
+  manifolds. The package is organized into two main modules: geometry and
+  learning.
+technical_details: >-
+   The module geometry implements concepts in differential geometry, and the
+  module learning implements statistics and learning algorithms for data on
+  manifolds.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

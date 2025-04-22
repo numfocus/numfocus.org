@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Neo
+website_link: https://neo.readthedocs.io/en/latest/
+logo: ./neologo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Neo is a Python package for working with electrophysiology data. It implements
+  a hierarchical data model well adapted to intracellular and extracellular
+  electrophysiology and EEG data.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

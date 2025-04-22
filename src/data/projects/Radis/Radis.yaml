@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Radis
+website_link: https://radis.github.io/
+logo: ./Radis-Logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Radis is an open-source library to compute molecular spectra. It is used for
+  in-the-lab emission and absorption spectroscopy diagnostics, and exoplanet
+  research.
+technical_details: >-
+  Radis is specifically designed to resolve millions of lines within seconds,
+  and is compatible with the main spectroscopic databases (HITRAN, HITEMP,
+  ExoMol). It also has some radiative-transfer capabilities, and non-LTE
+  calculations.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

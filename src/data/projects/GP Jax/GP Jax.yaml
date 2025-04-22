@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: GP Jax
+website_link: https://jaxgaussianprocesses.com/
+logo: ./GP-Jax-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  GPJax is a Python library that enables Bayesian inference with Gaussian
+  processes using JAX on both CPUs and GPUs. The abstractions provided by GPJax
+  are designed to be tightly coupled with the underlying math, providing a
+  framework that is intuitive to researchers and practitioners alike. Support
+  for classification, regression, and decision making/Bayesian optimization are
+  available thanks to work from numerous contributors.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

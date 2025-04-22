@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Yellowbrick
+website_link: http://www.scikit-yb.org/en/latest/
+logo: ./yellowbrick_300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Yellowbrick is a Python package that visualizes the data science workflow,
+  allowing users to visually steer the feature, algorithm, and hyperparameter
+  selection process by directly extending the Scikit-Learn API.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

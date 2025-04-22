@@ -33,17 +33,17 @@ const filterOptions: filterOptions = {
 };
 
 projects.map((project) => {
-  project.data.features.map((feature) => {
+  project.data.features?.map((feature) => {
     if (!filterOptions.features.includes(feature)) {
       filterOptions.features.push(feature);
     }
   });
-  project.data.industries.map((industry) => {
+  project.data.industries?.map((industry) => {
     if (!filterOptions.industries.includes(industry)) {
       filterOptions.industries.push(industry);
     }
   });
-  project.data.languages.map((language) => {
+  project.data.languages?.map((language) => {
     if (!filterOptions.languages.includes(language)) {
       filterOptions.languages.push(language);
     }

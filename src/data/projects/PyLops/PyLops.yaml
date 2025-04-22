@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyLops
+website_link: http://pylops.readthedocs.io
+logo: ./pylops_logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyLops is a Python library which facilitates solving large-scale inverse
+  problems.
+technical_details: >-
+  It provides many commonly used linear operators (e.g. convolution, wavelet
+  transform, etc.) as matrix-free objects, and leverages them within iterative
+  algorithms to solve ill-conditioned problems. Its high-level, expressive
+  interface resembles the underlying mathematical formulation. Finally, it
+  supports fully interchangeable CPU and GPU backends that are compatible with
+  other native Python libraries such as NumPy and CuPy.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

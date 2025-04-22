@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyTorch-Ignite
+website_link: https://pytorch-ignite.ai/
+logo: ./Pytorch.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyTorch-Ignite is a high-level library to help with training neural networks
+  in PyTorch
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

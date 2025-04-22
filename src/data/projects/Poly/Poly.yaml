@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Poly
+website_link: https://pkg.go.dev/github.com/bebop/poly
+logo: ./Poly-logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The aim of Poly is to provide a comprehensive software framework for
+  engineering biology. Poly already ships a suite of parsers, optimizers, and
+  various tools to engineer DNA and other biological sequences which we want to
+  further expand to support more complex engineering workflows
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

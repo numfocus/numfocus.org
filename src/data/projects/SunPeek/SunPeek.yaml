@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SunPeek
+website_link: https://docs.sunpeek.org
+logo: ./Sun-Peak-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SunPeek is a python package and web application for assesing the operational
+  performance of Large Solar-thermal Arrays. It implements the ISO 24194
+  Performance Check standard, and is intended to assist researchers and plant
+  operators in understanding the long term performance of these systems.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

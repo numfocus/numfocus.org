@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Folium
+website_link: https://python-visualization.github.io/folium
+logo: ./Folium-Logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Folium builds on the data wrangling strengths of the Python ecosystem and the
+  mapping strengths of the Leaflet.js library. Manipulate your data in Python,
+  then visualize it in a Leaflet map via Folium.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

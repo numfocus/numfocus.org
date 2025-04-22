@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Crystal
+website_link: https://crystal-lang.org/
+logo: ./Crystal_logo___stacked_version.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Crystal is a statically-typed programming language that is super performant,
+  yet friendly to humans.
+technical_details: >-
+  Crystal boasts an expressive and intuitive syntax, drawing inspiration from
+  Ruby while incorporating strong static typing and C-like performance. This
+  combination allows developers to write clean and readable code while keeping
+  the benefits of compile-time type checking and improved performance.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

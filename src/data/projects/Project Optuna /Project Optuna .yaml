@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: "Project Optuna "
+website_link: http://optuna.org
+logo: ./Project_Optuna.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Project Optuna develops tools for optimizing deep learning and other tasks
+  that use hyperparameters. Project Optuna is comprised of Optuna and Chainer.
+technical_details: >-
+  Optuna is an open source hyperparameter optimization framework to automate
+  hyperparameter search. Optuna provides eager search spaces for automated
+  search for optimal hyperparameters using Python conditionals, loops, and
+  syntax, state-of-the-art algorithms to efficiently search large spaces and
+  prune unpromising trials for faster results, and easy parallelization for
+  hyperparameter searches over multiple threads or processes without modifying
+  code.
+
+
+  Chainer is a powerful, flexible, and intuitive deep learning framework, and
+  other tools to automate machine learning in development as well, as part of
+  its mission to simplify machine learning.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

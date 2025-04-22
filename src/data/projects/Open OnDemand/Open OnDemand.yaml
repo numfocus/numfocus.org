@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Open OnDemand
+website_link: https://openondemand.org/
+logo: ./Open-OnDemand-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Developed by the Ohio Supercomputer Center (OSC) and funded by the National
+  Science Foundation, Open OnDemand is an open-source portal that enables
+  web-based access to HPC services. Clients manage files and jobs, create and
+  share apps, run GUI applications and connect via SSH, all from any device with
+  a web browser.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

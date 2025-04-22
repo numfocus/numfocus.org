@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Aesara
+website_link: https://aesara.readthedocs.io/en/latest/
+logo: ./Aesara300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Aesara is a Python library that allows one to define, optimize, and
+  efficiently evaluate mathematical expressions involving multi-dimensional
+  arrays.
+technical_details: >-
+  The project includes an extensible graph framework suitable for rapid
+  development of custom operators and symbolic optimizations. Additionally, it
+  implements an extensible graph transpilation framework that currently provides
+  compilation via C, JAX, and Numba.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

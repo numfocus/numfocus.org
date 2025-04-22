@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: SkyPy
+website_link: https://github.com/skypyproject/skypy
+logo: ./Skypy_300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  SkyPy is an open-source Python package for simulating the astrophysical sky.
+  It comprises a library of physical and empirical models across a range of
+  observables and a command-line script to run end-to-end simulations.
+technical_details: >-
+  The library provides functions to sample realisations of sources and their
+  associated properties from probability distributions. Simulation pipelines are
+  constructed from these models using a YAML-based configuration syntax, while
+  task scheduling and data dependencies are handled internally and the modular
+  design allows users to interface with external software. SkyPy is developed
+  and maintained by a diverse community of domain experts with a focus on
+  software sustainability and interoperability. By fostering co-development, it
+  provides a framework for correlated simulations of a range of cosmological
+  probes including galaxy populations, large-scale structure, the cosmic
+  microwave background, supernovae and gravitational waves.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

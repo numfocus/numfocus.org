@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Data Retriever
+website_link: http://www.data-retriever.org/
+logo: ./dataretriever-logo-300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The Data Retriever is a package manager for data. It downloads, cleans, and
+  stores publicly available data, so that analysts spend less time cleaning and
+  managing data, and more time analyzing it.​
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

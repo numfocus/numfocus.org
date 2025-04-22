@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: BigBang
+website_link: https://github.com/Xiangyu-Hu/SPHinXsys
+logo: ./BigBang.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  BigBang is a toolkit for studying processes of open collaboration and
+  deliberation, especially with respect to the production of digital
+  infrastructures, to make them more transparent and accountable. This is
+  achieved by utilising public communication channels and documents to reveal
+  which actors are leading, following, or left out. It enables the analysis and
+  visualisation of relationships, discourses, time series and knowledge
+  networks.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

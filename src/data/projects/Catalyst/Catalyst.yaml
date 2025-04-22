@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Catalyst
+website_link: https://catalyst-team.com/
+logo: ./catalyst-logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Catalyst is a PyTorch framework for Deep Learning Research and Development. It
+  focuses on reproducibility, rapid experimentation, and codebase reuse so you
+  can create something new rather than write yet another train loop.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

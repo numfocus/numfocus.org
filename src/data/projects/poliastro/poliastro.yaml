@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: poliastro
+website_link: https://docs.poliastro.space/
+logo: ./poliastro.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  poliastro is an open source (MIT) collection of Python functions useful in
+  Astrodynamics and Orbital Mechanics, focusing on interplanetary applications.
+  It provides a simple and intuitive API and handles physical quantities with
+  units.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

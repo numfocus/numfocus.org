@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Asteroid
+website_link: https://asteroid-team.github.io/
+logo: ./edafeea56ddd-asteroid_logo_dark300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Asteroid is a Pytorch-based audio source separation toolkit that enables fast
+  experimentation on common datasets. It comes with a source code that supports
+  a large range of datasets and architectures, and a set of recipes to reproduce
+  some important papers.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

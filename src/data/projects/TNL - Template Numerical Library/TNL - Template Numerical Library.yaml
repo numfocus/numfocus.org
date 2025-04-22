@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: TNL - Template Numerical Library
+website_link: https://tnl-project.org
+logo: ./TNL-logo.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  TNL is an efficient C++ library providing many parallel algorithms and data
+  structures for high-performance computing on GPUs, multicore CPUs and
+  distributed clusters.
+technical_details: >-
+   The goal is to create a unified interface that allows users to write single
+  code that can be executed on different parallel architectures.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

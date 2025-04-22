@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: QuTiP
+website_link: http://qutip.org/
+logo: ./qutip_logo300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  QuTiP is a software for simulating quantum systems. QuTiP aims to provide
+  tools for user-friendly and efficient numerical simulations of open quantum
+  systems.
+technical_details: >-
+  It can be used to simulate a wide range of physical phenomenon in areas such
+  as quantum optics, trapped ions, superconducting circuits and quantum
+  nanomechanical resonators. In addition, it contains a number of other modules
+  to simplify the numerical simulation and study of many topics in quantum
+  physics such as quantum optimal control, quantum information, and computing.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

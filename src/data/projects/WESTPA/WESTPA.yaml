@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: WESTPA
+website_link: https://westpa.github.io/westpa/
+logo: ./WESTPA_star300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  WESTPA (The Weighted Ensemble Simulation Toolkit with Parallelization and
+  Analysis) is a high-performance Python framework
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

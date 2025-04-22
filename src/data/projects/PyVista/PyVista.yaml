@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyVista
+website_link: https://docs.pyvista.org/
+logo: ./pyvista_logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyVista is a helper module for the Visualization Toolkit (VTK) that takes a
+  different approach on interfacing with VTK through NumPy and direct array
+  access.
+technical_details: >-
+  This package provides a Pythonic, well-documented interface exposing VTK’s
+  powerful visualization backend to facilitate rapid prototyping, analysis, and
+  visual integration of spatially referenced datasets.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

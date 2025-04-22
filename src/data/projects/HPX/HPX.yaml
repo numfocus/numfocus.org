@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: HPX
+website_link: https://hpx.stellar-group.org
+logo: ./hpx-logo-clean.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  HPX is a general-purpose C++ runtime system for parallel and distributed
+  applications of any scale.
+technical_details: >-
+   It offers comprehensive APIs for concurrency and parallelism, adhering to the
+  standards defined by the C++ Standard, while also extending support for
+  distributed computing. In addition, HPX actively contributes to
+  standardization efforts by implementing functionalities proposed as part of
+  the ongoing C++ standardization process.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

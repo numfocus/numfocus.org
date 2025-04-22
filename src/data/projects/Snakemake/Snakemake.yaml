@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Snakemake
+website_link: https://snakemake.github.io
+logo: ./Snakemake-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The Snakemake workflow management system is a framework for reproducible and
+  scalable data analyses. Workflows are described via a human readable, Python
+  based language.
+technical_details: >-
+  They can be seamlessly scaled to server, cluster, grid and cloud environments,
+  without the need to modify the workflow definition. Snakemake workflows can
+  entail a description of required software, which will be automatically
+  deployed to any execution environment. Finally, Snakemake can automatically
+  generate server-free, graphical, interactive reports that connect the results
+  of a data analyisis with the code, parameters, and software used for each
+  step, ensuring data provenance and transparency. With on average more than 11
+  new citations per week in 2023, and almost 950000 downloads on anaconda.org,
+  Snakemake is extremely popular.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

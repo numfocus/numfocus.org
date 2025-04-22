@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: Micro-Manager
+website_link: https://micro-manager.org/
+logo: ./Micro-Manager_logo300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Micro-Manager is an open-source software for control and automation of
+  microscope hardware.
+technical_details: >-
+  It provides a generic API for hardware control of common microscope components
+  (e.g. a camera) that can be configured to work with a large array of specific
+  devices (e.g. a camera made by Thorlabs). There are several different
+  sub-projects in different repos– the hardware control layer
+  (MMCoreAndDevices), the GUI (Micro-Manager), a python package for scripting
+  (Pycro-Manager), etc.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

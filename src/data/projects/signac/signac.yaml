@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: signac
+website_link: https://signac.io/
+logo: ./signac_logo_docs_dark.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  The signac framework is a complete solution for managing workflows operating
+  on file-based data designed to scale to HPC systems.
+technical_details: >-
+  By using a well-defined, indexable storage layout for data and metadata,
+  signac streamlines generation of, access to, and analysis of data through a
+  straightforward interface that naturally scales from laptops and workstations
+  to leadership-class supercomputers. Additionally, operations on this data can
+  be managed, parallelized, and easily submitted on supercomputing clusters.
+
+
+  The project has been published in the Journal of Computational Materials
+  Science (DOI:10.1016/j.commatsci.2018.01.035) and the Proceedings of the SciPy
+  2018 conference (DOI:10.25080/Majora-4af1f417-016). It has also been presented
+  at PyData Ann Arbor as well as eight scientific conferences in chemical
+  engineering, materials science, and applied physics.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

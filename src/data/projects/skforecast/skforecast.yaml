@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: skforecast
+website_link: https://skforecast.org
+logo: ./skforcast-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  Skforecast is a Python library that eases using scikit-learn regressors as
+  single and multi-step forecasters. It also works with any regressor compatible
+  with the scikit-learn API (LightGBM, XGBoost, CatBoost, …)
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

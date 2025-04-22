@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyData Sparse
+website_link: https://sparse.pydata.org/en/stable/
+logo: ./PyData-Sparse-logo-300x300-1.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: |-
+  N-dimensional sparse arrays for the PyData Ecosystem
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

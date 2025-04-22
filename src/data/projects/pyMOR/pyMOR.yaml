@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: pyMOR
+website_link: https://pymor.org/
+logo: ./pymor_logo300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  pyMOR is a software library for building model order reduction applications
+  with the Python programming language.
+technical_details: >-
+  Implemented algorithms include reduced basis methods for parametric linear and
+  non-linear problems, as well as system-theoretic methods such as balanced
+  truncation or IRKA (Iterative Rational Krylov Algorithm). All algorithms in
+  pyMOR are formulated in terms of abstract interfaces for seamless integration
+  with external PDE (Partial Differential Equation) solver packages. Moreover,
+  pure Python implementations of FEM (Finite Element Method) and FVM (Finite
+  Volume Method) discretizations using the NumPy/SciPy scientific computing
+  stack are provided for getting started quickly.
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: PyDMD
+website_link: https://pydmd.github.io/PyDMD/
+logo: ./PyDMD.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  PyDMD is a Python package designed for Dynamic Mode Decomposition (DMD), a
+  data-driven method used for analyzing and extracting spatiotemporal coherent
+  structures from time-varying datasets. It provides a comprehensive and
+  user-friendly interface for performing DMD analysis, making it a valuable tool
+  for researchers, engineers, and data scientists working in various fields.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../projects.schema.json
+
+name: MFEM
+website_link: https://mfem.org/
+logo: ./d746bdb430c6-mfem_logo300x300.png
+type: affiliated
+
+
+#  Narrative descriptions: you can use markdown for formatting.
+#  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
+#  -----------------------
+
+short_description: >-
+  MFEM is a free, lightweight, scalable C++ library for finite element methods.
+  Its goal is to enable high-performance scalable finite element discretization
+  research and application development on a wide variety of platforms, ranging
+  from laptops to supercomputers.
+technical_details: null
+
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+industries: []
+languages: []
+features: []
