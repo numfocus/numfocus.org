@@ -27,10 +27,10 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 ---
 
 <Layout title={`${global.site_name} - ${global.site_subheader}`}>
-  <div class="home-hero w-full relative -mb-[200px]">
+  <div class="home-hero w-full relative bg-black">
     <div class="absolute z-0 w-full h-full overflow-hidden">
       <Image
-        class="object-cover h-full object-top-left"
+        class="object-cover h-full object-top-left opacity-50"
         src={`${assetBaseUrl}${content.heroImage}?width=1800`}
         alt="descriptive text"
         inferSize
@@ -39,25 +39,27 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
     <div class="hero-content relative z-10">
       <Container>
         <!-- <div class="hero-container mx-auto mb-6"> -->
-        <div class="grid grid-cols-12 mb-24">
+        <div class="grid grid-cols-12 mb-24 text-white">
           <div class="col-start-2 md:col-start-2 col-span-8 md:col-span-5 py-8">
             <div
               class="text-4xl/12 font-bold"
               set:html={content.heroHeadline}
             />
-            <div class="prose my-8" set:html={content.heroContent} />
+            <div class="prose my-8 text-white" set:html={content.heroContent} />
             <div class="buttons flex flex-col gap-10 w-full md:w-2/3">
               {
                 content.buttons &&
                   content.buttons.map((button) => (
-                    <Button button={button} arrow="right" />
+                    <Button button={button} arrow="right" type="link" />
                   ))
               }
             </div>
           </div>
         </div>
       </Container>
-      <div class="w-full bg-white opacity-90 h-24 px-24 grid grid-cols-5">
+      <div
+        class="w-full bg-black/65 h-24 grid sm:grid-cols-2 lg:grid-cols-5 border-t-[1px] border-white/50"
+      >
         {
           content.featuredLinks?.map((link, index) => (
             <FeaturedLink link={link} variant={index} />
@@ -65,7 +67,9 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
         }
       </div>
     </div>
-    <div class="stats-block sm:pt-32 relative z-5 top-20 -mt-40 mb-20">
+  </div>
+  <Container>
+    <div class="stats-block">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-none">
           <dl
@@ -80,8 +84,6 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
         </div>
       </div>
     </div>
-  </div>
-  <Container>
     <div class="h-[800px] w-full"></div>
   </Container>
 </Layout>

@@ -17,13 +17,8 @@ interface Props {
 
 export default function FeaturedLink({ link, variant }: Props) {
   return (
-    <div
-      className={twMerge(
-        colorVariants[variant],
-        `inline-flex w-full flex-row items-center border-t-6 px-6`
-      )}
-    >
-      <a href={link.url} className="group align-middle text-base font-semibold">
+    <div className="my-4 inline-flex w-full flex-row items-center border-r-[1px] border-white/50 px-4 py-2">
+      <a href={link.url} className="group align-middle text-base text-white">
         <span>{link.text}</span>
         <ArrowRightIcon className="ml-1 inline-block transition group-hover:translate-x-1" />
       </a>

@@ -33,7 +33,7 @@ const variantClasses = {
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
   donate:
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
-  minimal: 'px-2 md:px-2 text-blue-500'
+  minimal: 'px-2 md:px-2 text-white',
 };
 
 const iconVariant = {
@@ -54,6 +54,10 @@ export default function Button({ button, icon, arrow, type = 'link' }: Props) {
     'group text-md w-full inline-flex flex-row place-content-center items-center rounded-md px-2 py-2 font-bold transition hover:shadow-sm md:place-content-between md:px-6 cursor-pointer',
     button && variantClasses[button.variant]
   );
+  const buttonMinimalStyle = twMerge(
+    'group text-md inline-flex flex-row  rounded-md px-2 py-2 font-bold transition md:px-6 cursor-pointer',
+    button && variantClasses[button.variant]
+  );
 
   const buttonContent = (
     <>
@@ -71,7 +75,7 @@ export default function Button({ button, icon, arrow, type = 'link' }: Props) {
 
   if (type === 'link') {
     return (
-      <a href={button.link} className={buttonStyle}>
+      <a href={button.link} className={buttonMinimalStyle}>
         {buttonContent}
       </a>
     );
