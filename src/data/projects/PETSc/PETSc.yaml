@@ -33,12 +33,23 @@ applications: >-
   Imaging, Ocean Dynamics, Oil Recover, PageRank, Polymer Injection Molding,
   Polymeric Membranes, Quantum computing, Seismology, Semiconductors, Rockets,
   Relativity, Surface Water Flow.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Research laboratories, higher education, industry.
+  - Research laboratories
+  - higher education
+  - industry.
 languages:
-  - C, C++, Fortran, Python
+  - C
+  - C++
+  - Fortran
+  - Python
 features:
-  - Numerical Computing, PDEs, numerical simulation, linear systems, ODEs,
-    optimization
+  - Numerical Computing
+  - PDEs
+  - numerical simulation
+  - linear systems
+  - ODEs
+  - optimization

@@ -45,16 +45,38 @@ applications: >-
   used are a machine learning framework neural-fortran, the theoretical
   chemistry packages DFT-D3, DFT-D4 and GCP developed by Grimme Lab, SHTOOLS,
   tblite and over 400 other projects on GitHub.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - "Government, Academia, & Industry in the fields of: Physics, Chemistry,
-    Mechanical & Civil Engineering, Applied Mathematics, Statistics, Machine
-    Learning, Data Science, Meteorology, Oceanography, Climate Science,
-    Astrophysics, Economics, Finance"
+  - Government
+  - Academia
+  - "& Industry in the fields of: Physics"
+  - Chemistry
+  - Mechanical & Civil Engineering
+  - Applied Mathematics
+  - Statistics
+  - Machine Learning
+  - Data Science
+  - Meteorology
+  - Oceanography
+  - Climate Science
+  - Astrophysics
+  - Economics
+  - Finance
 languages:
-  - Fortran, Python, TypeScript, Javascript and many others
+  - Fortran
+  - Python
+  - TypeScript
+  - Javascript and many others
 features:
-  - Numerical Modeling, Statistical Modeling, Text Processing, Build Tool,
-    Package Manager, Computational Language, High Performance Computing, Code
-    Editor Extension, Interactive Playground
+  - Numerical Modeling
+  - Statistical Modeling
+  - Text Processing
+  - Build Tool
+  - Package Manager
+  - Computational Language
+  - High Performance Computing
+  - Code Editor Extension
+  - Interactive Playground

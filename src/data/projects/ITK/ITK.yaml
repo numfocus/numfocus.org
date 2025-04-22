@@ -63,13 +63,25 @@ applications: >-
   using active contour methods, as well as manual delineation and image
   navigation. In addition to these core functions, ITK-SNAP offers many
   supporting utilities.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry Applications, Higher Education Research & Teaching,
-    Government
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
 languages:
-  - C++, Python, R, JavaScript, Java, CSharp
+  - C++
+  - Python
+  - R
+  - JavaScript
+  - Java
+  - CSharp
 features:
-  - Browser Interactivity, Visualization, High Performance Computing, Big Data,
-    Numerical Computing, Educational Outreach
+  - Browser Interactivity
+  - Visualization
+  - High Performance Computing
+  - Big Data
+  - Numerical Computing
+  - Educational Outreach

@@ -42,12 +42,18 @@ applications: >-
   University of Oxford, Carnegie Mellon University, University of Warwick,
   Imperial College London, National Physical Laboratory, Deutsches Zentrum für
   Luft- und Raumfahrt, and The Faraday Institution.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry Applications, Higher Education Research & Teaching,
-    Government
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
 languages:
   - Python
 features:
-  - Modeling, Numerical computing, Educational Outreach, Subject Area Libraries
+  - Modeling
+  - Numerical computing
+  - Educational Outreach
+  - Subject Area Libraries

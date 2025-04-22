@@ -24,13 +24,30 @@ technical_details: >-
   other languages (Python, Java, CSharp, …)
 applications: |-
   **GDAL** is used by many remote sensing and GIS (Geographic Information System) software, open source or proprietary. More than one hundred of projects have declared their use of GDAL in [https://gdal.org/software\_using\_gdal.html](https://gdal.org/software_using_gdal.html)
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Remote Sensing, Geographic Information System software, Government,
-    Agriculture, Energy, Real Estate, Transportation, Utilities, Telecom,
-    Financial Services
+  - Remote Sensing
+  - Geographic Information System software
+  - Government
+  - Agriculture
+  - Energy
+  - Real Estate
+  - Transportation
+  - Utilities
+  - Telecom
+  - Financial Services
 languages:
-  - C, C++, Python, Java, C#
+  - C
+  - C++
+  - Python
+  - Java
+  - C#
 features:
-  - Data Access, Data Conversion, Remote Sensing, GIS, Geospatial
+  - Data Access
+  - Data Conversion
+  - Remote Sensing
+  - GIS
+  - Geospatial

@@ -37,7 +37,9 @@ applications: >-
   Politècnica de València, University of Southampton School of Engineering
   Sciences, Max Planck Gesellschaft, SLAC, ACUSIM Software, NOAA, General
   Dynamics, Germanischer Lloyd, SarVision, cellzome, and TeraView.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

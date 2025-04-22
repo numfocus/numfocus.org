@@ -35,12 +35,17 @@ applications: >-
   MDAnalysis strives to be highly interoperable and hence a growing [number of
   projects](https://www.mdanalysis.org/pages/used-by/) use MDAnalysis as their
   foundational library or integrate it.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Higher Education Research & Teaching
 languages:
   - Python
 features:
-  - Data Wrangling, Big Data, High Performance Computing, Numerical Computing,
-    Subject Area Libraries
+  - Data Wrangling
+  - Big Data
+  - High Performance Computing
+  - Numerical Computing
+  - Subject Area Libraries

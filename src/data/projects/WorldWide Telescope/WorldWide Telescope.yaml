@@ -39,11 +39,18 @@ applications: >-
   to America’s Classrooms program. The WWT Windows application has powered
   hundreds of planetariums, from small portable domes to world-class facilities
   like the Adler Planetarium in Chicago.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Higher Education Research & Teaching, Government
+  - Higher Education Research & Teaching
+  - Government
 languages:
-  - Python, TypeScript, C#
+  - Python
+  - TypeScript
+  - C#
 features:
-  - Browser Interactivity, Visualization, Educational Outreach
+  - Browser Interactivity
+  - Visualization
+  - Educational Outreach

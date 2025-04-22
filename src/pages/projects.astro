@@ -9,21 +9,48 @@ import { readSingleton } from '@directus/sdk';
 
 import directus from '../../lib/directus';
 import type { Project } from 'env';
-import projectsSchema from "../data/projects/projects.schema.json";
+import projectsSchema from '../data/projects/projects.schema.json';
 import FollowUs from '@components/FollowUs.astro';
 
-const projects: Project[] = await getCollection('projects'); 
+const projects: Project[] = await getCollection('projects');
 
 const global = await directus.request(readSingleton('General'));
 
-const { features, industries, languages, type } = projectsSchema.properties;
+const { type } = projectsSchema.properties;
 
-const filterOptions = { 
-  features: features.items.enum,
-  industries: industries.items.enum,
-  languages: languages.items.enum,
+type filterOptions = {
+  features: string[];
+  industries: string[];
+  languages: string[];
+  type: string[];
+};
+
+const filterOptions: filterOptions = {
+  features: [],
+  industries: [],
+  languages: [],
   type: type.enum,
 };
+
+projects.map((project) => {
+  project.data.features.map((feature) => {
+    if (!filterOptions.features.includes(feature)) {
+      filterOptions.features.push(feature);
+    }
+  });
+  project.data.industries.map((industry) => {
+    if (!filterOptions.industries.includes(industry)) {
+      filterOptions.industries.push(industry);
+    }
+  });
+  project.data.languages.map((language) => {
+    if (!filterOptions.languages.includes(language)) {
+      filterOptions.languages.push(language);
+    }
+  });
+});
+
+console.log(filterOptions);
 
 const pageHero = await getPageHero('projects');
 ---

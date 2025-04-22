@@ -31,11 +31,16 @@ applications: >-
   of gamma-ray sources in the universe and understand their connection to
   observations in other wavelength ranges such as x-ray, optical and radio
   emission.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Higher Education, Gamma-ray Astronomy
+  - Higher Education
+  - Gamma-ray Astronomy
 languages:
-  - Python, Cython
+  - Python
+  - Cython
 features:
-  - Statistical analysis, Model Fitting
+  - Statistical analysis
+  - Model Fitting

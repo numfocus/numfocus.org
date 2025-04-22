@@ -30,11 +30,18 @@ applications: >-
   fields. Together with its interactive annotation capabilities and growing
   plugin ecosystem, napari aims to become a powerful image visualization and
   analysis platform.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Research, Higher Education, Imaging Instrumentation
+  - Research
+  - Higher Education
+  - Imaging Instrumentation
 languages:
   - Python
 features:
-  - Image Visualization, Image Processing, Image Analysis, Image Annotation
+  - Image Visualization
+  - Image Processing
+  - Image Analysis
+  - Image Annotation

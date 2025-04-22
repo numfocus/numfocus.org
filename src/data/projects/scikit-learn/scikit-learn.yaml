@@ -34,11 +34,18 @@ applications: >-
   analyzing brain imaging data. Scikit–learn is used at tech companies such as
   Amazon and Microsoft as well as in manufacturing processes in companies like
   Mars, Inc.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - All Industries
 languages:
-  - Python, Cython
+  - Python
+  - Cython
 features:
-  - Data Wrangling, Data Mining, Text Processing, Machine Learning, Modeling
+  - Data Wrangling
+  - Data Mining
+  - Text Processing
+  - Machine Learning
+  - Modeling

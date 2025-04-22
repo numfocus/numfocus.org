@@ -30,13 +30,22 @@ applications: >-
   library for Qt), and turboSETI (Python based SETI search algorithm by UC
   Berkeley). See https://github.com/cupy/cupy/wiki/Projects-using-CuPy for more
   information.**
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry Applications, Higher Education Research & Teaching,
-    Government
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
 languages:
-  - Python, Cython, CUDA
+  - Python
+  - Cython
+  - CUDA
 features:
-  - Data Wrangling, Numerical Computing, High Performance Computing, Big Data,
-    Statistical Computing, Numerical Computing
+  - Data Wrangling
+  - Numerical Computing
+  - High Performance Computing
+  - Big Data
+  - Statistical Computing
+  - Numerical Computing

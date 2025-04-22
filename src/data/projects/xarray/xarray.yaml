@@ -30,7 +30,9 @@ applications: |-
   *   modeling the environmental and [socioeconomic impacts of climate change](http://iopscience.iop.org/article/10.1088/1748-9326/aabf45/meta)
   *   understanding the [life cycle of viruses](https://elifesciences.org/articles/32942) from single-cell RNA sequencing data
   *   measuring the [speed of galaxies](https://arxiv.org/abs/1809.04375) in a telescope survey
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

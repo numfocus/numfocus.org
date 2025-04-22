@@ -38,7 +38,9 @@ applications: >-
   is used for teaching and research at numerous universities worldwide. Features
   and extensions have been developed in collaboration with researchers at
   universities and national laboratories.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

@@ -30,11 +30,17 @@ applications: >-
   International Monetary Fund, the European Central Bank, and various other
   government bodies. Additionally, Dynare is widely taught and used in many
   Master and Doctoral programs in quantitative economics at major universities.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Higher Education Research & Teaching, Government, Finance
+  - Higher Education Research & Teaching
+  - Government
+  - Finance
 languages:
-  - MATLAB/Octave, C++, Fortran
+  - MATLAB/Octave
+  - C++
+  - Fortran
 features:
   - Scalable Scientific Computing Workflows

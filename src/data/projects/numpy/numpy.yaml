@@ -30,7 +30,9 @@ applications: >-
   university. It has been used at the NBA; at Apple which ships NumPy as part of
   OSX, at Microsoft in Microsoft Azure Machine Learning Studio, and at Intel in
   the Intel Distribution for Python.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

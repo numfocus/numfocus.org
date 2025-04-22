@@ -27,7 +27,9 @@ applications: >-
   scientific endeavors like the LIGO project detecting gravitational waves and
   the first ever image of a black hole to individual scientists and teams in
   fields as diverse as economics, biology, and psychology.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

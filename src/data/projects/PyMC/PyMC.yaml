@@ -36,7 +36,9 @@ applications: >-
   build hierarchical models to evaluate varying effects in web experiments and
   then to build meta-analyses that quantify the expected returns of a subsequent
   experiment. It has also been used at Monetate, GrubHub, and DataXu.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

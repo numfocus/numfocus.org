@@ -34,14 +34,31 @@ applications: >-
   Owing to its 20 year history as a widely cited ecosystem for analysis of
   cutting edge assays in genome biology, Bioconductor is used in virtually all
   academic and industrial organizations involved with modern biotechnology.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Pharmaceuticals, Biotechnology, Data warehousing, Government research,
-    Higher Education
+  - Pharmaceuticals
+  - Biotechnology
+  - Data warehousing
+  - Government research
+  - Higher Education
 languages:
-  - R, C, C++, python, java, markdown
+  - R
+  - C
+  - C++
+  - python
+  - java
+  - markdown
 features:
-  - Genome sequencing, Genome annotation, CI/CD, Statistics, Data science, Data
-    visualization, Interactive documentation, Workflows, Cloud computing,
-    Educational outreach
+  - Genome sequencing
+  - Genome annotation
+  - CI/CD
+  - Statistics
+  - Data science
+  - Data visualization
+  - Interactive documentation
+  - Workflows
+  - Cloud computing
+  - Educational outreach

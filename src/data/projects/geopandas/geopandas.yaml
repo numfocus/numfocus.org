@@ -36,12 +36,20 @@ applications: >-
   analytical workflows that enable users to perform analyses on raster / imagery
   datasets, networks, and other data types with different data structures. This
   enables GeoPandas to contribute to a very wide diversity of applications.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry Applications, Science & Academic Research, Higher
-    Education Research & Teaching, Government
+  - Business & Industry Applications
+  - Science & Academic Research
+  - Higher Education Research & Teaching
+  - Government
 languages:
   - Python
 features:
-  - GIS, Geospatial, Data Analysis, Data Visualization, Data Wrangling
+  - GIS
+  - Geospatial
+  - Data Analysis
+  - Data Visualization
+  - Data Wrangling

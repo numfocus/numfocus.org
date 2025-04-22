@@ -26,13 +26,18 @@ applications: |-
   Biomedical Research  
   Demand Forecasting  
   COVID Infectiousness modeling
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications Academia
 languages:
-  - Python, Julia
+  - Python
+  - Julia
 features:
-  - Modeling Statistical Computing Visualization, High-Performance Computing
-    Statistical Computing, Numerical Computing, Machine Learning Computing
-    Language, Subject Area Libraries Educational Outreach
+  - Modeling Statistical Computing Visualization
+  - High-Performance Computing Statistical Computing
+  - Numerical Computing
+  - Machine Learning Computing Language
+  - Subject Area Libraries Educational Outreach

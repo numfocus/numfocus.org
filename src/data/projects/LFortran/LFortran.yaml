@@ -26,13 +26,20 @@ applications: >-
   exploratory work (much like Python, MATLAB or Julia) as well as compile to
   binaries with the goal to run user’s code on modern architectures such as
   multi-core CPUs and GPUs.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications Higher Education Research & Teaching
     Government
 languages:
-  - Fortran, C++
+  - Fortran
+  - C++
 features:
-  - Compiling, Data Wrangling, Numeric Computing, Modeling, Visualization, High
-    Performance Computing
+  - Compiling
+  - Data Wrangling
+  - Numeric Computing
+  - Modeling
+  - Visualization
+  - High Performance Computing

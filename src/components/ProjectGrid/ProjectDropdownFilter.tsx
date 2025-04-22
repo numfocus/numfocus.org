@@ -31,7 +31,7 @@ export default function ProjectDropdownFilter({
       <DropdownMenuTrigger className="w-full" asChild>
         <Button
           variant="outline"
-          className="rounded-none border border-teal-500 justify-between"
+          className="justify-between rounded-none border border-teal-500"
         >
           <span>{label}</span>
           <ArrowDown className="text-blue-500"></ArrowDown>
@@ -41,7 +41,10 @@ export default function ProjectDropdownFilter({
         {items.map((item) => (
           <DropdownMenuCheckboxItem
             checked={activeItems?.includes(item)}
-            onSelect={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            onSelect={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             onCheckedChange={() => toggleItem(item)}
             key={item}
           >

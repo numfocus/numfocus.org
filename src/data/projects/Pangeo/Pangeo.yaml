@@ -37,13 +37,24 @@ applications: >-
   cloud-native data pipeline and repository), and Project Pythia (an education
   hub for the geosciences). Other Pangeo use cases are featured in the Pangeo
   Gallery.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry, Government, Higher Education Research & Learning
+  - Business & Industry
+  - Government
+  - Higher Education Research & Learning
 languages:
   - Python
 features:
-  - data wrangling, geospatial analysis, visualization, modeling, big data,
-    cloud computing, community building, high performance computing, numerical
-    computing, machine learning
+  - data wrangling
+  - geospatial analysis
+  - visualization
+  - modeling
+  - big data
+  - cloud computing
+  - community building
+  - high performance computing
+  - numerical computing
+  - machine learning

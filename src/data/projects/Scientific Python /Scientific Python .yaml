@@ -30,12 +30,19 @@ technical_details: >-
   Python for the next decade of data science.
 applications: |-
   Government, Higher Education, Finance, Business Applications, etc.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Government, Higher Education, Finance, Business Applications, etc.
+  - Government
+  - Higher Education
+  - Finance
+  - Business Applications
+  - etc.
 languages:
   - Python
 features:
-  - The scientific Python ecosystem comprises performant, well-tested libraries
-    providing tools for computing across all scientific domains.
+  - The scientific Python ecosystem comprises performant
+  - well-tested libraries providing tools for computing across all scientific
+    domains.

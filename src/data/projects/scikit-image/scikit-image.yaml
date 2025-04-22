@@ -30,11 +30,18 @@ applications: >-
   Chainer. With its focus on a clear API for reference algorithms, scikit\-image
   is also used in educational projects such as the SciPy Lecture Notes, the
   Python Data Science Handbook, and FastAI.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Multiple Industries
 languages:
-  - Python, Cython
+  - Python
+  - Cython
 features:
-  - image processing, image filtering, image analysis, ndarray, segmentation
+  - image processing
+  - image filtering
+  - image analysis
+  - ndarray
+  - segmentation

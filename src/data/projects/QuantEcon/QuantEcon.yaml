@@ -28,7 +28,9 @@ applications: >-
   The Federal Reserve Bank of New York has consulted with QuantEcon for DSGE
   modeling. The OSM Lab at UChicago has used QuantEcon lecture material for
   their computational bootcamp.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

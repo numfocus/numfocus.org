@@ -48,12 +48,16 @@
       "description": "Industry tags for the product",
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": [
-          "Business & Industry Applications",
-          "Higher Education Research & Teaching",
-          "Science & Academic Research",
-          "Government"
+        "anyOf": [
+          { "type": "string" },
+          {
+            "enum": [
+              "Business & Industry Applications",
+              "Higher Education Research & Teaching",
+              "Science & Academic Research",
+              "Government"
+            ]
+          }
         ]
       },
       "minItems": 1,
@@ -63,42 +67,48 @@
       "description": "Feature tags for the product",
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": [
-          "Assistive Technology",
-          "Browser Interactivity",
-          "Data Wrangling",
-          "Modeling",
-          "Visualization",
-          "High Performance Computing",
-          "Big Data",
-          "Statistical Computing",
-          "Numerical Computing",
-          "Data Mining",
-          "Text Processing",
-          "Machine Learning",
-          "Computing Language",
-          "Subject Area Libraries",
-          "Educational Outreach",
-          "Computational thinking",
-          "Version control",
-          "GIS",
-          "Geospatial",
-          "Data Analysis",
-          "Data Visualization"
+        "anyOf": [
+          { "type": "string" },
+          {
+            "enum": [
+              "Assistive Technology",
+              "Browser Interactivity",
+              "Data Wrangling",
+              "Modeling",
+              "Visualization",
+              "High Performance Computing",
+              "Big Data",
+              "Statistical Computing",
+              "Numerical Computing",
+              "Data Mining",
+              "Text Processing",
+              "Machine Learning",
+              "Computing Language",
+              "Subject Area Libraries",
+              "Educational Outreach",
+              "Computational thinking",
+              "Version control",
+              "GIS",
+              "Geospatial",
+              "Data Analysis",
+              "Data Visualization"
+            ]
+          }
         ]
       },
-      "minItems": 1,
       "uniqueItems": true
     },
     "languages": {
       "description": "Language tags for the product",
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": ["Python", "R", "Julia", "JavaScript", "Other", "Multiple"]
+        "anyOf": [
+          { "type": "string" },
+          {
+            "enum": ["Python", "R", "Julia", "JavaScript", "Other", "Multiple"]
+          }
+        ]
       },
-      "minItems": 1,
       "uniqueItems": true
     }
   }

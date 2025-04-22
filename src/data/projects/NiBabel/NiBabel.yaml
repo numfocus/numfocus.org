@@ -33,11 +33,16 @@ applications: >-
   are many free-standing projects that apply deep learning techniques to
   neuroimaging data using a combination of NiBabel and a library such as Pytorch
   or Tensorflow.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Higher Education, Medical
+  - Higher Education
+  - Medical
 languages:
   - Python
 features:
-  - Medical imaging, neuroscience, neuroinformatics
+  - Medical imaging
+  - neuroscience
+  - neuroinformatics

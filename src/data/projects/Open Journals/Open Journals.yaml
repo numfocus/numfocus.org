@@ -30,7 +30,9 @@ applications: >-
   JOSS has a focus on open source research software from any research domain.
   Our new sister journal JOSE (Journal of Open Source Education) is a venue for
   publishing computational learning modules and educational software.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Higher Education Research & Teaching

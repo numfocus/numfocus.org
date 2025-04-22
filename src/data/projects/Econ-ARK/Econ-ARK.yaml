@@ -46,7 +46,9 @@ applications: >-
   other central banks and policy institutions are ongoing, and researchers at
   several of these institutions are exploring the use of the toolkit for both
   policy and research purposes.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Higher Education Research & Teaching

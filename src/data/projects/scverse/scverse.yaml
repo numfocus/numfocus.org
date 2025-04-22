@@ -32,11 +32,20 @@ applications: >-
   publications. Around this infrastructure an ecosystem of packages has been
   created — extending single cell analysis to different modalities and
   addressing challenges at the cutting-edge of single cell research.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Pharmaceutical, biotech, academic research
+  - Pharmaceutical
+  - biotech
+  - academic research
 languages:
-  - Python (primarily), R, Julia
+  - Python (primarily)
+  - R
+  - Julia
 features:
-  - Computational biology, data analysis, data visualization, machine learning
+  - Computational biology
+  - data analysis
+  - data visualization
+  - machine learning

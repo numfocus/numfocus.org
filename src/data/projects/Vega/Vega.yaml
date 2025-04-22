@@ -33,12 +33,21 @@ applications: >-
   The Vega Projects provide an ecosystem of visualization libraries to produce
   beautiful and effective visualizations with a minimal amount of code across
   multiple programming languages.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Scientific Research, Higher Education, Visualization Research, Product
-    Development, Finance
+  - Scientific Research
+  - Higher Education
+  - Visualization Research
+  - Product Development
+  - Finance
 languages:
-  - Javascript/Typescript, Python, Rust
+  - Javascript/Typescript
+  - Python
+  - Rust
 features:
-  - Data Visualization, Interactive Visualization, Visualization Research
+  - Data Visualization
+  - Interactive Visualization
+  - Visualization Research

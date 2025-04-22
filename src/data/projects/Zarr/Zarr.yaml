@@ -28,7 +28,9 @@ applications: >-
   historically filled by HDF5. It has a vibrant open ecosystem and distributed,
   grassroots developer-and user-base, and supports the NetCDF data model,
   allowing drop-in integration with a wide variety of systems and use-cases.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries: []
 languages: []

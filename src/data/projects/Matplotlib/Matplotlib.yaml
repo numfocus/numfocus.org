@@ -33,7 +33,9 @@ applications: >-
   across many domains, including oil and gas, finance, meteorology, and
   scientific instruments. Matplotlib’s website sees approximately 25,000
   individual visitors per workday, confirming its widespread adoption.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

@@ -47,14 +47,32 @@ applications: >-
   to millions of total HoloViz package downloads per month. For example, the
   Pangeo community uses HoloViz to conduct earth science research on big data
   that drives insights about our changing climate.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Academic Research (earth science, physical science, life science, etc),
-    Research & Development (non-academic), Technology, Government, Consulting,
-    Finance, Engineering, Energy, Education, Manufacturing, Healthcare
+  - Academic Research (earth science
+  - physical science
+  - life science
+  - etc)
+  - Research & Development (non-academic)
+  - Technology
+  - Government
+  - Consulting
+  - Finance
+  - Engineering
+  - Energy
+  - Education
+  - Manufacturing
+  - Healthcare
 languages:
-  - Python, Javascript
+  - Python
+  - Javascript
 features:
-  - Visualization, Data Analysis, Data Exploration, Data Apps, Dashboards, Big
-    Data
+  - Visualization
+  - Data Analysis
+  - Data Exploration
+  - Data Apps
+  - Dashboards
+  - Big Data

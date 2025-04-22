@@ -28,7 +28,9 @@ applications: >-
   Research, Two Sigma) and at every major university. It is used in national
   research labs such as the Program for Climate Model Diagnosis and
   Intercomparison (PCMDI).
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

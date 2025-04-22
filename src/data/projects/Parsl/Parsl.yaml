@@ -34,7 +34,9 @@ applications: >-
   Parsl apps) and then asynchronous execute those functions on arbitrary
   parallel and distributed computing systems. Parsl apps return futures that can
   be chained together to construct dataflow-based workflows.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Academic and government research

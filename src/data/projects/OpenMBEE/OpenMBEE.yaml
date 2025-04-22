@@ -88,13 +88,25 @@ applications: >-
 
   SERC used MMS, VE, and MDKs for its NAVAIR surrogate pilot project for
   sign-off handling of documents.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Business & Industry Applications, Higher Education Research & Teaching,
-    Government
+  - Business & Industry Applications
+  - Higher Education Research & Teaching
+  - Government
 languages:
-  - C++, Python, R, JavaScript, Java, CSharp
+  - C++
+  - Python
+  - R
+  - JavaScript
+  - Java
+  - CSharp
 features:
-  - Browser Interactivity, Visualization, High Performance Computing, Big Data,
-    Numerical Computing, Educational Outreach
+  - Browser Interactivity
+  - Visualization
+  - High Performance Computing
+  - Big Data
+  - Numerical Computing
+  - Educational Outreach

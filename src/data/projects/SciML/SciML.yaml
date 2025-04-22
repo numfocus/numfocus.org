@@ -35,14 +35,24 @@ applications: >-
   New York Federal Reserve Bank, the Julia Robotics community, Pumas-AI:
   Pharmaceutical Modeling and Simulation, and the Brazilian National Institute
   for Space Research (INPE).
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Scientific Machine Learning, Differential Equations, High-Performance
-    Computing
+  - Scientific Machine Learning
+  - Differential Equations
+  - High-Performance Computing
 languages:
-  - Julia, Python, R
+  - Julia
+  - Python
+  - R
 features:
-  - numerical computing, scientific computing, machine learning, differentiable
-    programming, modeling, business and industry, government, higher education
-    research and training
+  - numerical computing
+  - scientific computing
+  - machine learning
+  - differentiable programming
+  - modeling
+  - business and industry
+  - government
+  - higher education research and training

@@ -22,11 +22,20 @@ applications: >-
   **Sgkit** is a Python package that provides a variety of population and
   statistical genetics methods through the use of general-purpose frameworks
   such as Xarray, Pandas, Dask and Zarr.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Life sciences, Biopharma, Agriculture
+  - Life sciences
+  - Biopharma
+  - Agriculture
 languages:
   - Python
 features:
-  - gwas, genetics, pydata, popgen, statistical-genetics, statgen
+  - gwas
+  - genetics
+  - pydata
+  - popgen
+  - statistical-genetics
+  - statgen

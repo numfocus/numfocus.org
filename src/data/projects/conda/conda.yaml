@@ -28,10 +28,17 @@ applications: >-
   conda is an operating system, programming language, and domain agnostic tool.
   It is used in education, research and commercial applications to simplify
   software installation and manage run-time environments.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
-  - Education, Government, Finance, Business, Artificial Intelligence, Science,
-    Research
+  - Education
+  - Government
+  - Finance
+  - Business
+  - Artificial Intelligence
+  - Science
+  - Research
 languages: []
 features: []

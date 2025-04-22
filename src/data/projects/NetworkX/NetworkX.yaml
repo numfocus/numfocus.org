@@ -32,7 +32,9 @@ applications: >-
   computer science concepts and data structures (e.g. search algorithms, trees)
   are described in terms of network science. Thus many of the algorithms in
   NetworkX are ubiquitous in scientific computing.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries: []
 languages: []

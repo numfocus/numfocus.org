@@ -38,7 +38,9 @@ applications: >-
   Element method), Quameon (Quantum Monte Carlo in Python), Lcapy (an
   experimental Python package for teaching linear circuit analysis), and yt (a
   package for analyzing and visualizing volumetric data).
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Business & Industry Applications

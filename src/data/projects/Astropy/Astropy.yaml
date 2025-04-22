@@ -35,7 +35,9 @@ applications: >-
   MaNGA, APOGEE, and eBOSS; codebases for the SAMI Galaxy Survey and the Close
   AGN Reference Survey; and Astropy’s table and units functionality is also used
   by organizations outside of astronomy, including the Norway Mapping Authority.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - Higher Education Research & Teaching

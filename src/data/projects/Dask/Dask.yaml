@@ -26,7 +26,9 @@ applications: >-
   Dask is applied across a wide set of applications, just like the full PyData
   stack itself.  Dask was designed to scale the PyData stack generally and not
   for a specific application.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - All Industries
@@ -35,7 +37,8 @@ languages:
 features:
   - Data Wrangling
   - High Performance Computing
-  - Big Data, Statistical Computing
+  - Big Data
+  - Statistical Computing
   - Numerical Computing
   - Data Mining
   - Text Processing

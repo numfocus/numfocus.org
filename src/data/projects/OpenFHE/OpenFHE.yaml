@@ -58,14 +58,18 @@ applications: >-
   and database linking for social science and economics. In partnership with the
   Institute for Research on Innovation and Science (IRIS) at the University of
   Michigan. This project is funded by the Sloan Foundation.
-# Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
+
+
+#  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries:
   - We’re fortunate that there have been high-quality publications related to
     OpenFHE and precursor projects. A current list of OpenFHE related
     publications can be found at https://palisade-crypto.org/publications.
 languages:
-  - OpenFHE is written in cross platform C++11. Compilable on Linux, Windows and
-    macOS. Python wrappers for OpenFHE are written in Python 3
+  - OpenFHE is written in cross platform C++11. Compilable on Linux
+  - Windows and macOS. Python wrappers for OpenFHE are written in Python 3
 features:
-  - Data privacy for computation, data signing, proxy-reencryption
+  - Data privacy for computation
+  - data signing
+  - proxy-reencryption
