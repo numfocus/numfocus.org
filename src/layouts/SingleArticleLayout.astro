@@ -5,10 +5,9 @@ import Layout from './Layout.astro';
 
 interface Props {
   title: string;
-  seo: Seo;
 }
 
-const { title, seo } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <Layout title={title}>
