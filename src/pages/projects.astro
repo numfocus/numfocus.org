@@ -1,11 +1,11 @@
 ---
-import Container from '@components/Container.astro';
 import ProjectsLayout from '@layouts/ProjectsLayout.astro';
 import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
 import Hero from '@components/Hero.astro';
 import getPageHero from '@utils/getPageHero';
 import { getCollection } from 'astro:content';
 import { readSingleton } from '@directus/sdk';
+import getPageSeo from '@utils/getPageSeo';
 
 import directus from '../../lib/directus';
 import type { Project } from 'env';
@@ -53,10 +53,12 @@ projects.map((project) => {
 console.log(filterOptions);
 
 const pageHero = await getPageHero('projects');
+const pageSeo = await getPageSeo('projects');
 ---
 
 <ProjectsLayout
   title={`Projects | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
   <ProjectGrid {filterOptions} {projects} client:load />

@@ -1,7 +1,5 @@
 ---
-
 import Container from '@components/Container.astro';
-import Layout from '../layouts/Layout.astro';
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
 import Hero from '@components/Hero.astro';
@@ -10,11 +8,8 @@ import getPageHero from '@utils/getPageHero';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import type { TipTapNode } from '@components/TipTapRender';
-
-
-interface Props {
-  title: string;
-}
+import getPageSeo from '@utils/getPageSeo';
+import BaseLayout from '@layouts/BaseLayout.astro';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -22,18 +17,21 @@ const slug = Astro.routePattern.substring(1);
 
 const pageHero = await getPageHero(slug);
 const pageContent = await getPageContent(slug);
-
+const pageSeo = await getPageSeo(slug);
 ---
 
-<Layout
+<BaseLayout
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
-  {pageContent && (
-    <div>
-      <TipTapRender handlers={BodyContent} node={pageContent as TipTapNode} />
-    </div>
-  )}
+  {
+    pageContent && (
+      <div>
+        <TipTapRender handlers={BodyContent} node={pageContent as TipTapNode} />
+      </div>
+    )
+  }
 
   <Container />
-</Layout>
+</BaseLayout>
