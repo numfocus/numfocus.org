@@ -14,7 +14,7 @@ const { pageHero: hero } = Astro.props;
 <div class="hero-container mx-auto mb-6">
   <div class="grid grid-cols-12">
     <div class="col-start-2 md:col-start-3 col-span-8 md:col-span-7 py-8">
-      <h3 class="mb-4">{hero.headline}</h3>
+      <h3 class="mb-4 mr-24">{hero.headline}</h3>
       <h5 class="mb-4">{hero.subheader}</h5>
       <div class="prose mb-6" set:html={hero.rich_text} />
       <div class="buttons flex flex-row gap-2 mr-12">

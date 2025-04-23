@@ -40,10 +40,10 @@ export type Project = CollectionEntry<'projects'>;
 export type PageHero = MetaProps & {
   title: string;
   headline: string;
-  subheader: string;
+  subheader?: string;
   rich_text: string;
   image: string;
-  button: Button[];
+  button?: Button[];
 };
 
 export type ProjectFilterOptions = {

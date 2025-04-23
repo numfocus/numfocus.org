@@ -9,6 +9,8 @@ import Hero from '@components/Hero.astro';
 import type { CaseStudy } from 'env';
 import getPageSeo from '@utils/getPageSeo';
 import getPageHero from '@utils/getPageHero';
+import getAssetUrl from '@utils/getAssetUrl';
+import { Picture } from 'astro:assets';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -16,7 +18,18 @@ const slug = Astro.routePattern.substring(1);
 
 const pageHero = await getPageHero(slug);
 const pageSeo = await getPageSeo(slug);
-const caseStudies = await directus.request(readItems('case_studies'));
+// const caseStudies = await directus.request(readItems('case_studies'));
+const caseStudies = await directus.request(
+  readItems('case_studies', {
+    fields: [
+      'title',
+      'slug',
+      'hero.item.heading',
+      'hero.item.content',
+      'hero.item.image',
+    ],
+  })
+);
 ---
 
 <ArticleGridLayout
@@ -25,22 +38,42 @@ const caseStudies = await directus.request(readItems('case_studies'));
 >
   <Hero pageHero={pageHero} />
   <Container>
-    <dl
-      class="mt-16 bg-white grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4"
-    >
-      {
-        caseStudies.map(({ slug, title, content }) => (
-          <div class="flex flex-col gap-4 bg-gray-400/5 p-8">
-            <dt class="text-link capitalize">Case Study</dt>
-            <dt class="text-3xl font-bold tracking-tight text-gray-900">
-              <a href={`/case-studies/${slug}`} class="group align-middle">
-                {title}
-              </a>
-            </dt>
-            <dd class="text-sm/6 text-gray-600">{content}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    <div class="bg-white py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div
+          class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+          {
+            caseStudies.map((study) => (
+              <article class="flex flex-col items-start justify-between">
+                <a href={`${Astro.url}/${study.slug}`}>
+                  <div class="relative w-full">
+                    <Picture
+                      src={getAssetUrl(study.hero[0].item.image)}
+                      alt=""
+                      class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+                      inferSize
+                    />
+                    <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
+                  </div>
+                  <div class="max-w-xl">
+                    <div class="group relative">
+                      <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                        <span class="absolute inset-0" />
+                        {study.title}
+                      </h3>
+                    </div>
+                    <div
+                      class="mt-5 line-clamp-3 text-sm/6 text-gray-600"
+                      set:html={study.hero[0].item.content}
+                    />
+                  </div>
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </Container>
 </ArticleGridLayout>

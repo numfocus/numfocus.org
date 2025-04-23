@@ -6,6 +6,8 @@ import { readItems } from '@directus/sdk';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
+import Hero from '@components/Hero.astro';
+import type { PageHero } from 'env';
 
 export async function getStaticPaths() {
   const pages = await directus.request(
@@ -17,6 +19,10 @@ export async function getStaticPaths() {
         'body_content',
         'editor_nodes.id',
         'editor_nodes.collection',
+        'hero.item.heading',
+        'hero.item.content',
+        'hero.item.image',
+        'seo',
         { editor_nodes: ['*.*.*.*'] },
       ],
     })
@@ -36,8 +42,23 @@ export async function getStaticPaths() {
 const page = Astro.props;
 ---
 
-<SingleArticleLayout title={page.title}>
-  <!-- <h1>{page.title}</h1> -->
+<SingleArticleLayout
+  title={page.title}
+  seo={{
+    title: page.seo.title,
+    meta_description: page.seo.meta_description,
+    og_image: page.seo.og_image,
+  }}
+>
+  <Hero
+    pageHero={{
+      id: page.id,
+      title: page.title,
+      headline: page.hero[0].item.heading,
+      rich_text: page.hero[0].item.content,
+      image: page.hero[0].item.image,
+    }}
+  />
   <div class="overflow-auto">
     <TipTapRender handlers={BodyContent} node={page.body_content} />
   </div>
