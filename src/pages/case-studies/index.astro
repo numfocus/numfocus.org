@@ -46,7 +46,7 @@ const caseStudies = await directus.request(
           {
             caseStudies.map((study) => (
               <article class="flex flex-col items-start justify-between">
-                <a href={`${Astro.url}/${study.slug}`}>
+                <a href={`${Astro.url}${study.slug}`}>
                   <div class="relative w-full">
                     <Picture
                       src={getAssetUrl(study.hero[0].item.image)}
