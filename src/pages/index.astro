@@ -1,32 +1,29 @@
 ---
 import Container from '@components/Container.astro';
-import Layout from '@layouts/Layout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import getHomePageContent from '@utils/getHomePageContent';
 import Button from '@components/Atoms/Button';
-import { twMerge } from 'tailwind-merge';
-import { getImage } from 'astro:assets';
 import Image from 'astro/components/Image.astro';
 import FeaturedLink from '@components/Atoms/FeaturedLink';
 import StatCard from '@components/Atoms/StatCard';
 
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
+import type { Seo } from 'env';
 
 const global = await directus.request(readSingleton('General'));
 
 const content = await getHomePageContent();
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
-// const bgImage = await getImage({
-//   src: `${assetBaseUrl}${content.heroImage}`,
-//   inferSize: true,
-// });
-
-// console.log(content);
-// const files = await directus.request(readItems('files'));
+const seo: Seo = {
+  title: global.seo.title,
+  meta_description: global.seo.meta_description,
+  og_image: global.seo.og_image,
+};
 ---
 
-<Layout title={`${global.site_name} - ${global.site_subheader}`}>
+<BaseLayout title={`${global.site_name} - ${global.site_subheader}`} seo={seo}>
   <div class="home-hero w-full relative bg-black">
     <div class="absolute z-0 w-full h-full overflow-hidden">
       <Image
@@ -86,4 +83,4 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
     </div>
     <div class="h-[800px] w-full"></div>
   </Container>
-</Layout>
+</BaseLayout>

@@ -104,3 +104,9 @@ export type HomepageContent = {
   featuredCaseStudy?: CaseStudy;
   stats?: HomepageStats[];
 };
+
+export type Seo = {
+  title: string;
+  meta_description: string;
+  og_image?: string;
+};
