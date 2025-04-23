@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import type { Seo } from 'env';
+import Layout from './Layout.astro';
 
 interface Props {
   title: string;
@@ -10,6 +11,6 @@ interface Props {
 const { title, seo } = Astro.props;
 ---
 
-<BaseLayout title={title} seo={seo}>
+<Layout title={title}>
   <slot />
-</BaseLayout>
+</Layout>

@@ -4,35 +4,43 @@ import PageHeader from '@components/PageHeader.astro';
 import directus from '../../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import ArticleGridLayout from '@layouts/ArticleGridLayout.astro';
+import Hero from '@components/Hero.astro';
 
 import type { CaseStudy } from 'env';
+import getPageSeo from '@utils/getPageSeo';
+import getPageHero from '@utils/getPageHero';
 
 const global = await directus.request(readSingleton('General'));
-const caseStudies = await directus.request<CaseStudy[]>(
-  readItems('case_studies')
-);
+
+const slug = Astro.routePattern.substring(1);
+
+const pageHero = await getPageHero(slug);
+const pageSeo = await getPageSeo(slug);
+const caseStudies = await directus.request(readItems('case_studies'));
 ---
 
 <ArticleGridLayout
   title={`Case Studies | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
 >
+  <Hero pageHero={pageHero} />
   <Container>
-    <PageHeader title="Case Studies">
-      <p>
-        Lorem ipsum dolor sit amet consectetur. Accumsan in amet urna orci id.
-        Ac sapien fermentum nisi senectus a tincidunt mi. Purus in integer
-        convallis nec leo nulla eleifend quam. At odio faucibus neque auctor sed
-        facilisis. Suscipit cursus diam consequat viverra id phasellus urna
-        tellus. Arcu consectetur bibendum molestie a nunc. Nisl ac proin massa
-        nunc massa metus.
-      </p>
-    </PageHeader>
-    {
-      caseStudies.map(({ slug, title }) => (
-        <h5>
-          <a href={`/case-studies/${slug}`}>{title}</a>
-        </h5>
-      ))
-    }
+    <dl
+      class="mt-16 bg-white grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4"
+    >
+      {
+        caseStudies.map(({ slug, title, content }) => (
+          <div class="flex flex-col gap-4 bg-gray-400/5 p-8">
+            <dt class="text-link capitalize">Case Study</dt>
+            <dt class="text-3xl font-bold tracking-tight text-gray-900">
+              <a href={`/case-studies/${slug}`} class="group align-middle">
+                {title}
+              </a>
+            </dt>
+            <dd class="text-sm/6 text-gray-600">{content}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </Container>
 </ArticleGridLayout>
