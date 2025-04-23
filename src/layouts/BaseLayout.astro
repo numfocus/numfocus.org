@@ -37,7 +37,7 @@ const { title, seo } = Astro.props;
         basic: {
           title: seo.title,
           type: 'website',
-          image: `${getAssetUrl(seo.og_image)}?format=jpg`,
+          image: getAssetUrl(seo.og_image),
           url: Astro.url,
         },
       }}
