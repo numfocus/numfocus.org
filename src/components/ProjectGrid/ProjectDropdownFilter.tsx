@@ -41,20 +41,23 @@ export default function ProjectDropdownFilter({
         sideOffset={0}
         className="w-full rounded-none max-h-[25vh] md:max-h-[50vh] max-w-[325px] overflow-scroll"
       >
-        {items.map((item) => (
-          <DropdownMenuCheckboxItem
-            checked={activeItems?.includes(item)}
-            onSelect={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-            onCheckedChange={() => toggleItem(item)}
-            key={item}
-            className="overflow-hidden text-ellipsis"
-          >
-            {item}
-          </DropdownMenuCheckboxItem>
-        ))}
+        {items.map((item) => {
+          const checked = activeItems?.includes(item);
+          return (
+            <DropdownMenuCheckboxItem
+              checked={checked}
+              onSelect={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+              onCheckedChange={() => toggleItem(item)}
+              key={item}
+              className={`overflow-hidden text-ellipsis ${checked ? 'font-bold' : ''}`}
+            >
+              {item}
+            </DropdownMenuCheckboxItem>
+          )
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
