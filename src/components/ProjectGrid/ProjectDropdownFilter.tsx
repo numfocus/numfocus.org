@@ -37,7 +37,10 @@ export default function ProjectDropdownFilter({
           <ArrowDown className="text-blue-500"></ArrowDown>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-full rounded-none max-h-[50vh] overflow-scroll">
+      <DropdownMenuContent
+        sideOffset={0}
+        className="w-full rounded-none max-h-[50vh] max-w-[325px] overflow-scroll"
+      >
         {items.map((item) => (
           <DropdownMenuCheckboxItem
             checked={activeItems?.includes(item)}
@@ -47,6 +50,7 @@ export default function ProjectDropdownFilter({
             }}
             onCheckedChange={() => toggleItem(item)}
             key={item}
+            className="overflow-hidden text-ellipsis px-3"
           >
             {item}
           </DropdownMenuCheckboxItem>
