@@ -88,7 +88,18 @@ const seo: Seo = {
   </Container>
   <Container>
     <div class="p-8">
+      <div class="my-6 inline-flex gap-4">
+        <h3>Projects</h3>
+        <Button button={{
+          text: "See all",
+          link: "projects",
+          variant: "primaryBlue"
+        }} arrow="right" type="link" />
+      </div>
+      
+
       <ProjectCarousel projects={projects} client:load />
+      
     </div>
   </Container>
 </BaseLayout>
