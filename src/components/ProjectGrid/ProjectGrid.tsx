@@ -39,9 +39,11 @@ const matchesFilter = (
   );
 };
 
-const featuredSort = (a: Project, b: Project) => {
+const projectSort = (a: Project, b: Project) => {
   // TODO: replace with project.featured flag
-  return b.id === 'geopandas' ? 1 : -1
+  if (a.id === 'geopandas') return -1;
+
+  return a.data.name.toLowerCase() > b.data.name.toLowerCase() ? 1 : -1;
 }
 
 export default function ProjectGrid({
@@ -72,7 +74,7 @@ export default function ProjectGrid({
         matchesFilter(activeFilters, project, 'languages') &&
         project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
       ); 
-    }).sort(featuredSort);
+    }).sort(projectSort);
   }, [activeFilters, projects, searchQuery]);
 
   const toggleProjectDialog = (project?: Project) => {
