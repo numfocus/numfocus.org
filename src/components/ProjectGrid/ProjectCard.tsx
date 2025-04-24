@@ -12,9 +12,11 @@ const footerDefaultStyle = `flex relative bottom-0 h-12 w-full place-items-cente
 export default function ProjectCard({
   project,
   onExpand,
+  showMobileVersion = true
 }: {
   project: Project;
-  onExpand: () => void;
+  onExpand?: () => void;
+  showMobileVersion?: boolean
 }) {
   const { name, logo, short_description, type } = project.data;
 
@@ -37,27 +39,31 @@ export default function ProjectCard({
   );
 
   return (
-    <div className="project-card border-numfocus-primary relative col-span-12 border sm:col-span-6 lg:col-span-4 xl:col-span-3">
-      <div
-        className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700"
-        onClick={onExpand}
-      >
-        Expand
-        <MoveDiagonal className="inline" />
-      </div>
+    <div className="project-card border-numfocus-primary relative col-span-12 border sm:col-span-6 lg:col-span-4 xl:col-span-3 h-full">
+      {!!onExpand && (
+        <div
+          className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700"
+          onClick={onExpand}
+        >
+          Expand
+          <MoveDiagonal className="inline" />
+        </div>
+      )}
 
       <div className="flex h-full flex-col overflow-hidden">
         {/* Mobile */}
-        <div className="flex flex-row gap-6 overflow-hidden px-6 py-5 md:hidden">
-          <CardImage className="h-20" />
-          <div>
-            <CardTitle className="text-md pb-3" />
-            <CardDescription />
+        {!!showMobileVersion && (
+          <div className="flex flex-row gap-6 overflow-hidden px-6 py-5 md:hidden">
+            <CardImage className="h-20" />
+            <div>
+              <CardTitle className="text-md pb-3" />
+              <CardDescription />
+            </div>
           </div>
-        </div>
-
+        )}
+        
         {/* Desktop */}
-        <div className="hidden grow-1 overflow-hidden px-4 pt-10 pb-6 md:block">
+        <div className={`${showMobileVersion ? 'hidden' : ''} grow-1 overflow-hidden px-4 pt-10 pb-6 md:block`}>
           <CardTitle />
           <CardImage className="mx-auto h-25" />
           <CardDescription className="text-center" />

@@ -6,12 +6,16 @@ import Button from '@components/Atoms/Button';
 import Image from 'astro/components/Image.astro';
 import FeaturedLink from '@components/Atoms/FeaturedLink';
 import StatCard from '@components/Atoms/StatCard';
+import ProjectCarousel from '@components/ProjectCarousel';
 
+import { getCollection } from 'astro:content';
 import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
-import type { Seo } from 'env';
+import type { Project, Seo } from 'env';
 import { Picture } from 'astro:assets';
+
 const global = await directus.request(readSingleton('General'));
+const projects: Project[] = await getCollection('projects');
 
 const content = await getHomePageContent();
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
@@ -81,6 +85,10 @@ const seo: Seo = {
         </div>
       </div>
     </div>
-    <div class="h-[800px] w-full"></div>
+  </Container>
+  <Container>
+    <div class="p-8">
+      <ProjectCarousel projects={projects} client:load />
+    </div>
   </Container>
 </BaseLayout>
