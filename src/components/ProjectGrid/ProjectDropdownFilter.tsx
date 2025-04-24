@@ -39,7 +39,7 @@ export default function ProjectDropdownFilter({
       </DropdownMenuTrigger>
       <DropdownMenuContent
         sideOffset={0}
-        className="w-full rounded-none max-h-[50vh] max-w-[325px] overflow-scroll"
+        className="w-full rounded-none max-h-[25vh] md:max-h-[50vh] max-w-[325px] overflow-scroll"
       >
         {items.map((item) => (
           <DropdownMenuCheckboxItem
@@ -50,7 +50,7 @@ export default function ProjectDropdownFilter({
             }}
             onCheckedChange={() => toggleItem(item)}
             key={item}
-            className="overflow-hidden text-ellipsis px-3"
+            className="overflow-hidden text-ellipsis"
           >
             {item}
           </DropdownMenuCheckboxItem>
