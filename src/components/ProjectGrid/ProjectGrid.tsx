@@ -39,6 +39,11 @@ const matchesFilter = (
   );
 };
 
+const featuredSort = (a: Project, b: Project) => {
+  // TODO: replace with project.featured flag
+  return b.id === 'geopandas' ? 1 : -1
+}
+
 export default function ProjectGrid({
   filterOptions,
   projects,
@@ -67,7 +72,7 @@ export default function ProjectGrid({
         matchesFilter(activeFilters, project, 'languages') &&
         project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
       ); 
-    });
+    }).sort(featuredSort);
   }, [activeFilters, projects, searchQuery]);
 
   const toggleProjectDialog = (project?: Project) => {
