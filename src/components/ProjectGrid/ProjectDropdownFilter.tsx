@@ -37,7 +37,7 @@ export default function ProjectDropdownFilter({
           <ArrowDown className="text-blue-500"></ArrowDown>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-full rounded-none">
+      <DropdownMenuContent className="w-full rounded-none max-h-[50vh] overflow-scroll">
         {items.map((item) => (
           <DropdownMenuCheckboxItem
             checked={activeItems?.includes(item)}
