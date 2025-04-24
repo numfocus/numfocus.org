@@ -36,9 +36,9 @@ export default function ProjectDropdownFilter({
           <span>
             <span>{label}</span>
             {!!activeItems.length && (
-              <span className='m-2 px-2 py-0.5 bg-blue-500 rounded-4xl text-white font-bolder'>
+              <span className="font-bolder m-2 rounded-4xl bg-blue-500 px-2 py-0.5 text-white">
                 {activeItems.length}
-                <span className='px-1 md:hidden lg:inline'>selected</span>
+                <span className="px-1 md:hidden lg:inline">selected</span>
               </span>
             )}
           </span>
@@ -47,7 +47,7 @@ export default function ProjectDropdownFilter({
       </DropdownMenuTrigger>
       <DropdownMenuContent
         sideOffset={0}
-        className="w-full rounded-none max-h-[25vh] md:max-h-[50vh] max-w-[325px] overflow-scroll"
+        className="max-h-[25vh] w-full max-w-[325px] overflow-scroll rounded-none md:max-h-[50vh]"
       >
         {items.map((item) => {
           const checked = activeItems?.includes(item);
@@ -60,11 +60,11 @@ export default function ProjectDropdownFilter({
               }}
               onCheckedChange={() => toggleItem(item)}
               key={item}
-              className={`overflow-hidden text-ellipsis ${checked ? 'font-bold' : ''}`}
+              className={`overflow-hidden text-ellipsis capitalize ${checked ? 'font-bold' : ''}`}
             >
               {item}
             </DropdownMenuCheckboxItem>
-          )
+          );
         })}
       </DropdownMenuContent>
     </DropdownMenu>

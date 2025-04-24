@@ -50,6 +50,10 @@ projects.map((project) => {
   });
 });
 
+filterOptions.features.sort();
+filterOptions.industries.sort();
+filterOptions.languages.sort();
+
 console.log(filterOptions);
 
 const pageHero = await getPageHero('projects');

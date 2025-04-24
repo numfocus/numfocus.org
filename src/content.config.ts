@@ -19,9 +19,9 @@ const projects = defineCollection({
       support_year_start: z.number().optional(),
       logo: image(),
       short_description: z.string(),
-      features: z.array(z.string()).optional(),
-      industries: z.array(z.string()).optional(),
-      languages: z.array(z.string()).optional(),
+      features: z.array(z.string().toLowerCase()).optional(),
+      industries: z.array(z.string().toLowerCase()).optional(),
+      languages: z.array(z.string().toLowerCase()).optional(),
       website_link: z.string().url().optional(),
     }),
 });

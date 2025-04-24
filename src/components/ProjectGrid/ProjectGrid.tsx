@@ -17,9 +17,9 @@ const fetchProjectFromURL = (projects: Project[]) => {
   const projectId = url.searchParams.get('project');
 
   if (projectId) {
-    return projects.find(p => p.id === projectId)
+    return projects.find((p) => p.id === projectId);
   }
-}
+};
 
 const matchesFilter = (
   activeFilters: ProjectFilterValues,
@@ -33,9 +33,7 @@ const matchesFilter = (
 
   return (
     (key !== 'type' && !activeFilterValues.length) ||
-    projectFilterValues.some((v) =>
-      activeFilterValues.includes(v)
-    )
+    projectFilterValues.some((v) => activeFilterValues.includes(v))
   );
 };
 
@@ -44,7 +42,7 @@ const projectSort = (a: Project, b: Project) => {
   if (a.id === 'geopandas') return -1;
 
   return a.data.name.toLowerCase() > b.data.name.toLowerCase() ? 1 : -1;
-}
+};
 
 export default function ProjectGrid({
   filterOptions,
@@ -57,24 +55,26 @@ export default function ProjectGrid({
     useState<ProjectFilterValues>(initialFilters);
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedProject, setExpandedProject] = useState<Project | undefined>();
-  
+
   useEffect(() => {
-    const initialExpandedProject = fetchProjectFromURL(projects)
+    const initialExpandedProject = fetchProjectFromURL(projects);
     if (initialExpandedProject) {
       setExpandedProject(initialExpandedProject);
     }
   }, []);
 
   const filteredProjects = useMemo(() => {
-    return projects.filter((project, i) => {
-      return (
-        matchesFilter(activeFilters, project, 'type') &&
-        matchesFilter(activeFilters, project, 'features') &&
-        matchesFilter(activeFilters, project, 'industries') &&
-        matchesFilter(activeFilters, project, 'languages') &&
-        project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
-      ); 
-    }).sort(projectSort);
+    return projects
+      .filter((project, i) => {
+        return (
+          matchesFilter(activeFilters, project, 'type') &&
+          matchesFilter(activeFilters, project, 'features') &&
+          matchesFilter(activeFilters, project, 'industries') &&
+          matchesFilter(activeFilters, project, 'languages') &&
+          project.data.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      })
+      .sort(projectSort);
   }, [activeFilters, projects, searchQuery]);
 
   const toggleProjectDialog = (project?: Project) => {
@@ -82,12 +82,12 @@ export default function ProjectGrid({
     if (project) {
       url.searchParams.set('project', project.id);
     } else {
-      url.searchParams.delete('project')
+      url.searchParams.delete('project');
     }
     (window as Window).history.replaceState(null, '', url.toString());
 
-    setExpandedProject(project)
-  }
+    setExpandedProject(project);
+  };
 
   return (
     <div>
@@ -98,26 +98,22 @@ export default function ProjectGrid({
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      <div className="my-12 grid grid-cols-12 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
+      <div className="mx-auto my-12 grid w-11/12 max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
         {filteredProjects.map((project) => {
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {
             return (
-              <div className="col-span-12 xl:col-span-9 border-numfocus-primary border-1 relative">
-                <div
-                  className="absolute top-0 right-0 flex justify-around gap-2 p-2 border-l-1 border-b-1 border-purple-700 bg-purple-50 text-purple-700 text-sm"
-                >
+              <div className="border-numfocus-primary relative order-first col-span-12 border-1 xl:col-span-9">
+                <div className="absolute top-0 right-0 flex justify-around gap-2 border-b-1 border-l-1 border-purple-700 bg-purple-50 p-2 text-sm text-purple-700">
                   <Bookmark className="h-5" />
                   Featured Project
                 </div>
-                <ProjectDialogContent
-                  project={project}
-                />
+                <ProjectDialogContent project={project} />
               </div>
-            )
+            );
           }
           return (
-            <ProjectCard 
+            <ProjectCard
               project={project}
               key={project.id}
               onExpand={() => toggleProjectDialog(project)}
