@@ -98,7 +98,7 @@ export default function ProjectGrid({
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      <div className="my-12 grid grid-cols-4 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
+      <div className="my-12 grid grid-cols-12 gap-8 md:grid-cols-12 max-w-screen-xl w-11/12 mx-auto">
         {filteredProjects.map((project) => {
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {

@@ -39,7 +39,7 @@ export default function ProjectCard({
   );
 
   return (
-    <div className="project-card border-numfocus-primary relative col-span-12 border sm:col-span-6 lg:col-span-4 xl:col-span-3 h-full">
+    <div className="project-card border-numfocus-primary relative col-span-12 border sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 h-full">
       {!!onExpand && (
         <div
           className="absolute top-0 right-0 flex cursor-pointer place-items-center gap-2 bg-teal-600 p-2 text-white hover:bg-teal-700"
