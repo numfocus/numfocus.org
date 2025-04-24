@@ -33,7 +33,15 @@ export default function ProjectDropdownFilter({
           variant="outline"
           className="justify-between rounded-none border border-teal-500"
         >
-          <span>{label}</span>
+          <span>
+            <span>{label}</span>
+            {!!activeItems.length && (
+              <span className='m-2 px-2 py-0.5 bg-blue-500 rounded-4xl text-white font-bolder'>
+                {activeItems.length}
+                <span className='px-1 md:hidden lg:inline'>selected</span>
+              </span>
+            )}
+          </span>
           <ArrowDown className="text-blue-500"></ArrowDown>
         </Button>
       </DropdownMenuTrigger>

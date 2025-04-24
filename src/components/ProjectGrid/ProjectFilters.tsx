@@ -16,7 +16,7 @@ export const initialFilters = {
 };
 
 const filterContainerStyle = "mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4"
-const filterLabelStyle = "block md:basis-30 grow-0 shrink-0 font-medium text-gray-900"
+const filterLabelStyle = "block md:basis-15 lg:basis-30 grow-0 shrink-0 font-medium text-gray-900"
 
 export default function ProjectFilters({
   activeFilters,
@@ -82,7 +82,7 @@ export default function ProjectFilters({
               <TypeFilter />
             </div>
             <button
-              className="min-w-32 md:basis-30 text-left md:text-center text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+              className="md:min-w-20 lg:min-w-32 md:basis-30 text-left md:text-center text-blue-500 hover:text-blue-700 disabled:text-gray-500"
               onClick={clearActiveFilters}
               disabled={
                 !searchQuery && Object.entries(activeFilters).every(([key, values]) => key === 'type' ? values.length === 2 : !values.length )}
