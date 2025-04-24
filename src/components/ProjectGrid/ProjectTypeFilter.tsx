@@ -12,9 +12,7 @@ export default function ProjectTypeFilter({
 }) {
   
   const toggleItem = (id: string) => {
-    if (!activeFilterValues.length) {
-      onChange(filterOptions.map((id) => id).filter((item) => item !== id))
-    } else if (activeFilterValues.includes(id)) {
+    if (activeFilterValues.includes(id)) {
       onChange(activeFilterValues.filter((item) => item !== id));
     } else {
       onChange([...activeFilterValues, id]);
@@ -32,9 +30,9 @@ export default function ProjectTypeFilter({
         <div className="flex items-center space-x-2" key={item}>
           <Checkbox
             id={item}
-            checked={!activeFilterValues.length || activeFilterValues.includes(item)}
+            checked={activeFilterValues.includes(item)}
             onCheckedChange={() => toggleItem(item)}
-            className='w-5 h-5 data-[state=checked]:bg-blue-500 rounded-none border-none'
+            className='w-5 h-5 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 rounded-none border-1 border-teal-500 bg-white'
           />
           <label
             htmlFor={item}

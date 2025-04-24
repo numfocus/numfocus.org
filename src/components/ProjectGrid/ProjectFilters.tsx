@@ -9,7 +9,7 @@ import ProjectTextSearch from './ProjectTextSearch';
 import ProjectTypeFilter from './ProjectTypeFilter';
 
 export const initialFilters = {
-  type: [],
+  type: ['sponsored', 'affiliated'],
   features: [],
   industries: [],
   languages: [],
@@ -84,7 +84,8 @@ export default function ProjectFilters({
             <button
               className="min-w-32 md:basis-30 text-left md:text-center text-blue-500 hover:text-blue-700 disabled:text-gray-500"
               onClick={clearActiveFilters}
-              disabled={!searchQuery && Object.values(activeFilters).every((f) => !f.length)}
+              disabled={
+                !searchQuery && Object.entries(activeFilters).every(([key, values]) => key === 'type' ? values.length === 2 : !values.length )}
             >
               Clear all
             </button>

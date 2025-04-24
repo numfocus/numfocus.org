@@ -32,7 +32,7 @@ const matchesFilter = (
     : [project.data[key]];
 
   return (
-    !activeFilterValues.length ||
+    (key !== 'type' && !activeFilterValues.length) ||
     projectFilterValues.some((v) =>
       activeFilterValues.includes(v)
     )
