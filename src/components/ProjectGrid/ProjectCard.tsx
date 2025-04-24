@@ -18,9 +18,15 @@ export default function ProjectCard({
 }) {
   const { name, logo, short_description, type } = project.data;
 
-  const CardImage = ({ className }: StyledComponentProps) => (
-    <img src={logo.src} alt={name} className={twMerge('my-0', className)} />
-  );
+  const CardImage = ({ className }: StyledComponentProps) => {
+    if (!logo.src) {
+      return <div className='h-12'></div>
+    }
+    return (
+      <img src={logo.src} alt={name} className={twMerge('my-0', className)} />
+    );
+  }
+
   const CardTitle = ({ className }: StyledComponentProps) => (
     <h5 className={twMerge(className)}>{name}</h5>
   );
