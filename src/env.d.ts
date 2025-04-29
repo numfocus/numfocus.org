@@ -28,7 +28,7 @@ export type Button = {
 
 // exported types
 
-export type CaseStudy = MetaProps & {
+export type Article = MetaProps & {
   title: string;
   content: string;
 };

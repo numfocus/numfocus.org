@@ -6,7 +6,7 @@ import { readItems, readSingleton } from '@directus/sdk';
 import ArticleGridLayout from '@layouts/ArticleGridLayout.astro';
 import Hero from '@components/Hero.astro';
 
-import type { CaseStudy } from 'env';
+import type { Article } from 'env';
 import getPageSeo from '@utils/getPageSeo';
 import getPageHero from '@utils/getPageHero';
 import getAssetUrl from '@utils/getAssetUrl';
@@ -18,9 +18,9 @@ const slug = Astro.routePattern.substring(1);
 
 const pageHero = await getPageHero(slug);
 const pageSeo = await getPageSeo(slug);
-// const caseStudies = await directus.request(readItems('case_studies'));
-const caseStudies = await directus.request(
-  readItems('case_studies', {
+// const articles = await directus.request(readItems('articles'));
+const articles = await directus.request(
+  readItems('articles', {
     fields: [
       'title',
       'slug',
@@ -44,12 +44,12 @@ const caseStudies = await directus.request(
           class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
           {
-            caseStudies.map((study) => (
+            articles.map((article) => (
               <article class="flex flex-col items-start justify-between">
-                <a href={`${Astro.url}${study.slug}`}>
+                <a href={`${Astro.url}${article.slug}`}>
                   <div class="relative w-full">
                     <Picture
-                      src={getAssetUrl(study.hero[0].item.image)}
+                      src={getAssetUrl(article.hero[0].item.image)}
                       alt=""
                       class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
                       inferSize
@@ -60,12 +60,12 @@ const caseStudies = await directus.request(
                     <div class="group relative">
                       <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
                         <span class="absolute inset-0" />
-                        {study.title}
+                        {article.title}
                       </h3>
                     </div>
                     <div
                       class="mt-5 line-clamp-3 text-sm/6 text-gray-600"
-                      set:html={study.hero[0].item.content}
+                      set:html={article.hero[0].item.content}
                     />
                   </div>
                 </a>

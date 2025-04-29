@@ -11,7 +11,7 @@ import type { PageHero } from 'env';
 
 export async function getStaticPaths() {
   const pages = await directus.request(
-    readItems('case_studies', {
+    readItems('articles', {
       fields: [
         'id',
         'title',
@@ -27,11 +27,14 @@ export async function getStaticPaths() {
       ],
     })
   );
+
   const cleanPages = pages.map((page) => {
     injectDataIntoContent(page.editor_nodes, page.body_content);
 
     return page;
   });
+  console.log(cleanPages)
+
 
   return cleanPages.map((page) => ({
     params: { slug: page.slug },
@@ -40,14 +43,16 @@ export async function getStaticPaths() {
 }
 
 const page = Astro.props;
+
+console.log(page)
 ---
 
 <SingleArticleLayout
   title={page.title}
   seo={{
-    title: page.seo.title,
-    meta_description: page.seo.meta_description,
-    og_image: page.seo.og_image,
+    title: page.seo?.title || page.title,
+    meta_description: page.seo?.meta_description,
+    og_image: page.seo?.og_image,
   }}
 >
   <Hero
