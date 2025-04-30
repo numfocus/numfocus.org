@@ -47,15 +47,17 @@ const articles = await directus.request(
             articles.map((article) => (
               <article class="flex flex-col items-start justify-between">
                 <a href={`${Astro.url}${article.slug}`}>
-                  <div class="relative w-full">
-                    <Picture
-                      src={getAssetUrl(article.hero[0].item.image)}
-                      alt=""
-                      class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
-                      inferSize
-                    />
-                    <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
-                  </div>
+                  {!!article.hero[0].item.image && (
+                    <div class="relative w-full">
+                      <Picture
+                        src={getAssetUrl(article.hero[0].item.image)}
+                        alt=""
+                        class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+                        inferSize
+                      />
+                      <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
+                    </div>
+                  )}
                   <div class="max-w-xl">
                     <div class="group relative">
                       <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">

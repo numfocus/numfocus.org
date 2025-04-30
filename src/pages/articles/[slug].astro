@@ -33,8 +33,6 @@ export async function getStaticPaths() {
 
     return page;
   });
-  console.log(cleanPages)
-
 
   return cleanPages.map((page) => ({
     params: { slug: page.slug },
@@ -44,7 +42,6 @@ export async function getStaticPaths() {
 
 const page = Astro.props;
 
-console.log(page)
 ---
 
 <SingleArticleLayout
