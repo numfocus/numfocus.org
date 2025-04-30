@@ -94,6 +94,13 @@ type HomepageStats = {
   url: string | null;
 };
 
+export type CustomContentItem = {
+  id: number;
+  text: string;
+  image: string;
+  link: string;
+};
+
 export type HomepageContent = {
   heroHeadline: string;
   heroContent: string;
@@ -103,6 +110,7 @@ export type HomepageContent = {
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
   stats?: HomepageStats[];
+  customContentBlock: CustomContentItem[];
 };
 
 export type Seo = {

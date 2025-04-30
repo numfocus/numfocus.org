@@ -6,6 +6,7 @@ import Button from '@components/Atoms/Button';
 import Image from 'astro/components/Image.astro';
 import FeaturedLink from '@components/Atoms/FeaturedLink';
 import StatCard from '@components/Atoms/StatCard';
+import LinkCard from '@components/Atoms/LinkCard';
 import ProjectCarousel from '@components/ProjectCarousel';
 
 import { getCollection } from 'astro:content';
@@ -96,10 +97,18 @@ const seo: Seo = {
           variant: "primaryBlue"
         }} arrow="right" type="link" />
       </div>
-      
-
       <ProjectCarousel projects={projects} client:load />
-      
+    </div>
+  </Container>
+  <Container>
+    <div class="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
+      {
+        content.customContentBlock?.map((item) => (
+          <div class="col-span-6 md:col-span-4">
+            <LinkCard {...item} />
+          </div>
+        ))
+      }
     </div>
   </Container>
 </BaseLayout>
