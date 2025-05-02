@@ -11,13 +11,13 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 const { pageHero: hero } = Astro.props;
 ---
 
-<div class="hero-container mx-auto mb-6">
-  <div class="grid grid-cols-12">
-    <div class="col-start-2 md:col-start-3 col-span-8 md:col-span-7 py-8">
-      <h3 class="mb-4 mr-24">{hero.headline}</h3>
+<div class="hero-container">
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-start-2 lg:col-start-2 col-span-10 lg:col-span-6 mt-12">
+      <h3 class="mb-4">{hero.headline}</h3>
       <h5 class="mb-4">{hero.subheader}</h5>
       <div class="prose mb-6" set:html={hero.rich_text} />
-      <div class="buttons flex flex-row gap-2 mr-12">
+      <div class="buttons">
         {
           hero.button &&
             hero.button.map((button) => (
@@ -27,12 +27,12 @@ const { pageHero: hero } = Astro.props;
       </div>
     </div>
     <div
-      class="hidden md:block col-span-3 overflow-hidden rounded-l-4xl rounded-r-none"
+      class="order-first h-64 lg:h-full col-span-full lg:col-span-5 overflow-hidden lg:order-last"
     >
       <img
         src={`${assetBaseUrl}${hero.image}`}
         alt={hero.title}
-        class="h-full object-cover opacity-50"
+        class="w-full h-full object-cover object-center"
       />
     </div>
   </div>

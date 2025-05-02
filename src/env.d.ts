@@ -16,14 +16,8 @@ interface MetaProps {
 export type Button = {
   text: string;
   link: string;
-  variant:
-    | 'primary'
-    | 'primaryBlue'
-    | 'secondary'
-    | 'minimal'
-    | 'muted'
-    | 'newsletter'
-    | 'donate';
+  style: 'light' | 'dark';
+  variant: 'default' | 'outlined' | 'special';
 };
 
 // exported types
@@ -117,4 +111,13 @@ export type Seo = {
   title: string;
   meta_description: string;
   og_image?: string;
+};
+
+export type CardMeta = {
+  id: string;
+  title: string;
+  heading: string;
+  slug: string;
+  image: string;
+  content: string;
 };

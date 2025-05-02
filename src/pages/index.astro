@@ -52,7 +52,7 @@ const seo: Seo = {
               {
                 content.buttons &&
                   content.buttons.map((button) => (
-                    <Button button={button} arrow="right" type="link" />
+                    <Button button={button} arrow="right" />
                   ))
               }
             </div>
@@ -91,17 +91,23 @@ const seo: Seo = {
     <div class="p-8">
       <div class="my-6 inline-flex gap-4">
         <h3>Projects</h3>
-        <Button button={{
-          text: "See all",
-          link: "projects",
-          variant: "primaryBlue"
-        }} arrow="right" type="link" />
+        <Button
+          button={{
+            style: 'light',
+            text: 'See all',
+            link: 'projects',
+            variant: 'outlined',
+          }}
+          arrow="right"
+        />
       </div>
       <ProjectCarousel projects={projects} client:load />
     </div>
   </Container>
   <Container>
-    <div class="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
+    <div
+      class="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12"
+    >
       {
         content.customContentBlock?.map((item) => (
           <div class="col-span-6 md:col-span-4">

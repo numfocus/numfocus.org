@@ -9,5 +9,8 @@
       "options": { "parser": "json" }
     }
   ],
-  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-astro"]
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-astro"],
+  "tailwindStylesheet": "/src/styles/global.css",
+  "tailwindFunctions": ["twMerge"],
+  "tailwindAttributes": [".*styles.*"]
 }

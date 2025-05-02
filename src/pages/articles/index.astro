@@ -5,12 +5,13 @@ import directus from '../../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import ArticleGridLayout from '@layouts/ArticleGridLayout.astro';
 import Hero from '@components/Hero.astro';
+import { getArticlesMeta } from '@utils/getArticlesMeta';
 
 import type { Article } from 'env';
 import getPageSeo from '@utils/getPageSeo';
 import getPageHero from '@utils/getPageHero';
 import getAssetUrl from '@utils/getAssetUrl';
-import { Picture } from 'astro:assets';
+import { Picture, Image } from 'astro:assets';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -18,22 +19,11 @@ const slug = Astro.routePattern.substring(1);
 
 const pageHero = await getPageHero(slug);
 const pageSeo = await getPageSeo(slug);
-// const articles = await directus.request(readItems('articles'));
-const articles = await directus.request(
-  readItems('articles', {
-    fields: [
-      'title',
-      'slug',
-      'hero.item.heading',
-      'hero.item.content',
-      'hero.item.image',
-    ],
-  })
-);
+const articles = await getArticlesMeta();
 ---
 
 <ArticleGridLayout
-  title={`Case Studies | ${global.site_name} - ${global.site_subheader}`}
+  title={`Articles | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
@@ -47,10 +37,10 @@ const articles = await directus.request(
             articles.map((article) => (
               <article class="flex flex-col items-start justify-between">
                 <a href={`${Astro.url}${article.slug}`}>
-                  {!!article.hero[0].item.image && (
+                  {!!article.image && (
                     <div class="relative w-full">
-                      <Picture
-                        src={getAssetUrl(article.hero[0].item.image)}
+                      <Image
+                        src={`${article.image}?width=500`}
                         alt=""
                         class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
                         inferSize
@@ -67,7 +57,7 @@ const articles = await directus.request(
                     </div>
                     <div
                       class="mt-5 line-clamp-3 text-sm/6 text-gray-600"
-                      set:html={article.hero[0].item.content}
+                      set:html={article.content}
                     />
                   </div>
                 </a>

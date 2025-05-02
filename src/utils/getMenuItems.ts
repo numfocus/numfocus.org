@@ -17,10 +17,10 @@ export default async function getMenuItems(menuName: string) {
   for (const item of itemsFromMenu) {
     const singleItem: MenuItem = {
       title: item.item.title,
-      path: `/${item.item.slug}`,
+      path: `/${item.item.slug}/`,
     };
     menuItems.push(singleItem);
   }
 
-  return menuItems
+  return menuItems;
 }

@@ -65,7 +65,9 @@
   --color-yellow-800: #876728;
   --color-yellow-900: #674f1e;
 
-  --color-link: #4294f7;
+  --color-brand-link: #4294f7;
+  --color-brand-orange: #e1523d;
+  --color-brand-teal: #007d8a;
 }
 
 @theme inline {

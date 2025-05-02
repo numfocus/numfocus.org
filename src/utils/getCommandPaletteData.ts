@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content';
 import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
+import { getArticlesMeta } from './getArticlesMeta';
 
 import type { CommandPaletteItem } from 'env';
 
@@ -59,6 +60,18 @@ for (let caseStudy of caseStudies) {
     title: caseStudy.title,
     path: caseStudy.slug,
     category: 'Case Studies',
+  };
+  allData.push(item);
+}
+
+const articles = await getArticlesMeta();
+for (let article of articles) {
+  const item: CommandPaletteItem = {
+    id: article.id,
+    title: article.heading,
+    path: article.slug,
+    category: 'Articles',
+    img: `${article.image}?width=100`,
   };
   allData.push(item);
 }
