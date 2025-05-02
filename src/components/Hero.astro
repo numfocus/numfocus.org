@@ -1,6 +1,5 @@
 ---
 import Button from '@components/Atoms/Button';
-import Container from './Container.astro';
 
 import type { PageHero } from 'env';
 interface Props {
@@ -9,15 +8,21 @@ interface Props {
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const { pageHero: hero } = Astro.props;
+
+const heroStyle = hero.hero_style === 'dark' ? 'bg-black text-white' : '';
 ---
 
 <div class="hero-container">
-  <div class="grid grid-cols-12 gap-6">
-    <div class="col-start-2 lg:col-start-2 col-span-10 lg:col-span-6 mt-12">
+  <div class:list={['grid grid-cols-12 gap-6', heroStyle]}>
+    <div
+      class="col-start-2 lg:col-start-2 col-span-10 lg:col-span-6 mt-12 pb-12"
+    >
       <h3 class="mb-4">{hero.headline}</h3>
       <h5 class="mb-4">{hero.subheader}</h5>
-      <div class="prose mb-6" set:html={hero.rich_text} />
-      <div class="buttons">
+      <div class:list={['prose mb-6', heroStyle]} set:html={hero.rich_text} />
+      <div
+        class="buttons flex flex-col gap-4 pt-4 border-t-[1px] border-brand-gray-light"
+      >
         {
           hero.button &&
             hero.button.map((button) => (

@@ -37,6 +37,7 @@ export type PageHero = MetaProps & {
   subheader?: string;
   rich_text: string;
   image: string;
+  hero_style: 'light' | 'dark';
   button?: Button[];
 };
 
@@ -99,6 +100,7 @@ export type HomepageContent = {
   heroHeadline: string;
   heroContent: string;
   heroImage: string;
+  heroStyle: 'light' | 'dark';
   buttons: Button[];
   featuredLinks?: FeaturedLink[];
   featuredProjects?: Project[];

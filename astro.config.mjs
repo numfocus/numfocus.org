@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import markdownIntegration from '@astropub/md';
 
@@ -30,5 +30,21 @@ export default defineConfig({
     rehypePlugins: [],
     // syntaxHighlight: 'shiki'
     // syntaxHighlight: 'prism'
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.bunny(),
+        name: 'PT Sans Caption',
+        cssVariable: '--font-pt-sans-caption',
+        weights: [400, 700],
+      },
+      {
+        provider: fontProviders.bunny(),
+        name: 'Lato',
+        cssVariable: '--font-lato',
+        weights: [100, 300, 400, 700, 900],
+      },
+    ],
   },
 });

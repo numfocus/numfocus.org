@@ -1,4 +1,5 @@
 import type {
+  Button,
   CustomContentItem,
   FeaturedLink,
   HomepageContent,
@@ -17,7 +18,7 @@ export default async function getHomePageContent() {
         'featured_links.item.*.*.*.*.*',
         'featured_projects.projects_id.*',
         'stats_and_callouts.item.*',
-        'custom_content.*.*'
+        'custom_content.*.*',
       ],
     })
   );
@@ -47,21 +48,31 @@ export default async function getHomePageContent() {
     return singleStat;
   });
 
-  console.log(stats);
+  const customContentBlock = content.custom_content.map(
+    ({ item }: { item: CustomContentItem }) => item
+  );
 
-  const customContentBlock = content.custom_content.map(({ item }: { item: CustomContentItem }) => item);
+  console.log(customContentBlock);
 
-  console.log(customContentBlock)
-
+  const buttons: Button[] = content.hero_content[0].item.button.map(
+    (button: Button) => ({
+      text: button.text,
+      link: button.link,
+      style: content.hero_content[0].item.hero_style,
+      variant: button.variant,
+    })
+  );
+  console.log(buttons);
 
   const homepageContent: HomepageContent = {
+    heroStyle: content.hero_content[0].item.hero_style,
     heroHeadline: content.hero_content[0].item.heading,
     heroContent: content.hero_content[0].item.content,
     heroImage: content.hero_content[0].item.image,
-    buttons: content.hero_content[0].item.button,
+    buttons: buttons,
     featuredLinks: featuredLinks,
     stats: stats,
-    customContentBlock
+    customContentBlock,
   };
 
   return homepageContent;

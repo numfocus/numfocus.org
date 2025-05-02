@@ -29,13 +29,13 @@ export const HamburgerMenu = ({ menuItems, currentPage }: Props) => {
   return (
     <Menu as="div" className="relative inline-block text-left md:hidden">
       <div>
-        <MenuButton className="hover:bg-light-teal-50 inline-flex w-full cursor-pointer justify-center gap-x-1.5 rounded-sm border-[1px] border-teal-600 bg-white p-2 text-teal-600 ring-1 shadow-xs ring-gray-300 ring-inset">
+        <MenuButton className="hover:bg-light-teal-50 shadow-xs inline-flex w-full cursor-pointer justify-center gap-x-1.5 rounded-sm border-[1px] border-teal-600 bg-white p-2 text-teal-600 ring-1 ring-inset ring-gray-300">
           <MenuIcon className="" />
         </MenuButton>
       </div>
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+        className="focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition"
         anchor="bottom"
       >
         <div className="py-1">
@@ -44,7 +44,7 @@ export const HamburgerMenu = ({ menuItems, currentPage }: Props) => {
               <a
                 href={path}
                 className={twMerge(
-                  'data-focus:bg-light-teal-100 block px-4 py-2 text-sm text-teal-600 data-focus:text-teal-900 data-focus:outline-hidden',
+                  'data-focus:bg-light-teal-100 data-focus:text-teal-900 data-focus:outline-hidden block px-4 py-2 text-sm text-teal-600',
                   `${path}` === currentPage && `bg-light-teal-50`
                 )}
               >
@@ -67,14 +67,14 @@ export const FooterMenu = ({
 }) => {
   return (
     <div>
-      <h5 className="pb-6 font-bold text-white">{menuTitle}</h5>
+      <h5 className="pb-6">{menuTitle}</h5>
       <ul>
         {menuItems.map(({ path, title }) => (
           <li className="pb-4">
             <a
               href={path}
               className={twMerge(
-                'font-semi-bold text-sm break-all text-white transition hover:text-teal-300 md:text-base'
+                'font-semi-bold hover:text-brand-primary break-all text-sm transition md:text-base'
               )}
             >
               <span>{title}</span>
@@ -85,5 +85,3 @@ export const FooterMenu = ({
     </div>
   );
 };
-
-// font-semi-bold inline-block text-teal-600 transition hover:text-teal-800

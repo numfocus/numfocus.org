@@ -1,8 +1,5 @@
 import { useMemo, useState } from 'react';
-import type {
-  ProjectFilterOptions,
-  ProjectFilterValues,
-} from 'env';
+import type { ProjectFilterOptions, ProjectFilterValues } from 'env';
 
 import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';
@@ -15,21 +12,23 @@ export const initialFilters = {
   languages: [],
 };
 
-const filterContainerStyle = "mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4"
-const filterLabelStyle = "block md:basis-15 lg:basis-30 grow-0 shrink-0 font-medium text-gray-900"
+const filterContainerStyle =
+  'mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4';
+const filterLabelStyle =
+  'block md:basis-15 lg:basis-30 grow-0 shrink-0 font-medium text-gray-900';
 
 export default function ProjectFilters({
   activeFilters,
   filterOptions,
   searchQuery,
   setActiveFilters,
-  setSearchQuery
+  setSearchQuery,
 }: {
   activeFilters: ProjectFilterValues;
   filterOptions: ProjectFilterOptions;
-  searchQuery: string
-  setActiveFilters: (filters: ProjectFilterValues) => void
-  setSearchQuery: (q: string) => void
+  searchQuery: string;
+  setActiveFilters: (filters: ProjectFilterValues) => void;
+  setSearchQuery: (q: string) => void;
 }) {
   const { type: typeFilterOptions, ...dropdownFilterOptions } = filterOptions;
 
@@ -52,13 +51,11 @@ export default function ProjectFilters({
 
   return (
     <div>
-      <div className="my-4 px-4 py-6 bg-teal-50 text-sm">
-        <div className="max-w-screen-xl w-11/12 mx-auto">
+      <div className="bg-teal-50 px-8 py-6 text-sm">
+        <div className="mx-auto w-11/12 max-w-screen-xl">
           <h5>Search and filter projects</h5>
           <div className={filterContainerStyle}>
-            <p className={filterLabelStyle}>
-              Search by name:
-            </p>
+            <p className={filterLabelStyle}>Search by name:</p>
             <ProjectTextSearch
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
@@ -69,23 +66,25 @@ export default function ProjectFilters({
             </div>
           </div>
           <div className={filterContainerStyle}>
-            <p className={filterLabelStyle}>
-              Filter by:
-            </p>
+            <p className={filterLabelStyle}>Filter by:</p>
             <ProjectDropdownFilters
               filterOptions={dropdownFilterOptions}
               activeFilters={activeFilters}
               onChange={setActiveFilter}
             />
             {/* Mobile */}
-            <div className="md:hidden py-2">
+            <div className="py-2 md:hidden">
               <TypeFilter />
             </div>
             <button
-              className="md:min-w-20 lg:min-w-32 md:basis-30 text-left md:text-center text-blue-500 hover:text-blue-700 disabled:text-gray-500"
+              className="md:basis-30 text-left text-blue-500 hover:text-blue-700 disabled:text-gray-500 md:min-w-20 md:text-center lg:min-w-32"
               onClick={clearActiveFilters}
               disabled={
-                !searchQuery && Object.entries(activeFilters).every(([key, values]) => key === 'type' ? values.length === 2 : !values.length )}
+                !searchQuery &&
+                Object.entries(activeFilters).every(([key, values]) =>
+                  key === 'type' ? values.length === 2 : !values.length
+                )
+              }
             >
               Clear all
             </button>

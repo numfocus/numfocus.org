@@ -1,7 +1,6 @@
 ---
-import '../styles/global.css';
 import Container from '@components/Container.astro';
-import Layout from '../layouts/Layout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import directus from '../../lib/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import Hero from '@components/Hero.astro';
@@ -17,6 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from '@lib/components/ui/table';
+import getPageSeo from '@utils/getPageSeo';
 
 const global = await directus.request(readSingleton('General'));
 const files = await directus.request(readItems('files'));
@@ -27,14 +27,15 @@ console.log(files[0].description.blocks[0].data.text)
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`
 
 const slug = Astro.routePattern.substring(1);
-console.log(slug)
+const seo = await getPageSeo(slug)
+
 
 const pageHero = await getPageHero(slug);
 
 
 ---
 
-<Layout title={`Documentation | ${global.site_name} - ${global.site_subheader}`}>
+<PageLayout title={`Documentation | ${global.site_name} - ${global.site_subheader}`} seo={seo}>
   <Hero pageHero={pageHero}/>
   <Container>
 
@@ -70,4 +71,4 @@ const pageHero = await getPageHero(slug);
       ))
     }
   </Container>
-</Layout>
+</PageLayout>

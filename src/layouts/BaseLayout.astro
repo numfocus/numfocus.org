@@ -3,10 +3,11 @@
 
 import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navbar.astro';
-import '@styles/global.css';
 import { SEO } from 'astro-seo';
 import type { Seo } from 'env';
 import getAssetUrl from '@utils/getAssetUrl';
+import { Font } from 'astro:assets';
+import '@styles/global.css';
 
 interface Props {
   title: string;
@@ -23,12 +24,8 @@ const { title, seo } = Astro.props;
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <Font cssVariable="--font-lato" preload />
+    <Font cssVariable="--font-pt-sans-caption" preload />
     <!-- SEO module -->
     <SEO
       title={seo.title}

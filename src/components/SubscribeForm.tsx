@@ -4,7 +4,7 @@ import type { Button as TButton } from 'env';
 const button: TButton = {
   text: 'Subscribe',
   link: '',
-  variant: 'default',
+  variant: 'outlined',
   style: 'light',
 };
 
@@ -22,9 +22,9 @@ export default function SubscribeForm() {
         type="email"
         name="email"
         placeholder="Enter your Email"
-        className="focus:ouline-0 w-full min-w-70 rounded-md border-1 bg-purple-500 px-6 py-2 transition hover:bg-purple-400 focus:bg-purple-400"
+        className="focus:ouline-0 min-w-70 border-1 w-full rounded-md"
       />
-      <Button button={button} icon="envelope" arrow="right" />
+      <Button button={button} icon="envelope" />
     </form>
   );
 }

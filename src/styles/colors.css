@@ -74,7 +74,7 @@
   --color-brand-primary: var(--color-teal-500);
   --color-brand-secondary: var(--color-orange-500);
   --color-brand-tertiary: var(--color-light-teal-500);
-  --color-brand-gray-light: var(--color-gray-300);
+  --color-brand-gray-light: var(--color-gray-100);
   --color-brand-gray: var(--color-gray-500);
   --color-brand-dark-accent: var(--color-purple-500);
   --color-brand-emphasis: var(--color-yellow-500);
