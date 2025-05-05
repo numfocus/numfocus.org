@@ -9,7 +9,7 @@ export function PersonCardContent({ person }: { person: Person; }) {
     image,
     title
   } = person;
-  
+
   return (
     <div>
       <img

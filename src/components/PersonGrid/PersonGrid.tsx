@@ -46,6 +46,7 @@ export default function PersonGrid({
       <Dialog
         open={!!expandedPerson}
         onClose={() => setExpandedPerson(undefined)}
+        className="max-w-100"
       >
         <PersonDialogContent person={expandedPerson} />
       </Dialog>

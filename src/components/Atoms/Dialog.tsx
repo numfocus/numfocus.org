@@ -1,17 +1,17 @@
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { X } from 'lucide-react';
 import type React from 'react';
-
-import type { Project } from 'env';
-import ProjectDialogContent from '../ProjectGrid/ProjectExpandedContent';
+import { twMerge } from 'tailwind-merge';
 
 export default function ProjectDialog({
   children,
   open,
-  onClose
+  onClose,
+  className = ''
 }: React.ComponentProps<"div"> & {
   open: boolean,
-  onClose: () => void
+  onClose: () => void,
+  className?: string
 }) {
   return (
     <Dialog
@@ -28,7 +28,7 @@ export default function ProjectDialog({
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto p-4 sm:p-6 md:p-20">
         <DialogPanel
           transition
-          className="data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in mx-auto max-w-4xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 transition-all"
+          className={twMerge("data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in mx-auto max-w-4xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 transition-all", className)}
         >
           <button
             type="button"

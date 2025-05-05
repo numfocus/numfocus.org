@@ -11,7 +11,7 @@ export default function PersonExpandedContent({
   return (
     <div className="px-5 py-6 text-sm sm:p-6">
       <PersonCardContent person={person} />
-      <div dangerouslySetInnerHTML={{ __html: person.bio }} />
+      <div className="pt-4" dangerouslySetInnerHTML={{ __html: person.bio }} />
     </div>
   );
 }
