@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "npx @biomejs/biome check"
   },
   "dependencies": {
     "@astrojs/netlify": "^6.3.2",
@@ -39,6 +40,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.0.10",

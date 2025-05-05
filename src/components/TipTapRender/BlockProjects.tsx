@@ -14,9 +14,12 @@ export default function BlockProjects({ heading, projects }: Props) {
       <div className="h-auto border-[1px] border-r-0 border-teal-400 py-4">
         <div className="-ml-4 border-[1px] border-r-0 border-red-400 p-8">
           <h4 className="text-center">{heading}</h4>
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             return (
-              <div className="grid grid-cols-6 items-center gap-4 p-4 pr-0 md:pr-16">
+              <div
+                key={`${project.name}-${index}`}
+                className="grid grid-cols-6 items-center gap-4 p-4 pr-0 md:pr-16"
+              >
                 <div className="col-span-full flex md:col-span-2">
                   <img
                     alt={project.name}
@@ -32,7 +35,8 @@ export default function BlockProjects({ heading, projects }: Props) {
                     button={{
                       text: `View ${project.name}`,
                       link: `/projects?project=${project.slug}`,
-                      variant: 'primary',
+                      variant: 'default',
+                      style: 'light',
                     }}
                     arrow="right"
                   />

@@ -1,12 +1,12 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { NavMenu, HamburgerMenu } from '@components/Atoms/Menus';
-import Container from './Container.astro';
 import Button from '@components/Atoms/Button';
-import type { Button as but } from 'env';
+import { HamburgerMenu, NavMenu } from '@components/Atoms/Menus';
 import CommandPalette from '@components/CommandPalette';
 import getCommandPaletteData from '@utils/getCommandPaletteData';
 import getMenuItems from '@utils/getMenuItems';
+import { Icon } from 'astro-icon/components';
+import type { Button as but } from 'env';
+import Container from './Container.astro';
 
 const menuItems = await getMenuItems('Navigation');
 
