@@ -24,25 +24,28 @@ export default function PersonGrid({
 
   const peopleByRole = groupBy(people, 'role');
 
-  console.log(expandedPerson);
-
   return (
     <div>
-      {ROLES.map(({ id, label }) => (
-        <div key={id}>
-          <h3>{label}</h3>
-          <div className="mx-auto my-12 grid grid-cols-12 gap-8">
-            {peopleByRole[id]?.map((person: Person) => (
-              <PersonCard
-                key={person.id}
-                person={person}
-                onExpand={() => setExpandedPerson(person)}
-              />
-            ))}
+      {ROLES.map(({ id, label }) => {
+        const peopleSublist = peopleByRole[id];
+        if (!peopleSublist?.length) return null;
+
+        return (
+          <div key={id} className="my-16">
+            <h3>{label}</h3>
+            <div className="mx-auto my-8 grid grid-cols-12 gap-8">
+              {peopleSublist.map((person: Person) => (
+                <PersonCard
+                  key={person.id}
+                  person={person}
+                  onExpand={() => setExpandedPerson(person)}
+                />
+              ))}
+            </div>
+            
           </div>
-          
-        </div>
-      ))}
+        );
+      })}
       <Dialog
         open={!!expandedPerson}
         onClose={() => setExpandedPerson(undefined)}
