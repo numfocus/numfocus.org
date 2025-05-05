@@ -105,9 +105,9 @@ export default function ProjectGrid({
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {
             return (
-              <div className="border-numfocus-primary border-1 relative order-first col-span-12 xl:col-span-9">
-                <div className="border-b-1 border-l-1 absolute right-0 top-0 flex justify-around gap-2 border-purple-700 bg-purple-50 p-2 text-sm text-purple-700">
-                  <Bookmark className="h-5" />
+              <div className="border-brand-gray border-1 relative order-first col-span-12 rounded-md">
+                <div className="border-b-1 border-l-1 border-brand-gray bg-brand-gray-light absolute right-0 top-0 flex justify-around gap-2 rounded-none rounded-tr-md px-4 py-2 text-sm">
+                  <Bookmark className="h-5 fill-black" />
                   Featured Project
                 </div>
                 <ProjectDialogContent project={project} />

@@ -16,7 +16,7 @@ interface Props {
 
 const variantStyles = {
   light: {
-    default: ' text-black hover:text-brand-primary',
+    default: ' text-black hover:text-brand-primary pl-0',
     outlined:
       'text-teal-500 border-teal-500  shadow-none border-2 transition hover:shadow-sm my-2',
     special:

@@ -51,7 +51,7 @@ export default function ProjectFilters({
 
   return (
     <div>
-      <div className="bg-teal-50 px-8 py-6 text-sm">
+      <div className="bg-brand-gray-light px-8 py-12 text-sm">
         <div className="mx-auto w-11/12 max-w-screen-xl">
           <h5>Search and filter projects</h5>
           <div className={filterContainerStyle}>
