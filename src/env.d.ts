@@ -27,6 +27,18 @@ export type Article = MetaProps & {
   content: string;
 };
 
+type PersonRole = 'board' | 'steering_committee' | 'staff' | 'coc_working_group' | 'advisory_council';
+
+export type Person = {
+  id: number,
+  first_name: string;
+  last_name: string;
+  image: string;
+  role: PersonRole;
+  title: string;
+  bio: string;
+};
+
 type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
 export type Project = CollectionEntry<'projects'>;
