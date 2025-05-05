@@ -50,7 +50,8 @@ const arrowVariant = {
 export default function Button({ button, arrow }: Props) {
   const buttonStyle = twMerge(
     'text-md group inline-flex min-w-24 cursor-pointer flex-row place-content-around items-center gap-4 rounded-md px-2 py-2 font-semibold',
-    button && variantStyles[button.style][button.variant]
+    button &&
+      variantStyles[button.style ? button.style : 'light'][button.variant]
   );
 
   return (

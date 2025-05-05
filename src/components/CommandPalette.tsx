@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
-import { ArrowRightIcon, Book, BookOpenTextIcon } from 'lucide-react';
+import { ArrowRightIcon, BookOpenTextIcon } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
