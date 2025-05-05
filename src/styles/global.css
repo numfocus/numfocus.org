@@ -1,10 +1,10 @@
 @import 'tailwindcss';
+@import './colors';
 
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
-@import './colors';
 
 :root {
   --background: hsl(0 0% 100%);

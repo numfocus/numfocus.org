@@ -12,17 +12,19 @@ import BlockTOC from './BlockTOC';
 import Testimonial from './Testimonial';
 import type { NodeHandler, NodeHandlers, NodeProps } from './TipTapRender';
 
-const BulletList: NodeHandler = ({ node, Container}) => {
+const BulletList: NodeHandler = ({ node, Container }) => {
   return (
     <Container>
       <ul>
-        {node.content?.map(({ content }) => (
-          content?.map(({ content }) => (
-            content?.map(({ text }, i) => (
-              <li key={i} className="list-disc ml-4">{text}</li>
+        {node.content?.map(({ content }) =>
+          content?.map(({ content }) =>
+            content?.map(({ text, id }) => (
+              <li key={id} className="ml-4 list-disc">
+                {text}
+              </li>
             ))
-          ))
-        ))}
+          )
+        )}
       </ul>
     </Container>
   );
@@ -31,7 +33,7 @@ const BulletList: NodeHandler = ({ node, Container}) => {
 const Heading: NodeHandler = ({ children, Container }) => {
   return (
     <Container>
-      <h4 className="mt-8 mb-0 text-xl">{children}</h4>
+      <h4 className="mb-0 mt-8 text-xl">{children}</h4>
     </Container>
   );
 };
@@ -52,60 +54,62 @@ const TextRender: NodeHandler = (props: NodeProps) => {
   let LinkMark: ReactElement | null = null;
 
   // dynamically process text marks
-  props.node.marks &&
-    props.node.marks.forEach((mark) => {
-      switch (mark.type) {
-        case 'relation-mark':
-          const data = mark.attrs.data;
-          RelationMark =
-            mark.attrs.collection === 'block_testimonial' ? (
-              <>
-                <Testimonial
-                  id={data.id}
-                  author={data.author}
-                  content={data.content}
-                  image={data.image.id}
-                />
-                {PrettyJson(data)}
-              </>
-            ) : (
-              PrettyJson(mark)
-            );
-          break;
-        case 'bold':
-          styles = `font-semibold`;
-          break;
-        case 'italic':
-          styles = 'italic';
-          break;
-        case 'underline':
-          styles = 'underline';
-          break;
-        case 'textStyle':
-          const markAttrs = mark.attrs;
-          if (!!markAttrs?.color) {
-            style.color = markAttrs.color;
-          }
-          break;
-        case 'strike':
-          styles = 'line-through';
-          break;
-        case 'link':
-          LinkMark = (
-            <a
-              href={mark.attrs.href}
-              target={mark.attrs.target}
-              rel={mark.attrs.rel}
-              className="text-blue-400 no-underline hover:underline"
-            >
-              {payload}
-            </a>
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  props.node.marks?.forEach((mark) => {
+    switch (mark.type) {
+      case 'relation-mark': {
+        const data = mark.attrs.data;
+        RelationMark =
+          mark.attrs.collection === 'block_testimonial' ? (
+            <>
+              <Testimonial
+                id={data.id}
+                author={data.author}
+                content={data.content}
+                image={data.image.id}
+              />
+              {PrettyJson(data)}
+            </>
+          ) : (
+            PrettyJson(mark)
           );
-          break;
-        default:
-          console.log('unhandled mark', mark);
+        break;
       }
-    });
+      case 'bold':
+        styles = 'font-semibold';
+        break;
+      case 'italic':
+        styles = 'italic';
+        break;
+      case 'underline':
+        styles = 'underline';
+        break;
+      case 'textStyle': {
+        const markAttrs = mark.attrs;
+        if (markAttrs?.color) {
+          style.color = markAttrs.color;
+        }
+        break;
+      }
+      case 'strike':
+        styles = 'line-through';
+        break;
+      case 'link':
+        LinkMark = (
+          <a
+            href={mark.attrs.href}
+            target={mark.attrs.target}
+            rel={mark.attrs.rel}
+            className="text-blue-400 no-underline hover:underline"
+          >
+            {payload}
+          </a>
+        );
+        break;
+      default:
+        console.log('unhandled mark', mark);
+    }
+  });
 
   return (
     <>
@@ -125,7 +129,7 @@ const Paragraph: NodeHandler = ({ children, node, Container }) => {
   // dynamically process text marks
   const style: React.CSSProperties = {};
 
-  if (!!node.attrs) {
+  if (node.attrs) {
     const attrs = node.attrs;
 
     if (attrs.textAlign) {
@@ -171,7 +175,8 @@ const RelationBlock: NodeHandler = (props) => {
         {PrettyJson(data)}
       </>
     );
-  } else if (attrs && attrs.collection === 'block_image') {
+  }
+  if (attrs && attrs.collection === 'block_image') {
     return (
       <>
         <BlockImage
@@ -182,7 +187,8 @@ const RelationBlock: NodeHandler = (props) => {
         {/* {PrettyJson(data)} */}
       </>
     );
-  } else if (attrs && attrs.collection === 'block_hero') {
+  }
+  if (attrs && attrs.collection === 'block_hero') {
     return (
       <>
         <BlockHero
@@ -194,22 +200,25 @@ const RelationBlock: NodeHandler = (props) => {
         {PrettyJson(data)}
       </>
     );
-  } else if (attrs && attrs.collection === 'block_toc') {
-    injectDataIntoContent(data.editor_nodes, data.content)
-    
+  }
+  if (attrs && attrs.collection === 'block_toc') {
+    injectDataIntoContent(data.editor_nodes, data.content);
+
     return (
       <>
         <BlockTOC content={data.content} />
         {PrettyJson(data)}
       </>
     );
-  } else if (attrs && attrs.collection === 'block_related_page') {
+  }
+  if (attrs && attrs.collection === 'block_related_page') {
     return (
       <>
         <BlockRelatedPage page={data.page[0]} />
       </>
     );
-  } else if (attrs && attrs.collection === 'block_projects_group') {
+  }
+  if (attrs && attrs.collection === 'block_projects_group') {
     const blockProjects: BlockProject[] = [];
     const projects = data.projects;
     projects.map((project: any) => {
@@ -224,14 +233,13 @@ const RelationBlock: NodeHandler = (props) => {
     });
 
     return <BlockProjects heading={data.heading} projects={blockProjects} />;
-  } else {
-    return (
-      <div className="w-full border border-red-300">
-        {attrs && <h4>{attrs.collection}</h4>}
-        <div>{PrettyJson(attrs?.data)}</div>
-      </div>
-    );
   }
+  return (
+    <div className="w-full border border-red-300">
+      {attrs && <h4>{attrs.collection}</h4>}
+      <div>{PrettyJson(attrs?.data)}</div>
+    </div>
+  );
 };
 
 const BodyContent: NodeHandlers = {
