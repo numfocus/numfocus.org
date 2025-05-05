@@ -51,7 +51,7 @@ export default function PersonGrid({
         onClose={() => setExpandedPerson(undefined)}
         className="max-w-100"
       >
-        <PersonDialogContent person={expandedPerson} />
+        {!!expandedPerson && <PersonDialogContent person={expandedPerson} />}
       </Dialog>
     </div>
   );
