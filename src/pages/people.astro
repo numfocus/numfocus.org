@@ -1,0 +1,29 @@
+---
+import directus from '../../lib/directus';
+
+import Container from '@components/Container.astro';
+import Hero from '@components/Hero.astro';
+import PersonGrid from '@components/PersonGrid/PersonGrid'
+import { readItems, readSingleton } from '@directus/sdk';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import getPageHero from '@utils/getPageHero';
+import getPageSeo from '@utils/getPageSeo';
+
+const people = await directus.request(readItems('people'));
+
+const global = await directus.request(readSingleton('General'));
+
+const pageHero = await getPageHero('people');
+const pageSeo = await getPageSeo('people');
+
+---
+
+<BaseLayout
+  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
+>
+  <Hero pageHero={pageHero} />
+  <Container>
+    <PersonGrid people={people} client:load />
+  </Container>
+</BaseLayout>
