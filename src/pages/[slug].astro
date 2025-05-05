@@ -1,0 +1,66 @@
+---
+import Container from '@components/Container.astro';
+import directus from '../../lib/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import Hero from '@components/Hero.astro';
+import getPageContent from '@utils/getPageContent';
+
+import getPageHero from '@utils/getPageHero';
+import getPageSeo from '@utils/getPageSeo';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const global = await directus.request(readSingleton('General'));
+
+const slug = Astro.routePattern.substring(1);
+
+export async function getStaticPaths() {
+  // const pages = await directus.request(
+  //   readItems('pages', {
+  //     fields: [
+  //       'id',
+  //       'title',
+  //       'slug',
+  //       'body_content',
+  //       'editor_nodes.id',
+  //       'editor_nodes.collection',
+  //       { editor_nodes: ['*.*.*.*.*.*'] },
+  //     ],
+  //   })
+  // );
+
+  // const cleanPages = pages.map((page) => {
+  //   injectDataIntoContent(page.editor_nodes, page.body_content);
+
+  //   return page;
+  // });
+  const pages = await getPageContent()
+
+  console.log(pages)
+
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+
+
+}
+// const pageHero = await getPageHero(slug);
+// const pageSeo = await getPageSeo(slug);
+
+const page = Astro.props;
+
+console.log(page)
+
+// console.log(Astro.props)
+---
+<!-- 
+<BaseLayout
+  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
+>
+  <Hero pageHero={pageHero} />
+
+  <Container />
+</BaseLayout> -->
