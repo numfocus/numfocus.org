@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
-import { ArrowRightIcon, BookOpenTextIcon } from 'lucide-react';
+import { ArrowRightIcon, BookOpenTextIcon, CommandIcon } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
@@ -67,11 +67,13 @@ export default function CommandPalette({ items }: Props) {
   return (
     <>
       <div
-        className="cursor-pointer text-teal-600"
+        className="inset-shadow-xs hover:inset-shadow-sm flex h-full cursor-pointer flex-row place-items-center rounded-md bg-gray-50 p-2 text-teal-600 transition"
         onClick={showPalette}
         onKeyDown={showPalette}
       >
-        <Search className="mr-2 h-8 w-8" />
+        <Search className="h-6 w-6" />
+        <CommandIcon className="hidden h-3 w-3 lg:block" />
+        <span className="hidden text-xs lg:block">K</span>
       </div>
       <Dialog
         transition
