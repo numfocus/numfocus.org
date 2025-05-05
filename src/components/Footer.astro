@@ -1,9 +1,8 @@
 ---
-import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 
-import footerBadge from '@assets/images/guidestar_badge.svg';
+import NumLogo from '@assets/icons/logo_white.svg';
+import FooterBadge from '@assets/images/guidestar_badge.svg';
 import { FooterMenu } from '@components/Atoms/Menus';
 import Container from '@components/Container.astro';
 import SubscribeForm from '@components/SubscribeForm';
@@ -20,8 +19,12 @@ const footerSectionStyle =
     <div class="flex flex-col gap-10">
       <div class={twMerge(footerSectionStyle, ' flex-col md:flex-row')}>
         <div>
-          <a class="logo" aria-label="home" href="/">
-            <Icon name="logo_white" class="text-5xl" />
+          <a
+            class="logo text-black hover:text-brand-teal transition"
+            aria-label="home"
+            href="/"
+          >
+            <NumLogo class="" />
           </a>
           <div class="flex py-10 gap-8">
             <div class="font-normal">
@@ -32,7 +35,7 @@ const footerSectionStyle =
               <p>info@numfocus.org</p>
               <p>+1 (512) 831-2870</p>
             </div>
-            <Image src={footerBadge} alt="Guidestar badge" />
+            <FooterBadge />
           </div>
         </div>
 

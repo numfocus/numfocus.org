@@ -46,13 +46,6 @@ export default function CommandPalette({ items }: Props) {
 
   const showPalette = () => setOpen(true);
 
-  // function handlekeydownEvent(event: KeyboardEvent) {
-  //   const { key } = event;
-  //   if (key === 'k' && (event.metaKey || event.ctrlKey)) {
-  //     showPalette();
-  //   }
-  // }
-
   // biome-ignore lint/correctness/useExhaustiveDependencies: TODO study workaround
   useEffect(() => {
     // biome-ignore lint/suspicious/noGlobalAssign: worth it for the cmd+k feature
@@ -72,8 +65,9 @@ export default function CommandPalette({ items }: Props) {
         onKeyDown={showPalette}
       >
         <Search className="h-6 w-6" />
-        <CommandIcon className="hidden h-3 w-3 lg:block" />
-        <span className="hidden text-xs lg:block">K</span>
+        <kbd className="text-brand-gray/60 hidden font-sans text-xs lg:block">
+          Ctrl K
+        </kbd>
       </div>
       <Dialog
         transition
