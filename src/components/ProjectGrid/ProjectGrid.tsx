@@ -1,6 +1,7 @@
 import { Bookmark } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
+import Dialog from '@components/Atoms/Dialog';
 import type {
   Project,
   ProjectFilterKey,
@@ -8,7 +9,6 @@ import type {
   ProjectFilterValues,
 } from 'env';
 import ProjectCard from './ProjectCard';
-import ProjectDialog from './ProjectDialog';
 import ProjectDialogContent from './ProjectExpandedContent';
 import ProjectFilters, { initialFilters } from './ProjectFilters';
 
@@ -79,6 +79,8 @@ export default function ProjectGrid({
 
   const toggleProjectDialog = (project?: Project) => {
     const url = new URL((window as Window).location.href);
+
+    console.log(project)
     if (project) {
       url.searchParams.set('project', project.id);
     } else {
@@ -121,10 +123,12 @@ export default function ProjectGrid({
           );
         })}
       </div>
-      <ProjectDialog
-        project={expandedProject}
+      <Dialog
+        open={!!expandedProject}
         onClose={() => toggleProjectDialog()}
-      />
+      >
+        <ProjectDialogContent project={expandedProject} />
+      </Dialog>
     </div>
   );
 }

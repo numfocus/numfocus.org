@@ -1,21 +1,23 @@
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { X } from 'lucide-react';
+import type React from 'react';
 
 import type { Project } from 'env';
-import ProjectDialogContent from './ProjectExpandedContent';
+import ProjectDialogContent from '../ProjectGrid/ProjectExpandedContent';
 
 export default function ProjectDialog({
-  project,
-  onClose,
-}: {
-  project?: Project;
-  onClose: () => void;
+  children,
+  open,
+  onClose
+}: React.ComponentProps<"div"> & {
+  open: boolean,
+  onClose: () => void
 }) {
   return (
     <Dialog
       transition
       className="relative z-10"
-      open={!!project}
+      open={open}
       onClose={onClose}
     >
       <DialogBackdrop
@@ -35,7 +37,7 @@ export default function ProjectDialog({
           >
             <X size="18" />
           </button>
-          {!!project && <ProjectDialogContent project={project} />}
+          {open && children}
         </DialogPanel>
       </div>
     </Dialog>
