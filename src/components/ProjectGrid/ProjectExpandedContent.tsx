@@ -18,7 +18,7 @@ const ListSection = ({ title, items }: { title: string; items?: string[] }) =>
         {listIcons[title as keyof typeof listIcons]}
         <span> {title}</span>
       </div>
-      <p className="">{items.join(', ')}</p>
+      <p className="capitalize">{items.join(', ')}</p>
     </div>
   );
 
@@ -42,12 +42,12 @@ export default function ProjectDialogContent({
   } = project.data;
   return (
     <div className="grid grid-cols-12 gap-4 px-5 py-6 text-sm sm:p-6">
-      <div className="border-r-1 border-brand-gray col-span-7 grid grid-cols-1 gap-4 pr-6 md:grid-cols-4">
+      <div className="border-b-1 md:border-r-1 border-brand-gray col-span-full grid grid-cols-1 gap-4 border-r-0 pr-6 md:col-span-7 md:grid-cols-4 md:border-b-0">
         {logo?.src && (
           <img
             src={logo.src}
             alt={name}
-            className="col-span-1 col-start-1 float-right w-full"
+            className="col-span-1 col-start-1 float-right w-full max-w-64"
           />
         )}
         <div className="col-span-1 col-start-1 md:col-span-3 md:col-start-2">
@@ -60,9 +60,7 @@ export default function ProjectDialogContent({
           </div>
           {technical_details && (
             <>
-              <h5 className="border-brand-gray mb-2 border-b-[1px] text-sm">
-                Technical Details
-              </h5>
+              <h5 className="mt-2 text-sm">Technical Details</h5>
               <div className="pb-4 text-sm">
                 <Markdown>{technical_details}</Markdown>
               </div>
@@ -70,9 +68,7 @@ export default function ProjectDialogContent({
           )}
           {applications && (
             <>
-              <h5 className="border-brand-gray mb-2 border-b-[1px] text-sm">
-                Applications
-              </h5>
+              <h5 className="mt-2 text-sm">Applications</h5>
               <div className="pb-4 text-sm">
                 <Markdown>{applications}</Markdown>
               </div>
@@ -80,7 +76,7 @@ export default function ProjectDialogContent({
           )}
         </div>
       </div>
-      <div className="col col-span-5 flex flex-col gap-5">
+      <div className="col col-span-full flex flex-col gap-5 md:col-span-5">
         <ListSection title="Languages" items={languages} />
         <ListSection title="Industries" items={industries} />
         <ListSection title="Features" items={features} />

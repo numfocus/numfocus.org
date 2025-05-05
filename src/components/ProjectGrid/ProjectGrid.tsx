@@ -80,7 +80,7 @@ export default function ProjectGrid({
   const toggleProjectDialog = (project?: Project) => {
     const url = new URL((window as Window).location.href);
 
-    console.log(project)
+    console.log(project);
     if (project) {
       url.searchParams.set('project', project.id);
     } else {
@@ -105,7 +105,7 @@ export default function ProjectGrid({
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {
             return (
-              <div className="border-brand-gray border-1 relative order-first col-span-12 rounded-md">
+              <div className="border-brand-gray border-1 relative order-first col-span-12 rounded-md pt-6 md:pt-0">
                 <div className="border-b-1 border-l-1 border-brand-gray bg-brand-gray-light absolute right-0 top-0 flex justify-around gap-2 rounded-none rounded-tr-md px-4 py-2 text-sm">
                   <Bookmark className="h-5 fill-black" />
                   Featured Project
@@ -123,11 +123,8 @@ export default function ProjectGrid({
           );
         })}
       </div>
-      <Dialog
-        open={!!expandedProject}
-        onClose={() => toggleProjectDialog()}
-      >
-        <ProjectDialogContent project={expandedProject} />
+      <Dialog open={!!expandedProject} onClose={() => toggleProjectDialog()}>
+        {expandedProject && <ProjectDialogContent project={expandedProject} />}
       </Dialog>
     </div>
   );

@@ -40,11 +40,11 @@ export default function ProjectCard({
 
   return (
     <div
-      className="project-card border-brand-gray relative col-span-12 h-full cursor-pointer rounded-md border transition hover:shadow-lg sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"
+      className="project-card border-brand-gray hover:border-brand-teal group relative col-span-12 h-full cursor-pointer rounded-md border transition hover:shadow-md sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"
       onClick={onExpand}
       onKeyDown={onExpand}
     >
-      <div className="hover:text-brand-teal absolute right-0 top-0 flex cursor-pointer place-items-center gap-2 p-2 transition">
+      <div className="group-hover:text-brand-teal absolute right-0 top-0 flex cursor-pointer place-items-center gap-2 p-2 transition">
         View
         <MoveDiagonal className="inline" />
       </div>
