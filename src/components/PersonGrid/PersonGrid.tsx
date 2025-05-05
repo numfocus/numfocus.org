@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-
 import Dialog from '@components/Atoms/Dialog';
 import groupBy from '@utils/groupBy';
 import type { Person } from 'env';
+import { useState } from 'react';
+import { twMerge} from 'tailwind-merge';
 import PersonCard from './PersonCard';
 import PersonDialogContent from './PersonExpandedContent';
 
@@ -26,23 +26,24 @@ export default function PersonGrid({
 
   return (
     <div>
-      {ROLES.map(({ id, label }) => {
+      {ROLES.map(({ id, label }, i) => {
         const peopleSublist = peopleByRole[id];
         if (!peopleSublist?.length) return null;
 
         return (
-          <div key={id} className="my-16">
-            <h3>{label}</h3>
-            <div className="mx-auto my-8 grid grid-cols-12 gap-8">
-              {peopleSublist.map((person: Person) => (
-                <PersonCard
-                  key={person.id}
-                  person={person}
-                  onExpand={() => setExpandedPerson(person)}
-                />
-              ))}
+          <div key={id} className={twMerge("my-8 py-10", i%2 === 0 ? "bg-teal-50" : "bg-white")}>
+            <div className="mx-auto max-w-300 px-8">
+              <h3>{label}</h3>
+              <div className="mx-auto my-8 grid grid-cols-12 gap-8">
+                {peopleSublist.map((person: Person) => (
+                  <PersonCard
+                    key={person.id}
+                    person={person}
+                    onExpand={() => setExpandedPerson(person)}
+                  />
+                ))}
+              </div>
             </div>
-            
           </div>
         );
       })}

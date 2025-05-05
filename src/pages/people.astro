@@ -23,7 +23,5 @@ const pageSeo = await getPageSeo('people');
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
-  <Container>
-    <PersonGrid people={people} client:load />
-  </Container>
+  <PersonGrid people={people} client:load />
 </BaseLayout>
