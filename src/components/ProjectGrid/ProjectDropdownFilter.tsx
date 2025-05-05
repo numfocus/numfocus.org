@@ -36,13 +36,13 @@ export default function ProjectDropdownFilter({
           <span>
             <span>{label}</span>
             {!!activeItems.length && (
-              <span className="font-bolder m-2 rounded-4xl bg-blue-500 px-2 py-0.5 text-white">
+              <span className="font-bolder rounded-4xl m-2 bg-blue-500 px-2 py-0.5 text-white">
                 {activeItems.length}
                 <span className="px-1 md:hidden lg:inline">selected</span>
               </span>
             )}
           </span>
-          <ArrowDown className="text-blue-500"></ArrowDown>
+          <ArrowDown className="text-blue-500" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

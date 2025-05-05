@@ -61,7 +61,7 @@ export default function ProjectGrid({
     if (initialExpandedProject) {
       setExpandedProject(initialExpandedProject);
     }
-  }, []);
+  }, [projects]);
 
   const filteredProjects = useMemo(() => {
     return projects
@@ -103,8 +103,8 @@ export default function ProjectGrid({
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {
             return (
-              <div className="border-numfocus-primary relative order-first col-span-12 border-1 xl:col-span-9">
-                <div className="absolute top-0 right-0 flex justify-around gap-2 border-b-1 border-l-1 border-purple-700 bg-purple-50 p-2 text-sm text-purple-700">
+              <div className="border-numfocus-primary border-1 relative order-first col-span-12 xl:col-span-9">
+                <div className="border-b-1 border-l-1 absolute right-0 top-0 flex justify-around gap-2 border-purple-700 bg-purple-50 p-2 text-sm text-purple-700">
                   <Bookmark className="h-5" />
                   Featured Project
                 </div>

@@ -77,6 +77,7 @@ export default function ProjectFilters({
               <TypeFilter />
             </div>
             <button
+              type="button"
               className="md:basis-30 text-left text-blue-500 hover:text-blue-700 disabled:text-gray-500 md:min-w-20 md:text-center lg:min-w-32"
               onClick={clearActiveFilters}
               disabled={

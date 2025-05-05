@@ -38,7 +38,7 @@ export type PageHero = MetaProps & {
   rich_text: string;
   image: string;
   hero_style: 'light' | 'dark';
-  button?: Button[];
+  button?: ButtonType[];
 };
 
 export type ProjectFilterOptions = {
@@ -101,7 +101,7 @@ export type HomepageContent = {
   heroContent: string;
   heroImage: string;
   heroStyle: 'light' | 'dark';
-  buttons: Button[];
+  buttons: ButtonType[];
   featuredLinks?: FeaturedLink[];
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
