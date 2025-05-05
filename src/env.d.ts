@@ -13,7 +13,7 @@ interface MetaProps {
 }
 
 // primitives
-export type Button = {
+export type ButtonType = {
   text: string;
   link: string;
   style: 'light' | 'dark';

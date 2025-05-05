@@ -1,12 +1,12 @@
+import markdownIntegration from '@astropub/md';
+import tailwindcss from '@tailwindcss/vite';
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import markdownIntegration from '@astropub/md';
 
 import netlify from '@astrojs/netlify';
 
-import icon from 'astro-icon';
 import react from '@astrojs/react';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({

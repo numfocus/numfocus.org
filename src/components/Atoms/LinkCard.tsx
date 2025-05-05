@@ -1,11 +1,12 @@
-import type { CustomContentItem } from 'env';
 import getAssetUrl from '@utils/getAssetUrl';
+import type { CustomContentItem } from 'env';
 
 export default function LinkCard({ image, link, text }: CustomContentItem) {
   return (
     <a
       href={`${link}`}
       target="_blank"
+      rel="noreferrer"
       className="transition-opacity hover:opacity-70"
     >
       <div className="relative h-40 w-full rounded-lg">

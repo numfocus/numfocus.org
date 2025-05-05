@@ -1,15 +1,15 @@
-import { twMerge } from 'tailwind-merge';
-import type { Button } from 'env';
+import type { ButtonType } from 'env';
 import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
   Heart,
   Mail,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  ArrowDownIcon,
 } from 'lucide-react';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
-  button: Button;
+  button: ButtonType;
   icon?: 'heart' | 'envelope';
   arrow?: 'right' | 'left' | 'down';
 }

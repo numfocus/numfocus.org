@@ -1,17 +1,16 @@
 ---
 import Container from '@components/Container.astro';
-import PageHeader from '@components/PageHeader.astro';
-import directus from '../../../lib/directus';
+import Hero from '@components/Hero.astro';
 import { readItems, readSingleton } from '@directus/sdk';
 import ArticleGridLayout from '@layouts/ArticleGridLayout.astro';
-import Hero from '@components/Hero.astro';
 import { getArticlesMeta } from '@utils/getArticlesMeta';
+import directus from '../../../lib/directus';
 
-import type { Article } from 'env';
-import getPageSeo from '@utils/getPageSeo';
-import getPageHero from '@utils/getPageHero';
+import { Image, Picture } from 'astro:assets';
 import getAssetUrl from '@utils/getAssetUrl';
-import { Picture, Image } from 'astro:assets';
+import getPageHero from '@utils/getPageHero';
+import getPageSeo from '@utils/getPageSeo';
+import type { Article } from 'env';
 
 const global = await directus.request(readSingleton('General'));
 

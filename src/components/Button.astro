@@ -1,10 +1,9 @@
 ---
-import type { Button } from 'env';
-import { Heart, Mail } from 'lucide-react';
+import type { ButtonType } from 'env';
 
 interface Props {
   class?: string;
-  button?: Button;
+  button?: ButtonType;
   icon?: 'heart' | 'envelope';
 }
 
@@ -12,11 +11,11 @@ const { class: className, button, icon } = Astro.props;
 
 const defaultClass = '';
 const variantClasses = {
-  primary:
+  default:
     'yellow-500 text-white shadow-none focus:ring-4 hover:organge-600 transition',
-  secondary:
+  outlined:
     'bg-gradient-to-r from-indigo-700 to-purple-600 text-white shadow-none focus:ring-4 ',
-  muted: '',
+  special: '',
   newsletter:
     'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-none focus:ring-4',
 };

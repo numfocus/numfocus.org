@@ -1,7 +1,7 @@
-import type { MenuItem as mi } from 'env';
-import { twMerge } from 'tailwind-merge';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import type { MenuItem as mi } from 'env';
 import { Menu as MenuIcon } from 'lucide-react';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
   menuItems: mi[];
@@ -12,10 +12,11 @@ export const NavMenu = ({ menuItems, currentPage }: Props) => {
     <nav className="hidden w-1/2 items-center justify-around gap-2 md:flex">
       {menuItems.map(({ path, title }) => (
         <a
+          key={path + title}
           href={path}
           className={twMerge(
             'font-semi-bold inline-block text-teal-600 transition hover:text-teal-800',
-            `${path}` === currentPage && `text-teal-900`
+            `${path}` === currentPage && 'text-teal-900'
           )}
         >
           <span>{title}</span>
@@ -40,12 +41,12 @@ export const HamburgerMenu = ({ menuItems, currentPage }: Props) => {
       >
         <div className="py-1">
           {menuItems.map(({ path, title }) => (
-            <MenuItem>
+            <MenuItem key={path + title}>
               <a
                 href={path}
                 className={twMerge(
                   'data-focus:bg-light-teal-100 data-focus:text-teal-900 data-focus:outline-hidden block px-4 py-2 text-sm text-teal-600',
-                  `${path}` === currentPage && `bg-light-teal-50`
+                  `${path}` === currentPage && 'bg-light-teal-50'
                 )}
               >
                 <span>{title}</span>
@@ -70,7 +71,7 @@ export const FooterMenu = ({
       <h5 className="pb-6">{menuTitle}</h5>
       <ul>
         {menuItems.map(({ path, title }) => (
-          <li className="pb-4">
+          <li key={`${path}-${title}`} className="pb-4">
             <a
               href={path}
               className={twMerge(

@@ -1,18 +1,18 @@
 ---
+import Button from '@components/Atoms/Button';
+import LinkCard from '@components/Atoms/LinkCard';
+import StatCard from '@components/Atoms/StatCard';
 import Container from '@components/Container.astro';
+import ProjectCarousel from '@components/ProjectCarousel';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getHomePageContent from '@utils/getHomePageContent';
-import Button from '@components/Atoms/Button';
-import FeaturedLink from '@components/Atoms/FeaturedLink';
-import StatCard from '@components/Atoms/StatCard';
-import LinkCard from '@components/Atoms/LinkCard';
-import ProjectCarousel from '@components/ProjectCarousel';
+import { ArrowRightIcon } from 'lucide-react';
 
+import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import directus from '../../lib/directus';
 import { readSingleton } from '@directus/sdk';
 import type { Project, Seo } from 'env';
-import { Picture } from 'astro:assets';
+import directus from '../../lib/directus';
 
 const global = await directus.request(readSingleton('General'));
 const projects: Project[] = await getCollection('projects');
@@ -62,8 +62,16 @@ const seo: Seo = {
         class="w-full bg-black/65 h-24 grid sm:grid-cols-2 lg:grid-cols-5 border-t-[1px] border-white/50"
       >
         {
-          content.featuredLinks?.map((link, index) => (
-            <FeaturedLink link={link} variant={index} />
+          content.featuredLinks?.map((link) => (
+            <div class="my-4 inline-flex w-full flex-row items-center border-r-[1px] border-white/50 px-4 py-2">
+              <a
+                href={link.url}
+                class="group align-middle text-base text-white"
+              >
+                <span>{link.text}</span>
+                <ArrowRightIcon className="ml-1 inline-block transition group-hover:translate-x-1" />
+              </a>
+            </div>
           ))
         }
       </div>

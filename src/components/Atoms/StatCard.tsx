@@ -1,14 +1,5 @@
-import { twMerge } from 'tailwind-merge';
 import type { HomepageStats } from 'env';
 import { ArrowRightIcon } from 'lucide-react';
-
-const colorVariants = [
-  'border-brand-emphasis',
-  'border-brand-dark-accent',
-  'border-brand-primary',
-  'border-brand-secondary',
-  'border-brand-tertiary',
-];
 
 interface Props {
   stats: HomepageStats;
