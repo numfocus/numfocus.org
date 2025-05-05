@@ -1,7 +1,7 @@
 import {
   Dialog,
-  DialogPanel,
   DialogBackdrop,
+  DialogPanel,
 } from '@headlessui/react';
 import { X } from 'lucide-react';
 

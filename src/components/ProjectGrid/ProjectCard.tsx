@@ -1,7 +1,7 @@
 import type { Project } from 'env';
-import { MoveDiagonal, Link2, Star } from 'lucide-react';
-import { twMerge } from 'tailwind-merge';
+import { Link2, MoveDiagonal, Star } from 'lucide-react';
 import Markdown from 'react-markdown';
+import { twMerge } from 'tailwind-merge';
 
 interface StyledComponentProps {
   className?: string;

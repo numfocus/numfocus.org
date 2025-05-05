@@ -1,13 +1,13 @@
 ---
-import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import Button from '@components/Button.astro';
-import directus from '../../../lib/directus';
-import { readItems } from '@directus/sdk';
-import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import Hero from '@components/Hero.astro';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
-import Hero from '@components/Hero.astro';
+import { readItems } from '@directus/sdk';
+import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { PageHero } from 'env';
+import directus from '../../../lib/directus';
 
 export async function getStaticPaths() {
   const pages = await directus.request(

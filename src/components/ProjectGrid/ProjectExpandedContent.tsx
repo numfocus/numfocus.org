@@ -1,7 +1,7 @@
 import Markdown from 'react-markdown';
 
-import type { Project } from 'env';
 import Button from '@components/Atoms/Button';
+import type { Project } from 'env';
 
 const ListSection = ({ title, items }: { title: string; items?: string[] }) =>
   items && (

@@ -1,15 +1,15 @@
 ---
 import Container from '@components/Container.astro';
-import directus from '../../lib/directus';
-import { readSingleton } from '@directus/sdk';
 import Hero from '@components/Hero.astro';
-import getPageContent from '@utils/getPageContent';
-import getPageHero from '@utils/getPageHero';
+import type { TipTapNode } from '@components/TipTapRender';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
-import type { TipTapNode } from '@components/TipTapRender';
-import getPageSeo from '@utils/getPageSeo';
+import { readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import getPageContent from '@utils/getPageContent';
+import getPageHero from '@utils/getPageHero';
+import getPageSeo from '@utils/getPageSeo';
+import directus from '../../lib/directus';
 
 const global = await directus.request(readSingleton('General'));
 

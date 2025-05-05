@@ -1,15 +1,16 @@
-import React, { type ReactElement } from 'react';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import type React from 'react';
+import type { ReactElement } from 'react';
 
-import type { NodeHandlers, NodeProps, NodeHandler } from './TipTapRender';
-import Testimonial from './Testimonial';
+import PrettyJson from '@components/Atoms/PrettyJson';
+import type { BlockProject } from 'env';
 import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockProjects from './BlockProjects';
-import type { BlockProject } from 'env';
 import BlockRelatedPage from './BlockRelatedPage';
 import BlockTOC from './BlockTOC';
-import PrettyJson from '@components/Atoms/PrettyJson';
+import Testimonial from './Testimonial';
+import type { NodeHandler, NodeHandlers, NodeProps } from './TipTapRender';
 
 const BulletList: NodeHandler = ({ node, Container}) => {
   return (
@@ -44,9 +45,9 @@ const TextRender: NodeHandler = (props: NodeProps) => {
   const payload: string = props.node.text;
 
   // define variable for react style
-  let style: React.CSSProperties = {};
+  const style: React.CSSProperties = {};
 
-  let styles: string = '';
+  let styles = '';
   let RelationMark: ReactElement | null = null;
   let LinkMark: ReactElement | null = null;
 
@@ -55,7 +56,7 @@ const TextRender: NodeHandler = (props: NodeProps) => {
     props.node.marks.forEach((mark) => {
       switch (mark.type) {
         case 'relation-mark':
-          let data = mark.attrs.data;
+          const data = mark.attrs.data;
           RelationMark =
             mark.attrs.collection === 'block_testimonial' ? (
               <>
@@ -122,7 +123,7 @@ const TextRender: NodeHandler = (props: NodeProps) => {
 
 const Paragraph: NodeHandler = ({ children, node, Container }) => {
   // dynamically process text marks
-  let style: React.CSSProperties = {};
+  const style: React.CSSProperties = {};
 
   if (!!node.attrs) {
     const attrs = node.attrs;
@@ -209,11 +210,11 @@ const RelationBlock: NodeHandler = (props) => {
       </>
     );
   } else if (attrs && attrs.collection === 'block_projects_group') {
-    let blockProjects: BlockProject[] = [];
+    const blockProjects: BlockProject[] = [];
     const projects = data.projects;
     projects.map((project: any) => {
       // console.log(project);
-      let blockProject: BlockProject = {
+      const blockProject: BlockProject = {
         name: project.projects_id.name,
         logo: project.projects_id.logo,
         slug: project.projects_id.slug,

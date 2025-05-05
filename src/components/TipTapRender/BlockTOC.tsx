@@ -2,7 +2,7 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import slugify from 'slugify';
 import { twMerge } from 'tailwind-merge';
 
-import { TipTapRender, type NodeHandler, type TipTapNode, type TipTapNodeContainer } from '@components/TipTapRender/TipTapRender';
+import { type NodeHandler, type TipTapNode, type TipTapNodeContainer, TipTapRender } from '@components/TipTapRender/TipTapRender';
 import BodyContent from './BodyContent';
 
 

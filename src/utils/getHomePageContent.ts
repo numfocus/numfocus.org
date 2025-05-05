@@ -1,3 +1,4 @@
+import { readSingleton } from '@directus/sdk';
 import type {
   Button,
   CustomContentItem,
@@ -7,7 +8,6 @@ import type {
   PageHero,
 } from 'env';
 import directus from '../../lib/directus';
-import { readSingleton } from '@directus/sdk';
 
 export default async function getHomePageContent() {
   const content = await directus.request(
@@ -23,14 +23,14 @@ export default async function getHomePageContent() {
     })
   );
 
-  let featuredLinks: FeaturedLink[] = [];
+  const featuredLinks: FeaturedLink[] = [];
   content.featured_links.map((link: any) => {
     console.log(link.item.internal_link[0]?.item.slug);
-    let url =
+    const url =
       link.item.type_of_link === 'internal'
         ? link.item.internal_link[0].item.slug
         : link.item.external_link;
-    let l: FeaturedLink = {
+    const l: FeaturedLink = {
       text: link.item.text,
       type: link.item.type_of_link,
       url: url,
@@ -39,7 +39,7 @@ export default async function getHomePageContent() {
   });
 
   const stats: HomepageStats[] = content.stats_and_callouts.map((stat: any) => {
-    let singleStat: HomepageStats = {
+    const singleStat: HomepageStats = {
       category: stat.item.category,
       mainContent: stat.item.main_content,
       description: stat.item.description,

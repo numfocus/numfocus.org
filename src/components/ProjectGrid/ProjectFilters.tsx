@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
 import type { ProjectFilterOptions, ProjectFilterValues } from 'env';
+import { useMemo, useState } from 'react';
 
 import ProjectDropdownFilters from './ProjectDropdownFilters';
 import ProjectTextSearch from './ProjectTextSearch';

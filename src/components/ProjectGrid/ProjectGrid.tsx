@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
 import { Bookmark } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 
 import type {
   Project,
-  ProjectFilterOptions,
   ProjectFilterKey,
+  ProjectFilterOptions,
   ProjectFilterValues,
 } from 'env';
 import ProjectCard from './ProjectCard';
 import ProjectDialog from './ProjectDialog';
-import ProjectFilters, { initialFilters } from './ProjectFilters';
 import ProjectDialogContent from './ProjectExpandedContent';
+import ProjectFilters, { initialFilters } from './ProjectFilters';
 
 const fetchProjectFromURL = (projects: Project[]) => {
   const url = new URL((window as Window).location.href);

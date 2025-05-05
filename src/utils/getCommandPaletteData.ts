@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
-import directus from '../../lib/directus';
 import { readItems } from '@directus/sdk';
+import directus from '../../lib/directus';
 import { getArticlesMeta } from './getArticlesMeta';
 
 import type { CommandPaletteItem } from 'env';
@@ -10,13 +10,13 @@ const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
 const directusAssetUrl = `${DIRECTUS_URL}assets/`;
 
 // we create our main object as qn empty array
-let allData: CommandPaletteItem[] = [];
+const allData: CommandPaletteItem[] = [];
 
 // we pull local Astro content for projects
 const projects = await getCollection('projects');
 
 // transform it into comand palette objects and push to allData
-for (let project of projects) {
+for (const project of projects) {
   const item: CommandPaletteItem = {
     id: project.id,
     title: project.data.name,
@@ -36,7 +36,7 @@ const pages = await directus.request(
 );
 
 // and push them to allData
-for (let page of pages) {
+for (const page of pages) {
   const item: CommandPaletteItem = {
     id: page.id,
     title: page.title,
@@ -54,7 +54,7 @@ const caseStudies = await directus.request(
   })
 );
 
-for (let caseStudy of caseStudies) {
+for (const caseStudy of caseStudies) {
   const item: CommandPaletteItem = {
     id: caseStudy.id,
     title: caseStudy.title,
@@ -65,7 +65,7 @@ for (let caseStudy of caseStudies) {
 }
 
 const articles = await getArticlesMeta();
-for (let article of articles) {
+for (const article of articles) {
   const item: CommandPaletteItem = {
     id: article.id,
     title: article.heading,

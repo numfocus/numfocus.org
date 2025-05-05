@@ -1,20 +1,20 @@
+import { navigate } from 'astro:transitions/client';
 import {
   Combobox,
   ComboboxInput,
   ComboboxOption,
   ComboboxOptions,
   Dialog,
-  DialogPanel,
   DialogBackdrop,
+  DialogPanel,
   type TabGroupProps,
 } from '@headlessui/react';
-import { ArrowRightIcon, Book, BookOpenTextIcon } from 'lucide-react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
-import { useEffect, useState } from 'react';
+import { ArrowRightIcon, Book, BookOpenTextIcon } from 'lucide-react';
 import { Search } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
-import { navigate } from 'astro:transitions/client';
 
 import type { CommandPaletteItem } from 'env';
 

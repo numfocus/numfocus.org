@@ -1,5 +1,6 @@
-import React, { type JSX } from 'react';
 import DefaultContainer from '@components/Atoms/Container';
+import type React from 'react';
+import type { JSX } from 'react';
 
 /**
  * Render a tip tap JSON node and all its children

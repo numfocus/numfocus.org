@@ -1,9 +1,9 @@
 import {
-  TipTapRender,
   type NodeHandler,
   type NodeHandlers,
   type NodeProps,
   type TipTapNode,
+  TipTapRender,
 } from './TipTapRender';
 
 export { TipTapRender };
