@@ -1,10 +1,10 @@
 @import 'tailwindcss';
+@import './colors';
 
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
-@import './colors';
 
 :root {
   --background: hsl(0 0% 100%);
@@ -119,5 +119,11 @@
   }
   h5 {
     @apply font-heading text-xl font-semibold;
+  }
+}
+
+@layer utilities {
+  .active-toc-item {
+    @apply border-l-black text-black;
   }
 }

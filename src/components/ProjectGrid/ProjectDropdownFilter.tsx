@@ -31,18 +31,18 @@ export default function ProjectDropdownFilter({
       <DropdownMenuTrigger className="w-full" asChild>
         <Button
           variant="outline"
-          className="justify-between rounded-none border border-teal-500"
+          className="border-brand-link justify-between rounded-none border"
         >
           <span>
             <span>{label}</span>
             {!!activeItems.length && (
-              <span className="font-bolder m-2 rounded-4xl bg-blue-500 px-2 py-0.5 text-white">
+              <span className="font-bolder rounded-4xl bg-brand-link m-2 px-2 py-0.5 text-white">
                 {activeItems.length}
                 <span className="px-1 md:hidden lg:inline">selected</span>
               </span>
             )}
           </span>
-          <ArrowDown className="text-blue-500"></ArrowDown>
+          <ArrowDown className="text-blue-500" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

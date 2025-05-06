@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=../projects.schema.json
 
-name: "Mesa: Agent-Based Modeling In Python"
+name: 'Mesa'
 website_link: https://mesa.readthedocs.io/en/latest/
 logo: ./1d57e11183d3-mesa_logo.png
 type: affiliated
-
 
 #  Narrative descriptions: you can use markdown for formatting.
 #  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
@@ -12,10 +11,7 @@ type: affiliated
 
 short_description: |-
   Mesa is an Apache2 licensed agent-based modeling (or ABM) framework in Python.
-technical_details: null
-
-
-
+technical_details: 'Agent-Based Modeling In Python'
 #  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries: []

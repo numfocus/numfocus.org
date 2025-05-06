@@ -1,5 +1,5 @@
 import Button from '@components/Atoms/Button';
-import type { Image, Button as TButton } from 'env';
+import type { Image, ButtonType as TButton } from 'env';
 import { twMerge } from 'tailwind-merge';
 import BlockImage from './BlockImage';
 

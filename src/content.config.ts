@@ -19,10 +19,13 @@ const projects = defineCollection({
       support_year_start: z.number().optional(),
       logo: image(),
       short_description: z.string(),
+      technical_details: z.string().optional().nullish(),
+      applications: z.string().optional().nullish(),
       features: z.array(z.string().toLowerCase()).optional(),
       industries: z.array(z.string().toLowerCase()).optional(),
       languages: z.array(z.string().toLowerCase()).optional(),
       website_link: z.string().url().optional(),
+      contribute_link: z.string().url().optional(),
     }),
 });
 

@@ -11,7 +11,7 @@ import {
 } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { FaceFrownIcon, GlobeAmericasIcon } from '@heroicons/react/24/outline';
-import { ArrowRightIcon, Book, BookOpenTextIcon } from 'lucide-react';
+import { ArrowRightIcon, BookOpenTextIcon, CommandIcon } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
@@ -38,6 +38,7 @@ export default function CommandPalette({ items }: Props) {
 
   const groups: Groups = filteredItems.reduce((groups, item) => {
     return {
+      // biome-ignore lint/performance/noAccumulatingSpread: TODO study workaround
       ...groups,
       [item.category]: [...(groups[item.category] || []), item],
     };
@@ -45,7 +46,9 @@ export default function CommandPalette({ items }: Props) {
 
   const showPalette = () => setOpen(true);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: TODO study workaround
   useEffect(() => {
+    // biome-ignore lint/suspicious/noGlobalAssign: worth it for the cmd+k feature
     onkeydown = (event) => {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
@@ -56,8 +59,15 @@ export default function CommandPalette({ items }: Props) {
 
   return (
     <>
-      <div className="cursor-pointer text-teal-600" onClick={showPalette}>
-        <Search className="mr-2 h-8 w-8" />
+      <div
+        className="inset-shadow-xs hover:inset-shadow-sm flex h-full cursor-pointer flex-row place-items-center rounded-md bg-gray-50 p-2 text-teal-600 transition"
+        onClick={showPalette}
+        onKeyDown={showPalette}
+      >
+        <Search className="h-6 w-6" />
+        <kbd className="text-brand-gray/60 hidden font-sans text-xs lg:block">
+          Ctrl K
+        </kbd>
       </div>
       <Dialog
         transition
@@ -70,13 +80,13 @@ export default function CommandPalette({ items }: Props) {
       >
         <DialogBackdrop
           transition
-          className="fixed inset-0 bg-gray-500/25 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
+          className="data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in fixed inset-0 bg-gray-500/25 transition-opacity"
         />
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto p-4 sm:p-6 md:p-20">
           <DialogPanel
             transition
-            className="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white ring-1 shadow-2xl ring-black/5 transition-all data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
+            className="data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 transition-all"
           >
             <Combobox
               onChange={(item: CommandPaletteItem) => {
@@ -88,7 +98,7 @@ export default function CommandPalette({ items }: Props) {
               <div className="grid grid-cols-1">
                 <ComboboxInput
                   autoFocus
-                  className="col-start-1 row-start-1 h-12 w-full pr-4 pl-11 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm"
+                  className="outline-hidden col-start-1 row-start-1 h-12 w-full pl-11 pr-4 text-base text-gray-900 placeholder:text-gray-400 sm:text-sm"
                   placeholder="Search..."
                   onChange={(event) => setQuery(event.target.value)}
                   onBlur={() => setQuery('')}
@@ -119,12 +129,12 @@ export default function CommandPalette({ items }: Props) {
                 <ComboboxOptions
                   static
                   as="ul"
-                  className="max-h-80 scroll-pt-11 scroll-pb-2 space-y-2 overflow-y-auto pb-2"
+                  className="max-h-80 scroll-pb-2 scroll-pt-11 space-y-2 overflow-y-auto pb-2"
                 >
                   {Object.entries(groups).map(([category, items]) => (
                     <li key={category}>
                       <div className="mx-2 my-1.5 border-0 border-b-[1px] border-blue-400 py-1">
-                        <h2 className="text-sm font-semibold text-gray-900 capitalize">
+                        <h2 className="text-sm font-semibold capitalize text-gray-900">
                           {category}
                         </h2>
                       </div>
@@ -133,7 +143,7 @@ export default function CommandPalette({ items }: Props) {
                           <ComboboxOption
                             key={item.id}
                             value={item}
-                            className="cursor-default px-4 py-2 select-none data-focus:bg-blue-50 data-focus:outline-hidden"
+                            className="data-focus:bg-blue-50 data-focus:outline-hidden cursor-default select-none px-4 py-2"
                           >
                             {({ focus }) => (
                               <div className="flex items-center justify-between gap-4">

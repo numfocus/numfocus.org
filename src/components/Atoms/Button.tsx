@@ -16,7 +16,7 @@ interface Props {
 
 const variantStyles = {
   light: {
-    default: ' text-black hover:text-brand-primary',
+    default: ' text-black hover:text-brand-primary pl-0',
     outlined:
       'text-teal-500 border-teal-500  shadow-none border-2 transition hover:shadow-sm my-2',
     special:
@@ -50,7 +50,8 @@ const arrowVariant = {
 export default function Button({ button, arrow }: Props) {
   const buttonStyle = twMerge(
     'text-md group inline-flex min-w-24 cursor-pointer flex-row place-content-around items-center gap-4 rounded-md px-2 py-2 font-semibold',
-    button && variantStyles[button.style][button.variant]
+    button &&
+      variantStyles[button.style ? button.style : 'light'][button.variant]
   );
 
   return (

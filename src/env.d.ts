@@ -27,6 +27,18 @@ export type Article = MetaProps & {
   content: string;
 };
 
+type PersonRole = 'board' | 'steering_committee' | 'staff' | 'coc_working_group' | 'advisory_council';
+
+export type Person = {
+  id: number,
+  first_name: string;
+  last_name: string;
+  image: string;
+  role: PersonRole;
+  title: string;
+  bio: string;
+};
+
 type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
 export type Project = CollectionEntry<'projects'>;
@@ -38,7 +50,7 @@ export type PageHero = MetaProps & {
   rich_text: string;
   image: string;
   hero_style: 'light' | 'dark';
-  button?: Button[];
+  button?: ButtonType[];
 };
 
 export type ProjectFilterOptions = {
@@ -94,6 +106,7 @@ export type CustomContentItem = {
   text: string;
   image: string;
   link: string;
+  short_description: string;
 };
 
 export type HomepageContent = {
@@ -101,7 +114,7 @@ export type HomepageContent = {
   heroContent: string;
   heroImage: string;
   heroStyle: 'light' | 'dark';
-  buttons: Button[];
+  buttons: ButtonType[];
   featuredLinks?: FeaturedLink[];
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;

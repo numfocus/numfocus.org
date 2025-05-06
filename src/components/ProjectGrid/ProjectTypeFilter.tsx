@@ -1,5 +1,4 @@
-import { Checkbox } from "@lib/components/ui/checkbox"
-
+import { Checkbox } from '@lib/components/ui/checkbox';
 
 export default function ProjectTypeFilter({
   filterOptions,
@@ -10,7 +9,6 @@ export default function ProjectTypeFilter({
   activeFilterValues: string[];
   onChange: (items: any) => void;
 }) {
-  
   const toggleItem = (id: string) => {
     if (activeFilterValues.includes(id)) {
       onChange(activeFilterValues.filter((item) => item !== id));
@@ -20,10 +18,8 @@ export default function ProjectTypeFilter({
   };
 
   return (
-    <div className='flex gap-4 items-center'>
-      <label
-        className="block font-medium text-gray-900"
-      >
+    <div className="flex items-center gap-4">
+      <label htmlFor="Show:" className="block font-medium text-gray-900">
         Show:
       </label>
       {filterOptions.map((item) => (
@@ -32,11 +28,11 @@ export default function ProjectTypeFilter({
             id={item}
             checked={activeFilterValues.includes(item)}
             onCheckedChange={() => toggleItem(item)}
-            className='w-5 h-5 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 rounded-none border-1 border-teal-500 bg-white'
+            className="border-1 h-5 w-5 rounded-none border-teal-500 bg-white data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
           />
           <label
             htmlFor={item}
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 whitespace-nowrap capitalize"
+            className="whitespace-nowrap text-sm font-medium capitalize leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             {item}
           </label>

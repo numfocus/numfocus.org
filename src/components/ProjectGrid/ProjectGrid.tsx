@@ -1,6 +1,7 @@
 import { Bookmark } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
+import Dialog from '@components/Atoms/Dialog';
 import type {
   Project,
   ProjectFilterKey,
@@ -8,7 +9,6 @@ import type {
   ProjectFilterValues,
 } from 'env';
 import ProjectCard from './ProjectCard';
-import ProjectDialog from './ProjectDialog';
 import ProjectDialogContent from './ProjectExpandedContent';
 import ProjectFilters, { initialFilters } from './ProjectFilters';
 
@@ -61,7 +61,7 @@ export default function ProjectGrid({
     if (initialExpandedProject) {
       setExpandedProject(initialExpandedProject);
     }
-  }, []);
+  }, [projects]);
 
   const filteredProjects = useMemo(() => {
     return projects
@@ -79,6 +79,8 @@ export default function ProjectGrid({
 
   const toggleProjectDialog = (project?: Project) => {
     const url = new URL((window as Window).location.href);
+
+    console.log(project);
     if (project) {
       url.searchParams.set('project', project.id);
     } else {
@@ -103,9 +105,9 @@ export default function ProjectGrid({
           // TODO: replace with project.featured flag
           if (project.id === 'geopandas') {
             return (
-              <div className="border-numfocus-primary relative order-first col-span-12 border-1 xl:col-span-9">
-                <div className="absolute top-0 right-0 flex justify-around gap-2 border-b-1 border-l-1 border-purple-700 bg-purple-50 p-2 text-sm text-purple-700">
-                  <Bookmark className="h-5" />
+              <div className="border-brand-gray border-1 relative order-first col-span-12 rounded-md pt-6 md:pt-0">
+                <div className="border-b-1 border-l-1 border-brand-gray bg-brand-gray-light absolute right-0 top-0 flex justify-around gap-2 rounded-none rounded-tr-md px-4 py-2 text-sm">
+                  <Bookmark className="h-5 fill-black" />
                   Featured Project
                 </div>
                 <ProjectDialogContent project={project} />
@@ -121,10 +123,9 @@ export default function ProjectGrid({
           );
         })}
       </div>
-      <ProjectDialog
-        project={expandedProject}
-        onClose={() => toggleProjectDialog()}
-      />
+      <Dialog open={!!expandedProject} onClose={() => toggleProjectDialog()}>
+        {expandedProject && <ProjectDialogContent project={expandedProject} />}
+      </Dialog>
     </div>
   );
 }

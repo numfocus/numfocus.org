@@ -51,7 +51,7 @@ export default function ProjectFilters({
 
   return (
     <div>
-      <div className="bg-teal-50 px-8 py-6 text-sm">
+      <div className="bg-brand-gray-light px-8 py-12 text-sm">
         <div className="mx-auto w-11/12 max-w-screen-xl">
           <h5>Search and filter projects</h5>
           <div className={filterContainerStyle}>
@@ -77,6 +77,7 @@ export default function ProjectFilters({
               <TypeFilter />
             </div>
             <button
+              type="button"
               className="md:basis-30 text-left text-blue-500 hover:text-blue-700 disabled:text-gray-500 md:min-w-20 md:text-center lg:min-w-32"
               onClick={clearActiveFilters}
               disabled={
