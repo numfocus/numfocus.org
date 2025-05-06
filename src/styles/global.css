@@ -121,3 +121,9 @@
     @apply font-heading text-xl font-semibold;
   }
 }
+
+@layer utilities {
+  .active-toc-item {
+    @apply border-l-black text-black;
+  }
+}

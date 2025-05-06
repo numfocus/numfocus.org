@@ -49,3 +49,37 @@ const { title, seo } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<script is:inline>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const headingFragment = `#${entry.target.id}`;
+        const tocItem = document.querySelector(`a[href="${headingFragment}"]`);
+
+        if (entry.isIntersecting) {
+          const previouslyActivatedItem =
+            document.querySelector('.active-toc-item');
+
+          previouslyActivatedItem?.classList.remove('active-toc-item');
+          tocItem.parentElement.classList.add('active-toc-item');
+        } else {
+          const isAnyOtherEntryIntersecting = entries.some(
+            (e) => e.target.id !== entry.target.id && e.isIntersecting
+          );
+
+          if (isAnyOtherEntryIntersecting) {
+            tocItem.parentElement.classList.remove('active-toc-item');
+          }
+        }
+      }
+    },
+    { root: null, rootMargin: '0px', threshold: [1] }
+  );
+
+  const sectionHeadings = document.querySelectorAll('section.toc-content h4');
+
+  for (const heading of sectionHeadings) {
+    observer.observe(heading);
+  }
+</script>
