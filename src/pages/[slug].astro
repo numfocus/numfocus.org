@@ -51,9 +51,6 @@ const page = Astro.props;
 const pageHero = await getPageHero(page.slug);
 const pageSeo = await getPageSeo(page.slug);
 
-console.log(page, pageHero, pageSeo)
-
-// console.log(Astro.props)
 ---
 
 <BaseLayout
@@ -68,6 +65,5 @@ console.log(page, pageHero, pageSeo)
       </div>
     )
   }
-
   <Container />
 </BaseLayout>
