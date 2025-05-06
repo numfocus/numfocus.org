@@ -1,6 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
 import Button from '@components/Atoms/Button';
-
 import type { PageHero } from 'env';
 interface Props {
   pageHero: PageHero;
@@ -34,10 +34,16 @@ const heroStyle = hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : '';
     <div
       class="order-first h-64 lg:h-full col-span-full lg:col-span-5 overflow-hidden lg:order-last"
     >
-      <img
+      <!-- <img
         src={`${assetBaseUrl}${hero.image}`}
         alt={hero.title}
         class="w-full h-full object-cover object-center"
+      /> -->
+      <Picture
+        src={`${assetBaseUrl}${hero.image}`}
+        alt={hero.title}
+        class="w-full h-full object-cover object-center"
+        inferSize
       />
     </div>
   </div>
