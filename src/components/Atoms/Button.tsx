@@ -55,7 +55,7 @@ export default function Button({ button, arrow }: Props) {
   );
 
   return (
-    <a href={button.link} className="block">
+    <a href={`/${button.link}`} className="block">
       <div className={buttonStyle}>
         <span>{button.text}</span>
         {arrow && arrowVariant[arrow]}
