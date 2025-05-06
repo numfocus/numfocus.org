@@ -13,7 +13,7 @@ export function PersonCardContent({ person }: { person: Person; }) {
   return (
     <div>
       <img
-        src={image.src}
+        src={image}
         alt={`${firstName} ${lastName}`}
         className="mx-auto my-5 h-50"
       />

@@ -8,6 +8,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import getAssetUrl from "@utils/getAssetUrl";
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
+import type { Person } from 'env';
 import directus from '../../lib/directus';
 
 const people = await directus.request(readItems('people'));
@@ -21,7 +22,7 @@ const imagePromises = people.map(({ image, ...rest }) => {
   return new Promise((resolve) => {
     getImage({src: getAssetUrl(image), width: 200, height: 200 }).then(fetchedImage => (
       resolve({
-        image: fetchedImage,
+        image: fetchedImage?.src,
         ...rest
       })
     ))
@@ -37,5 +38,5 @@ const peopleWithImages = await Promise.all(imagePromises)
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
-  <PersonGrid people={peopleWithImages} client:load />
+  <PersonGrid people={peopleWithImages as Person[]} client:load />
 </BaseLayout>
