@@ -20,7 +20,7 @@ const pageSeo = await getPageSeo('people');
 
 const imagePromises = people.map(({ image, ...rest }) => {
   return new Promise((resolve) => {
-    getImage({src: getAssetUrl(image), width: 200, height: 200 }).then(fetchedImage => (
+    getImage({src: getAssetUrl(image), width: 200, height: 200, fit: "cover" }).then(fetchedImage => (
       resolve({
         image: fetchedImage?.src,
         ...rest
