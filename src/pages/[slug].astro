@@ -1,66 +1,73 @@
 ---
 import Container from '@components/Container.astro';
-import directus from '../../lib/directus';
-import { readItems, readSingleton } from '@directus/sdk';
-import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import Hero from '@components/Hero.astro';
+import { readItems, readSingleton } from '@directus/sdk';
 import getPageContent from '@utils/getPageContent';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import directus from '../../lib/directus';
 
+import type { TipTapNode } from '@components/TipTapRender';
+import BodyContent from '@components/TipTapRender/BodyContent';
+import { TipTapRender } from '@components/TipTapRender/TipTapRender';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import BaseLayout from '@layouts/BaseLayout.astro';
 
 const global = await directus.request(readSingleton('General'));
 
 const slug = Astro.routePattern.substring(1);
 
 export async function getStaticPaths() {
-  // const pages = await directus.request(
-  //   readItems('pages', {
-  //     fields: [
-  //       'id',
-  //       'title',
-  //       'slug',
-  //       'body_content',
-  //       'editor_nodes.id',
-  //       'editor_nodes.collection',
-  //       { editor_nodes: ['*.*.*.*.*.*'] },
-  //     ],
-  //   })
-  // );
+  const pages = await directus.request(
+    readItems('pages', {
+      fields: [
+        'id',
+        'title',
+        'slug',
+        'body_content',
+        'editor_nodes.id',
+        'editor_nodes.collection',
+        { editor_nodes: ['*.*.*.*.*.*'] },
+      ],
+    })
+  );
 
-  // const cleanPages = pages.map((page) => {
-  //   injectDataIntoContent(page.editor_nodes, page.body_content);
+  const cleanPages = pages.map((page) => {
+    injectDataIntoContent(page.editor_nodes, page.body_content);
 
-  //   return page;
-  // });
-  const pages = await getPageContent()
+    return page;
+  });
 
-  console.log(pages)
-
-
-  return pages.map((page) => ({
+  return cleanPages.map((page) => ({
     params: { slug: page.slug },
     props: page,
   }));
 
 
 }
-// const pageHero = await getPageHero(slug);
-// const pageSeo = await getPageSeo(slug);
 
 const page = Astro.props;
 
-console.log(page)
+const pageHero = await getPageHero(page.slug);
+const pageSeo = await getPageSeo(page.slug);
+
+console.log(page, pageHero, pageSeo)
 
 // console.log(Astro.props)
 ---
-<!-- 
+
 <BaseLayout
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
+  {
+    !!page.body_content && (
+      <div>
+        <TipTapRender handlers={BodyContent} node={page.body_content as TipTapNode} />
+      </div>
+    )
+  }
 
   <Container />
-</BaseLayout> -->
+</BaseLayout>
