@@ -106,6 +106,7 @@ export type CustomContentItem = {
   text: string;
   image: string;
   link: string;
+  short_description: string;
 };
 
 export type HomepageContent = {
