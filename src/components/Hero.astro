@@ -39,12 +39,16 @@ const heroStyle = hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : '';
         alt={hero.title}
         class="w-full h-full object-cover object-center"
       /> -->
-      <Picture
-        src={`${assetBaseUrl}${hero.image}`}
-        alt={hero.title}
-        class="w-full h-full object-cover object-center"
-        inferSize
-      />
+      {
+        hero.image && (
+          <Picture
+            src={`${assetBaseUrl}${hero.image}`}
+            alt={hero.title}
+            class="w-full h-full object-cover object-center"
+            inferSize
+          />
+        )
+      }
     </div>
   </div>
 </div>
