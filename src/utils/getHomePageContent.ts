@@ -1,6 +1,7 @@
 import { readSingleton } from '@directus/sdk';
 import type {
   ButtonType,
+  CustomContentBlock,
   CustomContentItem,
   FeaturedLink,
   HomepageContent,
@@ -47,13 +48,18 @@ export default async function getHomePageContent() {
     return singleStat;
   });
 
-  const customContentBlock = content.custom_content?.[0]?.item?.items?.map(
+  const customContentBlockItems = content.custom_content.items?.map(
     ({
       block_custom_content_item_id,
     }: {
       block_custom_content_item_id: CustomContentItem;
     }) => block_custom_content_item_id
   );
+
+  const customContentBlock: CustomContentBlock = {
+    title: content.custom_content.title,
+    items: customContentBlockItems,
+  };
 
   const buttons: ButtonType[] = content.hero_content[0].item.button.map(
     (button: ButtonType) => ({

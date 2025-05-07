@@ -120,6 +120,11 @@ export type CustomContentItem = {
   short_description: string;
 };
 
+export type CustomContentBlock = {
+  title: string;
+  items: CustomContentItem[];
+};
+
 export type HomepageContent = {
   heroHeadline: string;
   heroContent: string;
@@ -130,7 +135,7 @@ export type HomepageContent = {
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
   stats?: HomepageStats[];
-  customContentBlock: CustomContentItem[];
+  customContentBlock: CustomContentBlock;
 };
 
 export type Seo = {
