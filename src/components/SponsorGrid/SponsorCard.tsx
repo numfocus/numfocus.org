@@ -29,7 +29,7 @@ export default function SponsorCard({
 }) {
   return (
     <div
-      className="relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 cursor-pointer hover:opacity-75 transition-opacity"
+      className="relative col-span-6 sm:col-span-4 lg:col-span-3 cursor-pointer hover:opacity-75 transition-opacity"
       onClick={onExpand}
       onKeyDown={onExpand}
     >
