@@ -19,14 +19,14 @@ export default function SponsorExpandedContent({
 
   return (
     <div className="px-12 py-8 text-sm grid grid-cols-12 gap-4 items-center">
-      <div className="col-span-4">
+      <div className="col-span-6 sm:col-span-5 lg:col-span-4">
         <img
           src={logo}
           alt={name}
-          className="mx-auto px-10 rounded-lg max-w-65"
+          className="my-6 sm:mx-auto sm:px-10"
         />
       </div>
-      <div className="col-span-8 border-l-2 pl-8">
+      <div className="col-span-12 sm:col-span-7 lg:col-span-8 sm:border-l-2 sm:pl-8">
         <p className="my-1 text-gray-500">{type}</p>
         <h5 className="">{name}</h5>
         <div className="py-6" dangerouslySetInnerHTML={{ __html: description }} />

@@ -12,7 +12,7 @@ export function SponsorCardContent({ sponsor }: { sponsor: Sponsor; }) {
         <img
           src={logo}
           alt={name}
-          className="mx-auto my-5 px-10 rounded-lg"
+          className="mx-auto my-5 px-10"
         />
       </div>
       <h5 className="text-center row-span-1">{name}</h5>
