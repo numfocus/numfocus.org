@@ -48,6 +48,22 @@ export type Person = {
   bio: string;
 };
 
+type SponsorType =
+  | 'principal'
+  | 'sustaining'
+  | 'contributing'
+  | 'community'
+  | 'startup';
+
+export type Sponsor = {
+  id: number;
+  name: string;
+  logo: string;
+  type: SponsorType;
+  description: string;
+  url: string;
+};
+
 type ProjectFilterKey = 'type' | 'features' | 'industries' | 'languages';
 
 export type Project = CollectionEntry<'projects'>;
