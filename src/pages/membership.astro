@@ -1,0 +1,30 @@
+---
+import { getImage } from "astro:assets";
+import Container from '@components/Container.astro';
+import Hero from '@components/Hero.astro';
+import PersonGrid from '@components/PersonGrid/PersonGrid'
+import { readItems, readSingleton } from '@directus/sdk';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import getAssetUrl from "@utils/getAssetUrl";
+import getPageContent from '@utils/getPageContent';
+import getPageHero from '@utils/getPageHero';
+import getPageSeo from '@utils/getPageSeo';
+import type { Person } from 'env';
+import directus from '../../lib/directus';
+
+const slug = Astro.routePattern.substring(1);
+
+const global = await directus.request(readSingleton('General'));
+
+const pageHero = await getPageHero(slug);
+const pageSeo = await getPageSeo(slug);
+const pageContent = await getPageContent(slug);
+
+---
+
+<BaseLayout
+  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+  seo={pageSeo}
+>
+  <Hero pageHero={pageHero} />
+</BaseLayout>

@@ -15,8 +15,6 @@ import getPageSeo from '@utils/getPageSeo';
 
 const global = await directus.request(readSingleton('General'));
 
-const slug = Astro.routePattern.substring(1);
-
 export async function getStaticPaths() {
   const pages = await directus.request(
     readItems('pages', {
