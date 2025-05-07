@@ -3,15 +3,15 @@ import LinkCard from '@components/Atoms/LinkCard';
 import type { CustomContentBlock, CustomContentItem } from 'env';
 
 interface Props {
-  items: CustomContentBlock;
+  content: CustomContentBlock;
 }
 
-export default function BlockCustomContent({ items }: Props) {
+export default function BlockCustomContent({ content }: Props) {
   return (
     <>
-      <h4>{items.title}</h4>
+      <h4>{content.title}</h4>
       <div className="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
-        {items.items.map((item) => (
+        {content.items.map((item) => (
           <div key={item.id} className="col-span-12 md:col-span-4">
             <LinkCard {...item} />
           </div>

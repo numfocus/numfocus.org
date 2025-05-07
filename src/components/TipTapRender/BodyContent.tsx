@@ -217,9 +217,10 @@ const RelationBlock: NodeHandler = (props) => {
       block_custom_content_item_id
     ))
 
+
     return (
       <>
-        <BlockCustomContent items={items} />
+        <BlockCustomContent content={{ title: data.title, items}} />
         {PrettyJson(items)}
       </>
     );
