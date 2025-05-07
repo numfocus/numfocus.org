@@ -27,10 +27,15 @@ export type Article = MetaProps & {
   content: string;
 };
 
-type PersonRole = 'board' | 'steering_committee' | 'staff' | 'coc_working_group' | 'advisory_council';
+type PersonRole =
+  | 'board'
+  | 'steering_committee'
+  | 'staff'
+  | 'coc_working_group'
+  | 'advisory_council';
 
 export type Person = {
-  id: number,
+  id: number;
   first_name: string;
   last_name: string;
   image: string;
@@ -132,7 +137,9 @@ export type CardMeta = {
   id: string;
   title: string;
   heading: string;
+  type?: string;
   slug: string;
   image: string;
   content: string;
+  date: Date;
 };
