@@ -4,7 +4,7 @@ import type { CustomContentItem } from 'env';
 export default function LinkCard({ image, link, short_description, text }: CustomContentItem) {
   return (
     <a
-      href={`${link}`}
+      href={`/${link}`}
       target="_blank"
       rel="noreferrer"
       className="transition-opacity hover:opacity-70"
@@ -12,7 +12,7 @@ export default function LinkCard({ image, link, short_description, text }: Custo
       <div className="relative h-40 w-full rounded-lg mb-6">
         {!!image && (
           <img
-            src={getAssetUrl(image)}
+            src={getAssetUrl(image.id)}
             alt={text}
             className="h-full w-full rounded-lg object-cover"
           />

@@ -3,7 +3,8 @@ import type React from 'react';
 import type { ReactElement } from 'react';
 
 import PrettyJson from '@components/Atoms/PrettyJson';
-import type { BlockProject } from 'env';
+import type { BlockProject, CustomContentItem } from 'env';
+import BlockCustomContent from './BlockCustomContent';
 import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockProjects from './BlockProjects';
@@ -208,6 +209,18 @@ const RelationBlock: NodeHandler = (props) => {
       <>
         <BlockTOC content={data.content} />
         {PrettyJson(data)}
+      </>
+    );
+  }
+  if (attrs && attrs.collection === 'block_custom_content_group') {
+    const items = data.items.map(({ block_custom_content_item_id }: { block_custom_content_item_id: CustomContentItem }) => (
+      block_custom_content_item_id
+    ))
+
+    return (
+      <>
+        <BlockCustomContent items={items} />
+        {PrettyJson(items)}
       </>
     );
   }
