@@ -1,6 +1,6 @@
 import { readSingleton } from '@directus/sdk';
 import type {
-  Button,
+  ButtonType,
   CustomContentItem,
   FeaturedLink,
   HomepageContent,
@@ -25,7 +25,6 @@ export default async function getHomePageContent() {
 
   const featuredLinks: FeaturedLink[] = [];
   content.featured_links.map((link: any) => {
-    console.log(link.item.internal_link[0]?.item.slug);
     const url =
       link.item.type_of_link === 'internal'
         ? link.item.internal_link[0].item.slug
@@ -48,12 +47,16 @@ export default async function getHomePageContent() {
     return singleStat;
   });
 
-  const customContentBlock = content.custom_content?.[0]?.item?.items?.map(({ block_custom_content_item_id }: { block_custom_content_item_id: CustomContentItem }) =>
-    block_custom_content_item_id
-  )
+  const customContentBlock = content.custom_content?.[0]?.item?.items?.map(
+    ({
+      block_custom_content_item_id,
+    }: {
+      block_custom_content_item_id: CustomContentItem;
+    }) => block_custom_content_item_id
+  );
 
-  const buttons: Button[] = content.hero_content[0].item.button.map(
-    (button: Button) => ({
+  const buttons: ButtonType[] = content.hero_content[0].item.button.map(
+    (button: ButtonType) => ({
       text: button.text,
       link: button.link,
       style: content.hero_content[0].item.hero_style,
