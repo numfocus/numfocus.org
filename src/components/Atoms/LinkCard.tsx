@@ -1,10 +1,21 @@
 import getAssetUrl from '@utils/getAssetUrl';
 import type { CustomContentItem } from 'env';
 
-export default function LinkCard({ image, link, short_description, text }: CustomContentItem) {
+export default function LinkCard(item: CustomContentItem) {
+  const { image, type_of_link, external_link, internal_link, short_description, text } = item;
+  let link = '';
+  if (type_of_link === 'external') {
+    link = external_link;
+  } else {
+    const rawLink = internal_link[0]?.item?.slug;
+    if (rawLink) {
+      link = `/${rawLink}`
+    }
+  }
+
   return (
     <a
-      href={`/${link}`}
+      href={`${link}`}
       target="_blank"
       rel="noreferrer"
       className="transition-opacity hover:opacity-70"

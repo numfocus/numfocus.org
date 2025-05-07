@@ -10,6 +10,7 @@ import { ArrowRightIcon } from 'lucide-react';
 
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import BlockCustomContent from '@components/TipTapRender/BlockCustomContent';
 import { readSingleton } from '@directus/sdk';
 import type { Project, Seo } from 'env';
 import directus from '../../lib/directus';
@@ -112,16 +113,6 @@ const seo: Seo = {
     </div>
   </Container>
   <Container>
-    <div
-      class="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12"
-    >
-      {
-        content.customContentBlock?.map((item) => (
-          <div class="col-span-12 md:col-span-4">
-            <LinkCard {...item} />
-          </div>
-        ))
-      }
-    </div>
+    <BlockCustomContent items={content.customContentBlock} />
   </Container>
 </BaseLayout>

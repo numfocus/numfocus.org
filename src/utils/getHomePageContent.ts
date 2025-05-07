@@ -18,7 +18,7 @@ export default async function getHomePageContent() {
         'featured_links.item.*.*.*.*.*',
         'featured_projects.projects_id.*',
         'stats_and_callouts.item.*',
-        'custom_content.*.*',
+        'custom_content.*.*.*.*.*.*',
       ],
     })
   );
@@ -48,11 +48,9 @@ export default async function getHomePageContent() {
     return singleStat;
   });
 
-  const customContentBlock = content.custom_content.map(
-    ({ item }: { item: CustomContentItem }) => item
-  );
-
-  console.log(customContentBlock);
+  const customContentBlock = content.custom_content?.[0]?.item?.items?.map(({ block_custom_content_item_id }: { block_custom_content_item_id: CustomContentItem }) =>
+    block_custom_content_item_id
+  )
 
   const buttons: Button[] = content.hero_content[0].item.button.map(
     (button: Button) => ({
