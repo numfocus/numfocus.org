@@ -1,10 +1,10 @@
 import Dialog from '@components/Atoms/Dialog';
 import groupBy from '@utils/groupBy';
-import type { Sponsor } from 'env';
+import type { Sponsor, SponsorType } from 'env';
 import { useState } from 'react';
 import { twMerge} from 'tailwind-merge';
 import SponsorCard from './SponsorCard';
-
+import SponsorDialogContent from './SponsorExpandedContent';
 
 const TYPES = [
   { id: "principal", label: "Principal Corporate Sponsor" },
@@ -19,7 +19,7 @@ export default function SponsorGrid({
 }: {
   sponsors: Sponsor[];
 }) {
-  // const [expandedPerson, setExpandedPerson] = useState<Person | undefined>();
+  const [expandedSponsor, setExpandedSponsor] = useState<Sponsor | undefined>();
 
   const sponsorsByRole = groupBy(sponsors, 'type');
 
@@ -32,13 +32,13 @@ export default function SponsorGrid({
         return (
           <div key={id} className={twMerge("my-8 py-10", i%2 === 0 ? "bg-teal-50" : "bg-white")}>
             <div className="mx-auto max-w-300 px-8">
-              <h3>{label}</h3>
+              <h4>{label}</h4>
               <div className="mx-auto my-8 grid grid-cols-12 gap-8">
                 {sponsorsSublist.map((sponsor: Sponsor) => (
                   <SponsorCard
                     key={sponsor.id}
                     sponsor={sponsor}
-                    // onExpand={() => setExpandedPerson(person)}
+                    onExpand={() => setExpandedSponsor({...sponsor, type: label as SponsorType })}
                   />
                 ))}
               </div>
@@ -46,13 +46,13 @@ export default function SponsorGrid({
           </div>
         );
       })}
-      {/* <Dialog
-        open={!!expandedPerson}
-        onClose={() => setExpandedPerson(undefined)}
-        className="max-w-100"
+      <Dialog
+        open={!!expandedSponsor}
+        onClose={() => setExpandedSponsor(undefined)}
+        className=""
       >
-        {!!expandedPerson && <PersonDialogContent person={expandedPerson} />}
-      </Dialog> */}
+        {!!expandedSponsor && <SponsorDialogContent sponsor={expandedSponsor} />}
+      </Dialog>
     </div>
   );
 }

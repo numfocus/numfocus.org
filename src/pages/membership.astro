@@ -2,7 +2,7 @@
 import { getImage } from "astro:assets";
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
-import SponsorsGrid from '@components/SponsorsGrid/SponsorsGrid'
+import SponsorGrid from '@components/SponsorGrid/SponsorGrid'
 import { readItems, readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getAssetUrl from "@utils/getAssetUrl";
@@ -42,5 +42,5 @@ const sponsorsWithImages = await Promise.all(imagePromises)
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
-  <SponsorsGrid sponsors={sponsorsWithImages as Sponsor[]} />
+  <SponsorGrid sponsors={sponsorsWithImages as Sponsor[]} client:load />
 </BaseLayout>
