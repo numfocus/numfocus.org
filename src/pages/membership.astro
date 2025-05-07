@@ -2,14 +2,14 @@
 import { getImage } from "astro:assets";
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
-import PersonGrid from '@components/PersonGrid/PersonGrid'
+import SponsorsGrid from '@components/SponsorsGrid/SponsorsGrid'
 import { readItems, readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getAssetUrl from "@utils/getAssetUrl";
 import getPageContent from '@utils/getPageContent';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import type { Person } from 'env';
+import type { Sponsor } from 'env';
 import directus from '../../lib/directus';
 
 const slug = Astro.routePattern.substring(1);
@@ -20,6 +20,21 @@ const pageHero = await getPageHero(slug);
 const pageSeo = await getPageSeo(slug);
 const pageContent = await getPageContent(slug);
 
+const sponsors = await directus.request(readItems('sponsors'));
+
+const imagePromises = sponsors.map(({ logo, ...rest }) => {
+  return new Promise((resolve) => {
+    getImage({src: getAssetUrl(logo), inferSize: true }).then(fetchedImage => (
+      resolve({
+        logo: fetchedImage?.src,
+        ...rest
+      })
+    ))
+  })
+})
+
+const sponsorsWithImages = await Promise.all(imagePromises)
+
 ---
 
 <BaseLayout
@@ -27,4 +42,5 @@ const pageContent = await getPageContent(slug);
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
+  <SponsorsGrid sponsors={sponsorsWithImages as Sponsor[]} />
 </BaseLayout>
