@@ -53,9 +53,21 @@ export default function Button({ button, arrow }: Props) {
     button &&
       variantStyles[button.style ? button.style : 'light'][button.variant]
   );
+  
+  const isExternal = button.link.startsWith('http');
 
+  // open all external links in a new tab
+  const additionalProps = isExternal ? {
+    target:"_blank",
+    rel:"noopener noreferrer"
+  } : {};
+   
   return (
-    <a href={`/${button.link}`} className="block">
+    <a 
+      href={isExternal ? button.link : `/${button.link}` }
+      className="block"
+      {...additionalProps}
+    >
       <div className={buttonStyle}>
         <span>{button.text}</span>
         {arrow && arrowVariant[arrow]}
