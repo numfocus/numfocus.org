@@ -8,18 +8,16 @@ interface Props {
 
 export default function BlockCustomContent({ items }: Props) {
   return (
-    <Container>
-      <div
-        className="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12"
-      >
-        {
-          items.map((item) => (
-            <div key={item.id} className="col-span-12 md:col-span-4">
-              <LinkCard {...item} />
-            </div>
-          ))
-        }
-      </div>
-    </Container>
+    <div
+      className="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12"
+    >
+      {
+        items.map((item) => (
+          <div key={item.id} className="col-span-12 md:col-span-4">
+            <LinkCard {...item} />
+          </div>
+        ))
+      }
+    </div>
   );
 }

@@ -12,6 +12,10 @@ interface MetaProps {
   slug?: string;
 }
 
+export type Page = MetaProps & {
+  title: string;
+};
+
 // primitives
 export type ButtonType = {
   text: string;
@@ -110,7 +114,9 @@ export type CustomContentItem = {
   id: number;
   text: string;
   image: string;
-  link: string;
+  external_link: string;
+  internal_link: any;
+  type_of_link: 'internal' | 'external';
   short_description: string;
 };
 
