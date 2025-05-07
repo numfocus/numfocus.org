@@ -26,7 +26,7 @@ export default function SponsorExpandedContent({
           className="mx-auto px-10 rounded-lg max-w-65"
         />
       </div>
-      <div className="col-span-8 border-l-2 pl-8 py-4">
+      <div className="col-span-8 border-l-2 pl-8">
         <p className="my-1 text-gray-500">{type}</p>
         <h5 className="">{name}</h5>
         <div className="py-6" dangerouslySetInnerHTML={{ __html: description }} />

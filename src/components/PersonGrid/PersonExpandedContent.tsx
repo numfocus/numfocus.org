@@ -1,4 +1,3 @@
-import getAssetUrl from '@utils/getAssetUrl';
 import type { Person } from 'env';
 import { PersonCardContent } from './PersonCard';
 

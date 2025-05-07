@@ -6,7 +6,6 @@ import { twMerge} from 'tailwind-merge';
 import PersonCard from './PersonCard';
 import PersonDialogContent from './PersonExpandedContent';
 
-
 const ROLES = [
   { id: "board", label: "Board of Directors" },
   { id: "steering_committee", label: "Technical Steering Committee" },
