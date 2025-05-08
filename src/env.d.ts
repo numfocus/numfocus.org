@@ -14,6 +14,7 @@ interface MetaProps {
 
 export type Page = MetaProps & {
   title: string;
+  parent?: Page;
 };
 
 // primitives
