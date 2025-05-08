@@ -8,8 +8,8 @@ interface Props {
 
 export default function BlockCustomContent({ content }: Props) {
   return (
-    <>
-      <h4>{content.title}</h4>
+    <div className="custom-content-block my-12">
+      <h4 className="text-center">{content.title}</h4>
       <div className="mx-auto my-12 grid max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
         {content.items.map((item) => (
           <div key={item.id} className="col-span-12 md:col-span-4">
@@ -17,6 +17,6 @@ export default function BlockCustomContent({ content }: Props) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
