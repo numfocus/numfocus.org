@@ -212,15 +212,19 @@ const RelationBlock: NodeHandler = (props) => {
       </>
     );
   }
-  if (attrs && attrs.collection === 'block_custom_content_group') {
-    const items = data.items.map(({ block_custom_content_item_id }: { block_custom_content_item_id: CustomContentItem }) => (
-      block_custom_content_item_id
-    ))
-
+  // TODO: #52 a better solution to checking if data.items is not null
+  if (data && attrs && attrs.collection === 'block_custom_content_group') {
+    const items = data.items.map(
+      ({
+        block_custom_content_item_id,
+      }: {
+        block_custom_content_item_id: CustomContentItem;
+      }) => block_custom_content_item_id
+    );
 
     return (
       <>
-        <BlockCustomContent content={{ title: data.title, items}} />
+        <BlockCustomContent content={{ title: data.title, items }} />
         {PrettyJson(items)}
       </>
     );
@@ -248,11 +252,13 @@ const RelationBlock: NodeHandler = (props) => {
 
     return <BlockProjects heading={data.heading} projects={blockProjects} />;
   }
+  // TODO: #53 a better closing statement for the tiptaprender node
   return (
-    <div className="w-full border border-red-300">
-      {attrs && <h4>{attrs.collection}</h4>}
-      <div>{PrettyJson(attrs?.data)}</div>
-    </div>
+    // <div className="w-full border border-red-300">
+    //   {attrs && <h4>{attrs.collection}</h4>}
+    //   <div>{PrettyJson(attrs?.data)}</div>
+    // </div>
+    <></>
   );
 };
 
