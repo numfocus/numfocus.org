@@ -48,21 +48,21 @@ for (const page of pages) {
   allData.push(item);
 }
 
-const caseStudies = await directus.request(
-  readItems('case_studies', {
-    fields: ['id', 'title', 'slug'],
-  })
-);
+// const caseStudies = await directus.request(
+//   readItems('case_studies', {
+//     fields: ['id', 'title', 'slug'],
+//   })
+// );
 
-for (const caseStudy of caseStudies) {
-  const item: CommandPaletteItem = {
-    id: caseStudy.id,
-    title: caseStudy.title,
-    path: caseStudy.slug,
-    category: 'Case Studies',
-  };
-  allData.push(item);
-}
+// for (const caseStudy of caseStudies) {
+//   const item: CommandPaletteItem = {
+//     id: caseStudy.id,
+//     title: caseStudy.title,
+//     path: caseStudy.slug,
+//     category: 'Case Studies',
+//   };
+//   allData.push(item);
+// }
 
 const articles = await getArticlesMeta();
 for (const article of articles) {
