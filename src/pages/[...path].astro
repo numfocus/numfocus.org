@@ -11,7 +11,9 @@ import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
+import getPagePath from '@utils/getPagePath';
 import getPageSeo from '@utils/getPageSeo';
+import type { Page } from 'env';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -25,6 +27,7 @@ export async function getStaticPaths() {
         'body_content',
         'editor_nodes.id',
         'editor_nodes.collection',
+        'parent.*.*.*.*.*',
         { editor_nodes: ['*.*.*.*.*.*'] },
       ],
     })
@@ -36,10 +39,15 @@ export async function getStaticPaths() {
     return page;
   });
 
-  return cleanPages.map((page) => ({
-    params: { slug: page.slug },
-    props: page,
-  }));
+
+  return cleanPages.map((page) => {
+    const path = getPagePath(page as Page)
+
+    return ({
+      params: { path },
+      props: page,
+    })
+});
 
 
 }
