@@ -16,7 +16,7 @@ export default async function getHomePageContent() {
       fields: [
         'hero_content.item.*',
         'featured_case_study.*',
-        'featured_links.item.*.*.*.*.*',
+        'featured_links.*.*.*.*.*',
         'featured_projects.projects_id.*',
         'stats_and_callouts.item.*',
         'custom_content.*.*.*.*.*.*',
@@ -27,12 +27,12 @@ export default async function getHomePageContent() {
   const featuredLinks: FeaturedLink[] = [];
   content.featured_links.map((link: any) => {
     const url =
-      link.item.type_of_link === 'internal'
-        ? link.item.internal_link[0].item.slug
-        : link.item.external_link;
+      link.block_link_id.type_of_link === 'internal'
+        ? link.block_link_id.internal_link[0].item.slug
+        : link.block_link_id.external_link;
     const l: FeaturedLink = {
-      text: link.item.text,
-      type: link.item.type_of_link,
+      text: link.block_link_id.text,
+      type: link.block_link_id.type_of_link,
       url: url,
     };
     featuredLinks.push(l);
@@ -61,7 +61,7 @@ export default async function getHomePageContent() {
     items: customContentBlockItems,
   };
 
-  const buttons: ButtonType[] = content.hero_content[0].item.button.map(
+  const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
     (button: ButtonType) => ({
       text: button.text,
       link: button.link,
