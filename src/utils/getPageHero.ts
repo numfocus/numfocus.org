@@ -10,6 +10,6 @@ export default async function getPageHero(slug: string) {
   pageHero.button?.map((button) => {
     button.style = pageHero.hero_style;
   });
-  console.log(pageHero);
+  // console.log(pageHero);
   return pageHero;
 }

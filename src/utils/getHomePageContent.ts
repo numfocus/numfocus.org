@@ -69,7 +69,7 @@ export default async function getHomePageContent() {
       variant: button.variant,
     })
   );
-  console.log(buttons);
+  // console.log(buttons);
 
   const homepageContent: HomepageContent = {
     heroStyle: content.hero_content[0].item.hero_style,
