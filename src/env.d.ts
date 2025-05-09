@@ -39,6 +39,21 @@ type PersonRole =
   | 'coc_working_group'
   | 'advisory_council';
 
+type SocialsType = {
+  platform:
+    | 'facebook'
+    | 'instagram'
+    | 'linkedin'
+    | 'x'
+    | 'bluesky'
+    | 'youtube'
+    | 'mastodon'
+    | 'github'
+    | 'email'
+    | 'custom_website';
+  url: string;
+};
+
 export type Person = {
   id: number;
   first_name: string;
@@ -47,6 +62,7 @@ export type Person = {
   role: PersonRole;
   title: string;
   bio: string;
+  socials?: SocialsType[];
 };
 
 type SponsorType =

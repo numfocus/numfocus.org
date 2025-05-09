@@ -1,13 +1,15 @@
+import Social from '@components/Atoms/Social';
 import getAssetUrl from '@utils/getAssetUrl';
 import type { Person } from 'env';
 
-export function PersonCardContent({ person }: { person: Person; }) {
+export function PersonCardContent({ person }: { person: Person }) {
   const {
     first_name: firstName,
     last_name: lastName,
     bio,
     image,
-    title
+    title,
+    socials,
   } = person;
 
   return (
@@ -15,28 +17,37 @@ export function PersonCardContent({ person }: { person: Person; }) {
       <img
         src={image}
         alt={`${firstName} ${lastName}`}
-        className="mx-auto my-5 h-50 rounded-lg"
+        className="h-50 mx-auto my-5 rounded-lg"
       />
-      <h5 className="text-center">{firstName} {lastName}</h5>
-      <p className="text-center font-normal my-1 text-gray-500">{title}</p>
+      <h5 className="text-center">
+        {firstName} {lastName}
+      </h5>
+      <p className="my-1 text-center font-normal text-gray-500">{title}</p>
     </div>
-  )
-};
+  );
+}
 
 export default function PersonCard({
   person,
-  onExpand
+  onExpand,
 }: {
   person: Person;
   onExpand?: () => void;
 }) {
   return (
-    <div
-      className="relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 cursor-pointer hover:opacity-75 transition-opacity"
-      onClick={onExpand}
-      onKeyDown={onExpand}
-    >
-      <PersonCardContent person={person} />
+    <div className="relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
+      <div
+        className="cursor-pointer transition-opacity hover:opacity-75"
+        onClick={onExpand}
+        onKeyDown={onExpand}
+      >
+        <PersonCardContent person={person} />
+      </div>
+      <div className="mt-4 flex flex-row justify-center gap-4">
+        {person.socials?.map((social) => (
+          <Social key={social.platform} social={social} />
+        ))}
+      </div>
     </div>
   );
 }
