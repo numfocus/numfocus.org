@@ -1,4 +1,4 @@
-import Social from '@components/Atoms/Social';
+import Social from '@components/PersonGrid/Social';
 import getAssetUrl from '@utils/getAssetUrl';
 import type { Person } from 'env';
 
