@@ -20,14 +20,14 @@ export type Page = MetaProps & {
 // primitives
 export type LinkType = {
   text: string;
-  type_of_link: 'internal' | 'external';
-  external_link: string;
-  internal_link: Page[];
+  type_of_link?: 'internal' | 'external';
+  external_link?: string;
+  internal_link?: Page[];
+  slug?: string;
 }
 
 export type ButtonType = {
-  text: string;
-  link: string;
+  link: LinkType;
   style: 'light' | 'dark';
   variant: 'default' | 'outlined' | 'special';
 };
@@ -99,7 +99,7 @@ export type PageHero = MetaProps & {
   rich_text: string;
   image: string;
   hero_style: 'light' | 'dark';
-  button?: ButtonType[];
+  buttons?: ButtonType[];
 };
 
 export type ProjectFilterOptions = {
