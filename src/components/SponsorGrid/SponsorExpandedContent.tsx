@@ -11,8 +11,11 @@ export default function SponsorExpandedContent({
   const { description, logo, name, type, url } = sponsor;
 
   const button: ButtonType = {
-    text: 'Visit website',
-    link: url,
+    link: { 
+      text: 'Visit website', 
+      type_of_link: 'external',
+      external_link: url
+    },
     style: 'light',
     variant: 'default'
   }

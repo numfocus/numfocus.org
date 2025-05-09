@@ -85,8 +85,11 @@ export default function ProjectDialogContent({
           <Button
             button={{
               style: 'light',
-              text: `Visit ${name} website`,
-              link: website_link,
+              link: { 
+                text: `Visit ${name} website`, 
+                type_of_link: 'external',
+                external_link: website_link
+              },
               variant: 'default',
             }}
             arrow="right"
@@ -96,8 +99,11 @@ export default function ProjectDialogContent({
           <Button
             button={{
               style: 'light',
-              text: `Contribute to ${name}`,
-              link: contribute_link,
+              link: { 
+                text: `Contribute to ${name}`, 
+                type_of_link: 'external',
+                external_link: contribute_link
+              },
               variant: 'default',
             }}
             arrow="right"
@@ -106,8 +112,11 @@ export default function ProjectDialogContent({
         <Button
           button={{
             style: 'light',
-            text: `Donate to ${name}`,
-            link: '#',
+            link: { 
+              text: `Donate to ${name}`, 
+              type_of_link: 'external',
+              external_link: '/'
+            },
             variant: 'special',
           }}
         />

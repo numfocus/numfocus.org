@@ -13,8 +13,7 @@ const menuItems = await getMenuItems('Navigation');
 const currentPage = Astro.routePattern;
 
 const button: but = {
-  text: 'Donate',
-  link: 'donate',
+  link: {  text: 'Donate', slug: 'donate' },
   variant: 'special',
   style: 'light',
 };

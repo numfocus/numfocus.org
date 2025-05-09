@@ -2,8 +2,7 @@ import Button from '@components/Atoms/Button';
 import type { Button as TButton } from 'env';
 
 const button: TButton = {
-  text: 'Subscribe',
-  link: '',
+  link: { text: 'Subscribe', slug: 'subscribe' },
   variant: 'outlined',
   style: 'light',
 };
