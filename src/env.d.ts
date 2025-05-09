@@ -18,6 +18,13 @@ export type Page = MetaProps & {
 };
 
 // primitives
+export type LinkType = {
+  text: string;
+  type_of_link: 'internal' | 'external';
+  external_link: string;
+  internal_link: Page[];
+}
+
 export type ButtonType = {
   text: string;
   link: string;
@@ -145,12 +152,9 @@ type HomepageStats = {
 
 export type CustomContentItem = {
   id: number;
-  text: string;
-  image: string;
-  external_link: string;
-  internal_link: any;
-  type_of_link: 'internal' | 'external';
+  image: Image;
   short_description: string;
+  link: LinkType;
 };
 
 export type CustomContentBlock = {
