@@ -7,6 +7,7 @@ import {
   Mail,
 } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+import Link from './Link';
 
 interface Props {
   button: ButtonType;
@@ -48,32 +49,20 @@ const arrowVariant = {
 };
 
 export default function Button({ button, arrow }: Props) {
+  if (!button.link) return null;
+  
   const buttonStyle = twMerge(
     'text-md group inline-flex min-w-24 cursor-pointer flex-row place-content-around items-center gap-4 rounded-md px-2 py-2 font-semibold',
     button &&
       variantStyles[button.style ? button.style : 'light'][button.variant]
   );
 
-  const isExternal = button.link?.startsWith('http');
-
-  // open all external links in a new tab
-  const additionalProps = isExternal
-    ? {
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      }
-    : {};
-
   return (
-    <a
-      href={isExternal ? button.link : `/${button.link}`}
-      className="block"
-      {...additionalProps}
-    >
+    <Link link={button.link} className="block">
       <div className={buttonStyle}>
-        <span>{button.text}</span>
+        <span>{button.link.text}</span>
         {arrow && arrowVariant[arrow]}
       </div>
-    </a>
+    </Link>
   );
 }
