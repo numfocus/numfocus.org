@@ -1,4 +1,4 @@
-import type { ButtonType } from 'env';
+import type { ButtonLink } from 'env';
 import {
   ArrowDownIcon,
   ArrowLeftIcon,
@@ -9,7 +9,7 @@ import {
 import { twMerge } from 'tailwind-merge';
 
 interface Props {
-  button: ButtonType;
+  button: ButtonLink;
   icon?: 'heart' | 'envelope';
   arrow?: 'right' | 'left' | 'down';
 }
@@ -48,13 +48,17 @@ const arrowVariant = {
 };
 
 export default function Button({ button, arrow }: Props) {
+  const link = button.link;
   const buttonStyle = twMerge(
     'text-md group inline-flex min-w-24 cursor-pointer flex-row place-content-around items-center gap-4 rounded-md px-2 py-2 font-semibold',
     button &&
       variantStyles[button.style ? button.style : 'light'][button.variant]
   );
 
-  const isExternal = button.link?.startsWith('http');
+  const isExternal = link.type_of_link === 'external';
+  const internalSlug = link.internal_link_parent
+    ? `/${link.internal_link_parent}/${link.internal_link_slug}`
+    : `/${link.internal_link_slug}`;
 
   // open all external links in a new tab
   const additionalProps = isExternal
@@ -66,12 +70,12 @@ export default function Button({ button, arrow }: Props) {
 
   return (
     <a
-      href={isExternal ? button.link : `/${button.link}`}
+      href={isExternal ? link.external_link : internalSlug}
       className="block"
       {...additionalProps}
     >
       <div className={buttonStyle}>
-        <span>{button.text}</span>
+        <span>{link.text}</span>
         {arrow && arrowVariant[arrow]}
       </div>
     </a>
