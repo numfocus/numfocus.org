@@ -14,13 +14,18 @@ export default function Link({ children, link }: React.ComponentProps<'a'> & { l
       </a>
     );
   }
-  
-  const rawHref = internal_link?.[0]?.item?.slug || slug;
+
+  const internalLinkPage = internal_link?.[0]?.item;
+
+  let fullSlug = '';
+  if (internalLinkPage) {
+    fullSlug = internalLinkPage.parent ? `${internalLinkPage.parent.slug}/${internalLinkPage.slug}` : internalLinkPage.slug;
+  } else if (slug) {
+    fullSlug = slug;
+  }
     
   return (
-    <a
-      href={`/${rawHref}`}
-    >
+    <a href={`/${fullSlug}`}>
       {children}
     </a>
   );
