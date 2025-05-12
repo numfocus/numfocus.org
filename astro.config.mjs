@@ -14,7 +14,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://numfocus-dev.netlify.app',
-  trailingSlash: 'always',
 
   adapter: netlify(),
   image: {

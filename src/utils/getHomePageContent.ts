@@ -1,4 +1,5 @@
 import { readSingleton } from '@directus/sdk';
+import type { Link } from 'astro-seo';
 import type {
   ButtonType,
   CustomContentBlock,
@@ -15,6 +16,7 @@ export default async function getHomePageContent() {
     readSingleton('Homepage', {
       fields: [
         'hero_content.item.*',
+        'hero_content.item.buttons.*.*.*.*.*',
         'featured_case_study.*',
         'featured_links.*.*.*.*.*',
         'featured_projects.projects_id.*',
@@ -24,7 +26,9 @@ export default async function getHomePageContent() {
     })
   );
 
-  const featuredLinks = content.featured_links.map(({ block_link_id }: { block_link_id: LinkType}) => block_link_id);
+  const featuredLinks = content.featured_links.map(
+    ({ block_link_id }: { block_link_id: LinkType }) => block_link_id
+  );
 
   const stats: HomepageStats[] = content.stats_and_callouts.map((stat: any) => {
     const singleStat: HomepageStats = {
@@ -50,13 +54,12 @@ export default async function getHomePageContent() {
   };
 
   const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
-    (button: ButtonType) => ({
-      link: button.link,
+    (button: any) => ({
+      link: button.block_button_id.link,
       style: content.hero_content[0].item.hero_style,
-      variant: button.variant,
+      variant: button.block_button_id.variant,
     })
   );
-  // console.log(buttons);
 
   const homepageContent: HomepageContent = {
     heroStyle: content.hero_content[0].item.hero_style,
