@@ -1,6 +1,5 @@
 import { readSingleton } from '@directus/sdk';
 import type {
-  ButtonLink,
   ButtonType,
   CustomContentBlock,
   CustomContentItem,
@@ -16,7 +15,6 @@ export default async function getHomePageContent() {
     readSingleton('Homepage', {
       fields: [
         'hero_content.item.*',
-        'hero_content.item.buttons.block_button_id.*.*.*',
         'featured_case_study.*',
         'featured_links.*.*.*.*.*',
         'featured_projects.projects_id.*',
@@ -63,32 +61,14 @@ export default async function getHomePageContent() {
     items: customContentBlockItems,
   };
 
-  // const buttons: ButtonLink[] = content.hero_content[0].item.buttons.map(
-  //   (button) => ({
-  //     text: button.link.text,
-  //     link: button.link,
-  //     style: content.hero_content[0].item.hero_style,
-  //     variant: button.block_button_id.variant,
-  //   })
-  // );
-
-  const buttons: ButtonLink[] = content.hero_content[0].item.buttons.map(
-    (button: any) => ({
-      id: button.block_button_id.id,
-      link: {
-        text: button.block_button_id.link.text,
-        type_of_link: button.block_button_id.link.type_of_link,
-        external_link: button.block_button_id.link?.external_link,
-        internal_link_slug:
-          button.block_button_id.link?.internal_link?.item?.slug,
-        internal_link_parent:
-          button.block_button_id.link?.internal_link?.item?.parent,
-      },
+  const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
+    (button: ButtonType) => ({
+      text: button.text,
+      link: button.link,
       style: content.hero_content[0].item.hero_style,
-      variant: button.block_button_id.variant,
+      variant: button.variant,
     })
   );
-
   // console.log(buttons);
 
   const homepageContent: HomepageContent = {

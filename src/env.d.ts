@@ -163,7 +163,7 @@ export type HomepageContent = {
   heroContent: string;
   heroImage: string;
   heroStyle: 'light' | 'dark';
-  buttons: ButtonLink[];
+  buttons: ButtonType[];
   featuredLinks?: FeaturedLink[];
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
@@ -186,31 +186,4 @@ export type CardMeta = {
   image: string;
   content: string;
   date: Date;
-};
-
-// BUTTON LINK TYPES
-///////////////////////////////////////////
-// This is the Button collection that includes a link component that can be mapped
-// to internal or external links. Internal links give us both slug and parent.
-// important for properly mapping urls.
-// KEEP IN MIND that any of the link specific values could be null,
-// so best way to pull from directus is with wildcards, for example
-// [XYZ].buttons.block_button_id.link.*
-// and
-// [XYZ].buttons.block_button_id.link.internal_link.item.*
-///////////////////////////////////////////
-
-export type ButtonLink = {
-  id: string; // [hero_content.item].buttons.block_button_id.id
-  style: 'light' | 'dark'; // passed from parent component
-  variant: 'default' | 'outlined' | 'special'; // [hero_content.item].buttons.block_button_id.variant
-  link: LinkType;
-};
-
-export type LinkType = {
-  text: string; // [hero_content.item].buttons.block_button_id.link.text
-  type_of_link: 'internal' | 'external'; // [hero_content.item].buttons.block_button_id.link.type_of_link
-  external_link?: string; // [hero_content.item].buttons.block_button_id.link.external_link
-  internal_link_slug?: string; // [hero_content.item].buttons.block_button_id.link.internal_link.item.slug
-  internal_link_parent?: string; // [hero_content.item].buttons.block_button_id.link.internal_link.item.parent
 };
