@@ -3,9 +3,9 @@ import type {
   ButtonType,
   CustomContentBlock,
   CustomContentItem,
-  FeaturedLink,
   HomepageContent,
   HomepageStats,
+  LinkType,
   PageHero,
 } from 'env';
 import directus from '../../lib/directus';
@@ -19,24 +19,12 @@ export default async function getHomePageContent() {
         'featured_links.*.*.*.*.*',
         'featured_projects.projects_id.*',
         'stats_and_callouts.item.*',
-        'custom_content.*.*.*.*.*.*',
+        'custom_content.*.*.*.*.*.*.*',
       ],
     })
   );
 
-  const featuredLinks: FeaturedLink[] = [];
-  content.featured_links.map((link: any) => {
-    const url =
-      link.block_link_id.type_of_link === 'internal'
-        ? link.block_link_id.internal_link[0].item.slug
-        : link.block_link_id.external_link;
-    const l: FeaturedLink = {
-      text: link.block_link_id.text,
-      type: link.block_link_id.type_of_link,
-      url: url,
-    };
-    featuredLinks.push(l);
-  });
+  const featuredLinks = content.featured_links.map(({ block_link_id }: { block_link_id: LinkType}) => block_link_id);
 
   const stats: HomepageStats[] = content.stats_and_callouts.map((stat: any) => {
     const singleStat: HomepageStats = {
@@ -63,7 +51,6 @@ export default async function getHomePageContent() {
 
   const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
     (button: ButtonType) => ({
-      text: button.text,
       link: button.link,
       style: content.hero_content[0].item.hero_style,
       variant: button.variant,

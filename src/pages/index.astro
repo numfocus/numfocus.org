@@ -1,5 +1,6 @@
 ---
 import Button from '@components/Atoms/Button';
+import Link from '@components/Atoms/Link';
 import LinkCard from '@components/Atoms/LinkCard';
 import StatCard from '@components/Atoms/StatCard';
 import Container from '@components/Container.astro';
@@ -65,13 +66,12 @@ const seo: Seo = {
         {
           content.featuredLinks?.map((link) => (
             <div class="my-4 inline-flex w-full flex-row items-center border-r-[1px] border-white/50 px-4 py-2">
-              <a
-                href={link.url}
-                class="group align-middle text-base text-white"
-              >
-                <span>{link.text}</span>
-                <ArrowRightIcon className="ml-1 inline-block transition group-hover:translate-x-1" />
-              </a>
+              <Link link={link}>
+                <div class="group align-middle text-base text-white">
+                  <span>{link.text}</span>
+                  <ArrowRightIcon className="ml-1 inline-block transition group-hover:translate-x-1" />
+                </div>
+              </Link>
             </div>
           ))
         }
@@ -102,7 +102,7 @@ const seo: Seo = {
         <Button
           button={{
             style: 'light',
-            link: { text: 'See all', slug: 'projects'},
+            link: { text: 'See all', type_of_link: 'internal', slug: 'projects'},
             variant: 'outlined',
           }}
           arrow="right"
