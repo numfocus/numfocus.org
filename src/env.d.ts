@@ -31,7 +31,6 @@ export type Page = MetaProps & {
 // [XYZ].buttons.block_button_id.link.internal_link.item.*
 ///////////////////////////////////////////
 
-
 export type ButtonType = {
   link: LinkType;
   style: 'light' | 'dark';
@@ -40,8 +39,8 @@ export type ButtonType = {
 
 type InternalLinkPage = {
   collection: string;
-  item: Page
-}
+  item: Page;
+};
 
 export type LinkType = {
   text: string;
@@ -49,7 +48,7 @@ export type LinkType = {
   external_link?: string;
   internal_link?: InternalLinkPage[];
   slug?: string;
-}
+};
 
 // exported types
 
@@ -186,6 +185,7 @@ export type HomepageContent = {
   featuredCaseStudy?: CaseStudy;
   stats?: HomepageStats[];
   customContentBlock: CustomContentBlock;
+  projects_background_image: string;
 };
 
 export type Seo = {

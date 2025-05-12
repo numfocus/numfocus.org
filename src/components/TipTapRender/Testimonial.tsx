@@ -5,8 +5,8 @@ import { Quote } from 'lucide-react';
 interface Props {
   id: string;
   content: string;
-  image: string;
-  author: string;
+  image?: string;
+  author?: string;
 }
 
 export default function Testimonial({ id, content, image, author }: Props) {
@@ -19,17 +19,21 @@ export default function Testimonial({ id, content, image, author }: Props) {
             className="text-gray-900"
             dangerouslySetInnerHTML={{ __html: content }}
           />
-          <figcaption className="text-base italic text-gray-900">
-            {author}
-          </figcaption>
+          {author && (
+            <figcaption className="text-base italic text-gray-900">
+              {author}
+            </figcaption>
+          )}
         </div>
-        <div className="col-span-4 w-full md:col-span-2">
-          <img
-            alt=""
-            src={`${assetBaseUrl}/${image}`}
-            className="rounded-sm bg-indigo-50 md:rounded-xl lg:rounded-3xl"
-          />
-        </div>
+        {image && (
+          <div className="col-span-4 w-full md:col-span-2">
+            <img
+              alt=""
+              src={`${assetBaseUrl}/${image}`}
+              className="rounded-sm bg-indigo-50 md:rounded-xl lg:rounded-3xl"
+            />
+          </div>
+        )}
       </figure>
     </Container>
   );

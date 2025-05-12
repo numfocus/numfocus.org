@@ -40,7 +40,7 @@ export default function ProjectCard({
 
   return (
     <div
-      className="project-card border-brand-gray hover:border-brand-teal group relative col-span-12 h-full cursor-pointer rounded-md border transition hover:shadow-md sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"
+      className="project-card border-brand-gray hover:border-brand-teal group relative col-span-12 h-full cursor-pointer rounded-md border bg-white transition hover:shadow-md sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"
       onClick={onExpand}
       onKeyDown={onExpand}
     >

@@ -65,9 +65,9 @@ const TextRender: NodeHandler = (props: NodeProps) => {
             <>
               <Testimonial
                 id={data.id}
-                author={data.author}
+                author={data?.author}
                 content={data.content}
-                image={data.image.id}
+                image={data.image?.id}
               />
               {PrettyJson(data)}
             </>
@@ -171,7 +171,7 @@ const RelationBlock: NodeHandler = (props) => {
           id={data.id}
           author={data.author}
           content={data.content}
-          image={data.image.id}
+          image={data.image?.id}
         />
         {PrettyJson(data)}
       </>

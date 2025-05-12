@@ -22,6 +22,7 @@ export default async function getHomePageContent() {
         'featured_projects.projects_id.*',
         'stats_and_callouts.item.*',
         'custom_content.*.*.*.*.*.*.*',
+        'projects_background',
       ],
     })
   );
@@ -70,6 +71,7 @@ export default async function getHomePageContent() {
     featuredLinks: featuredLinks,
     stats: stats,
     customContentBlock,
+    projects_background_image: content.projects_background,
   };
 
   return homepageContent;

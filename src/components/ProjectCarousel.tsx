@@ -26,8 +26,8 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="bg-light-teal-500 cursor-pointer rounded-sm text-white disabled:hidden" />
-      <CarouselNext className="bg-light-teal-500 cursor-pointer rounded-sm text-white disabled:hidden" />
+      <CarouselPrevious className="bg-brand-primary hover:bg-brand-primary cursor-pointer rounded-sm text-white transition hover:-translate-x-0.5 hover:text-white disabled:hidden" />
+      <CarouselNext className="bg-brand-primary hover:bg-brand-primary cursor-pointer rounded-sm text-white transition hover:translate-x-0.5 hover:text-white disabled:hidden" />
     </Carousel>
   );
 }

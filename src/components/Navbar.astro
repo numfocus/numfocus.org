@@ -13,7 +13,7 @@ const menuItems = await getMenuItems('Navigation');
 const currentPage = Astro.routePattern;
 
 const button: but = {
-  link: {  text: 'Donate', slug: 'donate' },
+  link: { text: 'Donate', slug: 'donate', type_of_link: 'internal' },
   variant: 'special',
   style: 'light',
 };
@@ -22,7 +22,7 @@ const commandPaletteData = getCommandPaletteData();
 ---
 
 <header class="border-0 border-b-[1px] border-teal-500">
-  <Container>
+  <Container removeMargins>
     <div class="py-6 flex items-center justify-between gap-4">
       <a class="logo" aria-label="home" href="/">
         <Icon name="logo" class="text-5xl" />
