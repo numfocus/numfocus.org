@@ -24,8 +24,8 @@ const heroStyle = hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : '';
         class="buttons flex flex-col gap-4 pt-4 border-t-[1px] border-brand-gray-light"
       >
         {
-          hero.button &&
-            hero.button.map((button) => (
+          hero.buttons &&
+            hero.buttons.map((button) => (
               <Button button={button} arrow="right" />
             ))
         }

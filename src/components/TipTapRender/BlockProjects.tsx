@@ -33,8 +33,10 @@ export default function BlockProjects({ heading, projects }: Props) {
                 <div className="col-span-full md:col-span-6 md:col-start-2">
                   <Button
                     button={{
-                      text: `View ${project.name}`,
-                      link: `/projects?project=${project.slug}`,
+                      link: { 
+                        text: `View ${project.name}`, 
+                        slug: `/projects?project=${project.slug}`
+                      },
                       variant: 'default',
                       style: 'light',
                     }}

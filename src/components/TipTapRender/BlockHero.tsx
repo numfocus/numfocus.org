@@ -36,7 +36,7 @@ export default function BlockHero({
         <div className="mb-6" dangerouslySetInnerHTML={{ __html: rich_text }} />
         <div className="buttons max-w-100 mr-12 flex flex-row gap-2">
           {button?.map((b, index) => (
-            <Button key={`${b.text}-${index}`} button={b} arrow="right" />
+            <Button key={`${b.link.text}-${index}`} button={b} arrow="right" />
           ))}
         </div>
       </div>
