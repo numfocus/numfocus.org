@@ -1,5 +1,7 @@
 ---
+import { readSingleton } from '@directus/sdk';
 import { twMerge } from 'tailwind-merge';
+import directus from '../../lib/directus';
 
 import NumLogo from '@assets/icons/logo_white.svg';
 import FooterBadge from '@assets/images/guidestar_badge.svg';
@@ -8,6 +10,7 @@ import Container from '@components/Container.astro';
 import SubscribeForm from '@components/SubscribeForm';
 import getMenuItems from '@utils/getMenuItems';
 
+const global = await directus.request(readSingleton('General'));
 const menuItems = await getMenuItems('Navigation');
 
 const footerSectionStyle =
@@ -29,11 +32,7 @@ const footerSectionStyle =
           <div class="flex py-10 gap-8">
             <div class="font-normal">
               <p class="font-heading font-bold">Contact Us</p>
-              <p>NumFOCUS</p>
-              <p>P.O. Box 90596</p>
-              <p>Austin, TX 78709</p>
-              <p>info@numfocus.org</p>
-              <p>+1 (512) 831-2870</p>
+              <div set:html={global.contact} />
             </div>
             <FooterBadge />
           </div>
