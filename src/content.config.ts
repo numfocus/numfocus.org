@@ -3,8 +3,6 @@ import { glob } from 'astro/loaders';
 import slugify from 'slugify';
 
 const projects = defineCollection({
-  // `loader` can accept an array of multiple patterns as well as string patterns
-  // Load all markdown files in the space-probes directory, except for those that start with "voyager-"
   loader: glob({
     pattern: ['*/*.yaml'],
     base: 'src/data/projects',
