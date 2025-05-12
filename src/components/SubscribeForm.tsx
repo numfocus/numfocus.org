@@ -1,13 +1,17 @@
 import Button from '@components/Atoms/Button';
 import type { ButtonType } from 'env';
 
-export default function SubscribeForm({ subscribeButton }: { subscribeButton: ButtonType}) {
+export default function SubscribeForm({
+  subscribeButton,
+}: {
+  subscribeButton: ButtonType;
+}) {
   const onSubmit = (formData: FormData) => {
     const email = formData.get('email');
-    console.log('Subscribing', email);
+    // console.log('Subscribing', email);
   };
 
-  console.log(subscribeButton)
+  // console.log(subscribeButton);
   return (
     <form
       action={onSubmit}

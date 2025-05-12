@@ -174,6 +174,18 @@ export type CustomContentBlock = {
   items: CustomContentItem[];
 };
 
+export type FeaturedArticle = {
+  id: number;
+  collection: string;
+  title: string;
+  slug: string;
+  type: string;
+  heading: string;
+  content: string;
+  image: string;
+  background_image: string;
+};
+
 export type HomepageContent = {
   heroHeadline: string;
   heroContent: string;
@@ -186,6 +198,7 @@ export type HomepageContent = {
   stats?: HomepageStats[];
   customContentBlock: CustomContentBlock;
   projects_background_image: string;
+  featuredArticle: FeaturedArticle;
 };
 
 export type Seo = {

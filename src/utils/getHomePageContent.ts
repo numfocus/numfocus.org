@@ -1,9 +1,10 @@
-import { readSingleton } from '@directus/sdk';
+import { readItem, readSingleton } from '@directus/sdk';
 import type { Link } from 'astro-seo';
 import type {
   ButtonType,
   CustomContentBlock,
   CustomContentItem,
+  FeaturedArticle,
   HomepageContent,
   HomepageStats,
   LinkType,
@@ -23,9 +24,31 @@ export default async function getHomePageContent() {
         'stats_and_callouts.item.*',
         'custom_content.*.*.*.*.*.*.*',
         'projects_background',
+        'featured_article_background',
+        'featured_article',
       ],
     })
   );
+
+  const featuredArticlePromise = await directus.request(
+    readItem('articles', content.featured_article.key, {
+      fields: ['title', 'slug', 'type', 'hero.item.*.*'],
+    })
+  );
+
+  const featuredArticle: FeaturedArticle = {
+    id: content.featured_article.key,
+    collection: content.featured_article.collection,
+    title: featuredArticlePromise.title,
+    slug: featuredArticlePromise.slug,
+    type: featuredArticlePromise.type,
+    heading: featuredArticlePromise.hero[0].item.heading,
+    content: featuredArticlePromise.hero[0].item.content,
+    image: featuredArticlePromise.hero[0].item.image.id,
+    background_image: content.featured_article_background,
+  };
+
+  console.log(featuredArticle);
 
   const featuredLinks = content.featured_links.map(
     ({ block_link_id }: { block_link_id: LinkType }) => block_link_id
@@ -72,6 +95,7 @@ export default async function getHomePageContent() {
     stats: stats,
     customContentBlock,
     projects_background_image: content.projects_background,
+    featuredArticle,
   };
 
   return homepageContent;

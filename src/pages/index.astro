@@ -1,7 +1,6 @@
 ---
 import Button from '@components/Atoms/Button';
 import Link from '@components/Atoms/Link';
-import LinkCard from '@components/Atoms/LinkCard';
 import StatCard from '@components/Atoms/StatCard';
 import Container from '@components/Container.astro';
 import ProjectCarousel from '@components/ProjectCarousel';
@@ -135,4 +134,70 @@ const seo: Seo = {
   <Container>
     <BlockCustomContent content={content.customContentBlock} />
   </Container>
+  <!-- <h3 class="mt-24">Featured Article</h3> -->
+  <div class="featured-article-background relative w-full">
+    <div class="absolute z-0 w-full h-full overflow-hidden">
+      <Picture
+        class="object-cover h-full object-center md:h-2/3 opacity-50"
+        src={`${assetBaseUrl}${content.featuredArticle.background_image}?width=1800`}
+        alt=""
+        inferSize
+      />
+    </div>
+    <div class="relative featured-article-container top-48 mb-48">
+      <Container>
+        <div class="relative overflow-hidden p-8 bg-brand-gray-light">
+          <div class="py-10 lg:flex">
+            <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+              <div class="">
+                <a href="#" class="inline-flex space-x-6">
+                  <span
+                    class="rounded-sm uppercase bg-brand-gray/10 px-3 py-1 text-sm/6 font-semibold text-black ring-1 ring-brand-teal/10 ring-inset"
+                    >{content.featuredArticle.type.replace('_', ' ')}</span
+                  >
+                </a>
+              </div>
+              <h3
+                class="mt-10 font-semibold tracking-tight text-pretty text-gray-900"
+              >
+                {content.featuredArticle.title}
+              </h3>
+              <p
+                class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+                set:html={content.featuredArticle.content}
+              />
+
+              <div class="mt-10 flex items-center gap-x-6">
+                <a
+                  href={`/articles/${content.featuredArticle.slug}`}
+                  class="rounded-sm bg-brand-teal px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2"
+                  >Read more</a
+                >
+                <a
+                  href={`/articles`}
+                  class="text-sm/6 font-semibold text-gray-900"
+                  >See all articles <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </div>
+            <div
+              class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10"
+            >
+              <div class="">
+                <div class="p-2 lg:-m-4 lg:p-4">
+                  <Picture
+                    src={`${assetBaseUrl}${content.featuredArticle.image}`}
+                    alt="App screenshot"
+                    inferSize
+                    class="w-full shadow-2xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+    <Container><div class="h-24 w-full"></div></Container>
+  </div>
 </BaseLayout>
