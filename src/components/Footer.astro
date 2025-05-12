@@ -11,6 +11,12 @@ import SubscribeForm from '@components/SubscribeForm';
 import getMenuItems from '@utils/getMenuItems';
 
 const global = await directus.request(readSingleton('General'));
+const newsletter = await directus.request(readSingleton('newsletter', {
+  fields: [
+    { subscribe_button: ['*.*.*.*'] },
+    '*'
+  ],
+}));
 const menuItems = await getMenuItems('Navigation');
 
 const footerSectionStyle =
@@ -54,13 +60,12 @@ const footerSectionStyle =
       </div>
       <div class={twMerge(footerSectionStyle, `flex-col md:flex-row`)}>
         <div>
-          <p class="font-bold pb-4">NumFOCUS Newsletter</p>
+          <p class="font-bold pb-4">{newsletter.title}</p>
           <p>
-            Subscribe to our mailing list for monthly updates on the latest news
-            and events.
+            {newsletter.description}
           </p>
         </div>
-        <SubscribeForm client:load />
+        <SubscribeForm subscribeButton={newsletter.subscribe_button[0]} client:load />
       </div>
       <div class={twMerge(footerSectionStyle, 'border-none')}>
         <p>© 2024 NumFOCUS, org. All rights reserved. License info etc.</p>

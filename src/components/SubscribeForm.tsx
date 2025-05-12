@@ -1,17 +1,13 @@
 import Button from '@components/Atoms/Button';
-import type { Button as TButton } from 'env';
+import type { ButtonType } from 'env';
 
-const button: TButton = {
-  link: { text: 'Subscribe', slug: 'subscribe' },
-  variant: 'outlined',
-  style: 'light',
-};
-
-export default function SubscribeForm() {
+export default function SubscribeForm({ subscribeButton }: { subscribeButton: ButtonType}) {
   const onSubmit = (formData: FormData) => {
     const email = formData.get('email');
     console.log('Subscribing', email);
   };
+
+  console.log(subscribeButton)
   return (
     <form
       action={onSubmit}
@@ -23,7 +19,7 @@ export default function SubscribeForm() {
         placeholder="Enter your Email"
         className="focus:ouline-0 min-w-70 border-1 w-full rounded-md"
       />
-      <Button button={button} icon="envelope" />
+      <Button button={subscribeButton} icon="envelope" />
     </form>
   );
 }
