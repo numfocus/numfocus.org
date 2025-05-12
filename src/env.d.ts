@@ -18,19 +18,38 @@ export type Page = MetaProps & {
 };
 
 // primitives
-export type LinkType = {
-  text: string;
-  type_of_link?: 'internal' | 'external';
-  external_link?: string;
-  internal_link?: Page[];
-  slug?: string;
-}
+
+// BUTTON LINK TYPES
+///////////////////////////////////////////
+// This is the Button collection that includes a link component that can be mapped
+// to internal or external links. Internal links give us both slug and parent.
+// important for properly mapping urls.
+// KEEP IN MIND that any of the link specific values could be null,
+// so best way to pull from directus is with wildcards, for example
+// [XYZ].buttons.block_button_id.link.*
+// and
+// [XYZ].buttons.block_button_id.link.internal_link.item.*
+///////////////////////////////////////////
+
 
 export type ButtonType = {
   link: LinkType;
   style: 'light' | 'dark';
   variant: 'default' | 'outlined' | 'special';
 };
+
+type InternalLinkPage = {
+  collection: string;
+  item: Page
+}
+
+export type LinkType = {
+  text: string;
+  type_of_link: 'internal' | 'external';
+  external_link?: string;
+  internal_link?: InternalLinkPage[];
+  slug?: string;
+}
 
 // exported types
 
@@ -137,12 +156,6 @@ export type Image = {
   title: string;
 };
 
-export type FeaturedLink = {
-  text: string;
-  type: 'internal' | 'external';
-  url: string;
-};
-
 type HomepageStats = {
   category: string;
   mainContent: string;
@@ -168,7 +181,7 @@ export type HomepageContent = {
   heroImage: string;
   heroStyle: 'light' | 'dark';
   buttons: ButtonType[];
-  featuredLinks?: FeaturedLink[];
+  featuredLinks?: LinkType[];
   featuredProjects?: Project[];
   featuredCaseStudy?: CaseStudy;
   stats?: HomepageStats[];
