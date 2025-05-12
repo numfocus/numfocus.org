@@ -135,16 +135,16 @@ const seo: Seo = {
     <BlockCustomContent content={content.customContentBlock} />
   </Container>
   <!-- <h3 class="mt-24">Featured Article</h3> -->
-  <div class="featured-article-background relative w-full">
-    <div class="absolute z-0 w-full h-full overflow-hidden">
+  <div class="featured-article-background relative overflow-hidden mb-24">
+    <div class="absolute z-0 h-[32rem] overflow-hidden">
       <Picture
-        class="object-cover h-full object-center md:h-2/3 opacity-50"
+        class="object-cover h-full object-center opacity-50"
         src={`${assetBaseUrl}${content.featuredArticle.background_image}?width=1800`}
         alt=""
         inferSize
       />
     </div>
-    <div class="relative featured-article-container top-48 mb-48">
+    <div class="relative featured-article-container top-48">
       <Container>
         <div class="relative overflow-hidden p-8 bg-brand-gray-light">
           <div class="py-10 lg:flex">
@@ -198,6 +198,70 @@ const seo: Seo = {
         </div>
       </Container>
     </div>
-    <Container><div class="h-24 w-full"></div></Container>
   </div>
+  <Container>
+    <h3 class="text-center">NumFOCUS Sponsors</h3>
+    <!-- <div class="bg-white py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div
+          class="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3"
+        >
+          <div class="bg-gray-400/5 p-8 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
+              alt="Transistor"
+              width="158"
+              height="48"
+            />
+          </div>
+          <div class="bg-gray-400/5 p-6 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
+              alt="Reform"
+              width="158"
+              height="48"
+            />
+          </div>
+          <div class="bg-gray-400/5 p-6 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
+              alt="Tuple"
+              width="158"
+              height="48"
+            />
+          </div>
+          <div class="bg-gray-400/5 p-6 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/laravel-logo-gray-900.svg"
+              alt="Laravel"
+              width="158"
+              height="48"
+            />
+          </div>
+          <div class="bg-gray-400/5 p-6 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
+              alt="SavvyCal"
+              width="158"
+              height="48"
+            />
+          </div>
+          <div class="bg-gray-400/5 p-6 sm:p-10">
+            <img
+              class="max-h-12 w-full object-contain"
+              src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
+              alt="Statamic"
+              width="158"
+              height="48"
+            />
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </Container>
 </BaseLayout>
