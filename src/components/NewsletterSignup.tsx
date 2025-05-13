@@ -18,20 +18,20 @@ export default function NewsletterSignup({
   return (
     <>
       <div>
-        <p className="font-bold pb-4">{title}</p>
+        <h5 className="pb-4">{title}</h5>
         <p>
           {description}
         </p>
       </div>
       <form
         action={onSubmit}
-        className="flex flex-col items-center gap-2 md:flex-row"
+        className="flex flex-row items-center gap-2"
       >
         <input
           type="email"
           name="email"
           placeholder="Enter your Email"
-          className="focus:ouline-0 min-w-70 border-1 w-full rounded-md"
+          className="focus:ouline-0 min-w-70 border-2 w-full text-md rounded-sm p-2"
         />
         <Button button={button} icon="envelope" />
       </form>
