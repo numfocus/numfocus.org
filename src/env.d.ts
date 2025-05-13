@@ -43,7 +43,7 @@ type InternalLinkPage = {
 };
 
 export type LinkType = {
-  text: string;
+  text?: string;
   type_of_link: 'internal' | 'external';
   external_link?: string;
   internal_link?: InternalLinkPage[];
