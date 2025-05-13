@@ -60,8 +60,9 @@ export default function Button({ button, arrow }: Props) {
   return (
     <Link link={button.link} className="block">
       <div className={buttonStyle}>
+        {arrow === 'left' && arrowVariant.left}
         <span>{button.link.text}</span>
-        {arrow && arrowVariant[arrow]}
+        {arrow === 'right' && arrowVariant.right}
       </div>
     </Link>
   );
