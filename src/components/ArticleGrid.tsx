@@ -126,7 +126,7 @@ export default function ArticleGrid({
                       day: 'numeric',
                     })}
                   </time>
-                  <span className="relative z-10 rounded-md bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                  <span className="relative z-10 rounded-md bg-gray-50 px-3 py-1.5 font-medium text-gray-600">
                     {article.type &&
                       articleTypes.singular[
                         article.type as keyof typeof articleTypes.singular
