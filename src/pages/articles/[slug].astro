@@ -1,12 +1,13 @@
 ---
-import Button from '@components/Button.astro';
+import Button from '@components/Atoms/Button';
+import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import { readItems } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-import type { PageHero } from 'env';
+import type { Page, PageHero } from 'env';
 import directus from '../../../lib/directus';
 
 export async function getStaticPaths() {
@@ -52,6 +53,20 @@ const page = Astro.props;
     og_image: page.seo?.og_image,
   }}
 >
+  <Container removeMargins>
+    <Button
+      button={{
+        style: 'light',
+        variant: 'default',
+        link: {
+          text: `Back to Articles`,
+          type_of_link: 'internal',
+          slug: 'articles'
+        }
+      }}
+      arrow="left"
+    />
+  </Container>
   <Hero
     pageHero={{
       id: page.id,
@@ -63,9 +78,5 @@ const page = Astro.props;
   />
   <div class="overflow-auto">
     <TipTapRender handlers={BodyContent} node={page.body_content} />
-  </div>
-
-  <div>
-    <Button>Return to Case Studies</Button>
   </div>
 </SingleArticleLayout>
