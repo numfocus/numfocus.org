@@ -12,7 +12,7 @@ import {
   SiYoutube,
 } from 'react-icons/si';
 
-const iconStyle = 'w-4 h-4';
+
 
 const icons = {
   facebook: <SiFacebook />,
@@ -27,8 +27,10 @@ const icons = {
   custom_website: <LuEarth />,
 };
 
-export default function Social({ social }: { social: SocialsType }) {
+export default function Social({ social, size = 4 }: { social: SocialsType, size: number  }) {
   const { platform, url } = social;
+
+  const iconStyle = `w-${size} h-${size}`;
 
   return (
     <IconContext.Provider value={{ className: iconStyle }}>
