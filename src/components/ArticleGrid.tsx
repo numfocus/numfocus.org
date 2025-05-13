@@ -1,7 +1,7 @@
 import Dialog from '@components/Atoms/Dialog';
 import groupBy from '@utils/groupBy';
 import type { CardMeta } from 'env';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { twMerge} from 'tailwind-merge';
 
 const articleTypes = {
@@ -33,6 +33,13 @@ export default function ArticleGrid({
   articles: CardMeta[];
 }) {
   const [activeTab, setActiveTab] = useState<string>("all");
+
+  const filteredArticles = useMemo(() => {
+    return articles
+      .filter((article, i) => (
+        activeTab === 'all' || article.type === activeTab
+      ))
+  }, [articles, activeTab]);
   
   console.log(activeTab)
 
@@ -48,8 +55,8 @@ export default function ArticleGrid({
               className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
             >
               {
-                Object.values(articleTypes.pluralTabs).map((type) => (
-                  <option key={type}>{type}</option>
+                Object.entries(articleTypes.pluralTabs).map(([key, type]) => (
+                  <option key={key} value={key}>{type}</option>
                 ))
               }
             </select>
@@ -75,7 +82,10 @@ export default function ArticleGrid({
                       type="button"
                       key={key}
                       onClick={() => setActiveTab(key)}
-                      className="border-b-2 border-transparent px-1 py-4 text-sm font-medium whitespace-nowrap text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      className={twMerge(
+                        "border-b-2 border-transparent px-1 py-4 text-sm font-medium whitespace-nowrap text-gray-500 hover:border-gray-300 hover:text-gray-700 cursor-pointer transition-colors",
+                        key === activeTab ? "border-indigo-500 text-indigo-600 hover:border-indigo-500 hover:text-indigo-600" : ""
+                      )}
                     >
                       {type}
                     </button>
@@ -90,7 +100,7 @@ export default function ArticleGrid({
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
           {
-            articles.map((article) => (
+            filteredArticles.map((article) => (
               <article key={article.id} className="">
                 {/* <a href={`${Astro.url}${article.slug}`}>
                   {!!article.image && (
