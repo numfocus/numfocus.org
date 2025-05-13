@@ -1,0 +1,29 @@
+---
+import Container from '@components/Container.astro';
+import type { Page } from 'env';
+import Button from './Atoms/Button';
+
+interface Props {
+  page: Page;
+}
+
+const { page } = Astro.props;
+const { parent } = page;
+
+---
+{(!!parent) &&
+  <Container removeMargins>
+    <Button 
+      button={{
+        style: 'light',
+        variant: 'default',
+        link: {
+          text: `Back to ${parent.title}`,
+          type_of_link: 'internal',
+          internal_link: [ { item: parent }]
+        }
+      }}
+      arrow="left"
+    />
+  </Container>
+}

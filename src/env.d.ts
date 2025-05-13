@@ -38,7 +38,7 @@ export type ButtonType = {
 };
 
 type InternalLinkPage = {
-  collection: string;
+  collection?: string;
   item: Page;
 };
 

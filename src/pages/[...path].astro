@@ -1,9 +1,9 @@
 ---
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
-import getPageContent from '@utils/getPageContent';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 
 import type { TipTapNode } from '@components/TipTapRender';
@@ -59,6 +59,7 @@ const pageSeo = await getPageSeo(page.slug);
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
+  <Breadcrumbs page={page as Page} />
   <Hero pageHero={pageHero} />
   {
     !!page.body_content && (
