@@ -5,7 +5,7 @@ import directus from '../../lib/directus';
 export default async function getPageHero(slug: string) {
   const heroContent = await directus.request<PageHero[]>(
     readItems('pages', {
-      fields: ['buttons.*.*.*.*.*', '*'],
+      fields: ['buttons.*.*.*.*.*.*', '*'],
     })
   );
 
