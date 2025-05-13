@@ -11,6 +11,7 @@ import { ArrowRightIcon } from 'lucide-react';
 
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import FollowUs from '@components/FollowUs.astro';
 import BlockCustomContent from '@components/TipTapRender/BlockCustomContent';
 import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
@@ -286,4 +287,5 @@ const seo: Seo = {
       </div>
     </div> -->
   </Container>
+  <FollowUs />
 </BaseLayout>
