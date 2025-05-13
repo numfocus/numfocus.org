@@ -49,8 +49,8 @@ export default function ArticleGrid({
         <div className="article-grid-filter mt-8">
           <h4 className="text-lg">Filter Articles</h4>
           <div className="grid grid-cols-1 lg:hidden">
-            {/* <!-- Use an "onChange" listener to redirect the user to the selected tab URL. --> */}
             <select
+              onChange={(event) => setActiveTab(event.target.value)}
               aria-label="Select a tab"
               className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
             >
