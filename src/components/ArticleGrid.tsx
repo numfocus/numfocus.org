@@ -3,6 +3,7 @@ import groupBy from '@utils/groupBy';
 import type { CardMeta } from 'env';
 import { useMemo, useState } from 'react';
 import { twMerge} from 'tailwind-merge';
+import Link from './Atoms/Link';
 
 const articleTypes = {
   singular: {
@@ -102,19 +103,24 @@ export default function ArticleGrid({
           {
             filteredArticles.map((article) => (
               <article key={article.id} className="">
-                {/* <a href={`${Astro.url}${article.slug}`}>
+                <Link 
+                  link={{
+                    type_of_link: "internal",
+                    slug:`articles/${article.slug}`
+                  }}
+                >
                   {!!article.image && (
                     <div className="relative w-full hover:shadow-sm rounded-2xl transition">
-                      <Image
+                      {/* <Image
                         src={`${article.image}?width=500`}
                         alt=""
                         className="aspect-video w-full  rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
                         inferSize
-                      />
+                      /> */}
                       <div className="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
                     </div>
                   )}
-                </a> */}
+                </Link>
                 <div className="mt-4 flex items-center gap-x-4 text-xs">
                   <time datetime="2020-03-16" className="text-gray-500">
                     {article.date.toLocaleDateString('en-US', {
@@ -131,7 +137,12 @@ export default function ArticleGrid({
                   </span>
                 </div>
                 <div className="max-w-xl">
-                  {/* <a href={`${Astro.url}${article.slug}`}>
+                  <Link 
+                    link={{
+                      type_of_link: "internal",
+                      slug:`articles/${article.slug}`
+                    }}
+                  >
                     <div className="group relative">
                       <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
                         <span className="absolute inset-0" />
@@ -140,9 +151,9 @@ export default function ArticleGrid({
                     </div>
                     <div
                       className="mt-5 line-clamp-3 text-sm/6 text-gray-600"
-                      set:html={article.content}
-                    />
-                  </a> */}
+                      dangerouslySetInnerHTML={{ __html: article.content }}
+                      />
+                  </Link>
                 </div>
               </article>
             ))
