@@ -1,6 +1,6 @@
+import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import type { Seo } from 'env';
-import directus from '../../lib/directus';
 
 export default async function getPageSeo(slug: string) {
   const general = await directus.request(readSingleton('General'));

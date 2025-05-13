@@ -1,6 +1,6 @@
+import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
 import type { ButtonType, PageHero } from 'env';
-import directus from '../../lib/directus';
 
 export default async function getPageHero(slug: string) {
   const heroContent = await directus.request<PageHero[]>(

@@ -1,11 +1,11 @@
 ---
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
+import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import directus from '../../lib/directus';
 
 const global = await directus.request(readSingleton('General'));
 

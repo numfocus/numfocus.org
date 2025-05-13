@@ -1,7 +1,7 @@
 ---
+import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import { twMerge } from 'tailwind-merge';
-import directus from '../../lib/directus';
 
 import NumLogo from '@assets/icons/logo_white.svg';
 import FooterBadge from '@assets/images/guidestar_badge.svg';
@@ -11,12 +11,11 @@ import SubscribeForm from '@components/SubscribeForm';
 import getMenuItems from '@utils/getMenuItems';
 
 const global = await directus.request(readSingleton('General'));
-const newsletter = await directus.request(readSingleton('newsletter', {
-  fields: [
-    { subscribe_button: ['*.*.*.*'] },
-    '*'
-  ],
-}));
+const newsletter = await directus.request(
+  readSingleton('newsletter', {
+    fields: [{ subscribe_button: ['*.*.*.*'] }, '*'],
+  })
+);
 const menuItems = await getMenuItems('Navigation');
 
 const footerSectionStyle =
@@ -65,7 +64,10 @@ const footerSectionStyle =
             {newsletter.description}
           </p>
         </div>
-        <SubscribeForm subscribeButton={newsletter.subscribe_button[0]} client:load />
+        <SubscribeForm
+          subscribeButton={newsletter.subscribe_button[0]}
+          client:load
+        />
       </div>
       <div class={twMerge(footerSectionStyle, 'border-none')}>
         <p>© 2024 NumFOCUS, org. All rights reserved. License info etc.</p>

@@ -11,9 +11,9 @@ import { ArrowRightIcon } from 'lucide-react';
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BlockCustomContent from '@components/TipTapRender/BlockCustomContent';
+import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import type { Project, Seo } from 'env';
-import directus from '../../lib/directus';
 
 const global = await directus.request(readSingleton('General'));
 const projects: Project[] = await getCollection('projects');

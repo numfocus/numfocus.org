@@ -1,10 +1,10 @@
 ---
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
+import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import getPageContent from '@utils/getPageContent';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-import directus from '../../lib/directus';
 
 import type { TipTapNode } from '@components/TipTapRender';
 import BodyContent from '@components/TipTapRender/BodyContent';
@@ -39,24 +39,20 @@ export async function getStaticPaths() {
     return page;
   });
 
-
   return cleanPages.map((page) => {
-    const path = getPagePath(page as Page)
+    const path = getPagePath(page as Page);
 
-    return ({
+    return {
       params: { path },
       props: page,
-    })
-});
-
-
+    };
+  });
 }
 
 const page = Astro.props;
 
 const pageHero = await getPageHero(page.slug);
 const pageSeo = await getPageSeo(page.slug);
-
 ---
 
 <BaseLayout
@@ -67,7 +63,10 @@ const pageSeo = await getPageSeo(page.slug);
   {
     !!page.body_content && (
       <div>
-        <TipTapRender handlers={BodyContent} node={page.body_content as TipTapNode} />
+        <TipTapRender
+          handlers={BodyContent}
+          node={page.body_content as TipTapNode}
+        />
       </div>
     )
   }

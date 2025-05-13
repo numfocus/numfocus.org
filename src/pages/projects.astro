@@ -8,8 +8,8 @@ import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 
 import FollowUs from '@components/FollowUs.astro';
+import directus from '@directus/directus';
 import type { Project } from 'env';
-import directus from '../../lib/directus';
 import projectsSchema from '../data/projects/projects.schema.json';
 
 const projects: Project[] = await getCollection('projects');

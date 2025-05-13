@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
+import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
-import directus from '../../lib/directus';
 import { getArticlesMeta } from './getArticlesMeta';
 
 import type { CommandPaletteItem } from 'env';

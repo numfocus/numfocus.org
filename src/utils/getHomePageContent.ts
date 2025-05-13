@@ -1,3 +1,4 @@
+import directus from '@directus/directus';
 import { readItem, readSingleton } from '@directus/sdk';
 import type { Link } from 'astro-seo';
 import type {
@@ -10,7 +11,6 @@ import type {
   LinkType,
   PageHero,
 } from 'env';
-import directus from '../../lib/directus';
 
 export default async function getHomePageContent() {
   const content = await directus.request(

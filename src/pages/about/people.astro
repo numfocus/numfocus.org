@@ -1,15 +1,15 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage } from 'astro:assets';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
-import PersonGrid from '@components/PersonGrid/PersonGrid'
+import PersonGrid from '@components/PersonGrid/PersonGrid';
+import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import getAssetUrl from "@utils/getAssetUrl";
+import getAssetUrl from '@utils/getAssetUrl';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 import type { Person } from 'env';
-import directus from '../../lib/directus';
 
 const people = await directus.request(readItems('people'));
 
@@ -20,17 +20,21 @@ const pageSeo = await getPageSeo('people');
 
 const imagePromises = people.map(({ image, ...rest }) => {
   return new Promise((resolve) => {
-    getImage({src: getAssetUrl(image), width: 200, height: 200, fit: "cover" }).then(fetchedImage => (
+    getImage({
+      src: getAssetUrl(image),
+      width: 200,
+      height: 200,
+      fit: 'cover',
+    }).then((fetchedImage) =>
       resolve({
         image: fetchedImage?.src,
-        ...rest
+        ...rest,
       })
-    ))
-  })
-})
+    );
+  });
+});
 
-const peopleWithImages = await Promise.all(imagePromises)
-
+const peopleWithImages = await Promise.all(imagePromises);
 ---
 
 <BaseLayout
