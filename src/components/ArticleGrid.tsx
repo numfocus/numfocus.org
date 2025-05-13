@@ -110,13 +110,12 @@ export default function ArticleGrid({
                   }}
                 >
                   {!!article.image && (
-                    <div className="relative w-full hover:shadow-sm rounded-2xl transition">
-                      {/* <Image
-                        src={`${article.image}?width=500`}
-                        alt=""
-                        className="aspect-video w-full  rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
-                        inferSize
-                      /> */}
+                    <div className="relative hover:shadow-sm rounded-2xl transition">
+                       <img
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full my-5 rounded-lg"
+                        />
                       <div className="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
                     </div>
                   )}

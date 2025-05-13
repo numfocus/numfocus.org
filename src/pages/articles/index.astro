@@ -1,18 +1,17 @@
 ---
+import { getImage } from 'astro:assets';
 import ArticleGrid from '@components/ArticleGrid';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
-import { readItems, readSingleton } from '@directus/sdk';
+import { readSingleton } from '@directus/sdk';
 import ArticleGridLayout from '@layouts/ArticleGridLayout.astro';
 import { getArticlesMeta } from '@utils/getArticlesMeta';
 import directus from '../../../lib/directus';
 
-
-import { Image, Picture } from 'astro:assets';
 import getAssetUrl from '@utils/getAssetUrl';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import type { Article } from 'env';
+import type { CardMeta } from 'env';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -22,6 +21,24 @@ const pageHero = await getPageHero(slug);
 const pageSeo = await getPageSeo(slug);
 const articles = await getArticlesMeta();
 
+const imagePromises = articles.map(({ image, ...rest }) => {
+  return new Promise((resolve) => {
+    getImage({
+      src: getAssetUrl(image),
+      width: 400,
+      height: 200,
+      fit: 'cover',
+    }).then((fetchedImage) =>
+      resolve({
+        image: fetchedImage?.src,
+        ...rest,
+      })
+    );
+  });
+});
+
+const articlesWithImages = await Promise.all(imagePromises);
+
 ---
 
 <ArticleGridLayout
@@ -30,6 +47,6 @@ const articles = await getArticlesMeta();
 >
   <Hero pageHero={pageHero} />
   <Container>
-    <ArticleGrid articles={articles} client:load />
+    <ArticleGrid articles={articlesWithImages as CardMeta[]} client:load />
   </Container>
 </ArticleGridLayout>

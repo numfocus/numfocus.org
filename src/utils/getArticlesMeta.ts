@@ -31,8 +31,8 @@ export async function getArticlesMeta() {
     content: res.hero[0].item.content,
     date: new Date(res.date_created),
     image: res.hero[0].item.image
-      ? `${directusAssetUrl}/${res.hero[0].item.image}`
-      : `${directusAssetUrl}/${general.seo.og_image}`,
+      ? `${res.hero[0].item.image}`
+      : `${general.seo.og_image}`,
   }));
 
   return articles;
