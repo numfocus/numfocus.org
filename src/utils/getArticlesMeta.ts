@@ -20,6 +20,7 @@ export async function getArticlesMeta() {
         'hero.item.image',
         'date_created',
       ],
+      sort: ['-date_created']
     })
   );
   const articles: CardMeta[] = responses.map((res) => ({

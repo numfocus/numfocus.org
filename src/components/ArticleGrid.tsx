@@ -42,7 +42,6 @@ export default function ArticleGrid({
       ))
   }, [articles, activeTab]);
   
-  console.log(activeTab)
 
   return (
     <div className="bg-white">
