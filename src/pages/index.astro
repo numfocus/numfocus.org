@@ -21,6 +21,10 @@ const projects: Project[] = await getCollection('projects');
 const content = await getHomePageContent();
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
+const filteredProjects = projects.filter((project) =>
+  content.homepageProjects.includes(project.id)
+);
+
 const seo: Seo = {
   title: global.seo.title,
   meta_description: global.seo.meta_description,
@@ -108,7 +112,7 @@ const seo: Seo = {
         </div>
       )
     }
-    <div class="projects-container relative z-10">
+    <div class="projects-container relative z-10 inset-shadow-sm">
       <Container>
         <div class="p-8">
           <div class="my-6 inline-flex items-center gap-6">
@@ -126,7 +130,7 @@ const seo: Seo = {
               arrow="right"
             />
           </div>
-          <ProjectCarousel projects={projects} client:load />
+          <ProjectCarousel projects={filteredProjects} client:load />
         </div>
       </Container>
     </div>
@@ -146,7 +150,9 @@ const seo: Seo = {
     </div>
     <div class="relative featured-article-container top-48">
       <Container>
-        <div class="relative overflow-hidden p-8 bg-brand-gray-light">
+        <div
+          class="relative overflow-hidden p-8 bg-brand-gray-light rounded-sm border-brand-gray shadow-sm"
+        >
           <div class="py-10 lg:flex">
             <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
               <div class="">

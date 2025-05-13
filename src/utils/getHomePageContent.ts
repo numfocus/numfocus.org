@@ -26,6 +26,7 @@ export default async function getHomePageContent() {
         'projects_background',
         'featured_article_background',
         'featured_article',
+        'featured_projects.*',
       ],
     })
   );
@@ -48,7 +49,7 @@ export default async function getHomePageContent() {
     background_image: content.featured_article_background,
   };
 
-  console.log(featuredArticle);
+  // console.log(featuredArticle);
 
   const featuredLinks = content.featured_links.map(
     ({ block_link_id }: { block_link_id: LinkType }) => block_link_id
@@ -77,6 +78,12 @@ export default async function getHomePageContent() {
     items: customContentBlockItems,
   };
 
+  const featuredProjects: string[] = content.featured_projects.map(
+    ({ item }: { item: string }) => item
+  );
+
+  console.log(featuredProjects);
+
   const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
     (button: any) => ({
       link: button.block_button_id.link,
@@ -96,6 +103,7 @@ export default async function getHomePageContent() {
     customContentBlock,
     projects_background_image: content.projects_background,
     featuredArticle,
+    homepageProjects: featuredProjects,
   };
 
   return homepageContent;

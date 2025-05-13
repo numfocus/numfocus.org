@@ -199,6 +199,7 @@ export type HomepageContent = {
   customContentBlock: CustomContentBlock;
   projects_background_image: string;
   featuredArticle: FeaturedArticle;
+  homepageProjects: string[];
 };
 
 export type Seo = {
