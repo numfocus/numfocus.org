@@ -7,7 +7,7 @@ import NumLogo from '@assets/icons/logo_white.svg';
 import FooterBadge from '@assets/images/guidestar_badge.svg';
 import { FooterMenu } from '@components/Atoms/Menus';
 import Container from '@components/Container.astro';
-import SubscribeForm from '@components/SubscribeForm';
+import NewsletterSignup from '@components/NewsletterSignup';
 import getMenuItems from '@utils/getMenuItems';
 
 const global = await directus.request(readSingleton('General'));
@@ -58,14 +58,10 @@ const footerSectionStyle =
         </div>
       </div>
       <div class={twMerge(footerSectionStyle, `flex-col md:flex-row`)}>
-        <div>
-          <p class="font-bold pb-4">{newsletter.title}</p>
-          <p>
-            {newsletter.description}
-          </p>
-        </div>
-        <SubscribeForm
-          subscribeButton={newsletter.subscribe_button[0]}
+        <NewsletterSignup
+          title={newsletter.title}
+          description={newsletter.description}
+          button={newsletter.subscribe_button[0]}
           client:load
         />
       </div>
