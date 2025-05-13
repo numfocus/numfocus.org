@@ -1,5 +1,4 @@
 ---
-import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
@@ -59,8 +58,7 @@ const pageSeo = await getPageSeo(page.slug);
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
-  <Breadcrumbs parent={page.parent} />
-  <Hero pageHero={pageHero} />
+  <Hero pageHero={pageHero} parent={page.parent} />
   {
     !!page.body_content && (
       <div>

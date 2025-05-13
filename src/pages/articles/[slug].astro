@@ -1,13 +1,12 @@
 ---
 import Button from '@components/Atoms/Button';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import { readItems } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
-import getPageStub from '@utils/getPageStub'
+import getPageStub from '@utils/getPageStub';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 import directus from '../../../lib/directus';
@@ -15,7 +14,6 @@ import directus from '../../../lib/directus';
 const parent = await getPageStub('articles');
 
 export async function getStaticPaths() {
-
   const pages = await directus.request(
     readItems('articles', {
       fields: [
@@ -47,7 +45,6 @@ export async function getStaticPaths() {
 }
 
 const page = Astro.props;
-
 ---
 
 <SingleArticleLayout
@@ -58,7 +55,6 @@ const page = Astro.props;
     og_image: page.seo?.og_image,
   }}
 >
-  <Breadcrumbs parent={parent as Page} />
   <Hero
     pageHero={{
       id: page.id,
@@ -66,9 +62,11 @@ const page = Astro.props;
       headline: page.hero[0].item.heading,
       rich_text: page.hero[0].item.content,
       image: page.hero[0].item.image,
+      hero_style: 'light',
     }}
+    parent={parent as Page}
   />
-  <div class="overflow-auto">
+  <div class="mt-24 overflow-auto">
     <TipTapRender handlers={BodyContent} node={page.body_content} />
   </div>
 </SingleArticleLayout>

@@ -44,7 +44,6 @@ const peopleWithImages = await Promise.all(imagePromises);
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
-  <Breadcrumbs parent={parent as Page} />
-  <Hero pageHero={pageHero} />
+  <Hero pageHero={pageHero} parent={parent as Page} />
   <PersonGrid people={peopleWithImages as Person[]} client:load />
 </BaseLayout>

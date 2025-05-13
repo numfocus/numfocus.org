@@ -1,28 +1,32 @@
 ---
 import Container from '@components/Container.astro';
 import type { Page } from 'env';
+import { ArrowLeft } from 'lucide-react';
 import Button from './Atoms/Button';
-
+import Link from './Atoms/Link';
 interface Props {
   parent?: Page;
 }
 
 const { parent } = Astro.props;
-
 ---
-{(!!parent) &&
-  <Container removeMargins>
-    <Button 
-      button={{
-        style: 'light',
-        variant: 'default',
-        link: {
+
+{
+  !!parent && (
+    <span class="inset-shadow-xs hover:inset-shadow-sm inline-flex flex-row w-auto place-items-center rounded-md bg-gray-50 p-2 transition group text-xs font-sans  text-brand-gray  mb-4">
+      <ArrowLeft
+        height={14}
+        className="transition inline-block group-hover:-translate-x-1"
+      />
+      <Link
+        link={{
           text: `Back to ${parent.title}`,
           type_of_link: 'internal',
-          internal_link: [ { item: parent }]
-        }
-      }}
-      arrow="left"
-    />
-  </Container>
+          internal_link: [{ item: parent }],
+        }}
+      >
+        Back to {parent.title}
+      </Link>
+    </span>
+  )
 }
