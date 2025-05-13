@@ -1,20 +1,30 @@
 ---
-import { Icon } from 'astro-icon/components';
+import directus from '@directus/directus';
+import { readSingleton } from '@directus/sdk';
 
-import Container from "./Container.astro"
+import Social from '@components/Atoms/Social';
+import type { SocialsType } from 'env';
+import Container from "./Container.astro";
+
+const socialMedia = await directus.request(
+  readSingleton('social_media')
+);
+
+console.log(socialMedia)
 
 ---
 
 <div class="bg-green-50 px-8 py-10 md:p-12 text-center">
-  <Container>
+  <Container removeMargins>
     <div>
-      <h3 class="pb-8">Follow us on social media</h3>
-      <p>Follow us on social media to get fast updates on NumFOCUS’s projects, programs and activity Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation .</p>
+      <h3 class="pb-8">{socialMedia.title}</h3>
+      <p>{socialMedia.description}</p>
       <div class="flex mt-8 justify-around">
         <div class="flex gap-6 text-3xl">
-          <a class="logo" aria-label="facebook" href="/">
-            <Icon name="facebook" class="hover:opacity-50 transition-opacity" />
-          </a>
+          {socialMedia.platforms.map((social: SocialsType) => (
+            <Social key={social.platform} social={social} />
+          ))}
+<!--           
           <a class="logo" aria-label="instagram" href="/">
             <Icon name="instagram" class="hover:opacity-50 transition-opacity" />
           </a>
@@ -26,7 +36,7 @@ import Container from "./Container.astro"
           </a>
           <a class="logo" aria-label="youtube" href="/">
             <Icon name="youtube" class="hover:opacity-50 transition-opacity" />
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
