@@ -92,13 +92,12 @@ export default function ArticleGrid({
                     </button>
                   ))
                 }
-                {/* <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
               </nav>
             </div>
           </div>
         </div>
         <div
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 sm:grid-cols-2 sm:mx-0 sm:max-w-none lg:grid-cols-3"
         >
           {
             filteredArticles.map((article) => (
@@ -121,7 +120,7 @@ export default function ArticleGrid({
                   )}
                 </Link>
                 <div className="mt-4 flex items-center gap-x-4 text-xs">
-                  <time datetime="2020-03-16" className="text-gray-500">
+                  <time className="text-gray-500">
                     {article.date.toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
