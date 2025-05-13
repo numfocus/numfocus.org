@@ -1,16 +1,21 @@
 ---
 import Button from '@components/Atoms/Button';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import { readItems } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
+import getPageStub from '@utils/getPageStub'
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 import directus from '../../../lib/directus';
 
+const parent = await getPageStub('articles');
+
 export async function getStaticPaths() {
+
   const pages = await directus.request(
     readItems('articles', {
       fields: [
@@ -53,20 +58,7 @@ const page = Astro.props;
     og_image: page.seo?.og_image,
   }}
 >
-  <Container removeMargins>
-    <Button
-      button={{
-        style: 'light',
-        variant: 'default',
-        link: {
-          text: `Back to Articles`,
-          type_of_link: 'internal',
-          slug: 'articles'
-        }
-      }}
-      arrow="left"
-    />
-  </Container>
+  <Breadcrumbs parent={parent as Page} />
   <Hero
     pageHero={{
       id: page.id,

@@ -4,11 +4,10 @@ import type { Page } from 'env';
 import Button from './Atoms/Button';
 
 interface Props {
-  page: Page;
+  parent?: Page;
 }
 
-const { page } = Astro.props;
-const { parent } = page;
+const { parent } = Astro.props;
 
 ---
 {(!!parent) &&

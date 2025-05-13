@@ -1,5 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import PersonGrid from '@components/PersonGrid/PersonGrid';
@@ -9,8 +10,10 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import getAssetUrl from '@utils/getAssetUrl';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import type { Person } from 'env';
+import getPageStub from '@utils/getPageStub';
+import type { Page, Person } from 'env';
 
+const parent = await getPageStub('about');
 const people = await directus.request(readItems('people'));
 
 const global = await directus.request(readSingleton('General'));
@@ -41,6 +44,7 @@ const peopleWithImages = await Promise.all(imagePromises);
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
+  <Breadcrumbs parent={parent as Page} />
   <Hero pageHero={pageHero} />
   <PersonGrid people={peopleWithImages as Person[]} client:load />
 </BaseLayout>

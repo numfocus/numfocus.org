@@ -59,7 +59,7 @@ const pageSeo = await getPageSeo(page.slug);
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
-  <Breadcrumbs page={page as Page} />
+  <Breadcrumbs parent={page.parent} />
   <Hero pageHero={pageHero} />
   {
     !!page.body_content && (
