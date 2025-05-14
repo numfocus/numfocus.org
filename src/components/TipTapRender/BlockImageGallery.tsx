@@ -3,18 +3,16 @@ import type { Image } from 'env';
 interface Props {
   images: Image[];
 }
-import { getImage } from 'astro:assets';
 import Dialog from '@components/Atoms/Dialog';
-import getAssetUrl from '@utils/getAssetUrl';
 import { useState } from 'react';
 
 export default function BlockImageGallery({ images }: Props) {
   const [expandedImage, setExpandedImage] = useState<Image | undefined>();
-  // console.log(images);
 
   return (
-    <>
-      <div className="mx-auto my-8 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+    <div className="my-24">
+      <h1 className="text-center text-3xl font-semibold">Image Gallery</h1>
+      <div className="my-12 columns-3xs gap-4 px-4">
         {images.map((image) => (
           <div
             key={image.id}
@@ -40,17 +38,23 @@ export default function BlockImageGallery({ images }: Props) {
       <Dialog
         open={!!expandedImage}
         onClose={() => setExpandedImage(undefined)}
+        className="h-fit w-fit border border-gray-400 bg-white/60 p-2"
       >
         {!!expandedImage && (
-          <img
-            src={expandedImage.id}
-            alt={expandedImage.title}
-            height={300}
-            width={300}
-            className="mb-4 rounded-sm border border-transparent transition hover:border-gray-300 hover:shadow-lg"
-          />
+          <>
+            <img
+              src={expandedImage.id}
+              alt={expandedImage.title}
+              className="rounded-md object-contain"
+            />
+            {expandedImage.description && (
+              <p className="mt-2 font-sans text-xs">
+                {expandedImage.description}
+              </p>
+            )}
+          </>
         )}
       </Dialog>
-    </>
+    </div>
   );
 }

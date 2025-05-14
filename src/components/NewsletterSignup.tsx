@@ -6,8 +6,8 @@ export default function NewsletterSignup({
   description,
   button,
 }: {
-  title: string,
-  description: string
+  title: string;
+  description: string;
   button: ButtonType;
 }) {
   const onSubmit = (formData: FormData) => {
@@ -19,19 +19,14 @@ export default function NewsletterSignup({
     <>
       <div>
         <h5 className="pb-4">{title}</h5>
-        <p>
-          {description}
-        </p>
+        <p>{description}</p>
       </div>
-      <form
-        action={onSubmit}
-        className="flex flex-row items-center gap-2"
-      >
+      <form action={onSubmit} className="flex flex-row items-center gap-2">
         <input
           type="email"
           name="email"
           placeholder="Enter your Email"
-          className="focus:ouline-0 min-w-70 border-2 w-full text-md rounded-sm p-2"
+          className="focus:ouline-0 min-w-70 text-md w-full rounded-sm border-2 p-2"
         />
         <Button button={button} icon="envelope" />
       </form>
