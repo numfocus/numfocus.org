@@ -15,12 +15,13 @@ const heroStyle =
   hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : 'bg-brand-gray-light';
 ---
 
-<div class="hero-container">
+<div class="hero-container inset-shadow-accent">
   <div class:list={['grid grid-cols-12 gap-6', heroStyle]}>
     <div
       class="col-start-2 lg:col-start-2 col-span-10 lg:col-span-6 mt-12 pb-12"
     >
-      <Breadcrumbs parent={parent} />
+      {parent && <Breadcrumbs parent={parent} />}
+
       <h3 class="mb-4">{hero.headline}</h3>
       <h5 class="mb-4">{hero.subheader}</h5>
       <div class:list={['prose mb-6', heroStyle]} set:html={hero.rich_text} />
