@@ -200,6 +200,7 @@ export type HomepageContent = {
   projects_background_image: string;
   featuredArticle: FeaturedArticle;
   homepageProjects: string[];
+  imageGallery: Image[];
 };
 
 export type Seo = {

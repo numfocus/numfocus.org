@@ -8,6 +8,7 @@ import type {
   FeaturedArticle,
   HomepageContent,
   HomepageStats,
+  Image,
   LinkType,
   PageHero,
 } from 'env';
@@ -27,9 +28,12 @@ export default async function getHomePageContent() {
         'featured_article_background',
         'featured_article',
         'featured_projects.*',
+        'image_gallery.*.*.*'
       ],
     })
   );
+
+  console.log(content.image_gallery)
 
   const featuredArticlePromise = await directus.request(
     readItem('articles', content.featured_article.key, {
@@ -82,7 +86,7 @@ export default async function getHomePageContent() {
     ({ item }: { item: string }) => item
   );
 
-  console.log(featuredProjects);
+  // console.log(featuredProjects);
 
   const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
     (button: any) => ({
@@ -91,6 +95,10 @@ export default async function getHomePageContent() {
       variant: button.block_button_id.variant,
     })
   );
+
+  const imageGallery = content.image_gallery[0].images.map(({ directus_files_id }: { directus_files_id: Image }) => {
+    return directus_files_id;
+  })
 
   const homepageContent: HomepageContent = {
     heroStyle: content.hero_content[0].item.hero_style,
@@ -104,6 +112,7 @@ export default async function getHomePageContent() {
     projects_background_image: content.projects_background,
     featuredArticle,
     homepageProjects: featuredProjects,
+    imageGallery
   };
 
   return homepageContent;
