@@ -2,6 +2,9 @@
 import { getImage } from 'astro:assets';
 import Hero from '@components/Hero.astro';
 import SponsorGrid from '@components/SponsorGrid/SponsorGrid';
+import { TipTapRender } from '@components/TipTapRender';
+import type { TipTapNode } from '@components/TipTapRender';
+import BodyContent from '@components/TipTapRender/BodyContent';
 import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -11,13 +14,11 @@ import getPageSeo from '@utils/getPageSeo';
 import getSponsors from '@utils/getSponsors';
 import type { Sponsor } from 'env';
 
-const slug = Astro.routePattern.substring(1);
-
 const global = await directus.request(readSingleton('General'));
 
-const pageHero = await getPageHero(slug);
-const pageSeo = await getPageSeo(slug);
-const pageContent = await getPageContent(slug);
+const pageHero = await getPageHero('membership');
+const pageSeo = await getPageSeo('membership');
+const pageContent = await getPageContent('membership');
 
 const sponsors = await getSponsors();
 ---
@@ -27,5 +28,15 @@ const sponsors = await getSponsors();
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} />
+  {
+    !!pageContent && (
+      <div>
+        <TipTapRender
+          handlers={BodyContent}
+          node={pageContent as TipTapNode}
+        />
+      </div>
+    )
+  }
   <SponsorGrid sponsors={sponsors as Sponsor[]} />
 </BaseLayout>
