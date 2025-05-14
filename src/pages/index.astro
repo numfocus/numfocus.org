@@ -15,6 +15,7 @@ import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FollowUs from '@components/FollowUs.astro';
 import BlockCustomContent from '@components/TipTapRender/BlockCustomContent';
+import BlockImageGallery from '@components/TipTapRender/BlockImageGallery';
 import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import type { Project, Seo, Sponsor } from 'env';
@@ -213,6 +214,9 @@ const seo: Seo = {
             </div>
           </div>
         </div>
+      </Container>
+      <Container>
+        <BlockImageGallery images={content.imageGallery} />
       </Container>
     </div>
   </div>

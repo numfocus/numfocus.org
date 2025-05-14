@@ -3,10 +3,11 @@ import type React from 'react';
 import type { ReactElement } from 'react';
 
 import PrettyJson from '@components/Atoms/PrettyJson';
-import type { BlockProject, CustomContentItem } from 'env';
+import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
 import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
+import BlockImageGallery from './BlockImageGallery';
 import BlockProjects from './BlockProjects';
 import BlockRelatedPage from './BlockRelatedPage';
 import BlockTOC from './BlockTOC';
@@ -233,6 +234,15 @@ const RelationBlock: NodeHandler = (props) => {
     return (
       <>
         <BlockRelatedPage page={data.page[0]} />
+      </>
+    );
+  }
+  if (attrs && attrs.collection === 'block_image_gallery') {
+    const images = data.images.map(({ directus_files_id }: { directus_files_id: Image }) => directus_files_id)
+    return (
+      <>
+        <BlockImageGallery images={images} />
+        {PrettyJson(images)}
       </>
     );
   }
