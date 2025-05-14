@@ -16,7 +16,7 @@ export default function BlockImageGallery({ images }: Props) {
         {images.map((image) => (
           <div
             key={image.id}
-            className="group relative transition"
+            className="group relative cursor-pointer transition"
             onClick={() => setExpandedImage(image)}
             onKeyDown={() => setExpandedImage(image)}
           >
