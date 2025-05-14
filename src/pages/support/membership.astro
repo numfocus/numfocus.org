@@ -11,10 +11,12 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageContent from '@utils/getPageContent';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
+import getPageStub from '@utils/getPageStub';
 import getSponsors from '@utils/getSponsors';
-import type { Sponsor } from 'env';
+import type { Page, Sponsor } from 'env';
 
 const global = await directus.request(readSingleton('General'));
+const parent = await getPageStub('support');
 
 const pageHero = await getPageHero('membership');
 const pageSeo = await getPageSeo('membership');
@@ -27,7 +29,7 @@ const sponsors = await getSponsors();
   title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
   seo={pageSeo}
 >
-  <Hero pageHero={pageHero} />
+  <Hero pageHero={pageHero} parent={parent as Page} />
   {
     !!pageContent && (
       <div>
