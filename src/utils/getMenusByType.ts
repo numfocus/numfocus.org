@@ -1,8 +1,6 @@
 import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
 
-import type { Menu } from 'env';
-
 export default async function getMenusByType(type: string) {
   const menus = await directus.request(
     readItems('Menus', {
