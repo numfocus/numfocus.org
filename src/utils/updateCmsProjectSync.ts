@@ -18,4 +18,4 @@ const directusAssetUrl = `${DIRECTUS_URL}assets/`;
 
 const projects = await directus.request(readItems('projects_sync'));
 
-console.log(projects);
+// console.log(projects);

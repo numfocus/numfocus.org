@@ -80,7 +80,6 @@ export default function ProjectGrid({
   const toggleProjectDialog = (project?: Project) => {
     const url = new URL((window as Window).location.href);
 
-    console.log(project);
     if (project) {
       url.searchParams.set('project', project.id);
     } else {

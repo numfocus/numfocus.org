@@ -1,5 +1,5 @@
 import type { Project } from 'env';
-import { Link2, MoveDiagonal, Star } from 'lucide-react';
+import { MoveDiagonal } from 'lucide-react';
 import Markdown from 'react-markdown';
 import { twMerge } from 'tailwind-merge';
 
