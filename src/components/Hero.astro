@@ -11,7 +11,8 @@ const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const { pageHero: hero, parent } = Astro.props;
 
-const heroStyle = hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : '';
+const heroStyle =
+  hero.hero_style === 'dark' ? 'bg-gray-900 text-white' : 'bg-brand-gray-light';
 ---
 
 <div class="hero-container">
