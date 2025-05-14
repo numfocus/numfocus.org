@@ -3,6 +3,7 @@ import type React from 'react';
 import type { ReactElement } from 'react';
 
 import PrettyJson from '@components/Atoms/PrettyJson';
+import fetchRemoteImages from '@utils/fetchRemoteImages';
 import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
 import BlockHero from './BlockHero';
@@ -156,12 +157,13 @@ const Passthrough: NodeHandler = (props) => {
   return <>{props.children}</>;
 };
 
-const Image: NodeHandler = (props) => {
+const TipTapImage: NodeHandler = (props) => {
   const attrs = props.node.attrs;
   return <img alt={attrs?.alt} src={attrs?.src} title={attrs?.title} />;
 };
 
-const RelationBlock: NodeHandler = (props) => {
+// TODO #56 resolve async handling of image gallery and client:load directive
+const RelationBlock: NodeHandler = async (props) => {
   const attrs = props.node.attrs;
   const data = attrs?.data;
 
@@ -238,11 +240,14 @@ const RelationBlock: NodeHandler = (props) => {
     );
   }
   if (attrs && attrs.collection === 'block_image_gallery') {
-    const images = data.images.map(({ directus_files_id }: { directus_files_id: Image }) => directus_files_id)
+    const images: Image[] = data.images.map(
+      ({ directus_files_id }: { directus_files_id: Image }) => directus_files_id
+    );
+    const localImages = await fetchRemoteImages(images);
     return (
       <>
-        <BlockImageGallery images={images} />
-        {PrettyJson(images)}
+        <BlockImageGallery images={localImages} />
+        {PrettyJson(localImages)}
       </>
     );
   }
@@ -278,7 +283,7 @@ const BodyContent: NodeHandlers = {
   paragraph: Paragraph,
   doc: Passthrough,
   hardBreak: HardBreak,
-  image: Image,
+  image: TipTapImage,
   'relation-block': RelationBlock,
   'relation-inline-block': RelationBlock,
   heading: Heading,
