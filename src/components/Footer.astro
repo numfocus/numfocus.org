@@ -8,7 +8,7 @@ import FooterBadge from '@assets/images/guidestar_badge.svg';
 import { FooterMenu } from '@components/Atoms/Menus';
 import Container from '@components/Container.astro';
 import NewsletterSignup from '@components/NewsletterSignup';
-import getMenuItems from '@utils/getMenuItems';
+import getMenusByType from '@utils/getMenusByType';
 
 const global = await directus.request(readSingleton('General'));
 const newsletter = await directus.request(
@@ -16,7 +16,7 @@ const newsletter = await directus.request(
     fields: [{ subscribe_button: ['*.*.*.*'] }, '*'],
   })
 );
-const menuItems = await getMenuItems('Navigation');
+const menus = await getMenusByType('footer');
 
 const footerSectionStyle =
   'flex flex-row justify-between gap-12 border-b-1 pb-8';
@@ -46,15 +46,9 @@ const footerSectionStyle =
         <div
           class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap"
         >
-          <FooterMenu menuItems={menuItems} menuTitle="Footer Menu 1" />
-          <FooterMenu
-            menuItems={[...menuItems].reverse().splice(1)}
-            menuTitle="Footer Menu 2"
-          />
-          <FooterMenu
-            menuItems={[...menuItems].splice(2)}
-            menuTitle="Footer Menu 3"
-          />
+          {menus.map(({ id, title, items}) => (
+            <FooterMenu key={id} menuItems={items} menuTitle={title} />
+          ))}
         </div>
       </div>
       <div class={twMerge(footerSectionStyle, `flex-col md:flex-row gap-4 md:gap-12`)}>
