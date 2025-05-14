@@ -11,6 +11,8 @@ import getHomePageContent from '@utils/getHomePageContent';
 import getSponsors from '@utils/getSponsors';
 import { ArrowRightIcon } from 'lucide-react';
 
+import fetchRemoteImages from '@utils/fetchRemoteImages';
+
 import { Picture } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FollowUs from '@components/FollowUs.astro';
@@ -36,6 +38,8 @@ const filteredProjects = projects.filter((project) =>
 );
 
 const sponsors = await getSponsors();
+
+const localImages = await fetchRemoteImages(content.imageGallery);
 
 const seo: Seo = {
   title: global.seo.title,
@@ -217,7 +221,7 @@ const seo: Seo = {
       </Container>
     </div>
   </div>
-  <BlockImageGallery images={content.imageGallery} />
+  <BlockImageGallery images={localImages} client:load />
 
   <Container>
     <div
