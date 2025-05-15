@@ -12,6 +12,7 @@ import type {
   LinkType,
   PageHero,
 } from 'env';
+import fetchRemoteImage from './fetchRemoteImage';
 
 export default async function getHomePageContent() {
   const content = await directus.request(
@@ -96,11 +97,13 @@ export default async function getHomePageContent() {
     })
   );
 
-  const imageGallery = content.image_gallery[0].images.map(
+  const imageGalleryItems = content.image_gallery[0].images.map(
     ({ directus_files_id }: { directus_files_id: Image }) => {
-      return directus_files_id;
+      return fetchRemoteImage(directus_files_id);
     }
   );
+
+  const imageGallery = await Promise.all(imageGalleryItems)
 
   const homepageContent: HomepageContent = {
     heroStyle: content.hero_content[0].item.hero_style,
