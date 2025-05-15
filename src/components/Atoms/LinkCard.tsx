@@ -11,7 +11,7 @@ export default function LinkCard(item: CustomContentItem) {
         <div className="relative h-40 w-full rounded-lg mb-6">
           {!!image && (
             <img
-              src={getAssetUrl(image.id)}
+              src={image.src}
               alt={link.text}
               className="h-full w-full rounded-lg object-cover"
             />

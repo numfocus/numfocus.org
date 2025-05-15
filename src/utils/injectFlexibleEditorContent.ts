@@ -23,7 +23,17 @@ const fetchNodeImages = async (editorNode: any) => {
 
   const newItem = item;
 
-  if (collection === 'block_hero') {
+  if (collection === 'block_custom_content_group') {
+    const itemsWImages = item.items.map(({ block_custom_content_item_id }) => {
+      return new Promise(resolve => {
+        fetchImage(block_custom_content_item_id.image).then(fetchedImage => {
+          resolve({ ...block_custom_content_item_id, image: fetchedImage });
+        })
+      })
+    })
+    
+    newItem.items = await Promise.all(itemsWImages)
+  } else if (collection === 'block_hero') {
     newItem.image = await fetchImage(item.image)
   } else if (collection === 'block_image') {
     newItem.image = await fetchImage(item.image)
