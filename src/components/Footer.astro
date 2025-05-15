@@ -46,12 +46,14 @@ const footerSectionStyle =
         <div
           class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap"
         >
-          {menus.map(({ id, title, items}) => (
-            <FooterMenu key={id} menuItems={items} menuTitle={title} />
-          ))}
+          {
+            menus.map(({ id, title, items }) => (
+              <FooterMenu key={id} menuItems={items} menuTitle={title} />
+            ))
+          }
         </div>
       </div>
-      <div class={twMerge(footerSectionStyle, `flex-col md:flex-row gap-4 md:gap-12`)}>
+      <div class={twMerge(footerSectionStyle, ``)}>
         <NewsletterSignup
           title={newsletter.title}
           description={newsletter.description}

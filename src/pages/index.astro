@@ -227,16 +227,12 @@ const seo: Seo = {
     class="bg-green-50 px-8 py-10 md:p-12 mb-24 border-brand-teal border-t-[1px] border-b-[1px] shadow-sm"
   >
     <Container removeMargins>
-      <div
-        class="flex flex-col md:flex-row text-center md:text-left justify-between gap-4 md:gap-12 pb-8"
-      >
-        <NewsletterSignup
-          title={newsletter.title}
-          description={newsletter.description}
-          button={newsletter.subscribe_button[0]}
-          client:load
-        />
-      </div>
+      <NewsletterSignup
+        title={newsletter.title}
+        description={newsletter.description}
+        button={newsletter.subscribe_button[0]}
+        client:load
+      />
     </Container>
   </div>
   <Container>
