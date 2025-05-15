@@ -69,7 +69,7 @@ const TextRender: NodeHandler = (props: NodeProps) => {
                 id={data.id}
                 author={data?.author}
                 content={data.content}
-                image={data.image?.id}
+                image={data.image}
               />
               {PrettyJson(data)}
             </>
@@ -174,7 +174,7 @@ const RelationBlock: NodeHandler = async (props) => {
           id={data.id}
           author={data.author}
           content={data.content}
-          image={data.image?.id}
+          image={data.image}
         />
         {PrettyJson(data)}
       </>

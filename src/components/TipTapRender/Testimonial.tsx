@@ -1,11 +1,12 @@
 import Container from '@components/Atoms/Container';
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+import type { Image } from 'env';
 import { Quote } from 'lucide-react';
 
 interface Props {
   id: string;
   content: string;
-  image?: string;
+  image?: Image;
   author?: string;
 }
 
@@ -28,8 +29,8 @@ export default function Testimonial({ id, content, image, author }: Props) {
         {image && (
           <div className="col-span-4 w-full md:col-span-2">
             <img
-              alt=""
-              src={`${assetBaseUrl}/${image}`}
+              alt={image.title}
+              src={image.src}
               className="rounded-sm bg-indigo-50 md:rounded-xl lg:rounded-3xl"
             />
           </div>
