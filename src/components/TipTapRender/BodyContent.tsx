@@ -217,18 +217,10 @@ const RelationBlock: NodeHandler = async (props) => {
   }
   // TODO: #52 a better solution to checking if data.items is not null
   if (data && attrs && attrs.collection === 'block_custom_content_group') {
-    const items = data.items.map(
-      ({
-        block_custom_content_item_id,
-      }: {
-        block_custom_content_item_id: CustomContentItem;
-      }) => block_custom_content_item_id
-    );
-
     return (
       <>
-        <BlockCustomContent content={{ title: data.title, items }} />
-        {PrettyJson(items)}
+        <BlockCustomContent content={data} />
+        {PrettyJson(data.items)}
       </>
     );
   }
