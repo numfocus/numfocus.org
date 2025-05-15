@@ -240,14 +240,10 @@ const RelationBlock: NodeHandler = async (props) => {
     );
   }
   if (attrs && attrs.collection === 'block_image_gallery') {
-    const images: Image[] = data.images.map(
-      ({ directus_files_id }: { directus_files_id: Image }) => directus_files_id
-    );
-    const localImages = await fetchRemoteImages(images);
     return (
       <>
-        <BlockImageGallery images={localImages} />
-        {PrettyJson(localImages)}
+        <BlockImageGallery images={data.images} />
+        {PrettyJson(data.images)}
       </>
     );
   }

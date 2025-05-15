@@ -151,7 +151,7 @@ export type BlockProject = {
 
 export type Image = {
   description: string;
-  id: string;
+  src: string;
   title: string;
 };
 
