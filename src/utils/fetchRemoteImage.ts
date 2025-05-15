@@ -3,6 +3,8 @@ import getAssetUrl from '@utils/getAssetUrl';
 import type { Image } from 'env';
 
 export default async function fetchRemoteImage(img: Image) {
+  if (!img?.id) return img;
+
   const remoteUrl = getAssetUrl(img.id);
   return new Promise<Image>((resolve) => {
     getImage({
