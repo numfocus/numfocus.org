@@ -1,4 +1,3 @@
-import getAssetUrl from '@utils/getAssetUrl';
 import type { CustomContentItem } from 'env';
 import Link from './Link';
 
