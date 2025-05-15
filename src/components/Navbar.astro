@@ -11,7 +11,7 @@ import Container from './Container.astro';
 const menu = await getMenusByType('navigation');
 const menuItems = menu[0].items;
 
-const currentPage = Astro.routePattern;
+const currentPage = Astro.url.pathname.split('/')[1];
 
 const button: but = {
   link: { text: 'Donate', slug: 'support/donate', type_of_link: 'internal' },
@@ -24,7 +24,7 @@ const commandPaletteData = getCommandPaletteData();
 
 <header class="border-0 border-b-[1px] border-teal-500">
   <Container removeMargins>
-    <div class="py-6 flex items-center justify-between gap-4">
+    <div class="py-6 flex items-center justify-between gap-4 md:gap-6">
       <a class="logo" aria-label="home" href="/">
         <Icon name="logo" class="text-5xl lg:text-5xl md:text-4xl" />
       </a>

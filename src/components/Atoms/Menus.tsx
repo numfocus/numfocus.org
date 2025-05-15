@@ -8,6 +8,8 @@ interface Props {
   currentPage: string;
 }
 export const NavMenu = ({ menuItems, currentPage }: Props) => {
+  console.log(currentPage);
+  console.log(menuItems);
   return (
     <nav className="justify-center-safe hidden w-full items-center gap-4 md:flex lg:gap-6">
       {menuItems.map(({ path, title }) => (
@@ -15,8 +17,9 @@ export const NavMenu = ({ menuItems, currentPage }: Props) => {
           key={path + title}
           href={path}
           className={twMerge(
-            'font-semi-bold block text-teal-600 transition hover:text-teal-800',
-            `${path}` === currentPage && 'text-teal-900'
+            'font-semi-bold text-brand-teal block transition hover:text-teal-800',
+            `${path.split('/')[1]}` === currentPage &&
+              'border-b-brand-teal/50 border-b-[1px]'
           )}
         >
           <span>{title}</span>
