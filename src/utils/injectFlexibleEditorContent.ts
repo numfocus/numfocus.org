@@ -1,15 +1,14 @@
 import { getImage } from 'astro:assets';
 import getAssetUrl from '@utils/getAssetUrl';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+import type { Image } from 'env';
 
 const fetchImage = async (img) => {
   const remoteUrl = getAssetUrl(img.id);
-  return new Promise((resolve) => {
+  return new Promise<Image>((resolve) => {
     getImage({
       src: remoteUrl,
-      width: 800,
-      height: 800,
-      fit: 'cover',
+      inferSize: true
     }).then((fetchedImage) =>
       resolve({
         ...img,
@@ -26,6 +25,11 @@ const fetchNodeImages = async (editorNode: any) => {
 
   if (collection === 'block_image') {
     newItem.image = await fetchImage(item.image)
+  } else if (collection === 'block_image_gallery') {
+    const fetchedImages = item.images.map(
+      ({ directus_files_id }: { directus_files_id: Image }) => fetchImage(directus_files_id)
+    )
+    newItem.images = await Promise.all(fetchedImages);
   }
 
   return ({...editorNode, item: newItem})

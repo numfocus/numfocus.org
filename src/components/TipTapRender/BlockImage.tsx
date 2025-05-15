@@ -8,7 +8,7 @@ interface Props {
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 export default function BlockImage({ alignment, image, link }: Props) {
-  const { description, id, title } = image;
+  const { description, title, src } = image;
 
   let alignStyle: string;
 
@@ -23,7 +23,7 @@ export default function BlockImage({ alignment, image, link }: Props) {
   return (
     <div className={alignStyle}>
       <img
-        src={`${assetBaseUrl}${id}`}
+        src={src}
         alt={title}
         className="overflow-hidden rounded-none md:rounded-l-2xl md:rounded-r-none"
       />

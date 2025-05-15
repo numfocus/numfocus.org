@@ -15,13 +15,13 @@ export default function BlockImageGallery({ images }: Props) {
       <div className="my-12 columns-3xs gap-4 px-4">
         {images.map((image) => (
           <div
-            key={image.id}
+            key={image.src}
             className="group relative cursor-pointer transition"
             onClick={() => setExpandedImage(image)}
             onKeyDown={() => setExpandedImage(image)}
           >
             <img
-              src={image.id}
+              src={image.src}
               alt={image.title}
               className="mb-4 rounded-sm border border-transparent transition hover:border-gray-300 hover:shadow-lg"
             />
@@ -43,7 +43,7 @@ export default function BlockImageGallery({ images }: Props) {
         {!!expandedImage && (
           <>
             <img
-              src={expandedImage.id}
+              src={expandedImage.src}
               alt={expandedImage.title}
               className="rounded-md object-contain"
             />
