@@ -67,18 +67,22 @@ export const FooterMenu = ({
   menuTitle: string;
 }) => {
   return (
-    <div>
-      <h5 className="pb-6">{menuTitle}</h5>
-      <ul>
+    <div className="col-span-1 h-full">
+      <h5 className="block pb-2 leading-tight md:leading-normal">
+        {menuTitle}
+      </h5>
+      <ul className="flex flex-col gap-1">
         {menuItems.map(({ path, title }) => (
-          <li key={`${path}-${title}`} className="pb-4">
+          <li key={`${path}-${title}`} className="pb-1">
             <a
               href={path}
               className={twMerge(
-                'font-semi-bold hover:text-brand-primary break-all text-sm transition md:text-base'
+                'font-semi-bold hover:text-brand-primary block transition'
               )}
             >
-              <span>{title}</span>
+              <span className="inline-block hyphens-auto text-pretty text-sm/tight md:text-base">
+                {title}
+              </span>
             </a>
           </li>
         ))}

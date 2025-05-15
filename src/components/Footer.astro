@@ -43,9 +43,10 @@ const footerSectionStyle =
           </div>
         </div>
 
-        <div
+        <!-- <div
           class="flex flex-row grow-1 justify-between lg:justify-around gap-8 flex-nowrap"
-        >
+        > -->
+        <div class="grid grid-cols-3 gap-4 md:gap-6">
           {
             menus.map(({ id, title, items }) => (
               <FooterMenu key={id} menuItems={items} menuTitle={title} />
