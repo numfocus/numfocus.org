@@ -3,7 +3,7 @@ import type React from 'react';
 import type { ReactElement } from 'react';
 
 import PrettyJson from '@components/Atoms/PrettyJson';
-import fetchRemoteImages from '@utils/fetchRemoteImages';
+import fetchRemoteImages from '@utils/fetchRemoteImage';
 import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
 import BlockHero from './BlockHero';

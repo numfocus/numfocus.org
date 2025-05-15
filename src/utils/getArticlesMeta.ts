@@ -1,9 +1,6 @@
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import type { CardMeta } from 'env';
-const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
-
-const directusAssetUrl = `${DIRECTUS_URL}assets/`;
 
 const general = await directus.request(readSingleton('General'));
 

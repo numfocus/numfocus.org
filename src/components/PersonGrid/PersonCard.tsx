@@ -1,5 +1,4 @@
 import Social from '@components/Atoms/Social';
-import getAssetUrl from '@utils/getAssetUrl';
 import type { Person } from 'env';
 
 export function PersonCardContent({ person }: { person: Person }) {
