@@ -25,18 +25,19 @@ const fetchNodeImages = async (editorNode: any) => {
 
   if (collection === 'block_hero') {
     newItem.image = await fetchImage(item.image)
-
   } else if (collection === 'block_image') {
     newItem.image = await fetchImage(item.image)
-
   } else if (collection === 'block_image_gallery') {
     const fetchedImages = item.images.map(
       ({ directus_files_id }: { directus_files_id: Image }) => fetchImage(directus_files_id)
     )
     newItem.images = await Promise.all(fetchedImages);
-
   } else if (collection === 'block_testimonial') {
     newItem.image = await fetchImage(item.image)
+  } else if (collection === 'block_toc') {
+    const imagePromises = item.editor_nodes?.map(fetchNodeImages)
+
+    newItem.editor_nodes = await Promise.all(imagePromises);
   }
 
   return ({...editorNode, item: newItem})
