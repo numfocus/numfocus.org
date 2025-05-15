@@ -9,13 +9,13 @@ interface Props {
 }
 export const NavMenu = ({ menuItems, currentPage }: Props) => {
   return (
-    <nav className="hidden w-1/2 items-center justify-around gap-2 md:flex">
+    <nav className="justify-center-safe hidden w-full items-center gap-4 md:flex lg:gap-6">
       {menuItems.map(({ path, title }) => (
         <a
           key={path + title}
           href={path}
           className={twMerge(
-            'font-semi-bold inline-block text-teal-600 transition hover:text-teal-800',
+            'font-semi-bold block text-teal-600 transition hover:text-teal-800',
             `${path}` === currentPage && 'text-teal-900'
           )}
         >

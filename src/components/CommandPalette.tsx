@@ -65,7 +65,7 @@ export default function CommandPalette({ items }: Props) {
         onKeyDown={showPalette}
       >
         <Search className="h-6 w-6" />
-        <kbd className="text-brand-gray/60 hidden font-sans text-xs lg:block">
+        <kbd className="text-brand-gray/60 hidden whitespace-nowrap font-sans text-xs lg:block">
           Ctrl K
         </kbd>
       </div>
