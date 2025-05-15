@@ -4,6 +4,7 @@ import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import getPageHero from '@utils/getPageHero';
+import { FileDown } from 'lucide-react';
 import PageLayout from '../layouts/PageLayout.astro';
 
 import {
@@ -24,51 +25,76 @@ const fileCategories = await directus.request(readItems('file_categories'));
 
 // console.log(files[0].description.blocks[0].data.text)
 
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
 const slug = Astro.routePattern.substring(1);
-const seo = await getPageSeo(slug)
-
+const seo = await getPageSeo(slug);
 
 const pageHero = await getPageHero(slug);
-
-
 ---
 
-<PageLayout title={`Documentation | ${global.site_name} - ${global.site_subheader}`} seo={seo}>
-  <Hero pageHero={pageHero}/>
-  <Container>
-
-    {
-      fileCategories.map((category) => (
-        <h2 class="text-2xl font-semibold py-2">{category.file_category}</h2>
-        <Table className='border outline-1 outline-gray-400 overflow-hidden'>
-          <TableCaption />
-          <TableHeader>
-            <TableRow>
-              <TableHead className="">Document</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Year</TableHead>
-              <TableHead className="text-right">File download</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {files.filter((e) => e.file_category === category.id).map((file) => (
-              <TableRow key={file.id} className="h-16">
-                <TableCell className="font-medium">{file.file_name}</TableCell>
-                <TableCell set:html={file.description?.blocks[0].data.text}></TableCell>
-                <TableCell>{file.year}</TableCell>
-                <TableCell className="text-right w-42">
-                  <a class="rounded bg-white px-2 py-2 my-1 text-sm font-semibold text-light-teal-500 shadow-sm ring-2 ring-inset ring-light-teal-500 hover:text-teal-500" href={`${assetBaseUrl}${file.file}?download`} target="_blank" download={file.name}>View document</a>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-
-          </TableFooter>
-        </Table>
-      ))
-    }
-  </Container>
+<PageLayout
+  title={`Documentation | ${global.site_name} - ${global.site_subheader}`}
+  seo={seo}
+>
+  <Hero pageHero={pageHero} />
+  <div class="my-24">
+    <Container>
+      {
+        fileCategories.map((category) => (
+          <div class="category-container mb-12">
+            <h2 class="text-2xl font-semibold py-2">
+              {category.file_category}
+            </h2>
+            <div
+              class="text-sm font-normal mb-4"
+              set:html={category.category_description}
+            />
+            <Table className="border outline-1 outline-gray-400 overflow-hidden">
+              <TableCaption />
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="">Document</TableHead>
+                  <TableHead>Description</TableHead>
+                  <TableHead>Year</TableHead>
+                  <TableHead className="text-right">Download</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {files
+                  .filter((e) => e.file_category === category.id)
+                  .map((file) => (
+                    <TableRow key={file.id} className="h-16">
+                      <TableCell className="font-semibold">
+                        {file.file_name}
+                      </TableCell>
+                      <TableCell
+                        className="text-xs md:text-sm"
+                        set:html={file.description?.blocks[0].data.text}
+                      />
+                      <TableCell>{file.year}</TableCell>
+                      <TableCell className="text-right ">
+                        <a
+                          class="flex place-content-center w-full  text-brand-teal hover:text-teal-800  transition"
+                          href={`${assetBaseUrl}${file.file}?download`}
+                          target="_blank"
+                          download={file.name}
+                        >
+                          <FileDown
+                            height={28}
+                            width={28}
+                            className="text-right"
+                          />
+                        </a>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+              <TableFooter></TableFooter>
+            </Table>
+          </div>
+        ))
+      }
+    </Container>
+  </div>
 </PageLayout>
