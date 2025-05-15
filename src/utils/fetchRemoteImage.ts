@@ -2,7 +2,7 @@ import { getImage } from 'astro:assets';
 import getAssetUrl from '@utils/getAssetUrl';
 import type { Image } from 'env';
 
-export default async function fetchRemoteImage(img: Image & { id: string }) {
+export default async function fetchRemoteImage(img: Image & { id?: string }) {
   if (!img?.id) return img;
 
   const remoteUrl = getAssetUrl(img.id);

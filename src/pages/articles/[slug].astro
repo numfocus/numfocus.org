@@ -8,6 +8,7 @@ import directus from '@directus/directus';
 import { readItem, readItems, withToken } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import getPageStub from '@utils/getPageStub';
+import hydrateFlexibleEditorContent from '@utils/hydrateFlexibleEditorContent';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 
@@ -36,15 +37,18 @@ export async function getStaticPaths() {
     })
   );
 
-  const cleanPosts = posts.map((post) => {
-    injectDataIntoContent(post.editor_nodes, post.body_content);
+  const cleanPostsPromises = posts.map(async (post) => {
+    const editorNodes = await hydrateFlexibleEditorContent(post);
+    injectDataIntoContent(editorNodes, post.body_content);
 
     return post;
   });
 
-  return cleanPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
+  const cleanPosts = await Promise.all(cleanPostsPromises)
+
+  return cleanPosts.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
   }));
 }
 

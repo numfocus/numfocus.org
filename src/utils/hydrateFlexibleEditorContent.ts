@@ -45,9 +45,7 @@ const fetchNodeImages = async (editorNode: any) => {
 export default async function hydrateFlexibleEditorContent(page: any) {
   const imagePromises = page.editor_nodes?.map(fetchNodeImages)
 
-  const newEditorNodes = await Promise.all(imagePromises)
-    
-  const cleanPage = injectDataIntoContent(newEditorNodes, page.body_content);
-
-  return cleanPage
+  const editorNodes = await Promise.all(imagePromises)
+  
+  return editorNodes;
 }
