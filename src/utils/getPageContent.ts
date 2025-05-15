@@ -1,6 +1,6 @@
 import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
-import injectFlexibleEditorContent from './injectFlexibleEditorContent';
+import hydrateFlexibleEditorContent from './hydrateFlexibleEditorContent';
 
 export default async function getPageContent(slug: string) {
   const result = await directus.request(
@@ -17,13 +17,13 @@ export default async function getPageContent(slug: string) {
         'body_content',
         'editor_nodes.id',
         'editor_nodes.collection',
-        { editor_nodes: ['*.*.*.*.*.*'] },
+        { editor_nodes: ['*.*.*.*.*.*.*.*'] },
       ],
     })
   );
   const page = result?.[0];
 
   if (page) {
-    return await injectFlexibleEditorContent(page)
+    return await hydrateFlexibleEditorContent(page)
   }
 }

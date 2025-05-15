@@ -1,10 +1,6 @@
-import { getImage } from 'astro:assets';
-import getAssetUrl from '@utils/getAssetUrl';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { CustomContentItem, Image } from 'env';
 import fetchRemoteImage from './fetchRemoteImage';
-
-
 
 const fetchNodeImages = async (editorNode: any) => {
   const { collection, item } = editorNode;
@@ -46,7 +42,7 @@ const fetchNodeImages = async (editorNode: any) => {
   return ({...editorNode, item: newItem})
 }
 
-export default async function injectFlexibleEditorContent(page: any) {
+export default async function hydrateFlexibleEditorContent(page: any) {
   const imagePromises = page.editor_nodes?.map(fetchNodeImages)
 
   const newEditorNodes = await Promise.all(imagePromises)
