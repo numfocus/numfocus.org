@@ -1,6 +1,5 @@
 import directus from '@directus/directus';
 import { readItem, readSingleton } from '@directus/sdk';
-import type { Link } from 'astro-seo';
 import type {
   ButtonType,
   CustomContentBlock,
@@ -10,7 +9,6 @@ import type {
   HomepageStats,
   Image,
   LinkType,
-  PageHero,
 } from 'env';
 import fetchRemoteImage from './fetchRemoteImage';
 
@@ -75,19 +73,24 @@ export default async function getHomePageContent() {
       block_custom_content_item_id,
     }: {
       block_custom_content_item_id: CustomContentItem;
-    }) => block_custom_content_item_id
+    }) => {
+      return new Promise(resolve => {
+        const { image, ...rest } = block_custom_content_item_id;
+        fetchRemoteImage(image).then(fetchedImage => {
+          resolve({ ...rest, image: fetchedImage })
+        });
+      })
+    }
   );
 
   const customContentBlock: CustomContentBlock = {
     title: content.custom_content.title,
-    items: customContentBlockItems,
+    items: await Promise.all(customContentBlockItems),
   };
 
   const featuredProjects: string[] = content.featured_projects.map(
     ({ item }: { item: string }) => item
   );
-
-  // console.log(featuredProjects);
 
   const buttons: ButtonType[] = content.hero_content[0].item.buttons.map(
     (button: any) => ({
