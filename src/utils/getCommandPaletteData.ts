@@ -37,41 +37,47 @@ const pages = await directus.request(
   })
 );
 
-// and push them to allData
-for (const page of pages) {
-  console.log(page.parent)
-  const item: CommandPaletteItem = {
-    id: page.id,
-    title: page.title,
-    path: getPagePath(page as Page),
-    description: page.headline,
-    category: 'Pages',
-    img: `${directusAssetUrl}/${page.image}?width=100`,
-  };
-  allData.push(item);
-}
+const pagesWithImages = await Promise.all(
+  pages.map((page) => (
+    new Promise<CommandPaletteItem>(resolve => {
+      fetchRemoteImageById(page.image, { width: 100, height: 100 }).then(fetchedImage => {
+        const item: CommandPaletteItem = {
+          id: page.id,
+          title: page.title,
+          path: getPagePath(page as Page),
+          description: page.headline,
+          category: 'Pages',
+          img: fetchedImage.src
+        }
+
+        resolve(item);
+      })
+    })
+  ))
+)
 
 const articles = await getArticlesMeta();
 
-const imagePromises = articles.map(({ id, heading, slug, image}) => (
-  new Promise<CommandPaletteItem>(resolve => {
-    fetchRemoteImageById(image, { width: 100, height: 100 }).then(fetchedImage => {
-      const item: CommandPaletteItem = {
-        id,
-        title: heading,
-        path: slug,
-        category: 'Articles',
-        img: fetchedImage.src
-      }
+const articlesWithImages = await Promise.all(
+  articles.map(({ id, heading, slug, image}) => (
+    new Promise<CommandPaletteItem>(resolve => {
+      fetchRemoteImageById(image, { width: 100, height: 100 }).then(fetchedImage => {
+        const item: CommandPaletteItem = {
+          id,
+          title: heading,
+          path: slug,
+          category: 'Articles',
+          img: fetchedImage.src
+        }
 
-      resolve(item);
+        resolve(item);
+      })
     })
-  })
-))
+  ))
+)
 
-const articlesWithImages = await Promise.all(imagePromises);
 
-allData = allData.concat(articlesWithImages)
+allData = [...allData, ...pagesWithImages, ...articlesWithImages]
 
 
 export default function getCommandPaletteData() {
