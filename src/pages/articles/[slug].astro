@@ -4,17 +4,21 @@ import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
-import { readItems } from '@directus/sdk';
+import directus from '@directus/directus';
+import { readItem, readItems, withToken } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import getPageStub from '@utils/getPageStub';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
-import directus from '../../../lib/directus';
 
 const parent = await getPageStub('articles');
 
+// TODO: explore live preview -- https://directus.io/docs/tutorials/getting-started/implementing-live-preview-in-astro
+// this prerender is prerequisite for live preview
+// export const prerender = false;
+
 export async function getStaticPaths() {
-  const pages = await directus.request(
+  const posts = await directus.request(
     readItems('articles', {
       fields: [
         'id',
@@ -32,17 +36,56 @@ export async function getStaticPaths() {
     })
   );
 
-  const cleanPages = pages.map((page) => {
-    injectDataIntoContent(page.editor_nodes, page.body_content);
+  const cleanPosts = posts.map((post) => {
+    injectDataIntoContent(post.editor_nodes, post.body_content);
 
-    return page;
+    return post;
   });
 
-  return cleanPages.map((page) => ({
-    params: { slug: page.slug },
-    props: page,
+  return cleanPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
   }));
 }
+
+// this block is live preview content from Directus blog, adapted to our needs
+// const params = Astro.url.searchParams;
+// const preview = params.get('preview');
+// const id = Astro.url.pathname.split('/').pop();
+// const token = params.get('token');
+// const version = params.get('version');
+
+// console.log(id);
+// console.log(Astro.url.searchParams.get('test'));
+
+// let page: { [x: string]: any } = {};
+// if (preview) {
+//   const page = async () => {
+//     const payload = await directus.request(
+//       readItem('articles', id as string, {
+//         fields: [
+//           'id',
+//           'title',
+//           'slug',
+//           'body_content',
+//           'editor_nodes.id',
+//           'editor_nodes.collection',
+//           'hero.item.heading',
+//           'hero.item.content',
+//           'hero.item.image',
+//           'seo',
+//           { editor_nodes: ['*.*.*.*'] },
+//         ],
+//         ...(version && { version }),
+//       })
+//     );
+//     injectDataIntoContent(payload.editor_nodes, payload.body_content);
+//     return payload;
+//   };
+//   console.log(page);
+// } else {
+//   page = Astro.props;
+// }
 
 const page = Astro.props;
 ---
@@ -51,8 +94,8 @@ const page = Astro.props;
   title={page.title}
   seo={{
     title: page.seo?.title || page.title,
-    meta_description: page.seo?.meta_description,
-    og_image: page.seo?.og_image,
+    meta_description: page.seo?.meta_description || '',
+    og_image: page.seo?.og_image || '',
   }}
 >
   <Hero
