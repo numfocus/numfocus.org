@@ -4,12 +4,12 @@ import { readItems } from '@directus/sdk';
 import { getArticlesMeta } from './getArticlesMeta';
 import getPagePath from './getPagePath';
 
-import type { CommandPaletteItem, Page } from 'env';
+import type { CommandPaletteItem, Page, Person } from 'env';
 import { fetchRemoteImageById } from './fetchRemoteImage';
+import getPeople from './getPeople';
 
 const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
 
-const directusAssetUrl = `${DIRECTUS_URL}assets/`;
 
 // we create our main object as qn empty array
 let allData: CommandPaletteItem[] = [];
@@ -22,7 +22,7 @@ for (const project of projects) {
   const item: CommandPaletteItem = {
     id: project.id,
     title: project.data.name,
-    path: `/projects/?project=${project.id}`,
+    path: `projects/?project=${project.id}`,
     category: project.collection,
     description: project.data.short_description,
     img: project.data.logo.src,
@@ -76,8 +76,18 @@ const articlesWithImages = await Promise.all(
   ))
 )
 
+const people: Person[] = await getPeople();
 
-allData = [...allData, ...pagesWithImages, ...articlesWithImages]
+const peoplePaletteItems: CommandPaletteItem[] = people.map(({ id, first_name, last_name, title, image }) => ({
+  id: `${id}`,
+  title: `${first_name} ${last_name}`,
+  path: 'about/people',
+  category: 'People',
+  description: title,
+  img: image
+}));
+
+allData = [...allData, ...pagesWithImages, ...articlesWithImages, ...peoplePaletteItems]
 
 
 export default function getCommandPaletteData() {

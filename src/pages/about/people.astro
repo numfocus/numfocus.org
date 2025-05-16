@@ -1,7 +1,5 @@
 ---
 import { getImage } from 'astro:assets';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
-import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import PersonGrid from '@components/PersonGrid/PersonGrid';
 import directus from '@directus/directus';
@@ -11,33 +9,21 @@ import getAssetUrl from '@utils/getAssetUrl';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 import getPageStub from '@utils/getPageStub';
+import getPeople from '@utils/getPeople';
+
 import type { Page, Person } from 'env';
 
 const parent = await getPageStub('about');
-const people = await directus.request(readItems('people'));
 
 const global = await directus.request(readSingleton('General'));
 
 const pageHero = await getPageHero('people');
 const pageSeo = await getPageSeo('people');
 
-const imagePromises = people.map(({ image, ...rest }) => {
-  return new Promise((resolve) => {
-    getImage({
-      src: getAssetUrl(image),
-      width: 200,
-      height: 200,
-      fit: 'cover',
-    }).then((fetchedImage) =>
-      resolve({
-        image: fetchedImage?.src,
-        ...rest,
-      })
-    );
-  });
-});
+const people = await getPeople();
 
-const peopleWithImages = await Promise.all(imagePromises);
+// console.log(peopleWithImages)
+
 ---
 
 <BaseLayout
@@ -45,5 +31,5 @@ const peopleWithImages = await Promise.all(imagePromises);
   seo={pageSeo}
 >
   <Hero pageHero={pageHero} parent={parent as Page} />
-  <PersonGrid people={peopleWithImages as Person[]} client:load />
+  <PersonGrid people={people as Person[]} client:load />
 </BaseLayout>
