@@ -8,8 +8,6 @@ interface Props {
   currentPage: string;
 }
 export const NavMenu = ({ menuItems, currentPage }: Props) => {
-  console.log(currentPage);
-  console.log(menuItems);
   return (
     <nav className="justify-center-safe hidden w-full items-center gap-4 md:flex lg:gap-6">
       {menuItems.map(({ path, title }) => (
