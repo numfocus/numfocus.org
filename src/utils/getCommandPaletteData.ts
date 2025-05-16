@@ -4,13 +4,14 @@ import { readItems } from '@directus/sdk';
 import { getArticlesMeta } from './getArticlesMeta';
 
 import type { CommandPaletteItem } from 'env';
+import fetchRemoteImage from './fetchRemoteImage';
 
 const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
 
 const directusAssetUrl = `${DIRECTUS_URL}assets/`;
 
 // we create our main object as qn empty array
-const allData: CommandPaletteItem[] = [];
+let allData: CommandPaletteItem[] = [];
 
 // we pull local Astro content for projects
 const projects = await getCollection('projects');
@@ -65,16 +66,27 @@ for (const page of pages) {
 // }
 
 const articles = await getArticlesMeta();
-for (const article of articles) {
-  const item: CommandPaletteItem = {
-    id: article.id,
-    title: article.heading,
-    path: article.slug,
-    category: 'Articles',
-    img: `${article.image}?width=100`,
-  };
-  allData.push(item);
-}
+
+const imagePromises = articles.map(({ id, heading, slug, image}) => (
+  new Promise<CommandPaletteItem>(resolve => {
+    fetchRemoteImage({ id: image }).then(fetchedImage => {
+      const item: CommandPaletteItem = {
+        id,
+        title: heading,
+        path: slug,
+        category: 'Articles',
+        img: fetchedImage.src
+      }
+
+      resolve(item);
+    })
+  })
+))
+
+const articlesWithImages = await Promise.all(imagePromises);
+
+allData = allData.concat(articlesWithImages)
+
 
 export default function getCommandPaletteData() {
   return allData;

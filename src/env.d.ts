@@ -153,6 +153,7 @@ export type Image = {
   description: string;
   src: string;
   title: string;
+  id?: string;
 };
 
 type HomepageStats = {
