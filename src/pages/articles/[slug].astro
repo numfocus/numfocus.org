@@ -7,8 +7,8 @@ import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import directus from '@directus/directus';
 import { readItem, readItems, withToken } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
 import getPageStub from '@utils/getPageStub';
-import hydrateFlexibleEditorContent from '@utils/hydrateFlexibleEditorContent';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
   );
 
   const cleanPostsPromises = posts.map(async (post) => {
-    const editorNodes = await hydrateFlexibleEditorContent(post);
+    const editorNodes = await fetchFlexibleEditorImages(post);
     injectDataIntoContent(editorNodes, post.body_content);
 
     return post;
@@ -46,9 +46,9 @@ export async function getStaticPaths() {
 
   const cleanPosts = await Promise.all(cleanPostsPromises)
 
-  return cleanPosts.map((page) => ({
-    params: { slug: page.slug },
-    props: page,
+  return cleanPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
   }));
 }
 
