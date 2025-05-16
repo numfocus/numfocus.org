@@ -1,7 +1,7 @@
 import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-import fetchFlexibleEditorImages from './fetchFlexibleEditorImages';
 
 export default async function getPageContent(slug: string) {
   const result = await directus.request(
