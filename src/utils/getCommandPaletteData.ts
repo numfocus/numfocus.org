@@ -81,7 +81,7 @@ const people: Person[] = await getPeople();
 const peoplePaletteItems: CommandPaletteItem[] = people.map(({ id, first_name, last_name, title, image }) => ({
   id: `${id}`,
   title: `${first_name} ${last_name}`,
-  path: 'about/people',
+  path: `about/people?person=${id}`,
   category: 'People',
   description: title,
   img: image

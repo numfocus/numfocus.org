@@ -1,7 +1,7 @@
 import Dialog from '@components/Atoms/Dialog';
 import groupBy from '@utils/groupBy';
 import type { Person } from 'env';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { twMerge} from 'tailwind-merge';
 import PersonCard from './PersonCard';
 import PersonDialogContent from './PersonExpandedContent';
@@ -14,6 +14,16 @@ const ROLES = [
   { id: "advisory_council", label: "Advisory Council" },
 ];
 
+
+const fetchPersonFromURL = (people: Person[]) => {
+  const url = new URL((window as Window).location.href);
+  const personId = url.searchParams.get('person');
+
+  if (personId) {
+    return people.find((p) => p.id === +personId);
+  }
+};
+
 export default function PersonGrid({
   people,
 }: {
@@ -22,6 +32,14 @@ export default function PersonGrid({
   const [expandedPerson, setExpandedPerson] = useState<Person | undefined>();
 
   const peopleByRole = groupBy(people, 'role');
+
+
+  useEffect(() => {
+    const initialExpandedPerson = fetchPersonFromURL(people);
+    if (initialExpandedPerson) {
+      setExpandedPerson(initialExpandedPerson);
+    }
+  }, [people]);
 
   return (
     <div>
