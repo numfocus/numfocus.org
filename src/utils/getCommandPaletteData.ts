@@ -5,7 +5,7 @@ import { getArticlesMeta } from './getArticlesMeta';
 import getPagePath from './getPagePath';
 
 import type { CommandPaletteItem, Page } from 'env';
-import fetchRemoteImage from './fetchRemoteImage';
+import { fetchRemoteImageById } from './fetchRemoteImage';
 
 const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
 
@@ -51,27 +51,11 @@ for (const page of pages) {
   allData.push(item);
 }
 
-// const caseStudies = await directus.request(
-//   readItems('case_studies', {
-//     fields: ['id', 'title', 'slug'],
-//   })
-// );
-
-// for (const caseStudy of caseStudies) {
-//   const item: CommandPaletteItem = {
-//     id: caseStudy.id,
-//     title: caseStudy.title,
-//     path: caseStudy.slug,
-//     category: 'Case Studies',
-//   };
-//   allData.push(item);
-// }
-
 const articles = await getArticlesMeta();
 
 const imagePromises = articles.map(({ id, heading, slug, image}) => (
   new Promise<CommandPaletteItem>(resolve => {
-    fetchRemoteImage({ id: image }).then(fetchedImage => {
+    fetchRemoteImageById(image, { width: 100, height: 100 }).then(fetchedImage => {
       const item: CommandPaletteItem = {
         id,
         title: heading,
