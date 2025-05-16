@@ -2,8 +2,9 @@ import { getCollection } from 'astro:content';
 import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
 import { getArticlesMeta } from './getArticlesMeta';
+import getPagePath from './getPagePath';
 
-import type { CommandPaletteItem } from 'env';
+import type { CommandPaletteItem, Page } from 'env';
 import fetchRemoteImage from './fetchRemoteImage';
 
 const DIRECTUS_URL = import.meta.env.DIRECTUS_URL;
@@ -32,16 +33,17 @@ for (const project of projects) {
 // we pull all pages
 const pages = await directus.request(
   readItems('pages', {
-    fields: ['id', 'title', 'slug', 'headline', 'image'],
+    fields: ['id', 'title', 'slug', 'headline', 'image', 'parent.*'],
   })
 );
 
 // and push them to allData
 for (const page of pages) {
+  console.log(page.parent)
   const item: CommandPaletteItem = {
     id: page.id,
     title: page.title,
-    path: page.slug,
+    path: getPagePath(page as Page),
     description: page.headline,
     category: 'Pages',
     img: `${directusAssetUrl}/${page.image}?width=100`,
