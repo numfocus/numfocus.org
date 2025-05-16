@@ -76,7 +76,7 @@ const articlesWithImages = await Promise.all(
   ))
 )
 
-const people: Person[] = await getPeople();
+const people = await getPeople();
 
 const peoplePaletteItems: CommandPaletteItem[] = people.map(({ id, first_name, last_name, title, image }) => ({
   id: `${id}`,

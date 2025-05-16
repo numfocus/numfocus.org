@@ -7,12 +7,12 @@ import { fetchRemoteImageById } from './fetchRemoteImage';
 export default async function getPeople() {
   const people = await directus.request(readItems('people'));
 
-  const imagePromises = people.map(({ image, ...rest }) => {
-    return new Promise((resolve) => {
-      fetchRemoteImageById(image).then((fetchedImage) =>
+  const imagePromises = (people as Person[]).map((person: Person) => {
+    return new Promise<Person>((resolve) => {
+      fetchRemoteImageById(person.image).then((fetchedImage) =>
         resolve({
+          ...person,
           image: fetchedImage?.src,
-          ...rest,
         })
       );
     });
