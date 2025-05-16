@@ -3,7 +3,7 @@ import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
-import hydrateFlexibleEditorContent from '@utils/hydrateFlexibleEditorContent';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 
 import type { TipTapNode } from '@components/TipTapRender';
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   );
 
   const cleanPagesPromises = pages.map(async (page) => {
-    const editorNodes = await hydrateFlexibleEditorContent(page);
+    const editorNodes = await fetchFlexibleEditorImages(page);
     injectDataIntoContent(editorNodes, page.body_content);
 
     return page;

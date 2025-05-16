@@ -2,7 +2,7 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import type { CustomContentItem, Image } from 'env';
 import fetchRemoteImage from './fetchRemoteImage';
 
-const fetchNodeImages = async (editorNode: any) => {
+const fetchImagesByEditorNode = async (editorNode: any) => {
   const { collection, item } = editorNode;
 
   const newItem = item;
@@ -34,7 +34,7 @@ const fetchNodeImages = async (editorNode: any) => {
     newItem.image = await fetchRemoteImage(item.image)
     
   } else if (collection === 'block_toc') {
-    const imagePromises = item.editor_nodes?.map(fetchNodeImages)
+    const imagePromises = item.editor_nodes?.map(fetchImagesByEditorNode)
 
     newItem.editor_nodes = await Promise.all(imagePromises);
   } 
@@ -42,8 +42,8 @@ const fetchNodeImages = async (editorNode: any) => {
   return ({...editorNode, item: newItem})
 }
 
-export default async function hydrateFlexibleEditorContent(page: any) {
-  const imagePromises = page.editor_nodes?.map(fetchNodeImages)
+export default async function fetchFlexibleEditorImages(page: any) {
+  const imagePromises = page.editor_nodes?.map(fetchImagesByEditorNode)
 
   const editorNodes = await Promise.all(imagePromises)
   

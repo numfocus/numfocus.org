@@ -6,8 +6,8 @@ import BodyContent from '@components/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/TipTapRender/TipTapRender';
 import { readItems } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
 import getPageStub from '@utils/getPageStub';
-import hydrateFlexibleEditorContent from '@utils/hydrateFlexibleEditorContent';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 import directus from '../../../lib/directus';
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   );
 
   const cleanPagesPromises = pages.map(async (page) => {
-    const editorNodes = await hydrateFlexibleEditorContent(page);
+    const editorNodes = await fetchFlexibleEditorImages(page);
     injectDataIntoContent(editorNodes, page.body_content);
 
     return page;

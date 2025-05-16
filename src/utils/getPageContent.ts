@@ -1,7 +1,7 @@
 import directus from '@directus/directus';
 import { readItems } from '@directus/sdk';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-import hydrateFlexibleEditorContent from './hydrateFlexibleEditorContent';
+import fetchFlexibleEditorImages from './fetchFlexibleEditorImages';
 
 export default async function getPageContent(slug: string) {
   const result = await directus.request(
@@ -25,7 +25,7 @@ export default async function getPageContent(slug: string) {
   const page = result?.[0];
 
   if (page) {
-    const editorNodes = await hydrateFlexibleEditorContent(page)
+    const editorNodes = await fetchFlexibleEditorImages(page)
     return injectDataIntoContent(editorNodes, page.body_content);
   }
 }
