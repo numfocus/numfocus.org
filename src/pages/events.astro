@@ -1,0 +1,181 @@
+---
+import Container from '@components/Container.astro';
+import Hero from '@components/Hero.astro';
+import directus from '@directus/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
+
+import type { TipTapNode } from '@components/TipTapRender';
+import BodyContent from '@components/TipTapRender/BodyContent';
+import { TipTapRender } from '@components/TipTapRender/TipTapRender';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import getPageHero from '@utils/getPageHero';
+import getPagePath from '@utils/getPagePath';
+import getPageSeo from '@utils/getPageSeo';
+import type { Page } from 'env';
+import { getImage } from 'astro:assets';
+import getAssetUrl from '@utils/getAssetUrl';
+
+const global = await directus.request(readSingleton('General'));
+
+type Event = {
+	id: string;
+	name: string;
+	description?: string;
+	image?: string;
+	start_date: Date;
+	end_date: Date;
+	url: string;
+	location: string;
+};
+
+async function getEvents() {
+	const responses = await directus.request<Event[]>(
+		readItems('events', {
+			fields: [
+				'id',
+				'name',
+				'description',
+				'image',
+				'start_date',
+				'end_date',
+				'url',
+				'location',
+			],
+			sort: ['-start_date'],
+		})
+	);
+	const events: Event[] = responses.map((res) => ({
+		id: res.id,
+		name: res.name,
+		description: res.description,
+		image: res.image,
+		start_date: new Date(res.start_date),
+		end_date: new Date(res.end_date),
+		url: res.url,
+		location: res.location,
+	}));
+
+	const imagePromises = events.map(({ image, ...rest }) => {
+		return new Promise((resolve) => {
+			getImage({
+				src: getAssetUrl(image),
+				width: 400,
+				height: 200,
+				fit: 'cover',
+			}).then((fetchedImage) =>
+				resolve({
+					image: fetchedImage?.src,
+					...rest,
+				})
+			);
+		});
+	});
+
+	const eventsWithImages = await Promise.all(imagePromises);
+	return eventsWithImages as Event[];
+}
+
+const page = Astro.props;
+
+const pageHero = await getPageHero('events');
+const pageSeo = await getPageSeo('events');
+const events = await getEvents();
+---
+
+<BaseLayout
+	title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
+>
+	<Hero pageHero={pageHero} parent={page.parent} />
+
+	<div class="bg-white py-24 sm:py-32">
+		<div class="mx-auto px-6 lg:px-8">
+			<div class="mx-auto">
+				<div
+					class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+				>
+					{
+						events.map(
+							({
+								name,
+								description,
+								image,
+								start_date,
+								end_date,
+								location,
+								url,
+							}) => (
+
+								<article class="flex flex-col items-start justify-between rounded-2xl shadow-xl">
+<a href={url}>
+									<div class="relative w-full">
+										<div class="absolute bg-white shadow-sm left-6 p-2 flex items-center">
+											<div class=" flex flex-col items-center p-4">
+                        <time datetime="2020-03-16" class="text-gray-500 uppercase">
+													{start_date.toLocaleString('en-US', {
+														month: 'short',
+													})}
+												</time>
+												<time
+													datetime="2020-03-16"
+													class="text-4xl font-semibold"
+												>
+													{start_date.toLocaleString('en-US', {
+														day: '2-digit',
+													})}
+												</time>
+
+											</div>
+											{start_date.getTime() !== end_date.getTime() && (
+                        <p class="text-4xl font-semibold mt-6">-</p>
+												<div class=" flex flex-col items-center p-4">
+                          <time datetime="2020-03-16" class="text-gray-500 uppercase">
+														{end_date.toLocaleString('en-US', {
+															month: 'short',
+														})}
+													</time>
+													<time
+														datetime="2020-03-16"
+														class="text-4xl font-semibold"
+													>
+														{end_date.toLocaleString('en-US', {
+															day: '2-digit',
+														})}
+													</time>
+
+												</div>
+											)}
+										</div>
+										<img
+											src={image}
+											alt={name}
+											class="aspect-video w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+										/>
+									</div>
+
+									<div class="max-w-xl pl-4">
+										<div class="group relative">
+											<h2 class="mt-3 text-xl/6 font-semibold text-gray-900 group-hover:text-gray-600">
+												<a href={url}>{name}</a>
+											</h2>
+											<p class="mt-2 text-sm/6 text-gray-600">{location}</p>
+											<p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+												{description}
+											</p>
+										</div>
+									</div>
+                </a>
+								</article>
+
+							)
+						)
+					}
+				</div>
+			</div>
+		</div>
+
+		<Container />
+	</div>
+</BaseLayout>
