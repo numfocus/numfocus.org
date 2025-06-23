@@ -7,7 +7,6 @@ import EventGrid from '@components/EventGrid.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
-import { getImage } from 'astro:assets';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -49,24 +48,6 @@ async function getEvents() {
 		location: res.location,
 	}));
 
-	// const imagePromises = events.map(({ image, ...rest }) => {
-	// 	return new Promise((resolve) => {
-	// 		getImage({
-	// 			src: getAssetUrl(image),
-	// 			width: 400,
-	// 			height: 200,
-	// 			fit: 'cover',
-	// 		}).then((fetchedImage) =>
-	// 			resolve({
-	// 				image: fetchedImage?.src,
-	// 				...rest,
-	// 			})
-	// 		);
-	// 	});
-	// });
-
-	// const eventsWithImages = await Promise.all(imagePromises);
-	// return eventsWithImages as Event[];
 	return events;
 }
 
@@ -76,10 +57,6 @@ const pageHero = await getPageHero('events');
 const pageSeo = await getPageSeo('events');
 const events = await getEvents();
 ---
-
-<script>
-	const today = new Date();
-</script>
 
 <BaseLayout
 	title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
