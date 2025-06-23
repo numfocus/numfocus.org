@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import getAssetUrl from '@utils/getAssetUrl';
+
 import type { Event } from 'env';
 
 interface Props {
@@ -71,9 +74,10 @@ const { events } = Astro.props;
 												</>
 											)}
 										</div>
-										<img
-											src={image}
+										<Image
+											src={getAssetUrl(image)}
 											alt={name}
+											inferSize
 											class="aspect-video w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
 										/>
 									</div>

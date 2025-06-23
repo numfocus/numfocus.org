@@ -4,12 +4,10 @@ import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import EventGrid from '@components/EventGrid.astro';
-
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 import { getImage } from 'astro:assets';
-import getAssetUrl from '@utils/getAssetUrl';
 
 const global = await directus.request(readSingleton('General'));
 
@@ -51,24 +49,25 @@ async function getEvents() {
 		location: res.location,
 	}));
 
-	const imagePromises = events.map(({ image, ...rest }) => {
-		return new Promise((resolve) => {
-			getImage({
-				src: getAssetUrl(image),
-				width: 400,
-				height: 200,
-				fit: 'cover',
-			}).then((fetchedImage) =>
-				resolve({
-					image: fetchedImage?.src,
-					...rest,
-				})
-			);
-		});
-	});
+	// const imagePromises = events.map(({ image, ...rest }) => {
+	// 	return new Promise((resolve) => {
+	// 		getImage({
+	// 			src: getAssetUrl(image),
+	// 			width: 400,
+	// 			height: 200,
+	// 			fit: 'cover',
+	// 		}).then((fetchedImage) =>
+	// 			resolve({
+	// 				image: fetchedImage?.src,
+	// 				...rest,
+	// 			})
+	// 		);
+	// 	});
+	// });
 
-	const eventsWithImages = await Promise.all(imagePromises);
-	return eventsWithImages as Event[];
+	// const eventsWithImages = await Promise.all(imagePromises);
+	// return eventsWithImages as Event[];
+	return events;
 }
 
 const page = Astro.props;
@@ -93,7 +92,6 @@ const events = await getEvents();
 				Current and Future Events
 			</h1>
 			<EventGrid
-				client:load
 				events={events
 					.filter((ev) => ev.end_date.getTime() >= new Date().getTime())
 					.sort((a, b) => a.start_date.getTime() - b.start_date.getTime())}
@@ -102,7 +100,6 @@ const events = await getEvents();
 		<div class="my-24">
 			<h1 class="text-center text-3xl font-semibold">Past Events</h1>
 			<EventGrid
-				client:load
 				events={events.filter(
 					(ev) => ev.end_date.getTime() < new Date().getTime()
 				)}
