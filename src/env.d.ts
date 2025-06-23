@@ -220,3 +220,14 @@ export type CardMeta = {
   content: string;
   date: Date;
 };
+
+export type Event = {
+  id: string;
+  name: string;
+  description?: string;
+  image?: string;
+  start_date: Date;
+  end_date: Date;
+  url: string;
+  location: string;
+};
