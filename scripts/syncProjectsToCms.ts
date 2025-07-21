@@ -149,7 +149,13 @@ async function cleanupRemovedProjects(localProjectIds: Set<string>): Promise<num
     console.log('\n🧹 Checking for removed projects...');
     
     // Get all CMS projects and find orphans
-    const allCmsProjects = await directus.request(readItems('projects_sync'));
+    const allCmsProjects = await directus.request(
+      readItems('projects_sync', {
+        limit: -1, // Fetch all records (no pagination limit)
+      })
+    );
+    
+    console.log(`   Found ${allCmsProjects.length} projects in CMS`);
     const projectsToDelete = allCmsProjects.filter(
       (project) => !localProjectIds.has(project.id)
     );
