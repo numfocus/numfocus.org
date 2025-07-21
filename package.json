@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "npx @biomejs/biome check ./src",
-    "project-sync": "npx tsx --env-file=.env ./src/utils/updateCmsProjectSync.ts"
+    "project-sync": "npx tsx ./scripts/syncProjectsToCms.ts"
   },
   "dependencies": {
     "@astrojs/netlify": "^6.3.2",
@@ -31,6 +31,7 @@
     "clsx": "^2.1.1",
     "directus-extension-flexible-editor": "^1.8.3",
     "embla-carousel-react": "^8.6.0",
+    "glob": "^11.0.0",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -40,7 +41,8 @@
     "slugify": "^1.6.6",
     "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.0.6",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "yaml": "^2.6.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
