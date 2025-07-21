@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'src/data/projects/**'
+      - 'scripts/syncProjectsToCms.ts'
   workflow_dispatch:
 
 jobs:

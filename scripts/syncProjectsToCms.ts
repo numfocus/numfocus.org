@@ -1,8 +1,13 @@
+// Sync project data from local YAML files to Directus CMS
+// Preserves CMS-only fields (isFeatured, donateLink)
+// Note: Runs as standalone Node.js script, not in Astro environment
+
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import {
   createDirectus,
   createItem,
+  deleteItem,
   readItems,
   rest,
   staticToken,
@@ -12,6 +17,7 @@ import { glob } from 'glob';
 import slugify from 'slugify';
 import { parse } from 'yaml';
 
+// Setup Directus connection
 const DIRECTUS_URL = process.env.DIRECTUS_URL ? process.env.DIRECTUS_URL : '';
 const DIRECTUS_TOKEN = process.env.DIRECTUS_TOKEN
   ? process.env.DIRECTUS_TOKEN
@@ -57,6 +63,7 @@ interface CmsProjectData {
   languages?: string[];
 }
 
+// Generate stable ID from project name
 function generateProjectId(projectName: string): string {
   const hash = createHash('md5')
     .update(projectName.toLowerCase())
@@ -66,6 +73,7 @@ function generateProjectId(projectName: string): string {
   return `${slug}-${hash}`;
 }
 
+// Load and parse YAML file into project data
 function loadProjectFromYaml(yamlPath: string): CmsProjectData | null {
   try {
     const content = readFileSync(yamlPath, 'utf-8');
@@ -77,7 +85,8 @@ function loadProjectFromYaml(yamlPath: string): CmsProjectData | null {
     }
 
     const projectName = data.name;
-    const id = generateProjectId(projectName);
+    // const id = generateProjectId(projectName);
+    const id = slugify(projectName.replace(/\/[^/]+$/, ''), { lower: true });
 
     return {
       id,
@@ -99,8 +108,10 @@ function loadProjectFromYaml(yamlPath: string): CmsProjectData | null {
   }
 }
 
+// Create or update project in CMS (preserves CMS-only fields)
 async function syncProjectToCms(projectData: CmsProjectData): Promise<boolean> {
   try {
+    // Check if project exists
     const existingProjects = await directus.request(
       readItems('projects_sync', {
         filter: { id: { _eq: projectData.id } },
@@ -109,11 +120,13 @@ async function syncProjectToCms(projectData: CmsProjectData): Promise<boolean> {
     );
 
     if (existingProjects.length > 0) {
+      // Update existing (preserves isFeatured, donateLink)
       await directus.request(
         updateItem('projects_sync', projectData.id, projectData)
       );
       console.log(`✓ Updated project: ${projectData.name}`);
     } else {
+      // Create new with default CMS-only fields
       await directus.request(
         createItem('projects_sync', {
           ...projectData,
@@ -130,9 +143,47 @@ async function syncProjectToCms(projectData: CmsProjectData): Promise<boolean> {
   }
 }
 
+// Remove CMS projects that no longer exist locally
+async function cleanupRemovedProjects(localProjectIds: Set<string>): Promise<number> {
+  try {
+    console.log('\n🧹 Checking for removed projects...');
+    
+    // Get all CMS projects and find orphans
+    const allCmsProjects = await directus.request(readItems('projects_sync'));
+    const projectsToDelete = allCmsProjects.filter(
+      (project) => !localProjectIds.has(project.id)
+    );
+
+    if (projectsToDelete.length === 0) {
+      console.log('   No projects to remove from CMS');
+      return 0;
+    }
+
+    console.log(`   Found ${projectsToDelete.length} projects to remove from CMS`);
+
+    let deleteCount = 0;
+    for (const project of projectsToDelete) {
+      try {
+        await directus.request(deleteItem('projects_sync', project.id));
+        console.log(`   ✓ Removed project: ${project.name}`);
+        deleteCount++;
+      } catch (error) {
+        console.error(`   ✗ Failed to remove project ${project.name}:`, error);
+      }
+    }
+
+    return deleteCount;
+  } catch (error) {
+    console.error('   ✗ Failed to cleanup removed projects:', error);
+    return 0;
+  }
+}
+
+// Main sync function: sync all projects and cleanup orphans
 async function syncAllProjects(): Promise<void> {
   console.log('🚀 Starting project sync...');
 
+  // Find all project YAML files
   const yamlFiles = glob.sync('src/data/projects/*/*.yaml', {
     cwd: process.cwd(),
   });
@@ -141,10 +192,13 @@ async function syncAllProjects(): Promise<void> {
 
   let successCount = 0;
   let failureCount = 0;
+  const localProjectIds = new Set<string>();
 
+  // Sync all local projects to CMS
   for (const yamlFile of yamlFiles) {
     const projectData = loadProjectFromYaml(yamlFile);
     if (projectData) {
+      localProjectIds.add(projectData.id);
       const success = await syncProjectToCms(projectData);
       if (success) {
         successCount++;
@@ -156,15 +210,22 @@ async function syncAllProjects(): Promise<void> {
     }
   }
 
+  // Remove projects from CMS that no longer exist locally
+  const deletedCount = await cleanupRemovedProjects(localProjectIds);
+
   console.log('\n📊 Sync completed:');
   console.log(`   ✓ ${successCount} projects synced successfully`);
   console.log(`   ✗ ${failureCount} projects failed`);
+  if (deletedCount > 0) {
+    console.log(`   🗑️  ${deletedCount} projects removed from CMS`);
+  }
 
   if (failureCount > 0) {
     process.exit(1);
   }
 }
 
+// Run the sync
 syncAllProjects().catch((error) => {
   console.error('💥 Sync failed:', error);
   process.exit(1);
