@@ -1,0 +1,43 @@
+name: Sync Projects to CMS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/data/projects/**'
+  workflow_dispatch:
+
+jobs:
+  sync-projects:
+    name: Sync Project Data to Directus CMS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Sync projects to CMS
+        run: npm run project-sync
+        env:
+          DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
+          DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
+          
+      - name: Report sync status
+        if: always()
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "✅ Project sync completed successfully"
+          else
+            echo "❌ Project sync failed"
+            exit 1
+          fi
