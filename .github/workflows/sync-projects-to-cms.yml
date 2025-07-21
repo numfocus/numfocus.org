@@ -28,7 +28,7 @@ jobs:
         
       - name: Create temporary .env file
         run: |
-          echo "DIRECTUS_URL=${{ secrets.DIRECTUS_URL }}" > .env
+          echo "DIRECTUS_URL=${{ secrets.DIRECTUS_URL }}" >> .env
           echo "DIRECTUS_TOKEN=${{ secrets.DIRECTUS_TOKEN }}" >> .env
         
       - name: Sync projects to CMS
