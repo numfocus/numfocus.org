@@ -28,6 +28,8 @@ const { events } = Astro.props;
 							end_date,
 							location,
 							url,
+							organizer_name,
+							organizer_url,
 						}) => (
 							<article class="flex flex-col items-start rounded-2xl shadow-xl  justify-between">
 								<a class="w-full hover:opacity-90 transition" href={url}>
@@ -94,6 +96,19 @@ const { events } = Astro.props;
 												class="inline-block align-baseline"
 											/>
 											{location}
+										</p>
+										<p class="mt-0 text-sm/6 text-gray-600">
+											<Icon
+												name="heroicons:user-group-solid"
+												class="inline-block align-baseline"
+											/>
+											{organizer_url ? (
+												<a class="hover:underline" href={organizer_url}>
+													{organizer_name}
+												</a>
+											) : (
+												{ organizer_name }
+											)}
 										</p>
 										<p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
 											{description}

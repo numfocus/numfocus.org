@@ -230,4 +230,6 @@ export type Event = {
   end_date: Date;
   url: string;
   location: string;
+  organizer_name?: string;
+  organizer_url?: string;
 };

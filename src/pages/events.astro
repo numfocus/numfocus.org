@@ -7,19 +7,9 @@ import { readItems, readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
+import type { Event } from 'env';
 
 const global = await directus.request(readSingleton('General'));
-
-type Event = {
-	id: string;
-	name: string;
-	description?: string;
-	image?: string;
-	start_date: Date;
-	end_date: Date;
-	url: string;
-	location: string;
-};
 
 async function getEvents() {
 	const responses = await directus.request<Event[]>(
@@ -33,6 +23,8 @@ async function getEvents() {
 				'end_date',
 				'url',
 				'location',
+				'organizer_name',
+				'organizer_url',
 			],
 			sort: ['-start_date'],
 		})
@@ -46,6 +38,8 @@ async function getEvents() {
 		end_date: new Date(res.end_date),
 		url: res.url,
 		location: res.location,
+		organizer_name: res.organizer_name,
+		organizer_url: res.organizer_url,
 	}));
 
 	return events;
