@@ -70,7 +70,7 @@ const TextRender: NodeHandler = (props: NodeProps) => {
                 content={data.content}
                 image={data.image}
               />
-              {PrettyJson(data)}
+              {/* {PrettyJson(data)} */}
             </>
           ) : (
             PrettyJson(mark)
@@ -175,7 +175,7 @@ const RelationBlock: NodeHandler = async (props) => {
           content={data.content}
           image={data.image}
         />
-        {PrettyJson(data)}
+        {/* {PrettyJson(data)} */}
       </>
     );
   }
@@ -200,7 +200,7 @@ const RelationBlock: NodeHandler = async (props) => {
           image={data.image}
           button={data.button}
         />
-        {PrettyJson(data)}
+        {/* {PrettyJson(data)} */}
       </>
     );
   }
@@ -210,7 +210,7 @@ const RelationBlock: NodeHandler = async (props) => {
     return (
       <>
         <BlockTOC content={data.content} />
-        {PrettyJson(data)}
+        {/* {PrettyJson(data)} */}
       </>
     );
   }
@@ -219,7 +219,7 @@ const RelationBlock: NodeHandler = async (props) => {
     return (
       <>
         <BlockCustomContent content={data} />
-        {PrettyJson(data.items)}
+        {/* {PrettyJson(data.items)} */}
       </>
     );
   }
@@ -234,7 +234,7 @@ const RelationBlock: NodeHandler = async (props) => {
     return (
       <>
         <BlockImageGallery images={data.images} />
-        {PrettyJson(data.images)}
+        {/* {PrettyJson(data.images)} */}
       </>
     );
   }
