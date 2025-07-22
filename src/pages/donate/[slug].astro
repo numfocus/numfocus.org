@@ -58,18 +58,6 @@ const donateUrl = `https://app.hubspot.com/payments/${currentProject?.donateLink
 			>
 				Donate to {name}
 			</h2>
-			<!-- {
-				!currentProject?.donateLink && (
-					<p class="text-sm italic mb-6">
-						{name} doesn't have a direct donation link yet; you can donate to
-						NuMFOCUS below or{' '}
-						<a href="/projects" class="hover:underline text-brand-link">
-							{' '}
-							choose a different project.
-						</a>
-					</p>
-				)
-			} -->
 		</div>
 		<div class="col-span-2 md:col-span-1">
 			<div class="payments-iframe-container h-full" data-src={donateUrl} }>
