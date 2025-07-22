@@ -11,7 +11,7 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 
 const donateButton: ButtonType = {
-  link: { text: 'Donate', slug: 'support/donate', type_of_link: 'internal' },
+  link: { text: 'Donate', slug: 'donate', type_of_link: 'internal' },
   variant: 'special',
   style: 'light',
 };

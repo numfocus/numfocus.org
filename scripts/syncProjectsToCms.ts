@@ -63,16 +63,6 @@ interface CmsProjectData {
   languages?: string[];
 }
 
-// Generate stable ID from project name
-function generateProjectId(projectName: string): string {
-  const hash = createHash('md5')
-    .update(projectName.toLowerCase())
-    .digest('hex')
-    .substring(0, 8);
-  const slug = slugify(projectName, { lower: true, strict: true });
-  return `${slug}-${hash}`;
-}
-
 // Load and parse YAML file into project data
 function loadProjectFromYaml(yamlPath: string): CmsProjectData | null {
   try {
@@ -85,7 +75,6 @@ function loadProjectFromYaml(yamlPath: string): CmsProjectData | null {
     }
 
     const projectName = data.name;
-    // const id = generateProjectId(projectName);
     const id = slugify(projectName.replace(/\/[^/]+$/, ''), { lower: true });
 
     return {
@@ -144,17 +133,19 @@ async function syncProjectToCms(projectData: CmsProjectData): Promise<boolean> {
 }
 
 // Remove CMS projects that no longer exist locally
-async function cleanupRemovedProjects(localProjectIds: Set<string>): Promise<number> {
+async function cleanupRemovedProjects(
+  localProjectIds: Set<string>
+): Promise<number> {
   try {
     console.log('\n🧹 Checking for removed projects...');
-    
+
     // Get all CMS projects and find orphans
     const allCmsProjects = await directus.request(
       readItems('projects_sync', {
         limit: -1, // Fetch all records (no pagination limit)
       })
     );
-    
+
     console.log(`   Found ${allCmsProjects.length} projects in CMS`);
     const projectsToDelete = allCmsProjects.filter(
       (project) => !localProjectIds.has(project.id)
@@ -165,7 +156,9 @@ async function cleanupRemovedProjects(localProjectIds: Set<string>): Promise<num
       return 0;
     }
 
-    console.log(`   Found ${projectsToDelete.length} projects to remove from CMS`);
+    console.log(
+      `   Found ${projectsToDelete.length} projects to remove from CMS`
+    );
 
     let deleteCount = 0;
     for (const project of projectsToDelete) {

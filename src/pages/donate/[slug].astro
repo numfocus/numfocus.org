@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import directus from '@directus/directus';
+import { readItems, readSingleton } from '@directus/sdk';
+import PageLayout from '@layouts/PageLayout.astro';
+
+import Container from '@components/Container.astro';
+
+const global = await directus.request(readSingleton('General'));
+
+import { getCollection } from 'astro:content';
+
+const cmsProjects = await directus.request(readItems('projects_sync'));
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+
+	return projects.map((project) => ({
+		params: {
+			slug: project.id,
+		},
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { name, logo, short_description } = project.data;
+
+const donateLink = cmsProjects.find((val) => val.id === Astro.params.slug);
+
+console.log('slug', Astro.params.slug);
+console.log(donateLink);
+---
+
+<PageLayout
+	title={`Donate to ${name} | ${global.site_name} - ${global.site_subheader}`}
+	seo={{
+		title:
+			`Donate to ${name} | ${global.site_name} - ${global.site_subheader}` ||
+			`${global.site_name} - ${global.site_subheader}`,
+		meta_description: short_description || '',
+		og_image: logo.src || '',
+	}}
+>
+	<Container>
+		<div class="mx-auto w-2/3 md:w-1/3 flex flex-col gap-4 items-center-safe">
+			<div class="w-2/3">
+				<Image src={logo} alt={`${name} logo`} />
+			</div>
+			<h2
+				class="my-3 text-center text-xl font-semibold text-gray-900 group-hover:text-gray-600"
+			>
+				Donate to {name}
+			</h2>
+		</div>
+		<div
+			class="payments-iframe-container h-full"
+			data-src="https://app.hubspot.com/payments/H69fKpvV?referrer=PAYMENT_LINK_EMBED&layout=embed-full"
+		>
+		</div>
+		<script
+			is:inline
+			type="text/javascript"
+			src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"
+		></script>
+	</Container>
+</PageLayout>

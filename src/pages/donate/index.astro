@@ -1,20 +1,17 @@
 ---
 import Container from '@components/Container.astro';
+import DonateComponent from '@components/DonateComponent';
 import Hero from '@components/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
+import PageLayout from '@layouts/PageLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import { FileDown } from 'lucide-react';
-import PageLayout from '../layouts/PageLayout.astro';
 
 import DonateButton from '@components/DonateButton';
 import getPageSeo from '@utils/getPageSeo';
 
 const global = await directus.request(readSingleton('General'));
-const files = await directus.request(readItems('files'));
-const fileCategories = await directus.request(readItems('file_categories'));
-
-// console.log(files[0].description.blocks[0].data.text)
 
 const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
 
@@ -22,25 +19,26 @@ const slug = Astro.routePattern.substring(1);
 const seo = await getPageSeo(slug);
 
 const pageHero = await getPageHero(slug);
+
+// const projectCode = Astro.url.searchParams.get('project') || '';
 ---
 
 <PageLayout
-	title={`Donate | ${global.site_name} - ${global.site_subheader}`}
+	title={`Donate to NumFOCUS | ${global.site_name} - ${global.site_subheader}`}
 	seo={seo}
 >
 	<div class="my-24">
 		<Container>
-			<DonateButton client:load />
-			<!-- <div
-				class="payments-iframe-container"
+			<div
+				class="payments-iframe-container h-full"
 				data-src="https://app.hubspot.com/payments/H69fKpvV?referrer=PAYMENT_LINK_EMBED&layout=embed-full"
 			>
-			</div> -->
-			<!-- <script
+			</div>
+			<script
 				is:inline
 				type="text/javascript"
 				src="https://static.hsappstatic.net/payments-embed/ex/PaymentsEmbedCode.js"
-			></script> -->
+			></script>
 		</Container>
 	</div>
 </PageLayout>
