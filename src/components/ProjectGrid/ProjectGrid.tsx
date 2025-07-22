@@ -38,18 +38,17 @@ const matchesFilter = (
 };
 
 const projectSort = (a: Project, b: Project) => {
-  // TODO: replace with project.featured flag
-  if (a.id === 'geopandas') return -1;
-
-  return a.data.name.toLowerCase() > b.data.name.toLowerCase() ? 1 : -1;
+  return a.id > b.id ? 1 : -1;
 };
 
 export default function ProjectGrid({
   filterOptions,
   projects,
+  featuredProject,
 }: {
   filterOptions: ProjectFilterOptions;
   projects: Project[];
+  featuredProject: string;
 }) {
   const [activeFilters, setActiveFilters] =
     useState<ProjectFilterValues>(initialFilters);
@@ -101,8 +100,7 @@ export default function ProjectGrid({
       />
       <div className="mx-auto my-12 grid w-11/12 max-w-screen-xl grid-cols-12 gap-8 md:grid-cols-12">
         {filteredProjects.map((project) => {
-          // TODO: #55 replace with project.featured flag
-          if (project.id === 'geopandas') {
+          if (project.id === featuredProject) {
             return (
               <div className="border-brand-gray border-1 relative order-first col-span-12 rounded-md pt-6 md:pt-0">
                 <div className="border-b-1 border-l-1 border-brand-gray bg-brand-gray-light absolute right-0 top-0 flex justify-around gap-2 rounded-none rounded-tr-md px-4 py-2 text-sm">

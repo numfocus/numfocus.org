@@ -19,35 +19,35 @@ const global = await directus.request(readSingleton('General'));
 const { type } = projectsSchema.properties;
 
 type filterOptions = {
-  features: string[];
-  industries: string[];
-  languages: string[];
-  type: string[];
+	features: string[];
+	industries: string[];
+	languages: string[];
+	type: string[];
 };
 
 const filterOptions: filterOptions = {
-  features: [],
-  industries: [],
-  languages: [],
-  type: type.enum,
+	features: [],
+	industries: [],
+	languages: [],
+	type: type.enum,
 };
 
 projects.map((project) => {
-  project.data.features?.map((feature) => {
-    if (!filterOptions.features.includes(feature)) {
-      filterOptions.features.push(feature);
-    }
-  });
-  project.data.industries?.map((industry) => {
-    if (!filterOptions.industries.includes(industry)) {
-      filterOptions.industries.push(industry);
-    }
-  });
-  project.data.languages?.map((language) => {
-    if (!filterOptions.languages.includes(language)) {
-      filterOptions.languages.push(language);
-    }
-  });
+	project.data.features?.map((feature) => {
+		if (!filterOptions.features.includes(feature)) {
+			filterOptions.features.push(feature);
+		}
+	});
+	project.data.industries?.map((industry) => {
+		if (!filterOptions.industries.includes(industry)) {
+			filterOptions.industries.push(industry);
+		}
+	});
+	project.data.languages?.map((language) => {
+		if (!filterOptions.languages.includes(language)) {
+			filterOptions.languages.push(language);
+		}
+	});
 });
 
 filterOptions.features.sort();
@@ -56,15 +56,18 @@ filterOptions.languages.sort();
 
 const pageHero = await getPageHero('projects');
 const pageSeo = await getPageSeo('projects');
-
-// console.log(projects[0]);
 ---
 
 <ProjectsLayout
-  title={`Projects | ${global.site_name} - ${global.site_subheader}`}
-  seo={pageSeo}
+	title={`Projects | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
 >
-  <Hero pageHero={pageHero} />
-  <ProjectGrid {filterOptions} {projects} client:load />
-  <FollowUs />
+	<Hero pageHero={pageHero} />
+	<ProjectGrid
+		{filterOptions}
+		{projects}
+		featuredProject={global.featured_project}
+		client:load
+	/>
+	<FollowUs />
 </ProjectsLayout>
