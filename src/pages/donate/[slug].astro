@@ -30,9 +30,6 @@ const { name, logo, short_description } = project.data;
 
 const currentProject = cmsProjects.find((val) => val.id === Astro.params.slug);
 
-console.log('slug', Astro.params.slug);
-console.log(currentProject?.donateLink);
-
 const donateUrl = `https://app.hubspot.com/payments/${currentProject?.donateLink ? currentProject.donateLink : global.donate_code}?referrer=PAYMENT_LINK_EMBED&layout=embed-full`;
 ---
 
