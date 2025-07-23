@@ -18,8 +18,8 @@ export default function Link({
   const internalLinkPage = internal_link?.[0]?.item;
 
   let fullSlug = '';
-  if (internalLinkPage) {
-    fullSlug = internalLinkPage?.parent
+  if (internalLinkPage?.slug) {
+    fullSlug = internalLinkPage.parent?.slug
       ? `${internalLinkPage.parent.slug}/${internalLinkPage.slug}`
       : internalLinkPage.slug;
   } else if (slug) {
