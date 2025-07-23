@@ -1,9 +1,9 @@
 ---
-import Button from '@components/Atoms/Button';
-import Container from '@components/Container.astro';
-import Hero from '@components/Hero.astro';
-import BodyContent from '@components/TipTapRender/BodyContent';
-import { TipTapRender } from '@components/TipTapRender/TipTapRender';
+import BodyContent from '@components/content/TipTapRender/BodyContent';
+import { TipTapRender } from '@components/content/TipTapRender/TipTapRender';
+import Container from '@components/layout/Container.astro';
+import Hero from '@components/layout/Hero.astro';
+import Button from '@components/ui/Button';
 import directus from '@directus/directus';
 import { readItem, readItems, withToken } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
@@ -19,37 +19,37 @@ const parent = await getPageStub('articles');
 // export const prerender = false;
 
 export async function getStaticPaths() {
-  const posts = await directus.request(
-    readItems('articles', {
-      fields: [
-        'id',
-        'title',
-        'slug',
-        'body_content',
-        'editor_nodes.id',
-        'editor_nodes.collection',
-        'hero.item.heading',
-        'hero.item.content',
-        'hero.item.image',
-        'seo',
-        { editor_nodes: ['*.*.*.*'] },
-      ],
-    })
-  );
+	const posts = await directus.request(
+		readItems('articles', {
+			fields: [
+				'id',
+				'title',
+				'slug',
+				'body_content',
+				'editor_nodes.id',
+				'editor_nodes.collection',
+				'hero.item.heading',
+				'hero.item.content',
+				'hero.item.image',
+				'seo',
+				{ editor_nodes: ['*.*.*.*'] },
+			],
+		})
+	);
 
-  const cleanPostsPromises = posts.map(async (post) => {
-    const editorNodes = await fetchFlexibleEditorImages(post);
-    injectDataIntoContent(editorNodes, post.body_content);
+	const cleanPostsPromises = posts.map(async (post) => {
+		const editorNodes = await fetchFlexibleEditorImages(post);
+		injectDataIntoContent(editorNodes, post.body_content);
 
-    return post;
-  });
+		return post;
+	});
 
-  const cleanPosts = await Promise.all(cleanPostsPromises)
+	const cleanPosts = await Promise.all(cleanPostsPromises);
 
-  return cleanPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
+	return cleanPosts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
 }
 
 // this block is live preview content from Directus blog, adapted to our needs
@@ -95,25 +95,25 @@ const page = Astro.props;
 ---
 
 <SingleArticleLayout
-  title={page.title}
-  seo={{
-    title: page.seo?.title || page.title,
-    meta_description: page.seo?.meta_description || '',
-    og_image: page.seo?.og_image || '',
-  }}
+	title={page.title}
+	seo={{
+		title: page.seo?.title || page.title,
+		meta_description: page.seo?.meta_description || '',
+		og_image: page.seo?.og_image || '',
+	}}
 >
-  <Hero
-    pageHero={{
-      id: page.id,
-      title: page.title,
-      headline: page.hero[0].item.heading,
-      rich_text: page.hero[0].item.content,
-      image: page.hero[0].item.image,
-      hero_style: 'light',
-    }}
-    parent={parent as Page}
-  />
-  <div class="mt-24 overflow-auto">
-    <TipTapRender handlers={BodyContent} node={page.body_content} />
-  </div>
+	<Hero
+		pageHero={{
+			id: page.id,
+			title: page.title,
+			headline: page.hero[0].item.heading,
+			rich_text: page.hero[0].item.content,
+			image: page.hero[0].item.image,
+			hero_style: 'light',
+		}}
+		parent={parent as Page}
+	/>
+	<div class="mt-24 overflow-auto">
+		<TipTapRender handlers={BodyContent} node={page.body_content} />
+	</div>
 </SingleArticleLayout>

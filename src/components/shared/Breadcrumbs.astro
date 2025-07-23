@@ -1,0 +1,32 @@
+---
+import Container from '@components/layout/Container.astro';
+import Button from '@components/ui/Button';
+import Link from '@components/ui/Link';
+import type { Page } from 'env';
+import { ArrowLeft } from 'lucide-react';
+interface Props {
+	parent?: Page;
+}
+
+const { parent } = Astro.props;
+---
+
+{
+	!!parent && (
+		<Link
+			link={{
+				text: `Back to ${parent.title}`,
+				type_of_link: 'internal',
+				internal_link: [{ item: parent }],
+			}}
+		>
+			<span class="inset-shadow-xs hover:inset-shadow-sm inline-flex flex-row w-auto place-items-center rounded-md bg-gray-200 p-2 transition group text-xs font-sans  text-gray-600 hover:text-gray-700  mb-4">
+				<ArrowLeft
+					height={14}
+					className="transition inline-block group-hover:-translate-x-1"
+				/>
+				Back to {parent.title}
+			</span>
+		</Link>
+	)
+}

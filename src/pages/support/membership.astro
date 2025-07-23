@@ -1,10 +1,10 @@
 ---
 import { getImage } from 'astro:assets';
-import Hero from '@components/Hero.astro';
-import SponsorGrid from '@components/SponsorGrid/SponsorGrid';
-import { TipTapRender } from '@components/TipTapRender';
-import type { TipTapNode } from '@components/TipTapRender';
-import BodyContent from '@components/TipTapRender/BodyContent';
+import Hero from '@components/layout/Hero.astro';
+import SponsorGrid from '@components/sponsors/SponsorGrid';
+import { TipTapRender } from '@components/content/TipTapRender';
+import type { TipTapNode } from '@components/content/TipTapRender';
+import BodyContent from '@components/content/TipTapRender/BodyContent';
 import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';

@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import Hero from '@components/Hero.astro';
-import ProjectGrid from '@components/ProjectGrid/ProjectGrid';
+import Hero from '@components/layout/Hero.astro';
+import ProjectGrid from '@components/projects/ProjectGrid';
 import { readSingleton } from '@directus/sdk';
 import ProjectsLayout from '@layouts/ProjectsLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 
-import FollowUs from '@components/FollowUs.astro';
+import FollowUs from '@components/shared/FollowUs.astro';
 import directus from '@directus/directus';
 import type { Project } from 'env';
 import projectsSchema from '../data/projects/projects.schema.json';

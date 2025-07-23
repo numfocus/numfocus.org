@@ -1,14 +1,14 @@
 ---
-import Container from '@components/Container.astro';
-import Hero from '@components/Hero.astro';
+import Container from '@components/layout/Container.astro';
+import Hero from '@components/layout/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 
 import type { TipTapNode } from '@components/TipTapRender';
-import BodyContent from '@components/TipTapRender/BodyContent';
-import { TipTapRender } from '@components/TipTapRender/TipTapRender';
+import BodyContent from '@components/content/TipTapRender/BodyContent';
+import { TipTapRender } from '@components/content/TipTapRender/TipTapRender';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import getPageHero from '@utils/getPageHero';
 import getPagePath from '@utils/getPagePath';

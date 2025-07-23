@@ -1,6 +1,6 @@
 ---
-import Container from '@components/Container.astro';
-import Hero from '@components/Hero.astro';
+import Container from '@components/layout/Container.astro';
+import Hero from '@components/layout/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import getPageHero from '@utils/getPageHero';
@@ -16,7 +16,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@lib/components/ui/table';
+} from '@components/ui/table';
 import getPageSeo from '@utils/getPageSeo';
 
 const global = await directus.request(readSingleton('General'));
