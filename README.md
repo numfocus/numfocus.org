@@ -43,14 +43,6 @@ npm run build
 npm run preview
 ```
 
-### Available Scripts
-
-- `npm run dev` - Start Astro development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run Biome linter
-- `npm run project-sync` - Sync projects data to CMS
-
 ### Project Structure
 
 ```
@@ -86,16 +78,15 @@ Content is fetched from `cms.numfocus.draftlab.dev` during build time.
 Project data is managed through a hybrid approach:
 
 - **Local source**: Project metadata stored in YAML files at `src/data/projects/`
-- **CMS sync**: Projects automatically synced to Directus using `npm run project-sync`
+- **Automated sync**: GitHub Action `sync-projects-to-cms.yml` triggers project sync to Directus CMS on commits that include changes to files in `src/data/projects`
 - **CMS-only fields**: Features like `isFeatured` and `donateLink` managed exclusively in CMS
 
-The sync script (`scripts/syncProjectsToCms.ts`):
+The sync process:
 
-- Reads all project YAML files from `src/data/projects/`
-- Creates/updates projects in Directus CMS
+- Triggers via GitHub Action on repository commits
+- Runs `scripts/syncProjectsToCms.ts` to update Directus CMS with latest project data
 - Preserves CMS-only fields during updates
 - Removes projects from CMS that no longer exist locally
-- Requires `DIRECTUS_URL` and `DIRECTUS_TOKEN` environment variables
 
 ## Deployment
 
