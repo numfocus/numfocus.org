@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=../projects.schema.json
 
-name: "CVXPY "
+name: 'CVXPY'
 website_link: https://www.cvxpy.org/
 logo: ./CVXPY_Logo_FINAL_CMYK_LightBG.png
 type: affiliated
-
 
 #  Narrative descriptions: you can use markdown for formatting.
 #  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
@@ -16,8 +15,6 @@ short_description: >-
 technical_details: >-
   It lets you express your problem in a natural way that follows the math,
   rather than in the restrictive standard form required by solvers.
-
-
 
 #  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 

@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=../projects.schema.json
 
-name: " Cython"
+name: 'Cython'
 website_link: http://cython.org/
 logo: ./cython-logo-300.png
 type: affiliated
-
 
 #  Narrative descriptions: you can use markdown for formatting.
 #  Make sure you are using a multiline YAML format type (https://yaml-multiline.info/)
@@ -15,9 +14,6 @@ short_description: >-
   language and the extended Cython programming language (based on Pyrex). It
   makes writing C extensions for Python as easy as Python itself.
 technical_details: null
-
-
-
 #  Project Tags section: refer to "projects.schema.json" for the list of options, and copy here the values that apply to your project.
 
 industries: []
