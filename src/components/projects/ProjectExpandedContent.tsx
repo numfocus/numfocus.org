@@ -1,6 +1,6 @@
 import Markdown from 'react-markdown';
 
-import Button from '@components/ui/Button';
+import Button from '@components/ui/LinkButton';
 import type { Project } from 'env';
 
 import { Building, Code, Cog } from 'lucide-react';

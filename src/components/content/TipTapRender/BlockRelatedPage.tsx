@@ -1,4 +1,4 @@
-import Button from '@components/ui/Button';
+import Button from '@components/ui/LinkButton';
 import { twMerge } from 'tailwind-merge';
 
 interface Props {

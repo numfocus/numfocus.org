@@ -1,5 +1,5 @@
 import { SponsorCardContent } from '@components/sponsors/SponsorCard';
-import Button from '@components/ui/Button';
+import Button from '@components/ui/LinkButton';
 import type { ButtonType, Sponsor } from 'env';
 
 export default function SponsorExpandedContent({

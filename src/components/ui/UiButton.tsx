@@ -1,3 +1,4 @@
+// This is the button component used in UI components like dropdowns, carousel etc
 import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';

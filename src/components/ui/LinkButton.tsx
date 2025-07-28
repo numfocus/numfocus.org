@@ -1,3 +1,5 @@
+// This is the main "link type button" component used across the site
+
 import type { ButtonType } from 'env';
 import {
   ArrowDownIcon,

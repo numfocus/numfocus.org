@@ -1,4 +1,4 @@
-import Button from '@components/ui/Button';
+import Button from '@components/ui/LinkButton';
 import type { ButtonType } from 'env';
 
 export default function NewsletterSignup({

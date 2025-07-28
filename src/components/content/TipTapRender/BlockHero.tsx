@@ -1,4 +1,4 @@
-import Button from '@components/ui/Button';
+import Button from '@components/ui/LinkButton';
 import type { Image, ButtonType as TButton } from 'env';
 import { twMerge } from 'tailwind-merge';
 import BlockImage from './BlockImage';
