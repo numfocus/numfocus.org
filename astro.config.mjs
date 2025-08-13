@@ -13,11 +13,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://numfocus-dev.netlify.app',
+  site: 'https://numfocus.netlify.app',
 
   adapter: netlify(),
   image: {
-    domains: ['cms.numfocus.draftlab.dev'],
+    domains: ['3.138.111.245:8055'],
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
