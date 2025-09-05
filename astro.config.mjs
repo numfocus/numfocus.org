@@ -17,7 +17,7 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['http://3.134.84.33'],
+    domains: ['3.134.84.33'],
     experimentalLayout: 'constrained'
   },
   integrations: [
