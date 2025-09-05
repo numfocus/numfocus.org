@@ -5,7 +5,7 @@ interface Props {
   image: Image;
   link?: string;
 }
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 
 export default function BlockImage({ alignment, image, link }: Props) {
   const { description, title, src } = image;
