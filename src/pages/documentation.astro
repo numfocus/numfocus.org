@@ -25,7 +25,7 @@ const fileCategories = await directus.request(readItems('file_categories'));
 
 // console.log(files[0].description.blocks[0].data.text)
 
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 
 const slug = Astro.routePattern.substring(1);
 const seo = await getPageSeo(slug);
