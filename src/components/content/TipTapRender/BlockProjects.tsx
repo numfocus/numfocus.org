@@ -6,7 +6,7 @@ interface Props {
   heading: string;
   projects: BlockProject[];
 }
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 
 export default function BlockProjects({ heading, projects }: Props) {
   return (
