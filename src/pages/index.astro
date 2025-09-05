@@ -29,7 +29,7 @@ const newsletter = await directus.request(
 );
 
 const content = await getHomePageContent();
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 
 const filteredProjects = projects.filter((project) =>
 	content.homepageProjects.includes(project.id)
