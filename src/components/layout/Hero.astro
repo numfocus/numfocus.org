@@ -7,7 +7,7 @@ interface Props {
 	parent?: Page;
 }
 import Breadcrumbs from '@components/shared/Breadcrumbs.astro';
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 
 const { pageHero: hero, parent } = Astro.props;
 
