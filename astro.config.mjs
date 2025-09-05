@@ -23,6 +23,8 @@ export default defineConfig({
         protocol: 'http',
         hostname: '3.134.84.33',
       },
+    ],
+    experimentalLayout: 'constrained'
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
