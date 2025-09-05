@@ -17,7 +17,7 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['cms.numfocus.draftlab.dev'],
+    domains: ['3.134.84.33/'],
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
