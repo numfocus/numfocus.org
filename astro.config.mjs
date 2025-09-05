@@ -17,7 +17,7 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['3.138.111.245:8055'],
+    domains: ['3.138.111.245'],
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
