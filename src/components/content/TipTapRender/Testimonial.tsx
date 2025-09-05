@@ -1,5 +1,5 @@
 import Container from '@components/ui/Container';
-const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}assets/`;
+const assetBaseUrl = `${import.meta.env.DIRECTUS_URL}/assets/`;
 import type { Image } from 'env';
 import { Quote } from 'lucide-react';
 
