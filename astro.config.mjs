@@ -17,13 +17,7 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['3.134.84.33'],
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: '3.134.84.33',
-      },
-    ],
+    domains: ['http://3.134.84.33'],
     experimentalLayout: 'constrained'
   },
   integrations: [
