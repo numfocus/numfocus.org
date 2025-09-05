@@ -17,7 +17,7 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['3.138.111.245'],
+    domains: ['cms.numfocus.org'],
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
