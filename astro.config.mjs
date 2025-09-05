@@ -13,7 +13,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://numfocus.netlify.app',
+  site: 'https://numfocus-site.netlify.app',
 
   adapter: netlify(),
   image: {
