@@ -2,7 +2,7 @@
 
 A modern Astro-based website for NumFOCUS, the nonprofit organization promoting open practices in research, data, and scientific computing.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c7d2f8a6-7a2c-460f-adc9-8674cdf3d5af/deploy-status)](https://app.netlify.com/projects/numfocus-dev/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/55b97a30-80aa-4a1c-872e-9300cb28a45e/deploy-status)](https://app.netlify.com/projects/numfocus/deploys)
 
 ## Technology Stack
 
