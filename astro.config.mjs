@@ -17,8 +17,8 @@ export default defineConfig({
 
   adapter: netlify(),
   image: {
-    domains: ['3.134.84.33'],
-    experimentalLayout: 'constrained'
+    domains: ['cms.numfocus.org'],
+    experimentalLayout: 'constrained',
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
