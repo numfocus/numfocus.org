@@ -18,6 +18,7 @@ export default defineConfig({
   adapter: netlify(),
   image: {
     domains: ['cms.numfocus.org'],
+    trailingSlash: 'always',
     // experimentalLayout: 'constrained',
   },
   integrations: [
