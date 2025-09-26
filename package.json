@@ -12,7 +12,7 @@
     "project-sync": "npx tsx ./scripts/syncProjectsToCms.ts"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.5.3",
+    "@astrojs/netlify": "^6.5.11",
     "@astrojs/react": "^4.3.0",
     "@astropub/md": "^1.0.0",
     "@directus/sdk": "^19.0.1",
