@@ -13,14 +13,15 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ['devserver-main--numfocus.netlify.app'],
+      allowedHosts: [
+        'devserver-main--numfocus.netlify.app',
+        'numfocus.netlify.app',
+      ],
     },
   },
   site: 'https://numfocus.netlify.app',
 
-  adapter: netlify({
-    imageCDN: false,
-  }),
+  adapter: netlify(),
   image: {
     domains: ['cms.numfocus.org'],
     experimentalLayout: 'constrained',
