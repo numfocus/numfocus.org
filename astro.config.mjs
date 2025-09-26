@@ -18,7 +18,9 @@ export default defineConfig({
   },
   site: 'https://numfocus.netlify.app',
 
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   image: {
     domains: ['cms.numfocus.org'],
     experimentalLayout: 'constrained',
