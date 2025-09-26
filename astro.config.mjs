@@ -12,14 +12,16 @@ import icon from 'astro-icon';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['devserver-main--numfocus.netlify.app'],
+    },
   },
   site: 'https://numfocus.netlify.app',
 
   adapter: netlify(),
   image: {
     domains: ['cms.numfocus.org'],
-    trailingSlash: 'always',
-    // experimentalLayout: 'constrained',
+    experimentalLayout: 'constrained',
   },
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
