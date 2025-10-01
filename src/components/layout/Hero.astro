@@ -25,19 +25,18 @@ const heroStyle =
 			<h3 class="mb-4">{hero.headline}</h3>
 			<h5 class="mb-4">{hero.subheader}</h5>
 			<div class:list={['prose mb-6', heroStyle]} set:html={hero.rich_text} />
-			<div
-				class:list={[
-					'buttons flex flex-col gap-4 pt-12',
-					hero.buttons && 'border-t-[1px] border-brand-gray-light',
-				]}
-			>
-				{
-					hero.buttons &&
-						hero.buttons.map((button) => (
-							<Button button={button} arrow="right" />
-						))
-				}
-			</div>
+			{hero && hero.buttons && hero.buttons.length > 0 && (
+			  <div
+			    class:list={[
+			      'buttons flex flex-col gap-4 pt-12',
+			      hero.buttons.length > 0 && 'border-t-[1px] border-brand-gray-light',
+			    ]}
+			  >
+			    {hero.buttons.map((button) => (
+			      <Button button={button} arrow="right" />
+			    ))}
+			  </div>
+			)}
 		</div>
 		<div
 			class="order-first h-64 lg:h-full col-span-full lg:col-span-5 overflow-hidden lg:order-last"
