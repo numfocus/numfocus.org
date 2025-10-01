@@ -9,20 +9,23 @@ export default async function getPageHero(slug: string) {
     })
   );
 
-  const pageHero = heroContent.filter((e) => e.slug === slug)[0];
+  // Find the first matching hero by slug
+  const pageHero = heroContent.find((e) => e.slug === slug);
 
+  // If nothing found, return null instead of throwing
+  if (!pageHero) {
+    return null;
+  }
+
+  // Safely map buttons if they exist
   pageHero.buttons = pageHero.buttons?.map(
     ({ block_button_id }: { block_button_id: ButtonType }) => ({
       style: pageHero.hero_style,
-      variant: block_button_id.variant,
-      link: block_button_id.link,
+      variant: block_button_id?.variant || 'default',
+      link: block_button_id?.link || '#',
     })
-  );
+  ) || [];
 
-  // console.log(pageHero.buttons)
-
-  // button.style = pageHero.hero_style;
-  // button.link = button.block_button_id.link;);
-  // console.log(pageHero);
   return pageHero;
 }
+
