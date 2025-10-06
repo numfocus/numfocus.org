@@ -1,1 +1,1 @@
-{"images":{"remote_images":["https?://cms\\.numfocus\\.draftlab\\.dev/.*"]},"headers":[{"for":"/_astro/*","values":{"Cache-Control":"public, max-age=31536000, immutable"}}]}
+{"images":{"remote_images":["https?://cms\\.numfocus\\.org/.*"]},"headers":[{"for":"/_astro/*","values":{"Cache-Control":"public, max-age=31536000, immutable"}}]}
