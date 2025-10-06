@@ -18,38 +18,38 @@ import type { Page } from 'env';
 const global = await directus.request(readSingleton('General'));
 
 export async function getStaticPaths() {
-  const pages = await directus.request(
-    readItems('pages', {
-      fields: [
-        'id',
-        'title',
-        'slug',
-        'body_content',
-        'editor_nodes.id',
-        'editor_nodes.collection',
-        'parent.*.*.*.*.*',
-        { editor_nodes: ['*.*.*.*.*.*.*.*'] },
-      ],
-    })
-  );
+	const pages = await directus.request(
+		readItems('pages', {
+			fields: [
+				'id',
+				'title',
+				'slug',
+				'body_content',
+				'editor_nodes.id',
+				'editor_nodes.collection',
+				'parent.*.*.*.*.*',
+				{ editor_nodes: ['*.*.*.*.*.*.*.*'] },
+			],
+		})
+	);
 
-  const cleanPagesPromises = pages.map(async (page) => {
-    const editorNodes = await fetchFlexibleEditorImages(page);
-    injectDataIntoContent(editorNodes, page.body_content);
+	const cleanPagesPromises = pages.map(async (page) => {
+		const editorNodes = await fetchFlexibleEditorImages(page);
+		injectDataIntoContent(editorNodes, page.body_content);
 
-    return page;
-  });
+		return page;
+	});
 
-  const cleanPages = await Promise.all(cleanPagesPromises)
+	const cleanPages = await Promise.all(cleanPagesPromises);
 
-  return cleanPages.map((page) => {
-    const path = getPagePath(page as Page);
+	return cleanPages.map((page) => {
+		const path = getPagePath(page as Page);
 
-    return {
-      params: { path },
-      props: page,
-    };
-  });
+		return {
+			params: { path },
+			props: page,
+		};
+	});
 }
 
 const page = Astro.props;
@@ -59,19 +59,20 @@ const pageSeo = await getPageSeo(page.slug);
 ---
 
 <BaseLayout
-  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
-  seo={pageSeo}
+	title={`${pageHero?.title} | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
 >
-  <Hero pageHero={pageHero} parent={page.parent} />
-  {
-    !!page.body_content && (
-      <div>
-        <TipTapRender
-          handlers={BodyContent}
-          node={page.body_content as TipTapNode}
-        />
-      </div>
-    )
-  }
-  <Container />
+	{pageHero && <Hero pageHero={pageHero} parent={page.parent} />}
+
+	{
+		!!page.body_content && (
+			<div>
+				<TipTapRender
+					handlers={BodyContent}
+					node={page.body_content as TipTapNode}
+				/>
+			</div>
+		)
+	}
+	<Container />
 </BaseLayout>

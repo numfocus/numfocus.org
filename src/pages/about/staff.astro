@@ -17,19 +17,19 @@ const parent = await getPageStub('about');
 
 const global = await directus.request(readSingleton('General'));
 
-const pageHero = await getPageHero('people');
-const pageSeo = await getPageSeo('people');
+const pageHero = await getPageHero('staff');
+const pageSeo = await getPageSeo('staff');
 
 const people = await getPeople();
 
 // console.log(peopleWithImages)
-
 ---
 
 <BaseLayout
-  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
-  seo={pageSeo}
+	title={`${pageHero?.title} | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
 >
-  <Hero pageHero={pageHero} parent={parent as Page} />
-  <PersonGrid people={people as Person[]} client:load />
+	{pageHero && <Hero pageHero={pageHero} parent={parent as Page} />}
+
+	<PersonGrid people={people as Person[]} client:load />
 </BaseLayout>
