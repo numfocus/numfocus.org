@@ -22,31 +22,34 @@ const pageSeo = await getPageSeo(slug);
 const articles = await getArticlesMeta();
 
 const imagePromises = articles.map(({ image, ...rest }) => {
-  return new Promise((resolve) => {
-    getImage({
-      src: getAssetUrl(image),
-      width: 400,
-      height: 200,
-      fit: 'cover',
-    }).then((fetchedImage) =>
-      resolve({
-        image: fetchedImage?.src,
-        ...rest,
-      })
-    );
-  });
+	return new Promise((resolve) => {
+		getImage({
+			src: getAssetUrl(image),
+			width: 400,
+			height: 200,
+			fit: 'cover',
+		}).then((fetchedImage) =>
+			resolve({
+				image: fetchedImage?.src,
+				...rest,
+			})
+		);
+	});
 });
 
 const articlesWithImages = await Promise.all(imagePromises);
-
 ---
 
 <ArticleGridLayout
-  title={`Articles | ${global.site_name} - ${global.site_subheader}`}
-  seo={pageSeo}
+	title={`News | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
 >
-  <Hero pageHero={pageHero} />
-  <Container>
-    <ArticleGrid articles={articlesWithImages as CardMeta[]} client:load />
-  </Container>
+	<Hero pageHero={pageHero} />
+	<Container>
+		<ArticleGrid
+			articles={articlesWithImages as CardMeta[]}
+			parent={'news'}
+			client:load
+		/>
+	</Container>
 </ArticleGridLayout>
