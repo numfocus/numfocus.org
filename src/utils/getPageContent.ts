@@ -18,6 +18,7 @@ export default async function getPageContent(slug: string) {
         'body_content',
         'editor_nodes.id',
         'editor_nodes.collection',
+        'parent.*.*.*.*.*',
         { editor_nodes: ['*.*.*.*.*.*.*.*'] },
       ],
     })
@@ -25,7 +26,7 @@ export default async function getPageContent(slug: string) {
   const page = result?.[0];
 
   if (page) {
-    const editorNodes = await fetchFlexibleEditorImages(page)
+    const editorNodes = await fetchFlexibleEditorImages(page);
     return injectDataIntoContent(editorNodes, page.body_content);
   }
 }

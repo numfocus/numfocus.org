@@ -1,10 +1,10 @@
 ---
 import { getImage } from 'astro:assets';
-import Hero from '@components/layout/Hero.astro';
-import SponsorGrid from '@components/sponsors/SponsorGrid';
 import { TipTapRender } from '@components/content/TipTapRender';
 import type { TipTapNode } from '@components/content/TipTapRender';
 import BodyContent from '@components/content/TipTapRender/BodyContent';
+import Hero from '@components/layout/Hero.astro';
+import SponsorGrid from '@components/sponsors/SponsorGrid';
 import directus from '@directus/directus';
 import { readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -18,27 +18,24 @@ import type { Page, Sponsor } from 'env';
 const global = await directus.request(readSingleton('General'));
 const parent = await getPageStub('support');
 
-const pageHero = await getPageHero('membership');
-const pageSeo = await getPageSeo('membership');
-const pageContent = await getPageContent('membership');
+const pageHero = await getPageHero('sponsors-and-members');
+const pageSeo = await getPageSeo('sponsors-and-members');
+const pageContent = await getPageContent('sponsors-and-members');
 
 const sponsors = await getSponsors();
 ---
 
 <BaseLayout
-  title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
-  seo={pageSeo}
+	title={`${pageHero.title} | ${global.site_name} - ${global.site_subheader}`}
+	seo={pageSeo}
 >
-  <Hero pageHero={pageHero} parent={parent as Page} />
-  {
-    !!pageContent && (
-      <div>
-        <TipTapRender
-          handlers={BodyContent}
-          node={pageContent as TipTapNode}
-        />
-      </div>
-    )
-  }
-  <SponsorGrid sponsors={sponsors as Sponsor[]} />
+	<Hero pageHero={pageHero} parent={parent as Page} />
+	{
+		!!pageContent && (
+			<div>
+				<TipTapRender handlers={BodyContent} node={pageContent as TipTapNode} />
+			</div>
+		)
+	}
+	<SponsorGrid sponsors={sponsors as Sponsor[]} />
 </BaseLayout>
