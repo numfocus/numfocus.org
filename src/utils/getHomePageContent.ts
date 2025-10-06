@@ -74,12 +74,12 @@ export default async function getHomePageContent() {
     }: {
       block_custom_content_item_id: CustomContentItem;
     }) => {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         const { image, ...rest } = block_custom_content_item_id;
-        fetchRemoteImage(image).then(fetchedImage => {
-          resolve({ ...rest, image: fetchedImage })
+        fetchRemoteImage(image).then((fetchedImage) => {
+          resolve({ ...rest, image: fetchedImage });
         });
-      })
+      });
     }
   );
 
@@ -100,13 +100,17 @@ export default async function getHomePageContent() {
     })
   );
 
-  const imageGalleryItems = content.image_gallery[0].images.map(
+  // safely retrieve image gallery items
+  const imageGalleryItems = content.image_gallery[0]?.images.map(
     ({ directus_files_id }: { directus_files_id: Image }) => {
       return fetchRemoteImage(directus_files_id);
     }
   );
 
-  const imageGallery = await Promise.all(imageGalleryItems)
+  // if no gallery items, return empty array
+  const imageGallery = imageGalleryItems
+    ? await Promise.all(imageGalleryItems)
+    : [];
 
   const homepageContent: HomepageContent = {
     heroStyle: content.hero_content[0].item.hero_style,

@@ -217,7 +217,11 @@ const seo: Seo = {
 			</Container>
 		</div>
 	</div>
-	<BlockImageGallery images={content.imageGallery} client:load />
+	{
+		content.imageGallery.length > 0 && (
+			<BlockImageGallery images={content.imageGallery} client:load />
+		)
+	}
 
 	<div
 		class="bg-green-50 px-8 py-10 md:p-12 mb-24 border-brand-teal border-t-[1px] border-b-[1px] shadow-sm"
