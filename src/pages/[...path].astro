@@ -4,9 +4,10 @@ import Hero from '@components/layout/Hero.astro';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
 import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
+import getContentCollection from '@utils/getContentCollection';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 
-import type { TipTapNode } from '@components/TipTapRender';
+import type { TipTapNode } from '@components/content/TipTapRender';
 import BodyContent from '@components/content/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/content/TipTapRender/TipTapRender';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -18,20 +19,7 @@ import type { Page } from 'env';
 const global = await directus.request(readSingleton('General'));
 
 export async function getStaticPaths() {
-	const pages = await directus.request(
-		readItems('pages', {
-			fields: [
-				'id',
-				'title',
-				'slug',
-				'body_content',
-				'editor_nodes.id',
-				'editor_nodes.collection',
-				'parent.*.*.*.*.*',
-				{ editor_nodes: ['*.*.*.*.*.*.*.*'] },
-			],
-		})
-	);
+	const pages = await getContentCollection('pages');
 
 	const cleanPagesPromises = pages.map(async (page) => {
 		const editorNodes = await fetchFlexibleEditorImages(page);

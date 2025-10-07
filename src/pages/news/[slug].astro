@@ -8,6 +8,7 @@ import directus from '@directus/directus';
 import { readItem, readItems, withToken } from '@directus/sdk';
 import SingleArticleLayout from '@layouts/SingleArticleLayout.astro';
 import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
+import getContentCollection from '@utils/getContentCollection';
 import getPageStub from '@utils/getPageStub';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
@@ -19,23 +20,7 @@ const parent = await getPageStub('articles');
 // export const prerender = false;
 
 export async function getStaticPaths() {
-	const posts = await directus.request(
-		readItems('articles', {
-			fields: [
-				'id',
-				'title',
-				'slug',
-				'body_content',
-				'editor_nodes.id',
-				'editor_nodes.collection',
-				'hero.item.heading',
-				'hero.item.content',
-				'hero.item.image',
-				'seo',
-				{ editor_nodes: ['*.*.*.*'] },
-			],
-		})
-	);
+	const posts = await getContentCollection('articles');
 
 	const cleanPostsPromises = posts.map(async (post) => {
 		const editorNodes = await fetchFlexibleEditorImages(post);

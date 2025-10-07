@@ -3,7 +3,6 @@ import { readItems, readSingleton } from '@directus/sdk';
 import type { Person } from 'env';
 import { fetchRemoteImageById } from './fetchRemoteImage';
 
-
 export default async function getPeople() {
   const people = await directus.request(readItems('people'));
 
