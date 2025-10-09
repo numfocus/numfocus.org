@@ -2,6 +2,7 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import type React from 'react';
 import type { ReactElement } from 'react';
 
+import BlockButton from '@components/ui/LinkButton'
 import PrettyJson from '@components/ui/PrettyJson';
 import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
@@ -9,7 +10,6 @@ import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockImageGallery from './BlockImageGallery';
 import BlockProjects from './BlockProjects';
-import BlockRelatedPage from './BlockRelatedPage';
 import BlockTOC from './BlockTOC';
 import Testimonial from './Testimonial';
 import type { NodeHandler, NodeHandlers, NodeProps } from './TipTapRender';
@@ -165,6 +165,7 @@ const TipTapImage: NodeHandler = (props) => {
 const RelationBlock: NodeHandler = async (props) => {
   const attrs = props.node.attrs;
   const data = attrs?.data;
+  const Container = props.Container;
 
   if (attrs && attrs.collection === 'block_testimonial') {
     return (
@@ -223,11 +224,11 @@ const RelationBlock: NodeHandler = async (props) => {
       </>
     );
   }
-  if (attrs && attrs.collection === 'block_related_page') {
+  if (attrs && attrs.collection === 'block_button') {
     return (
-      <>
-        <BlockRelatedPage page={data.page[0]} />
-      </>
+      <Container>
+        <BlockButton button={data} arrow='right'/>
+      </Container>
     );
   }
   if (attrs && attrs.collection === 'block_image_gallery') {
