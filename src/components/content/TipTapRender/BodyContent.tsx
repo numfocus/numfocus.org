@@ -2,7 +2,7 @@ import { injectDataIntoContent } from 'directus-extension-flexible-editor/conten
 import type React from 'react';
 import type { ReactElement } from 'react';
 
-import BlockButton from '@components/ui/LinkButton'
+import Button from '@components/ui/LinkButton';
 import PrettyJson from '@components/ui/PrettyJson';
 import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
@@ -227,7 +227,7 @@ const RelationBlock: NodeHandler = async (props) => {
   if (attrs && attrs.collection === 'block_button') {
     return (
       <Container>
-        <BlockButton button={data} arrow='right'/>
+        <Button button={data} arrow="right" />
       </Container>
     );
   }
