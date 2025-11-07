@@ -36,7 +36,7 @@ export default async function getHomePageContent() {
 
   const featuredArticlePromise = await directus.request(
     readItem('articles', content.featured_article.key, {
-      fields: ['title', 'slug', 'type', 'hero.item.*.*'],
+      fields: ['title', 'slug', 'type', 'headline', 'rich_text', 'image'],
     })
   );
 
@@ -46,9 +46,9 @@ export default async function getHomePageContent() {
     title: featuredArticlePromise.title,
     slug: featuredArticlePromise.slug,
     type: featuredArticlePromise.type,
-    heading: featuredArticlePromise.hero[0].item.heading,
-    content: featuredArticlePromise.hero[0].item.content,
-    image: featuredArticlePromise.hero[0].item.image.id,
+    heading: featuredArticlePromise.headline,
+    content: featuredArticlePromise.rich_text,
+    image: featuredArticlePromise.image,
     background_image: content.featured_article_background,
   };
 

@@ -127,3 +127,7 @@
     @apply border-l-black text-black;
   }
 }
+
+@utility prose {
+  --tw-prose-bullets: var(--color-numfocus-primary);
+}
