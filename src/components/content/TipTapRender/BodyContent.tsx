@@ -20,19 +20,19 @@ import type {
 } from './TipTapRender';
 
 const NestedListContainer: TipTapNodeContainer = (props: any) => {
-  return <div className="nestedList">{props.children}</div>;
+  return <div className="nestedList ml-4">{props.children}</div>;
 };
 
 const PassthroughContainer: TipTapNodeContainer = (props: any) => {
   return <>{props.children}</>;
 };
 
-const BulletList: NodeHandler = ({ node, Container, children }) => {
+const BulletList: NodeHandler = ({ node, Container }) => {
   // console.log(JSON.stringify(node, null, 4));
 
   return (
     <Container>
-      <ul className="">
+      <ul>
         {node.content?.map(({ content }) =>
           content?.map((node) =>
             node.type === 'paragraph' ? (
@@ -44,12 +44,13 @@ const BulletList: NodeHandler = ({ node, Container, children }) => {
                     Container={PassthroughContainer}
                   />
                 ))}
-                {/* {PrettyJson(node.content)} */}
               </li>
             ) : (
-              <li className="ml-4 list-none" key={node.key}>
-                <BulletList node={node} Container={NestedListContainer} />
-              </li>
+              <BulletList
+                key={node.key}
+                node={node}
+                Container={NestedListContainer}
+              />
             )
           )
         )}
@@ -58,22 +59,28 @@ const BulletList: NodeHandler = ({ node, Container, children }) => {
   );
 };
 
-const OrderedList: NodeHandler = ({ node, Container, children }) => {
+const OrderedList: NodeHandler = ({ node, Container }) => {
   return (
     <Container>
       <ol start={node.attrs?.start ?? 1} className="">
         {node.content?.map(({ content }) =>
           content?.map((node) =>
             node.type === 'paragraph' ? (
-              <li key={node.id} className="my-1 ml-4 list-decimal">
-                {node.content?.[0].text}
+              <li key={node.key} className="my-1 ml-4 list-decimal">
+                {node.content?.map((node) => (
+                  <TextRender
+                    key={node.key}
+                    node={node}
+                    Container={PassthroughContainer}
+                  />
+                ))}
               </li>
             ) : (
-              <li className="ml-4 list-none" key={node.key}>
-                <OrderedList node={node} Container={NestedListContainer}>
-                  {children}
-                </OrderedList>
-              </li>
+              <OrderedList
+                key={node.key}
+                node={node}
+                Container={NestedListContainer}
+              />
             )
           )
         )}
