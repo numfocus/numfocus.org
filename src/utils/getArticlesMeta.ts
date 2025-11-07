@@ -4,9 +4,18 @@ import type { CardMeta } from 'env';
 
 const general = await directus.request(readSingleton('General'));
 
+//  only show drafts when in dev
+const isDev = import.meta.env.DEV;
+const contentToShow = isDev ? ['published', 'draft'] : ['published'];
+
 export async function getArticlesMeta() {
   const responses = await directus.request(
     readItems('articles', {
+      filter: {
+        status: {
+          _in: contentToShow,
+        },
+      },
       fields: [
         'id',
         'title',
@@ -16,8 +25,12 @@ export async function getArticlesMeta() {
         'hero.item.content',
         'hero.item.image',
         'date_created',
+        'hero_style',
+        'headline',
+        'rich_text',
+        'image',
       ],
-      sort: ['-date_created']
+      sort: ['-date_created'],
     })
   );
   const articles: CardMeta[] = responses.map((res) => ({
@@ -25,12 +38,10 @@ export async function getArticlesMeta() {
     title: res.title,
     type: res.type,
     slug: `${res.slug}/`,
-    heading: res.hero[0].item.heading,
-    content: res.hero[0].item.content,
+    heading: res.headline,
+    content: res.rich_text,
     date: new Date(res.date_created),
-    image: res.hero[0].item.image
-      ? `${res.hero[0].item.image}`
-      : `${general.seo.og_image}`,
+    image: res.image ? `${res.image}` : `${general.seo.og_image}`,
   }));
 
   return articles;

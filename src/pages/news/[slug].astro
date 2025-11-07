@@ -13,7 +13,7 @@ import getPageStub from '@utils/getPageStub';
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page, PageHero } from 'env';
 
-const parent = await getPageStub('articles');
+const parent = await getPageStub('news');
 
 // TODO: #59 explore live preview -- https://directus.io/docs/tutorials/getting-started/implementing-live-preview-in-astro
 // this prerender is prerequisite for live preview
@@ -77,6 +77,8 @@ export async function getStaticPaths() {
 // }
 
 const page = Astro.props;
+
+console.log(parent);
 ---
 
 <SingleArticleLayout
@@ -91,10 +93,10 @@ const page = Astro.props;
 		pageHero={{
 			id: page.id,
 			title: page.title,
-			headline: page.hero[0].item.heading,
-			rich_text: page.hero[0].item.content,
-			image: page.hero[0].item.image,
-			hero_style: 'light',
+			headline: page.headline,
+			rich_text: page.rich_text,
+			image: page.image,
+			hero_style: page.hero_style,
 		}}
 		parent={parent as Page}
 	/>

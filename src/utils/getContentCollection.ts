@@ -23,6 +23,12 @@ export default async function getContentCollection(collection: string) {
         'hero.item.heading',
         'hero.item.content',
         'hero.item.image',
+        'headline',
+        'rich_text',
+        'image',
+        'buttons',
+        'hero_style',
+
         'seo',
         'parent.*.*.*.*.*',
         { editor_nodes: ['*.*.*.*.*.*.*.*'] },

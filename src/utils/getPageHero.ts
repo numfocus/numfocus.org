@@ -5,18 +5,17 @@ import type { ButtonType, PageHero } from 'env';
 export default async function getPageHero(slug: string) {
   const heroContent = await directus.request<PageHero[]>(
     readItems('pages', {
+      filter: {
+        slug: {
+          _eq: slug,
+        },
+      },
       fields: ['buttons.*.*.*.*.*.*', '*'],
     })
   );
 
-  // Find the first matching hero by slug
-  // const pageHero = heroContent.find((e) => e.slug === slug);
-  const pageHero = heroContent.filter((e) => e.slug === slug)[0];
-
-  // If nothing found, return null instead of throwing
-  // if (!pageHero) {
-  //   return null;
-  // }
+  // remove array of 1
+  const pageHero = heroContent[0];
 
   // Safely map buttons if they exist
   pageHero.buttons =
