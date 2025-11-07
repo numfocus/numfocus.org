@@ -11,7 +11,8 @@ import type { ButtonType as but } from 'env';
 const menu = await getMenusByType('navigation');
 const menuItems = menu[0].items;
 
-const currentPage = Astro.url.pathname.split('/')[1];
+const currentPage = Astro.url.pathname.split('/').pop() ?? '';
+console.log(currentPage);
 
 const donateButton: but = {
 	link: { text: 'Donate', slug: 'donate', type_of_link: 'internal' },

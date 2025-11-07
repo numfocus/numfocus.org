@@ -16,7 +16,7 @@ export const NavMenu = ({ menuItems, currentPage }: Props) => {
           href={path}
           className={twMerge(
             'font-semi-bold text-brand-teal block transition hover:text-teal-800',
-            `${path.split('/')[1]}` === currentPage &&
+            `${path.split('/').pop()}` === currentPage &&
               'border-b-brand-teal/50 border-b-[1px]'
           )}
         >

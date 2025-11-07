@@ -1,19 +1,20 @@
 ---
-import Container from '@components/layout/Container.astro';
-import Hero from '@components/layout/Hero.astro';
-import directus from '@directus/directus';
-import { readItems, readSingleton } from '@directus/sdk';
-import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
-import getContentCollection from '@utils/getContentCollection';
-import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
-
 import type { TipTapNode } from '@components/content/TipTapRender';
 import BodyContent from '@components/content/TipTapRender/BodyContent';
 import { TipTapRender } from '@components/content/TipTapRender/TipTapRender';
+import Container from '@components/layout/Container.astro';
+import Hero from '@components/layout/Hero.astro';
+import EventGrid from '@components/shared/EventGrid.astro';
+import directus from '@directus/directus';
+import { readItems, readSingleton } from '@directus/sdk';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import fetchFlexibleEditorImages from '@utils/fetchFlexibleEditorImages';
+import getContentCollection from '@utils/getContentCollection';
+import { getEvents } from '@utils/getEvents';
 import getPageHero from '@utils/getPageHero';
 import getPagePath from '@utils/getPagePath';
 import getPageSeo from '@utils/getPageSeo';
+import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type { Page } from 'env';
 
 const global = await directus.request(readSingleton('General'));
@@ -44,6 +45,9 @@ const page = Astro.props;
 
 const pageHero = await getPageHero(page.slug);
 const pageSeo = await getPageSeo(page.slug);
+
+// if we're on the Events page, grab the Events content
+const events = page.slug === 'events' ? await getEvents() : null
 ---
 
 <BaseLayout
@@ -51,7 +55,7 @@ const pageSeo = await getPageSeo(page.slug);
 	seo={pageSeo}
 >
 	{pageHero && <Hero pageHero={pageHero} parent={page.parent} />}
-
+	<Container>
 	{
 		!!page.body_content && (
 			<div>
@@ -62,5 +66,28 @@ const pageSeo = await getPageSeo(page.slug);
 			</div>
 		)
 	}
-	<Container />
+<!-- if we're on the Events page, show events -->
+	{
+		events && (
+				<div class="my-24">
+					<h1 class="text-center text-3xl font-semibold">
+						Current and Future Events
+					</h1>
+					<EventGrid
+						events={events
+							.filter((ev) => ev.end_date.getTime() >= new Date().getTime())
+							.sort((a, b) => a.start_date.getTime() - b.start_date.getTime())}
+					/>
+				</div>
+				<div class="my-24">
+					<h1 class="text-center text-3xl font-semibold">Past Events</h1>
+					<EventGrid
+						events={events.filter(
+							(ev) => ev.end_date.getTime() < new Date().getTime()
+						)}
+					/>
+				</div>
+		)
+	}
+	</Container>
 </BaseLayout>
