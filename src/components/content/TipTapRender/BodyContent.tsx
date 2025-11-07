@@ -1,6 +1,6 @@
 import { injectDataIntoContent } from 'directus-extension-flexible-editor/content';
 import type React from 'react';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactEventHandler, ReactNode } from 'react';
 
 import Button from '@components/ui/LinkButton';
 import PrettyJson from '@components/ui/PrettyJson';
@@ -12,16 +12,84 @@ import BlockImageGallery from './BlockImageGallery';
 import BlockProjects from './BlockProjects';
 import BlockTOC from './BlockTOC';
 import Testimonial from './Testimonial';
-import type { NodeHandler, NodeHandlers, NodeProps } from './TipTapRender';
+import type {
+  NodeHandler,
+  NodeHandlers,
+  NodeProps,
+  TipTapNodeContainer,
+} from './TipTapRender';
 
-const BulletList: NodeHandler = ({ node, Container }) => {
+const NestedListContainer: TipTapNodeContainer = (props: any) => {
+  return <div className="nestedList">{props.children}</div>;
+};
+
+const PassthroughContainer: TipTapNodeContainer = (props: any) => {
+  return <>{props.children}</>;
+};
+
+const BulletList: NodeHandler = ({ node, Container, children }) => {
+  // console.log(JSON.stringify(node, null, 4));
+
+  return (
+    <Container>
+      <ul className="">
+        {node.content?.map(({ content }) =>
+          content?.map((node) =>
+            node.type === 'paragraph' ? (
+              <li key={node.key} className="my-1 ml-4 list-disc">
+                {node.content?.map((node) => (
+                  <TextRender
+                    key={node.key}
+                    node={node}
+                    Container={PassthroughContainer}
+                  />
+                ))}
+                {/* {PrettyJson(node.content)} */}
+              </li>
+            ) : (
+              <li className="ml-4 list-none" key={node.key}>
+                <BulletList node={node} Container={NestedListContainer} />
+              </li>
+            )
+          )
+        )}
+      </ul>
+    </Container>
+  );
+};
+
+const OrderedList: NodeHandler = ({ node, Container, children }) => {
+  return (
+    <Container>
+      <ol start={node.attrs?.start ?? 1} className="">
+        {node.content?.map(({ content }) =>
+          content?.map((node) =>
+            node.type === 'paragraph' ? (
+              <li key={node.id} className="my-1 ml-4 list-decimal">
+                {node.content?.[0].text}
+              </li>
+            ) : (
+              <li className="ml-4 list-none" key={node.key}>
+                <OrderedList node={node} Container={NestedListContainer}>
+                  {children}
+                </OrderedList>
+              </li>
+            )
+          )
+        )}
+      </ol>
+    </Container>
+  );
+};
+
+const OldOrderedList: NodeHandler = ({ node, Container }) => {
   return (
     <Container>
       <ul>
-        {node.content?.map(({ content }) =>
+        {node.content?.map(({ content, type }) =>
           content?.map(({ content }) =>
             content?.map(({ text, id }) => (
-              <li key={id} className="ml-4 list-disc">
+              <li key={id} className="ml-4 list-decimal">
                 {text}
               </li>
             ))
@@ -148,7 +216,7 @@ const Paragraph: NodeHandler = ({ children, node, Container }) => {
   );
 };
 
-const HardBreak: NodeHandler = (props) => {
+const HardBreak: NodeHandler = () => {
   return <br />;
 };
 
@@ -162,7 +230,7 @@ const TipTapImage: NodeHandler = (props) => {
 };
 
 // TODO #56 resolve async handling of image gallery and client:load directive
-const RelationBlock: NodeHandler = async (props) => {
+const RelationBlock: NodeHandler = (props) => {
   const attrs = props.node.attrs;
   const data = attrs?.data;
   const Container = props.Container;
@@ -267,6 +335,7 @@ const RelationBlock: NodeHandler = async (props) => {
 
 const BodyContent: NodeHandlers = {
   bulletList: BulletList,
+  orderedList: OrderedList,
   text: TextRender,
   paragraph: Paragraph,
   doc: Passthrough,
