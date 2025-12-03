@@ -84,10 +84,16 @@ export type Person = {
   first_name: string;
   last_name: string;
   image: string;
-  role: PersonRole;
+  category: PersonCategory;
   title: string;
   bio: string;
   socials?: SocialsType[];
+};
+
+type PersonCategory = {
+  id: number;
+  role: string;
+  description: string;
 };
 
 type SponsorType =

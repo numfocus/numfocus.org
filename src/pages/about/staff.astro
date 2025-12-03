@@ -1,6 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import Hero from '@components/layout/Hero.astro';
+import PeopleGrid from '@components/people/PeopleGrid';
 import PersonGrid from '@components/people/PersonGrid';
 import directus from '@directus/directus';
 import { readItems, readSingleton } from '@directus/sdk';
@@ -9,7 +10,7 @@ import getAssetUrl from '@utils/getAssetUrl';
 import getPageHero from '@utils/getPageHero';
 import getPageSeo from '@utils/getPageSeo';
 import getPageStub from '@utils/getPageStub';
-import getPeople from '@utils/getPeople';
+import getPeople, { getPeopleByCategory } from '@utils/getPeople';
 
 import type { Page, Person } from 'env';
 
@@ -22,7 +23,7 @@ const pageSeo = await getPageSeo('staff');
 
 const people = await getPeople();
 
-// console.log(peopleWithImages)
+const fewerPeople = await getPeopleByCategory(1);
 ---
 
 <BaseLayout
@@ -31,5 +32,5 @@ const people = await getPeople();
 >
 	{pageHero && <Hero pageHero={pageHero} parent={parent as Page} />}
 
-	<PersonGrid people={people as Person[]} client:load />
+	<PeopleGrid people={people} client:load />
 </BaseLayout>

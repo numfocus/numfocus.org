@@ -9,6 +9,7 @@ import BlockCustomContent from './BlockCustomContent';
 import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockImageGallery from './BlockImageGallery';
+import BlockPeopleGrid from './BlockPeopleGrid';
 import BlockProjects from './BlockProjects';
 import BlockTOC from './BlockTOC';
 import Testimonial from './Testimonial';
@@ -251,6 +252,14 @@ const RelationBlock: NodeHandler = (props) => {
           content={data.content}
           image={data.image}
         />
+        {/* {PrettyJson(data)} */}
+      </>
+    );
+  }
+  if (attrs && attrs.collection === 'block_people_category') {
+    return (
+      <>
+        <BlockPeopleGrid id={data.category.id} role={data.category.role} />
         {/* {PrettyJson(data)} */}
       </>
     );
