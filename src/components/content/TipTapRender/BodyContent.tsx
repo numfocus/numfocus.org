@@ -6,6 +6,7 @@ import Button from '@components/ui/LinkButton';
 import PrettyJson from '@components/ui/PrettyJson';
 import type { BlockProject, CustomContentItem, Image } from 'env';
 import BlockCustomContent from './BlockCustomContent';
+import BlockFileGrid from './BlockFileGrid';
 import BlockHero from './BlockHero';
 import BlockImage from './BlockImage';
 import BlockImageGallery from './BlockImageGallery';
@@ -260,6 +261,18 @@ const RelationBlock: NodeHandler = (props) => {
     return (
       <>
         <BlockPeopleGrid id={data.category.id} role={data.category.role} />
+        {/* {PrettyJson(data)} */}
+      </>
+    );
+  }
+  if (attrs && attrs.collection === 'block_file_category') {
+    return (
+      <>
+        <BlockFileGrid
+          id={data.file_category.id}
+          file_category={data.file_category.file_category}
+          category_description={data.file_category.category_description}
+        />
         {/* {PrettyJson(data)} */}
       </>
     );
