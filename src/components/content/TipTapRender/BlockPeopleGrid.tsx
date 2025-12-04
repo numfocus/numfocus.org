@@ -1,7 +1,5 @@
-import PeopleGrid from '@components/people/PeopleGrid';
+import { PeopleGridStatic } from '@components/people/PeopleGrid';
 import { getPeopleByCategory } from '@utils/getPeople';
-
-import Container from '@components/ui/Container';
 
 interface Props {
   id: number;
@@ -11,8 +9,8 @@ interface Props {
 export default async function BlockPeopleGrid({ id, role }: Props) {
   const people = await getPeopleByCategory(id);
   return (
-    <Container>
-      <PeopleGrid people={people} />
-    </Container>
+    <div className="max-w-300 mx-auto px-8">
+      <PeopleGridStatic people={people} />
+    </div>
   );
 }

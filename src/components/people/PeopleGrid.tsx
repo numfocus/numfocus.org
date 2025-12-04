@@ -3,7 +3,7 @@ import groupBy from '@utils/groupBy';
 import type { Person } from 'env';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import PersonCard from './PersonCard';
+import PersonCard, { PersonCardStatic } from './PersonCard';
 import PersonDialogContent from './PersonExpandedContent';
 
 const fetchPersonFromURL = (people: Person[]) => {
@@ -47,6 +47,21 @@ export default function PeopleGrid({ people }: { people: Person[] }) {
       >
         {!!expandedPerson && <PersonDialogContent person={expandedPerson} />}
       </Dialog>
+    </div>
+  );
+}
+
+export function PeopleGridStatic({ people }: { people: Person[] }) {
+  const category = people[0].category.role;
+
+  return (
+    <div className="my-12">
+      <h3>{category}</h3>
+      <div className="mx-auto my-8 grid grid-cols-12 gap-8">
+        {people.map((person: Person) => (
+          <PersonCardStatic key={person.id} person={person} />
+        ))}
+      </div>
     </div>
   );
 }

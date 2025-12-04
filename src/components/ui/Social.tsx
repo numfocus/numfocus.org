@@ -12,8 +12,6 @@ import {
   SiYoutube,
 } from 'react-icons/si';
 
-
-
 const icons = {
   facebook: <SiFacebook />,
   instagram: <SiInstagram />,
@@ -27,7 +25,13 @@ const icons = {
   custom_website: <LuEarth />,
 };
 
-export default function Social({ social, size = 4 }: { social: SocialsType, size: number  }) {
+export default function Social({
+  social,
+  size = 4,
+}: {
+  social: SocialsType;
+  size?: number;
+}) {
   const { platform, url } = social;
 
   const iconStyle = `w-${size} h-${size}`;

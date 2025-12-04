@@ -50,3 +50,22 @@ export default function PersonCard({
     </div>
   );
 }
+
+export function PersonCardStatic({ person }: { person: Person }) {
+  return (
+    <div className="relative col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4">
+      <PersonCardContent person={person} />
+      {person.socials && (
+        <div className="my-4 flex flex-row justify-center gap-4">
+          {person.socials?.map((social) => (
+            <Social key={social.platform} social={social} />
+          ))}
+        </div>
+      )}
+      <div
+        className="prose prose-sm"
+        dangerouslySetInnerHTML={{ __html: person.bio }}
+      />
+    </div>
+  );
+}
