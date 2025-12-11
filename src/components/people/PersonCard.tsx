@@ -16,7 +16,7 @@ export function PersonCardContent({ person }: { person: Person }) {
       <img
         src={image}
         alt={`${firstName} ${lastName}`}
-        className="h-50 mx-auto my-5 rounded-lg"
+        className="size-50 mx-auto my-5 rounded-lg object-cover"
       />
       <h5 className="text-center">
         {firstName} {lastName}
